@@ -1,0 +1,337 @@
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Form1.resources
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\Desktop\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1stPrototype(Transactions)\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\1stPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\2ndPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\3rdPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\1Char_Lang\4thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ChangeAcountStatus.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ChangeAcountStatus.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\5thPrototype.2\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\6thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\7thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\2nd\8thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\MessagingToolkit.QRCode.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanBookID.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanBorrowerID.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\9thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.AttendanceMonitoring.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.AttendanceMonitoring.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\3rd\10thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanQRCode.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.AttendanceMonitoring.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanQRCode.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.pdb
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.xml
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.LibraryUserMasterlist.resources
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.ResolveComReference.cache
+<<<<<<< HEAD
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.ResolveComReference.cache
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.xml
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.xml
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.pdb
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.xml
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.pdb
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.xml
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.AttendanceMonitoring.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.LibraryUserMasterlist.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanQRCode.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+=======
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.ResolveComReference.cache
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.pdb
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.dll
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.xml
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.xml
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.pdb
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.xml
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.pdb
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\zxing.presentation.xml
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.AttendanceMonitoring.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Book.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.LibraryUserMasterlist.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.ScanQRCode.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Properties.Resources.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Registration.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.GenerateResource.Cache
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BorrowerInfoForLibraryCard.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
+>>>>>>> da4873f47a5114589849518fcdb724f6f9d83ca4
+C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BorrowerInfoForLibraryCard.resources
+C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources

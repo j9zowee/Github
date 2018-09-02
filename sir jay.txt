@@ -1,0 +1,12 @@
+TO DO'S
+*Do not display all information in the dgv
+*autogenerate IDnumbers
+*Nonreading materials
+*check for duplication of records
+*scanning of qr code
+*Attendance monitoring
+*Borrowing transaction
+
+<TAKE NOTE:>
+*Return transaction shall only be done by the libarian or staff.
+*Borrowing Transaction shall only be done by the student.

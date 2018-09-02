@@ -1,0 +1,37 @@
+AUG 26,2018(SUN)
+
+*autogenerate IDnumbers
+	-book
+	-users
+	-borrow
+
+*Do not display all information in the dgv
+	-book
+*User can already borrow multiple books
+-------------------------
+-----------------------------------
+*Check if the library card is from the current schoolyear
+*Nonreading materials
+*check for duplication of records
+	-BOOK
+		:Accession Number
+		:Title,Author,CopyrightYear,edition,volume(as book)
+		:ISBN
+*user can only borrow 3 books at a time	
+--------------------
+BUGs
+*duplication of first two idnumbers
+--------------------------
+*Order list(order by)
+*constraint mainform
+*Set rules in creating a user's username and password
+*check duplication of records
+*Add renew functionality
+*leave comments
+*borrower school year
+*maximize use of classes
+*Allow pages(book) to be null	
+
+<TAKE NOTE:>
+*Return transaction shall only be done by the libarian or staff.
+*Borrowing Transaction shall be done by the student.

@@ -122,14 +122,14 @@ namespace QRCodeBasedLMS
 
         private void Link_Scan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("borrower_bk","");
+            btnScanQRCode scan = new btnScanQRCode("borrower_bk","");
             scan.Show();
             this.Close();
         }
 
         private void link_ScanBrwr_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("borrower_brwr","");
+            btnScanQRCode scan = new btnScanQRCode("borrower_brwr","");
             scan.Show();
             this.Close();
         }

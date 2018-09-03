@@ -65,12 +65,6 @@ book_BookID int foreign key references tblBook(book_BookID),
 borrow_BorrowedDate date not null,
 borrow_DueDate date not null)
 
-create table tblSelectedBooks(
-sb_BookID int identity(1,1) primary key,
-sb_BookIDNum varchar(50),
-sb_Title varchar(100),
-sb_DueDate date not null)
-
 create table tblReturn(
 return_ReturnID int identity(1,1) primary key,
 return_ReturnNum varchar(50) not null,

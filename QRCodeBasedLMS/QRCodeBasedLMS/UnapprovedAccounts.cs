@@ -107,7 +107,7 @@ namespace QRCodeBasedLMS
         private void Link_ScanQR_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //searching using qr code
-            ScanQRCode scan = new ScanQRCode("inactiveusers","");
+            btnScanQRCode scan = new btnScanQRCode("inactiveusers","");
             scan.Show();
             this.Close();
         }

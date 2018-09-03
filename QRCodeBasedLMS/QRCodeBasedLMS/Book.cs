@@ -261,7 +261,7 @@ namespace QRCodeBasedLMS
 
         private void Link_Scan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("book","");
+            btnScanQRCode scan = new btnScanQRCode("book","");
             scan.Show();
             this.Close();
         }
@@ -269,7 +269,7 @@ namespace QRCodeBasedLMS
 
         private void link_SignIn_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("book","");
+            btnScanQRCode scan = new btnScanQRCode("book","");
             scan.Show();
             this.Close();
         }

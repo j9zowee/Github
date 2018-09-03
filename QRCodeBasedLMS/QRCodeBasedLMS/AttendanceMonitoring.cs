@@ -29,8 +29,14 @@ namespace QRCodeBasedLMS
             }
         }
         
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void link_Back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            IndexForm index = new IndexForm();
+            index.Show();
+            this.Close();
+        }
+        
+        private void txt_SchoolID_OnValueChanged(object sender, EventArgs e)
         {
             var fname = (from s in db.tblLibraryUsers
                          where s.lib_SchoolID == txt_SchoolID.Text
@@ -38,7 +44,7 @@ namespace QRCodeBasedLMS
             var lname = (from s in db.tblLibraryUsers
                          where s.lib_SchoolID == txt_SchoolID.Text
                          select s.lib_Lastname).FirstOrDefault();
-            
+
             if (fname != null && lname != null)
             {
                 txt_Name.Text = lname + ", " + fname;
@@ -49,27 +55,20 @@ namespace QRCodeBasedLMS
             }
         }
 
-        
-        private void link_Back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            IndexForm index = new IndexForm();
-            index.Show();
-            this.Close();
-        }
-        
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void btn_Submit_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             db.sp_Attendance(txt_SchoolID.Text, txt_Name.Text, dt);
-            txt_SchoolID.Clear();
-            txt_Name.Clear();
+            txt_SchoolID.Text = "";
+            txt_Name.Text = "";
         }
 
-        private void link_ScanQR_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void link_ScanQR_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("attendance","");
+            btnScanQRCode scan = new btnScanQRCode("attendance", "");
             scan.Show();
             this.Hide();
         }
+        
     }
 }

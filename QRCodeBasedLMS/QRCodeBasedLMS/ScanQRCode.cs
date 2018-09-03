@@ -16,11 +16,11 @@ using ZXing.QrCode;
 
 namespace QRCodeBasedLMS
 {
-    public partial class ScanQRCode : Form
+    public partial class btnScanQRCode : Form
     {
         private string gikan;
         private string Z;
-        public ScanQRCode(string ginikanan, string x)
+        public btnScanQRCode(string ginikanan, string x)
         {
             InitializeComponent();
             gikan = ginikanan;
@@ -34,9 +34,9 @@ namespace QRCodeBasedLMS
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo Device in CaptureDevice)
             {
-                cmbDevice.Items.Add(Device.Name);
+                cmbDevice.AddItem(Device.Name);
             }
-            cmbDevice.SelectedIndex = 0;
+            cmbDevice.selectedIndex = 0;
             FinalFrame = new VideoCaptureDevice();
             btnCamera.Visible = false;
 
@@ -44,7 +44,7 @@ namespace QRCodeBasedLMS
             {
                 FinalFrame.Stop();
             }
-            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.SelectedIndex].MonikerString);
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
         }
@@ -69,18 +69,6 @@ namespace QRCodeBasedLMS
 
                         Book bk = new Book(decoded);
                         bk.Show();
-                        this.Close();
-                    }
-                    else if (gikan == "index-borrow")
-                    {
-                        Borrow br = new Borrow(decoded,"");
-                        br.Show();
-                        this.Close();
-                    }
-                    else if (gikan == "borrowform")
-                    {
-                        Borrow br = new Borrow(Z,decoded);
-                        br.Show();
                         this.Close();
                     }
                     else if (gikan == "borrower_bk")
@@ -124,6 +112,31 @@ namespace QRCodeBasedLMS
 
             }
         }
+        
+        private void ScanQRCode_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (FinalFrame.IsRunning == true)
+            {
+                FinalFrame.Stop();
+            }
+        }
+        
+        private void cmbDevice_TextChanged(object sender, EventArgs e)
+        {
+            btnCamera.Visible = true;
+        }
+
+        private void btnCameras_Click(object sender, EventArgs e)
+        {
+            if (FinalFrame.IsRunning == true)
+            {
+                FinalFrame.Stop();
+            }
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
+            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+            FinalFrame.Start();
+            btnCamera.Visible = false;
+        }
 
         private void btnScan_Click(object sender, EventArgs e)
         {
@@ -140,33 +153,8 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                
-            }
-        }
 
-        private void ScanQRCode_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (FinalFrame.IsRunning == true)
-            {
-                FinalFrame.Stop();
             }
-        }
-
-        private void btnCamera_Click(object sender, EventArgs e)
-        {
-            if (FinalFrame.IsRunning == true)
-            {
-                FinalFrame.Stop();
-            }
-            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.SelectedIndex].MonikerString);
-            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
-            FinalFrame.Start();
-            btnCamera.Visible = false;
-        }
-
-        private void cmbDevice_TextChanged(object sender, EventArgs e)
-        {
-            btnCamera.Visible = true;
         }
     }
 }

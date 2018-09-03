@@ -115,8 +115,10 @@
       <DependentUpon>BorrowerInfoForLibraryCard.cs</DependentUpon>
     </Compile>
     <Compile Include="clsBook.cs" />
+    <Compile Include="clsBorrow.cs" />
     <Compile Include="clsBorrower.cs" />
     <Compile Include="clsLibrary.cs" />
+    <Compile Include="clsReturn.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="dcLMS.cs">
       <DependentUpon>dcLMS.dbml</DependentUpon>
@@ -255,6 +257,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\clsBorrow.datasource" />
+    <None Include="Properties\DataSources\clsReturn.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

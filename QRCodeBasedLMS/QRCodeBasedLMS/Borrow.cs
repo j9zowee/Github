@@ -18,68 +18,72 @@ namespace QRCodeBasedLMS
 {
     public partial class Borrow : Form
     {
-        public string Borrowerqrcode;
-        public string Bookqrcode;
-        public Borrow(string brwrqr,string bkqr)
+        public Borrow()
         {
             InitializeComponent();
-            Borrowerqrcode = brwrqr;
-            Bookqrcode = bkqr;
             
         }
         
         dcLMSDataContext db = new dcLMSDataContext();
+        private FilterInfoCollection CaptureDevice;
+        private VideoCaptureDevice FinalFrame;
+        private string decoded;
 
-        
         private void Borrow_Load(object sender, EventArgs e)
         {
-            txt_BorrowerID.Text = Borrowerqrcode;
-            txt_BookIDNum.Text = Bookqrcode;
-            
-            if (txt_BookIDNum.Text != "")
+            CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in CaptureDevice)
             {
-                DateTime dt = DateTime.Now;
-                DateTime due = dt.AddDays(3);
-                db.sp_SelectBooks(txt_BookIDNum.Text, txt_Title.Text, due);
-
-                dgvBorrow.DataSource = db.sp_ViewSelectedBooks();
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
-                
-                btn.Text = "Delete";
-                btn.Name = "Delete";
-                btn.UseColumnTextForButtonValue = true;
-                dgvBorrow.Columns.Add(btn);
-                btnScan.Text = "Scan Another Book";
+                cmbDevice.AddItem(Device.Name);
             }
+            cmbDevice.selectedIndex = 0;
+            FinalFrame = new VideoCaptureDevice();
+            btnCamera.Visible = false;
 
-            
+            if (FinalFrame.IsRunning == true)
+            {
+                FinalFrame.Stop();
+            }
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
+            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+            FinalFrame.Start();
             
         }
-
-
-
-        private void btnScan_Click(object sender, EventArgs e)
+        private void FinalFrame_NewFrame(Object sender, NewFrameEventArgs eventArgs)
         {
-            ScanQRCode scan = new ScanQRCode("borrowform",txt_BorrowerID.Text);
-            scan.Show();
-            this.Hide();
+            pb_ScanQR.Image = (Image)eventArgs.Frame.Clone();
         }
-
         private void dgvBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-                txt_BookIDNum.Text = dgvBorrow.CurrentRow.Cells[0].Value.ToString();
-            DialogResult res = MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
+            if (dgvBorrow.Columns[e.ColumnIndex].Name == "Delete")
             {
-                db.sp_DeleteSelectedBooks(txt_BookIDNum.Text);
-                dgvBorrow.DataSource = db.sp_ViewSelectedBooks();
-                
-                btnScan.Text = "Scan Another Book";
+                DialogResult res = MessageBox.Show("Are you sure you want to delete this?", "", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    clsBorrowBindingSource.RemoveCurrent();
+                    btnScan.Text = "Scan Another Book";
+                }
             }
         }
+        
+        private void txt_BorrowerIDs_OnValueChanged(object sender, EventArgs e)
+        {
+            var fname = (from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text select s.lib_Firstname).FirstOrDefault();
+            var lname = (from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text select s.lib_Lastname).FirstOrDefault();
+            txt_Name.Text = lname + ", " + fname;
+        }
+        private void txt_BookIDNums_OnValueChanged(object sender, EventArgs e)
+        {
+            txt_Title.Text = (from s in db.tblBooks where s.book_BookNum == txt_BookIDNum.Text select s.book_Title).FirstOrDefault();
+        }
 
-        private void btnBorrow_Click(object sender, EventArgs e)
+        private void btnScans_Click(object sender, EventArgs e)
+        {
+            timer.Enabled = true;
+            timer.Start();
+        }
+
+        private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             int x = db.sp_BorrowIDnumber() + 1;
@@ -89,59 +93,85 @@ namespace QRCodeBasedLMS
             {
                 for (int i = 0; i < dgvBorrow.RowCount; i++)
                 {
-                    db.sp_BorrowBook(borrowID, txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[0].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[2].Value.ToString()));
+                    db.sp_BorrowBook(borrowID, txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()));
                 }
-                    
+
                 MessageBox.Show("Successully Borrowed!");
-                for (int i = 0; i < dgvBorrow.RowCount; i++)
-                {
-
-                    db.sp_DeleteSelectedBooks(dgvBorrow.Rows[i].Cells[0].Value.ToString());
-                }
-                txt_BookIDNum.Text = null;
-                txt_BorrowerID.Text = null;
+                txt_BookIDNum.Text = "";
+                txt_BorrowerID.Text = "";
                 IndexForm index = new IndexForm();
                 index.Show();
                 this.Close();
             }
-            else
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            BarcodeReader Reader = new BarcodeReader();
+            Result result = Reader.Decode((Bitmap)pb_ScanQR.Image);
+            try
             {
-                IndexForm index = new IndexForm();
-                index.Show();
-                this.Close();
-            }
-        }
-
-        private void link_Back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            DialogResult res = MessageBox.Show("Do you want to cancel?", "Cancel Borrowing of Book", MessageBoxButtons.YesNo);
-            if (res == DialogResult.Yes)
-            {
-                for (int i = 0; i < dgvBorrow.RowCount; i++)
+                decoded = result.ToString().Trim();
+                if (decoded != "")
                 {
-                    db.sp_DeleteSelectedBooks(dgvBorrow.Rows[i].Cells[0].Value.ToString());
+                    timer.Stop();
+                    if(txt_Name.Text == "")
+                    {
+                        txt_BorrowerID.Text = decoded;
+                    }
+                    else
+                    {
+                        txt_BookIDNum.Text = decoded;
+                        DateTime dt = DateTime.Now;
+                        DateTime due = dt.AddDays(3);
+                        clsBorrowBindingSource.Add(new clsBorrow() {BookIDNum = txt_BookIDNum.Text, BookTitle = txt_Title.Text, DueDate = due});
+                        btnScan.Text = "Scan Another Book";
+                    }
+                    
                 }
-                IndexForm index = new IndexForm();
-                index.Show();
-                this.Close();
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
-        private void txt_BorrowerID_TextChanged(object sender, EventArgs e)
+        private void Borrow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
-            encode.QRCodeScale = 6;
-            Bitmap bmp = encode.Encode(txt_BorrowerID.Text);
-            pb_QRCode.Image = bmp;
-
-            var fname = (from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text select s.lib_Firstname).FirstOrDefault();
-            var lname = (from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text select s.lib_Lastname).FirstOrDefault();
-            txt_Name.Text = lname + ", " + fname;
+            if (FinalFrame.IsRunning == true)
+            {
+                FinalFrame.Stop();
+            }
         }
 
-        private void txt_BookIDNum_TextChanged(object sender, EventArgs e)
+        private void cmbDevice_onItemSelected(object sender, EventArgs e)
         {
-            txt_Title.Text = (from s in db.tblBooks where s.book_BookNum == txt_BookIDNum.Text select s.book_Title).FirstOrDefault();
+            btnCamera.Visible = true;
+        }
+
+        private void btnCamera_Click(object sender, EventArgs e)
+        {
+            if (FinalFrame.IsRunning == true)
+            {
+                FinalFrame.Stop();
+            }
+            FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
+            FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
+            FinalFrame.Start();
+            btnCamera.Visible = false;
+            //IndexForm index = new IndexForm();
+            //index.Show();
+            //this.Close();
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("asd");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show("asd");
         }
     }
 }

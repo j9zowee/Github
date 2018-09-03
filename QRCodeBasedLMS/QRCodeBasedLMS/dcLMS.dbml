@@ -59,6 +59,7 @@
       <Column Name="book_BookID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="borrow_BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tblBorrow_tblReturn" Member="tblReturns" ThisKey="borrow_BorrowID" OtherKey="borrow_BorrowID" Type="tblReturn" />
       <Association Name="tblBook_tblBorrow" Member="tblBook" ThisKey="book_BookID" OtherKey="book_BookID" Type="tblBook" IsForeignKey="true" />
       <Association Name="tblLibraryUser_tblBorrow" Member="tblLibraryUser" ThisKey="lib_UserID" OtherKey="lib_UserID" Type="tblLibraryUser" IsForeignKey="true" />
     </Type>
@@ -78,12 +79,24 @@
       <Association Name="tblLibraryUser_tblBorrow" Member="tblBorrows" ThisKey="lib_UserID" OtherKey="lib_UserID" Type="tblBorrow" />
     </Type>
   </Table>
-  <Table Name="dbo.tblSelectedBooks" Member="tblSelectedBooks">
-    <Type Name="tblSelectedBook">
-      <Column Name="sb_BookID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sb_BookIDNum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="sb_Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="sb_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.tblPenalty" Member="tblPenalties">
+    <Type Name="tblPenalty">
+      <Column Name="penalty_PenaltyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="penalty_NumOfDaysUnreturned" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="penalty_Penalty" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="penalty_PenaltyRemarks" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="return_ReturnID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblReturn_tblPenalty" Member="tblReturn" ThisKey="return_ReturnID" OtherKey="return_ReturnID" Type="tblReturn" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReturn" Member="tblReturns">
+    <Type Name="tblReturn">
+      <Column Name="return_ReturnID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="return_ReturnNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_BorrowID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="return_ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="tblReturn_tblPenalty" Member="tblPenalties" ThisKey="return_ReturnID" OtherKey="return_ReturnID" Type="tblPenalty" />
+      <Association Name="tblBorrow_tblReturn" Member="tblBorrow" ThisKey="borrow_BorrowID" OtherKey="borrow_BorrowID" Type="tblBorrow" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_AccountIDnumber" Method="sp_AccountIDnumber">
@@ -297,17 +310,6 @@
       <Column Name="lib_WithCard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_DeleteSelectedBooks" Method="sp_DeleteSelectedBooks">
-    <Parameter Name="BookIDNum" Parameter="bookIDNum" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ViewSelectedBooks" Method="sp_ViewSelectedBooks">
-    <ElementType Name="sp_ViewSelectedBooksResult">
-      <Column Name="BookIDNum" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_BorrowBook" Method="sp_BorrowBook">
     <Parameter Name="BorrowNum" Parameter="borrowNum" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
@@ -316,10 +318,22 @@
     <Parameter Name="DueDate" Parameter="dueDate" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_SelectBooks" Method="sp_SelectBooks">
+  <Function Name="dbo.sp_ReturnBook" Method="sp_ReturnBook">
+    <Parameter Name="ReturnNum" Parameter="returnNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="DueDate" Parameter="dueDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ReturnDate" Parameter="returnDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumOfDaysUnreturned" Parameter="numOfDaysUnreturned" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Penalty" Parameter="penalty" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="PenaltyRemarks" Parameter="penaltyRemarks" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetBorrowIDForReturn" Method="sp_GetBorrowIDForReturn">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ReturnIDnumber" Method="sp_ReturnIDnumber">
     <Return Type="System.Int32" />
   </Function>
 </Database>

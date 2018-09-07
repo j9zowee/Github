@@ -54,7 +54,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.link_GoBack = new System.Windows.Forms.LinkLabel();
-            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -405,15 +404,7 @@
             this.link_GoBack.TabIndex = 79;
             this.link_GoBack.TabStop = true;
             this.link_GoBack.Text = "Go Back";
-            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(482, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(121, 97);
-            this.listView1.TabIndex = 80;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.link_GoBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_GoBack_LinkClicked);
             // 
             // Borrow
             // 
@@ -421,7 +412,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(750, 621);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -433,6 +423,7 @@
             this.Controls.Add(this.dgvBorrow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Borrow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Borrow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Borrow_FormClosing);
             this.Load += new System.EventHandler(this.Borrow_Load);
@@ -473,6 +464,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.LinkLabel link_GoBack;
-        private System.Windows.Forms.ListView listView1;
     }
 }

@@ -101,7 +101,7 @@ namespace QRCodeBasedLMS
                 txt_BorrowerID.Text = "";
                 IndexForm index = new IndexForm();
                 index.Show();
-                this.Close();
+                this.Hide();
             }
         }
 
@@ -159,19 +159,13 @@ namespace QRCodeBasedLMS
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
             btnCamera.Visible = false;
-            //IndexForm index = new IndexForm();
-            //index.Show();
-            //this.Close();
         }
 
-        private void link_GoBack_Click(object sender, EventArgs e)
+        private void link_GoBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("asd");
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show("asd");
+            IndexForm index = new IndexForm();
+            index.Show();
+            this.Close();
         }
     }
 }

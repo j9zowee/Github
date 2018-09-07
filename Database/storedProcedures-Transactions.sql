@@ -75,3 +75,28 @@ BEGIN
 	return @borrowID
 	
 END
+----this is not yet created
+CREATE PROCEDURE sp_GetBorrowedBooks
+@SchoolID varchar(50)
+AS
+BEGIN
+	DECLARE @libUserID int
+	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
+	SELECT        dbo.tblBorrow.borrow_BorrowNum, dbo.tblBook.book_Title, dbo.tblBook.book_Author, dbo.tblBook.book_CopyrightYear, dbo.tblBorrow.borrow_BorrowedDate, 
+                         dbo.tblBorrow.borrow_DueDate
+	FROM            dbo.tblLibraryUser INNER JOIN
+                         dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
+                         dbo.tblBook ON dbo.tblBorrow.book_BookID = dbo.tblBook.book_BookID
+	
+END
+----
+
+create procedure sp_Login
+@username varchar(50),
+@password varchar(50)
+as 
+begin
+	select * from tblUserAccount where tblUserAccount.user_Username = @username and tblUserAccount.user_Password = @password
+
+end
+

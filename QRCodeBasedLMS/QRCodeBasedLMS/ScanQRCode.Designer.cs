@@ -1,6 +1,6 @@
 ﻿namespace QRCodeBasedLMS
 {
-    partial class btnScanQRCode
+    partial class ScanQRCode
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnScanQRCode));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScanQRCode));
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.pb_ScanQR = new System.Windows.Forms.PictureBox();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -182,7 +182,7 @@
             this.btnScan.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnScan.Click += new System.EventHandler(this.btnScan_Click);
             // 
-            // btnScanQRCode
+            // ScanQRCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +194,8 @@
             this.Controls.Add(this.btnCamera);
             this.Controls.Add(this.pb_ScanQR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "btnScanQRCode";
+            this.Name = "ScanQRCode";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ScanQRCode";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ScanQRCode_FormClosing);
             this.Load += new System.EventHandler(this.ScanQRCode_Load);

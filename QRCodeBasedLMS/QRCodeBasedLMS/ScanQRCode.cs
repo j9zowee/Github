@@ -16,15 +16,13 @@ using ZXing.QrCode;
 
 namespace QRCodeBasedLMS
 {
-    public partial class btnScanQRCode : Form
+    public partial class ScanQRCode : Form
     {
-        private string gikan;
-        private string Z;
-        public btnScanQRCode(string ginikanan, string x)
+        private string origin;
+        public ScanQRCode(string org)
         {
             InitializeComponent();
-            gikan = ginikanan;
-            Z = x;
+            origin = org;
         }
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
@@ -63,39 +61,26 @@ namespace QRCodeBasedLMS
                 if (decoded != "")
                 {
                     timer.Stop();
-                    MessageBox.Show("Success");
-                    if (gikan == "book")
+                    if (origin == "book")
                     {
 
                         Book bk = new Book(decoded);
                         bk.Show();
                         this.Close();
                     }
-                    else if (gikan == "borrower_bk")
+                    else if (origin == "borrower_brwr")
                     {
-                        Borrower br = new Borrower(decoded, "borrower_bk");
+                        Borrower br = new Borrower(decoded);
                         br.Show();
                         this.Close();
                     }
-                    else if (gikan == "borrower_brwr")
+                    else if (origin == "inquiry")
                     {
-                        Borrower br = new Borrower(decoded, "borrower_brwr");
+                        Borrower br = new Borrower(decoded);
                         br.Show();
                         this.Close();
                     }
-                    else if (gikan == "userinfo")
-                    {
-                        UserInformation ui = new UserInformation(decoded);
-                        ui.Show();
-                        this.Close();
-                    }
-                    else if (gikan == "inactiveusers")
-                    {
-                        UnapprovedAccounts ua = new UnapprovedAccounts(decoded);
-                        ua.Show();
-                        this.Close();
-                    }
-                    else if (gikan == "attendance")
+                    else if (origin == "attendance")
                     {
                         AttendanceMonitoring am = new AttendanceMonitoring(decoded);
                         am.Show();

@@ -6,6 +6,8 @@ DECLARE @ID int
 SELECT @ID=IDENT_CURRENT('tblUserAccount')
 RETURN @ID;
 
+
+select * from tblUserAccount
 create procedure sp_AddAccount
 @UserNum varchar(50),
 @Firstname varchar(100),
@@ -18,27 +20,27 @@ create procedure sp_AddAccount
 @Status varchar(10)
 as
 begin
-	insert into tblUser values(@UserNum, @Firstname, @Lastname, @Username, @Password,@SecretQuestion, @SecretAnswer,@UserType, @Status)
+	
+	insert into tblUserAccount values(@UserNum, @Firstname, @Lastname, @Username, @Password,@SecretQuestion, @SecretAnswer,@UserType, @Status)
 end
 
-create PROCEDURE sp_ViewActiveAccount
+create PROCEDURE sp_ViewAccount
+@acctType varchar(50)
 AS
 BEGIN
-	SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType, dbo.tblUser.user_Status as UserStatus
+	if @acctType = 'Inactive'
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
 	FROM dbo.tblUserAccount
-	where dbo.tblUser.user_Status = 'Active'
+	where (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'Super Administrator')
+	else
+	((SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
+		FROM dbo.tblUserAccount
+		where dbo.tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'Super Administrator'))
 END
 
-create PROCEDURE sp_ViewInactiveAccount
-AS
-BEGIN
-	SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-	dbo.tblUser.user_Status as UserStatus
-	FROM dbo.tblUser
-	where dbo.tblUser.user_Status = 'Inactive' or dbo.tblUser.user_Status = 'Deactivate'
-END
+
 
 create PROCEDURE sp_UpdateAccount
 @UserNum varchar(50),
@@ -52,11 +54,11 @@ create PROCEDURE sp_UpdateAccount
 @Status varchar(10)
 AS
 BEGIN
-	update tblUser
-	set tblUser.user_Firstname=@Firstname, tblUser.user_Lastname=@Lastname, tblUser.user_Username=@Username, tblUser.user_Password=@Password, tblUser.user_SecretQuestion=@SecretQuestion,
-		tblUser.user_SecretAnswer=@SecretAnswer, tblUser.user_UserType=@UserType, tblUser.user_Status=@Status
-	from tblUser
-	where tblUser.user_UserNum= @UserNum	
+	update tblUserAccount
+	set tblUserAccount.user_Firstname=@Firstname, tblUserAccount.user_Lastname=@Lastname, tblUserAccount.user_Username=@Username, tblUserAccount.user_Password=@Password, tblUserAccount.user_SecretQuestion=@SecretQuestion,
+		tblUserAccount.user_SecretAnswer=@SecretAnswer, tblUserAccount.user_UserType=@UserType, tblUserAccount.user_Status=@Status
+	from tblUserAccount
+	where tblUserAccount.user_UserNum= @UserNum	
 END
 
 create PROCEDURE sp_UpdateAccountStatus
@@ -64,62 +66,26 @@ create PROCEDURE sp_UpdateAccountStatus
 @Status varchar(10)
 AS
 BEGIN
-	update tblUser
-	set tblUser.user_Status=@Status from tblUser
-	where tblUser.user_UserNum= @UserNum	
+	update tblUserAccount
+	set tblUserAccount.user_Status=@Status from tblUserAccount
+	where tblUserAccount.user_UserNum= @UserNum	
 END
 
-CREATE PROCEDURE sp_SearchActiveAccount
-@Category varchar(50),
+CREATE PROCEDURE sp_SearchAccount
+@AccType varchar(50),
 @searchkey varchar(50)
 AS
 BEGIN
 
-	if @Category = 'QR Code'	
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType as UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_UserNum like '%'+@searchKey+'%' and tblUser.user_Status = 'Active')
-	else if @Category = 'Lastname'
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType as UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_Lastname like '%'+@searchKey+'%' and tblUser.user_Status = 'Active')
-	else
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType as UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_Firstname like '%'+@searchKey+'%' and tblUser.user_Status = 'Active')
-	
+	if @accType = 'Active'	
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
+	FROM dbo.tblUserAccount
+	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'Super Administrator')
+	else 
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
+	FROM dbo.tblUserAccount
+	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'Super Administrator')
 END
 
-CREATE PROCEDURE sp_SearchInactiveAccount
-@Category varchar(50),
-@searchkey varchar(50)
-AS
-BEGIN
-	if @Category = 'QR Code'
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_UserNum like '%'+@searchKey+'%' and (dbo.tblUser.user_Status = 'Inactive' or dbo.tblUser.user_Status = 'Deactivate'))
-	else if @Category = 'Lastname'
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_Lastname like '%'+@searchKey+'%' and (dbo.tblUser.user_Status = 'Inactive' or dbo.tblUser.user_Status = 'Deactivate'))
-	else
-	(SELECT dbo.tblUser.user_UserNum, dbo.tblUser.user_Firstname, dbo.tblUser.user_Lastname, 
-		dbo.tblUser.user_Username, dbo.tblUser.user_Password, dbo.tblUser.user_SecretQuestion, dbo.tblUser.user_SecretAnswer, 
-		 dbo.tblUser.user_UserType, dbo.tblUser.user_Status as UserStatus
-	 FROM dbo.tblUser
-	 where tblUser.user_Firstname like '%'+@searchKey+'%' and (dbo.tblUser.user_Status = 'Inactive' or dbo.tblUser.user_Status = 'Deactivate'))
-	
-END
-
-select * from tblAttendance

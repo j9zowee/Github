@@ -17,12 +17,6 @@ namespace QRCodeBasedLMS
             InitializeComponent();
         }
 
-        private void addUpdateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Book bk = new Book("");
-            bk.Show();
-            this.Hide();
-        }
         private void RegistrationToolStripMenu_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
@@ -38,27 +32,15 @@ namespace QRCodeBasedLMS
             index.Show();
             this.Hide();
         }
-
-        private void updateBookInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UpdateBookInfo upbk = new UpdateBookInfo();
-            upbk.Show();
-            this.Hide();
-        }
-
-        
         private void unapprovedUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnapprovedAccounts ua = new UnapprovedAccounts("");
+            UnapprovedAccounts ua = new UnapprovedAccounts();
             ua.Show();
             this.Hide();
         }
 
         private void otherUserAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UserInformation ui = new UserInformation("");
-            ui.Show();
-            this.Hide();
         }
 
         private void libraryUsersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,24 +58,56 @@ namespace QRCodeBasedLMS
 
         private void borrowersInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Borrower b = new Borrower("","");
+            Borrower b = new Borrower("");
             b.Show();
             this.Hide();
 
         }
-
-        private void printLibraryCardToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BorrowerInfoForLibraryCard b = new BorrowerInfoForLibraryCard();
-            b.Show();
-            this.Hide();
-        }
-
         private void returnBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnReturn r = new btnReturn();
+            Return r = new Return();
             r.Show();
             this.Hide();
+        }
+
+        private void userAccountsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserInformation ui = new UserInformation();
+            ui.Show();
+            this.Hide();
+        }
+
+        private void bookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Book bk = new Book("");
+            bk.Show();
+            this.Hide();
+        }
+
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            Borrow brw = new Borrow();
+            brw.Show();
+            this.Hide();
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Return ret = new Return();
+            ret.Show();
+            this.Hide();
+        }
+
+        private void btnBorrower_Click(object sender, EventArgs e)
+        {
+            Borrower brwr = new Borrower("");
+            brwr.Show();
+            this.Hide();
+        }
+
+        private void nonReadingMaterialsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

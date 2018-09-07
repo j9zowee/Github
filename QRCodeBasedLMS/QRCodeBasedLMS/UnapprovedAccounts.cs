@@ -14,22 +14,15 @@ namespace QRCodeBasedLMS
 {
     public partial class UnapprovedAccounts : Form
     {
-        private string qrcode;
-        public UnapprovedAccounts(string qr)
+        public UnapprovedAccounts()
         {
             InitializeComponent();
-            qrcode = qr;
         }
         dcLMSDataContext db = new dcLMSDataContext();
         private void UnapprovedAccounts_Load(object sender, EventArgs e)
         {
-            //dgvAccount.DataSource = db.sp_ViewInactiveAccount();
-            cmb_SearchCategory.Text = "QR Code";
-            if (qrcode != "")
-            {
-                MessageBox.Show(qrcode);
-                //dgvAccount.DataSource = db.sp_SearchInactiveAccount(cmb_SearchCategory.Text, qrcode);
-            }
+            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
+            
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -40,61 +33,29 @@ namespace QRCodeBasedLMS
             txt_Lastname.Text = dgvAccount.CurrentRow.Cells[2].Value.ToString();
             cmb_Status.Text = dgvAccount.CurrentRow.Cells[3].Value.ToString();
         }
-
-        private void cmb_SearchCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //search
-            if (cmb_SearchCategory.Text == "QR Code")
-            {
-                txt_Search.Visible = false;
-                Link_ScanQR.Visible = true;
-            }
-            else
-            {
-                txt_Search.Visible = true;
-                Link_ScanQR.Visible = false;
-            }
-        }
+        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmb_Status.Text == "Active")
-            {
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
-                {
-                    if (sfd.ShowDialog() == DialogResult.OK)
-                    {
-                        pbUserQR.Image.Save(sfd.FileName, ImageFormat.Jpeg);
-                    }
-                }
-            }
-            db.sp_UpdateAccountStatus(txt_UserIDNum.Text, cmb_Status.Text);
-            //dgvAccount.DataSource = db.sp_ViewInactiveAccount();
+            db.sp_UpdateAccountStatus(txt_UserIDNum.Text, cmb_Status.selectedValue);
+            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
             MessageBox.Show("Saved!");
             ClearText();
         }
-
-        private void txt_UserIDNum_TextChanged(object sender, EventArgs e)
-        {
-
-            //generating qr code
-            MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
-            encode.QRCodeScale = 6;
-            Bitmap bmp = encode.Encode(txt_UserIDNum.Text);
-            pbUserQR.Image = bmp;
-        }
+        
         private void ClearText()
         {
             txt_UserIDNum.Text = "";
             txt_Firstname.Text = "";
             txt_Lastname.Text = "";
-            cmb_Status.Text = "";
+            cmb_Status.selectedIndex = -1;
             cmb_Status.Enabled = false;
         }
 
         private void brnClear_Click(object sender, EventArgs e)
         {
             ClearText();
+            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -103,18 +64,23 @@ namespace QRCodeBasedLMS
             mf.Show();
             this.Hide();
         }
-
-        private void Link_ScanQR_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        
+        private void txt_Search_OnValueChanged(object sender, EventArgs e)
         {
-            //searching using qr code
-            btnScanQRCode scan = new btnScanQRCode("inactiveusers","");
-            scan.Show();
-            this.Close();
+            dgvAccount.DataSource = db.sp_SearchAccount("Inactive", txt_Search.Text);
+            
         }
 
-        private void txt_Search_TextChanged(object sender, EventArgs e)
-        {
-            //dgvAccount.DataSource = db.sp_SearchInactiveAccount(cmb_SearchCategory.Text, txt_Search.Text);
-        }
+        //private void setEnability(Bunifu.Framework.UI.BunifuDropdown cmb, Boolean bln)
+        //{
+        //    foreach (Control ctl in cmb.Controls)
+        //    {
+        //        if (ctl.GetType() == typeof(ComboBox))
+        //        {
+        //            var drp = (ComboBox)ctl;
+        //            drp.Enabled = bln;
+        //        }
+        //    }
+        //}
     }
 }

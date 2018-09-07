@@ -38,7 +38,7 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.btn_Submit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_Name = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txt_SchoolID = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txt_SchoolIDNumber = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.link_ScanQR = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -50,7 +50,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.label2.Location = new System.Drawing.Point(12, 221);
+            this.label2.Location = new System.Drawing.Point(25, 280);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 16);
             this.label2.TabIndex = 22;
@@ -61,7 +61,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.label3.Location = new System.Drawing.Point(12, 250);
+            this.label3.Location = new System.Drawing.Point(25, 309);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 16);
             this.label3.TabIndex = 26;
@@ -71,7 +71,7 @@
             // 
             this.link_Back.AutoSize = true;
             this.link_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link_Back.Location = new System.Drawing.Point(274, 9);
+            this.link_Back.Location = new System.Drawing.Point(248, 9);
             this.link_Back.Name = "link_Back";
             this.link_Back.Size = new System.Drawing.Size(60, 16);
             this.link_Back.TabIndex = 33;
@@ -93,7 +93,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(160, 341);
+            this.label1.Location = new System.Drawing.Point(142, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 16);
             this.label1.TabIndex = 37;
@@ -125,7 +125,7 @@
             this.btn_Submit.IconVisible = true;
             this.btn_Submit.IconZoom = 40D;
             this.btn_Submit.IsTab = false;
-            this.btn_Submit.Location = new System.Drawing.Point(215, 283);
+            this.btn_Submit.Location = new System.Drawing.Point(115, 333);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btn_Submit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -146,33 +146,34 @@
             this.txt_Name.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.txt_Name.BorderThickness = 1;
             this.txt_Name.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_Name.Enabled = false;
             this.txt_Name.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Name.isPassword = false;
-            this.txt_Name.Location = new System.Drawing.Point(70, 244);
+            this.txt_Name.Location = new System.Drawing.Point(83, 303);
             this.txt_Name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Name.Name = "txt_Name";
-            this.txt_Name.Size = new System.Drawing.Size(253, 22);
+            this.txt_Name.Size = new System.Drawing.Size(217, 22);
             this.txt_Name.TabIndex = 40;
             this.txt_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // txt_SchoolID
+            // txt_SchoolIDNumber
             // 
-            this.txt_SchoolID.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_SchoolID.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.txt_SchoolID.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_SchoolID.BorderThickness = 1;
-            this.txt_SchoolID.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txt_SchoolID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txt_SchoolID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.txt_SchoolID.isPassword = false;
-            this.txt_SchoolID.Location = new System.Drawing.Point(144, 215);
-            this.txt_SchoolID.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_SchoolID.Name = "txt_SchoolID";
-            this.txt_SchoolID.Size = new System.Drawing.Size(179, 22);
-            this.txt_SchoolID.TabIndex = 41;
-            this.txt_SchoolID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_SchoolID.OnValueChanged += new System.EventHandler(this.txt_SchoolID_OnValueChanged);
+            this.txt_SchoolIDNumber.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txt_SchoolIDNumber.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.txt_SchoolIDNumber.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txt_SchoolIDNumber.BorderThickness = 1;
+            this.txt_SchoolIDNumber.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_SchoolIDNumber.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txt_SchoolIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.txt_SchoolIDNumber.isPassword = false;
+            this.txt_SchoolIDNumber.Location = new System.Drawing.Point(157, 274);
+            this.txt_SchoolIDNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_SchoolIDNumber.Name = "txt_SchoolIDNumber";
+            this.txt_SchoolIDNumber.Size = new System.Drawing.Size(143, 22);
+            this.txt_SchoolIDNumber.TabIndex = 41;
+            this.txt_SchoolIDNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_SchoolIDNumber.OnValueChanged += new System.EventHandler(this.txt_SchoolID_OnValueChanged);
             // 
             // link_ScanQR
             // 
@@ -195,7 +196,7 @@
             this.link_ScanQR.IconVisible = false;
             this.link_ScanQR.IconZoom = 110D;
             this.link_ScanQR.IsTab = false;
-            this.link_ScanQR.Location = new System.Drawing.Point(85, 367);
+            this.link_ScanQR.Location = new System.Drawing.Point(72, 49);
             this.link_ScanQR.Name = "link_ScanQR";
             this.link_ScanQR.Normalcolor = System.Drawing.Color.Transparent;
             this.link_ScanQR.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -213,7 +214,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.panel3.Controls.Add(this.pb_ScanQR);
-            this.panel3.Location = new System.Drawing.Point(111, 51);
+            this.panel3.Location = new System.Drawing.Point(92, 114);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(132, 132);
             this.panel3.TabIndex = 66;
@@ -223,9 +224,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(346, 407);
+            this.ClientSize = new System.Drawing.Size(327, 408);
             this.Controls.Add(this.link_ScanQR);
-            this.Controls.Add(this.txt_SchoolID);
+            this.Controls.Add(this.txt_SchoolIDNumber);
             this.Controls.Add(this.txt_Name);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.label1);
@@ -254,7 +255,7 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Submit;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Name;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txt_SchoolID;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txt_SchoolIDNumber;
         private Bunifu.Framework.UI.BunifuFlatButton link_ScanQR;
         private System.Windows.Forms.Panel panel3;
     }

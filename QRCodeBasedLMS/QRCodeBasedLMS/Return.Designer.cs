@@ -1,6 +1,6 @@
 ﻿namespace QRCodeBasedLMS
 {
-    partial class btnReturn
+    partial class Return
     {
         /// <summary>
         /// Required designer variable.
@@ -53,10 +53,10 @@
             this.dgvReturn = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BookIDNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
@@ -426,20 +426,6 @@
             this.BookIDNum.Name = "BookIDNum";
             this.BookIDNum.ReadOnly = true;
             // 
-            // NoOfDaysUnreturned
-            // 
-            this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.HeaderText = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.Name = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.ReadOnly = true;
-            // 
-            // PenaltyFee
-            // 
-            this.PenaltyFee.DataPropertyName = "PenaltyFee";
-            this.PenaltyFee.HeaderText = "PenaltyFee";
-            this.PenaltyFee.Name = "PenaltyFee";
-            this.PenaltyFee.ReadOnly = true;
-            // 
             // bookTitleDataGridViewTextBoxColumn
             // 
             this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
@@ -454,6 +440,20 @@
             this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
             this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // NoOfDaysUnreturned
+            // 
+            this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.HeaderText = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.Name = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.ReadOnly = true;
+            // 
+            // PenaltyFee
+            // 
+            this.PenaltyFee.DataPropertyName = "PenaltyFee";
+            this.PenaltyFee.HeaderText = "PenaltyFee";
+            this.PenaltyFee.Name = "PenaltyFee";
+            this.PenaltyFee.ReadOnly = true;
+            // 
             // clsReturnBindingSource
             // 
             this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
@@ -462,7 +462,7 @@
             // 
             this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
             // 
-            // btnReturn
+            // Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -479,7 +479,8 @@
             this.Controls.Add(this.btnScan);
             this.Controls.Add(this.link_Back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "btnReturn";
+            this.Name = "Return";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.btnReturn_FormClosing);
             this.Load += new System.EventHandler(this.btnReturn_Load);

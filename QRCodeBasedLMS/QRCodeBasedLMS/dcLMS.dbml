@@ -102,18 +102,6 @@
   <Function Name="dbo.sp_AccountIDnumber" Method="sp_AccountIDnumber">
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_AddAccount" Method="sp_AddAccount" IsComposable="true">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.sp_AddBook" Method="sp_AddBook">
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="BookType" Parameter="bookType" Type="System.String" DbType="VarChar(50)" />
@@ -174,11 +162,6 @@
   <Function Name="dbo.sp_BorrowIDnumber" Method="sp_BorrowIDnumber">
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_SearchActiveAccount" Method="sp_SearchActiveAccount" IsComposable="true">
-    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.sp_SearchBook" Method="sp_SearchBook">
     <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="searchKey" Type="System.String" DbType="VarChar(50)" />
@@ -202,33 +185,11 @@
     <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
     <Return Type="object" />
   </Function>
-  <Function Name="dbo.sp_SearchInactiveAccount" Method="sp_SearchInactiveAccount" IsComposable="true">
-    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.sp_TotalBookCopy" Method="sp_TotalBookCopy">
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
     <ElementType Name="sp_TotalBookCopyResult">
       <Column Name="copy_AccNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.sp_UpdateAccount" Method="sp_UpdateAccount" IsComposable="true">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="object" />
-  </Function>
-  <Function Name="dbo.sp_UpdateAccountStatus" Method="sp_UpdateAccountStatus" IsComposable="true">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="object" />
   </Function>
   <Function Name="dbo.sp_UpdateBook" Method="sp_UpdateBook">
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
@@ -267,9 +228,6 @@
     <Parameter Name="WithLibraryCard" Parameter="withLibraryCard" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_ViewActiveAccount" Method="sp_ViewActiveAccount" IsComposable="true">
-    <Return Type="object" />
-  </Function>
   <Function Name="dbo.sp_ViewBook" Method="sp_ViewBook">
     <ElementType Name="sp_ViewBookResult">
       <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -290,9 +248,6 @@
     </ElementType>
   </Function>
   <Function Name="dbo.sp_ViewBorrower" Method="sp_ViewBorrower" IsComposable="true">
-    <Return Type="object" />
-  </Function>
-  <Function Name="dbo.sp_ViewInactiveAccount" Method="sp_ViewInactiveAccount" IsComposable="true">
     <Return Type="object" />
   </Function>
   <Function Name="dbo.sp_ViewLibraryUser" Method="sp_ViewLibraryUser">
@@ -335,5 +290,71 @@
   </Function>
   <Function Name="dbo.sp_ReturnIDnumber" Method="sp_ReturnIDnumber">
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_Login" Method="sp_Login">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_LoginResult">
+      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretAnswer" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_AddAccount" Method="sp_AddAccount">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateAccount" Method="sp_UpdateAccount">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateAccountStatus" Method="sp_UpdateAccountStatus">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_SearchAccount" Method="sp_SearchAccount">
+    <Parameter Name="AccType" Parameter="accType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_SearchAccountResult">
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewAccount" Method="sp_ViewAccount">
+    <Parameter Name="acctType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewAccountResult">
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

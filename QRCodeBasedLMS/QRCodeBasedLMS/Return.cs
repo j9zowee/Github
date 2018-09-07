@@ -16,9 +16,9 @@ using ZXing.QrCode;
 
 namespace QRCodeBasedLMS
 {
-    public partial class btnReturn : Form
+    public partial class Return : Form
     {
-        public btnReturn()
+        public Return()
         {
             InitializeComponent();
         }

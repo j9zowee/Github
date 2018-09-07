@@ -33,7 +33,7 @@ namespace QRCodeBasedLMS
 
         private void IndexForm_Load(object sender, EventArgs e)
         {
-            this.Refresh();
+           
         }
 
         private void link_Attendance_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -52,8 +52,8 @@ namespace QRCodeBasedLMS
 
         private void link_SignIn_Click(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
-            mf.Show();
+            UserLogin login = new UserLogin();
+            login.Show();
             this.Hide();
         }
 
@@ -61,6 +61,20 @@ namespace QRCodeBasedLMS
         {
             AttendanceMonitoring am = new AttendanceMonitoring("");
             am.Show();
+            this.Hide();
+        }
+
+        private void btnInquiry_Click(object sender, EventArgs e)
+        {
+            ScanQRCode scan = new ScanQRCode("inquiry");
+            scan.Show();
+            this.Hide();
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            BookSearch bs = new BookSearch();
+            bs.Show();
             this.Hide();
         }
     }

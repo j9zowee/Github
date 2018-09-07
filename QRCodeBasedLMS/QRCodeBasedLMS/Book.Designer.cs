@@ -45,7 +45,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.Link_Scan = new System.Windows.Forms.LinkLabel();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dtp_DateReceived = new System.Windows.Forms.DateTimePicker();
@@ -56,7 +55,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnAddOrUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnAddOrAddBookCopy = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Clear = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Exit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_BookIDNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -76,7 +75,8 @@
             this.txt_Search = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cmbBookType = new Bunifu.Framework.UI.BunifuDropdown();
-            this.link_Scans = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.link_Scan = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pb_QRBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.gb_Copy.SuspendLayout();
@@ -244,18 +244,6 @@
             this.label14.TabIndex = 47;
             this.label14.Text = "Search by: ";
             // 
-            // Link_Scan
-            // 
-            this.Link_Scan.AutoSize = true;
-            this.Link_Scan.Location = new System.Drawing.Point(278, 243);
-            this.Link_Scan.Name = "Link_Scan";
-            this.Link_Scan.Size = new System.Drawing.Size(79, 13);
-            this.Link_Scan.TabIndex = 20;
-            this.Link_Scan.TabStop = true;
-            this.Link_Scan.Text = "Scan QR Code";
-            this.Link_Scan.Visible = false;
-            this.Link_Scan.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Link_Scan_LinkClicked);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -369,40 +357,40 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // btnAddOrUpdate
+            // btnAddOrAddBookCopy
             // 
-            this.btnAddOrUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnAddOrUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnAddOrUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddOrUpdate.BorderRadius = 7;
-            this.btnAddOrUpdate.ButtonText = "ADD";
-            this.btnAddOrUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddOrUpdate.DisabledColor = System.Drawing.Color.Gray;
-            this.btnAddOrUpdate.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAddOrUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddOrUpdate.Iconimage")));
-            this.btnAddOrUpdate.Iconimage_right = null;
-            this.btnAddOrUpdate.Iconimage_right_Selected = null;
-            this.btnAddOrUpdate.Iconimage_Selected = null;
-            this.btnAddOrUpdate.IconMarginLeft = 0;
-            this.btnAddOrUpdate.IconMarginRight = 0;
-            this.btnAddOrUpdate.IconRightVisible = false;
-            this.btnAddOrUpdate.IconRightZoom = 0D;
-            this.btnAddOrUpdate.IconVisible = true;
-            this.btnAddOrUpdate.IconZoom = 80D;
-            this.btnAddOrUpdate.IsTab = false;
-            this.btnAddOrUpdate.Location = new System.Drawing.Point(599, 224);
-            this.btnAddOrUpdate.Name = "btnAddOrUpdate";
-            this.btnAddOrUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnAddOrUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnAddOrUpdate.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnAddOrUpdate.selected = false;
-            this.btnAddOrUpdate.Size = new System.Drawing.Size(110, 41);
-            this.btnAddOrUpdate.TabIndex = 58;
-            this.btnAddOrUpdate.Text = "ADD";
-            this.btnAddOrUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddOrUpdate.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnAddOrUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAddOrUpdate.Click += new System.EventHandler(this.btnAddOrUpdate_Click);
+            this.btnAddOrAddBookCopy.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnAddOrAddBookCopy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnAddOrAddBookCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddOrAddBookCopy.BorderRadius = 7;
+            this.btnAddOrAddBookCopy.ButtonText = "ADD";
+            this.btnAddOrAddBookCopy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddOrAddBookCopy.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAddOrAddBookCopy.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAddOrAddBookCopy.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnAddOrAddBookCopy.Iconimage")));
+            this.btnAddOrAddBookCopy.Iconimage_right = null;
+            this.btnAddOrAddBookCopy.Iconimage_right_Selected = null;
+            this.btnAddOrAddBookCopy.Iconimage_Selected = null;
+            this.btnAddOrAddBookCopy.IconMarginLeft = 0;
+            this.btnAddOrAddBookCopy.IconMarginRight = 0;
+            this.btnAddOrAddBookCopy.IconRightVisible = false;
+            this.btnAddOrAddBookCopy.IconRightZoom = 0D;
+            this.btnAddOrAddBookCopy.IconVisible = true;
+            this.btnAddOrAddBookCopy.IconZoom = 80D;
+            this.btnAddOrAddBookCopy.IsTab = false;
+            this.btnAddOrAddBookCopy.Location = new System.Drawing.Point(599, 224);
+            this.btnAddOrAddBookCopy.Name = "btnAddOrAddBookCopy";
+            this.btnAddOrAddBookCopy.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnAddOrAddBookCopy.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnAddOrAddBookCopy.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAddOrAddBookCopy.selected = false;
+            this.btnAddOrAddBookCopy.Size = new System.Drawing.Size(110, 41);
+            this.btnAddOrAddBookCopy.TabIndex = 58;
+            this.btnAddOrAddBookCopy.Text = "ADD";
+            this.btnAddOrAddBookCopy.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAddOrAddBookCopy.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnAddOrAddBookCopy.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAddOrAddBookCopy.Click += new System.EventHandler(this.btnAddOrAddBookCopy_Click);
             // 
             // btn_Clear
             // 
@@ -740,39 +728,75 @@
             this.cmbBookType.Size = new System.Drawing.Size(189, 24);
             this.cmbBookType.TabIndex = 61;
             // 
-            // link_Scans
+            // link_Scan
             // 
-            this.link_Scans.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.link_Scans.BackColor = System.Drawing.Color.Transparent;
-            this.link_Scans.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.link_Scans.BorderRadius = 7;
-            this.link_Scans.ButtonText = "Change \"Scan QR Code\"";
-            this.link_Scans.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link_Scans.DisabledColor = System.Drawing.Color.Gray;
-            this.link_Scans.Iconcolor = System.Drawing.Color.Transparent;
-            this.link_Scans.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_Scans.Iconimage")));
-            this.link_Scans.Iconimage_right = null;
-            this.link_Scans.Iconimage_right_Selected = null;
-            this.link_Scans.Iconimage_Selected = null;
-            this.link_Scans.IconMarginLeft = 0;
-            this.link_Scans.IconMarginRight = 0;
-            this.link_Scans.IconRightVisible = false;
-            this.link_Scans.IconRightZoom = 0D;
-            this.link_Scans.IconVisible = false;
-            this.link_Scans.IconZoom = 110D;
-            this.link_Scans.IsTab = false;
-            this.link_Scans.Location = new System.Drawing.Point(368, 238);
-            this.link_Scans.Name = "link_Scans";
-            this.link_Scans.Normalcolor = System.Drawing.Color.Transparent;
-            this.link_Scans.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.link_Scans.OnHoverTextColor = System.Drawing.Color.White;
-            this.link_Scans.selected = false;
-            this.link_Scans.Size = new System.Drawing.Size(176, 22);
-            this.link_Scans.TabIndex = 74;
-            this.link_Scans.Text = "Change \"Scan QR Code\"";
-            this.link_Scans.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.link_Scans.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.link_Scans.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.link_Scan.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_Scan.BackColor = System.Drawing.Color.Transparent;
+            this.link_Scan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_Scan.BorderRadius = 7;
+            this.link_Scan.ButtonText = "Scan QR Code";
+            this.link_Scan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_Scan.DisabledColor = System.Drawing.Color.Gray;
+            this.link_Scan.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_Scan.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_Scan.Iconimage")));
+            this.link_Scan.Iconimage_right = null;
+            this.link_Scan.Iconimage_right_Selected = null;
+            this.link_Scan.Iconimage_Selected = null;
+            this.link_Scan.IconMarginLeft = 0;
+            this.link_Scan.IconMarginRight = 0;
+            this.link_Scan.IconRightVisible = false;
+            this.link_Scan.IconRightZoom = 0D;
+            this.link_Scan.IconVisible = false;
+            this.link_Scan.IconZoom = 110D;
+            this.link_Scan.IsTab = false;
+            this.link_Scan.Location = new System.Drawing.Point(252, 239);
+            this.link_Scan.Name = "link_Scan";
+            this.link_Scan.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_Scan.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_Scan.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_Scan.selected = false;
+            this.link_Scan.Size = new System.Drawing.Size(124, 22);
+            this.link_Scan.TabIndex = 74;
+            this.link_Scan.Text = "Scan QR Code";
+            this.link_Scan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_Scan.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_Scan.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.link_Scan.Click += new System.EventHandler(this.link_Scan_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.BorderRadius = 7;
+            this.btnUpdate.ButtonText = "UPDATE";
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdate.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            this.btnUpdate.Iconimage_right = null;
+            this.btnUpdate.Iconimage_right_Selected = null;
+            this.btnUpdate.Iconimage_Selected = null;
+            this.btnUpdate.IconMarginLeft = 0;
+            this.btnUpdate.IconMarginRight = 0;
+            this.btnUpdate.IconRightVisible = false;
+            this.btnUpdate.IconRightZoom = 0D;
+            this.btnUpdate.IconVisible = true;
+            this.btnUpdate.IconZoom = 80D;
+            this.btnUpdate.IsTab = false;
+            this.btnUpdate.Location = new System.Drawing.Point(483, 224);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnUpdate.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUpdate.selected = false;
+            this.btnUpdate.Size = new System.Drawing.Size(110, 41);
+            this.btnUpdate.TabIndex = 95;
+            this.btnUpdate.Text = "UPDATE";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnUpdate.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // Book
             // 
@@ -781,7 +805,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1056, 552);
-            this.Controls.Add(this.link_Scans);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.link_Scan);
             this.Controls.Add(this.cmbBookType);
             this.Controls.Add(this.cmb_SearchCategory);
             this.Controls.Add(this.panel2);
@@ -795,12 +820,11 @@
             this.Controls.Add(this.txt_ISBN);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_Exit);
-            this.Controls.Add(this.btnAddOrUpdate);
+            this.Controls.Add(this.btnAddOrAddBookCopy);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.lbl_NumCopies);
             this.Controls.Add(this.gb_Copy);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.Link_Scan);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
@@ -858,7 +882,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.LinkLabel Link_Scan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DateTimePicker dtp_DateReceived;
@@ -867,7 +890,7 @@
         private System.Windows.Forms.Label label16;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.ImageList imageList1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnAddOrUpdate;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAddOrAddBookCopy;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Clear;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Exit;
         private System.Windows.Forms.Label label2;
@@ -889,6 +912,7 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Search;
         private System.Windows.Forms.Panel panel3;
         private Bunifu.Framework.UI.BunifuDropdown cmbBookType;
-        private Bunifu.Framework.UI.BunifuFlatButton link_Scans;
+        private Bunifu.Framework.UI.BunifuFlatButton link_Scan;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
     }
 }

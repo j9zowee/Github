@@ -96,6 +96,12 @@
     <Compile Include="BookCopy.Designer.cs">
       <DependentUpon>BookCopy.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookSearch.Designer.cs">
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Borrow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,12 +113,6 @@
     </Compile>
     <Compile Include="Borrower.Designer.cs">
       <DependentUpon>Borrower.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BorrowerInfoForLibraryCard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BorrowerInfoForLibraryCard.Designer.cs">
-      <DependentUpon>BorrowerInfoForLibraryCard.cs</DependentUpon>
     </Compile>
     <Compile Include="clsBook.cs" />
     <Compile Include="clsBorrow.cs" />
@@ -133,6 +133,12 @@
     </Compile>
     <Compile Include="IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inquiry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inquiry.Designer.cs">
+      <DependentUpon>Inquiry.cs</DependentUpon>
     </Compile>
     <Compile Include="LibraryUserMasterlist.cs">
       <SubType>Form</SubType>
@@ -178,17 +184,17 @@
     <Compile Include="UnapprovedAccounts.Designer.cs">
       <DependentUpon>UnapprovedAccounts.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateBookInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateBookInfo.Designer.cs">
-      <DependentUpon>UpdateBookInfo.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserInformation.Designer.cs">
       <DependentUpon>UserInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserLogin.Designer.cs">
+      <DependentUpon>UserLogin.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AttendanceMonitoring.resx">
       <DependentUpon>AttendanceMonitoring.cs</DependentUpon>
@@ -199,17 +205,20 @@
     <EmbeddedResource Include="BookCopy.resx">
       <DependentUpon>BookCopy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookSearch.resx">
+      <DependentUpon>BookSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Borrow.resx">
       <DependentUpon>Borrow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Borrower.resx">
       <DependentUpon>Borrower.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowerInfoForLibraryCard.resx">
-      <DependentUpon>BorrowerInfoForLibraryCard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inquiry.resx">
+      <DependentUpon>Inquiry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LibraryUserMasterlist.resx">
       <DependentUpon>LibraryUserMasterlist.cs</DependentUpon>
@@ -223,11 +232,11 @@
     <EmbeddedResource Include="UnapprovedAccounts.resx">
       <DependentUpon>UnapprovedAccounts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateBookInfo.resx">
-      <DependentUpon>UpdateBookInfo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserInformation.resx">
       <DependentUpon>UserInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserLogin.resx">
+      <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dcLMS.dbml.layout">
       <DependentUpon>dcLMS.dbml</DependentUpon>

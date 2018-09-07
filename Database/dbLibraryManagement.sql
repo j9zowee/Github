@@ -16,7 +16,7 @@ user_Status varchar(10) not null)
  select * from tblBook
 
 create table tblLibraryUser(
-lib_UserID int identity(1,1) primary key,
+lib_UserID int identity(1,1) primary key,	
 lib_SchoolID varchar(20) not null,
 lib_Firstname varchar(100)not null,
 lib_Lastname varchar(100)not null,

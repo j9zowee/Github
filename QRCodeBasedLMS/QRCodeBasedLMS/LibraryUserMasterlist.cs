@@ -16,6 +16,8 @@ namespace QRCodeBasedLMS
         public LibraryUserMasterlist()
         {
             InitializeComponent();
+            setSelectedIndex(cmbStartYear);
+            setSelectedIndex(cmbLibraryUser);
         }
         dcLMSDataContext db = new dcLMSDataContext();
         private void btnChoose_Click(object sender, EventArgs e)
@@ -49,17 +51,17 @@ namespace QRCodeBasedLMS
                     string schoolyear = cmbStartYear.Text + "-" + txtEndYear.Text;
                     for (int i = 0; i < dgvList.RowCount; i++)
                     {
-                        
+
                         db.sp_AddLibraryUser(dgvList.Rows[i].Cells[0].Value.ToString(), dgvList.Rows[i].Cells[1].Value.ToString(), dgvList.Rows[i].Cells[2].Value.ToString(),
-                            dgvList.Rows[i].Cells[3].Value.ToString(), dgvList.Rows[i].Cells[4].Value.ToString(), dgvList.Rows[i].Cells[5].Value.ToString(),cmbLibraryUser.Text,schoolyear, false);
-                        
+                            dgvList.Rows[i].Cells[3].Value.ToString(), dgvList.Rows[i].Cells[4].Value.ToString(), dgvList.Rows[i].Cells[5].Value.ToString(), cmbLibraryUser.Text, schoolyear, false);
+
                     }
                     MessageBox.Show("Successfully Saved to the database!");
                     dgvList.DataSource = db.sp_ViewLibraryUser(schoolyear);
                 }
                 else
                 {
-                    
+
                 }
             }
         }
@@ -74,6 +76,18 @@ namespace QRCodeBasedLMS
         private void LibraryUserMasterlist_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void setSelectedIndex(Bunifu.Framework.UI.BunifuDropdown cmb)
+        {
+            foreach (Control ctl in cmb.Controls)
+            {
+                if (ctl.GetType() == typeof(ComboBox))
+                {
+                    var drp = (ComboBox)ctl;
+                    drp.SelectedIndex = -1;
+                }
+            }
         }
     } 
 }

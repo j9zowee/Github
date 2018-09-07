@@ -31,6 +31,7 @@ namespace QRCodeBasedLMS
         clsBook bk = new clsBook();
         private void Book_Load(object sender, EventArgs e)
         {
+            btnUpdate.Visible = false;
             txt_BookIDNum.Text= bk.GenerateBookIDNum();
             cmbBookType.Text = "References";
             dgvBook.DataSource = db.sp_ViewBook();
@@ -42,7 +43,7 @@ namespace QRCodeBasedLMS
             }
         }
 
-        private void btnAddOrUpdate_Click(object sender, EventArgs e)
+        private void btnAddOrAddBookCopy_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_BookIDNum.Text) || string.IsNullOrWhiteSpace(txt_Title.Text) || string.IsNullOrWhiteSpace(txt_Pages.Text) || string.IsNullOrWhiteSpace(txt_Publisher.Text) || string.IsNullOrWhiteSpace(txt_CopyrightYear.Text))
             {
@@ -57,7 +58,7 @@ namespace QRCodeBasedLMS
                 else
                 {
                     
-                    if (btnAddOrUpdate.Text == "ADD")
+                    if (btnAddOrAddBookCopy.Text == "ADD")
                     {
                         bk.BookIDNumber = txt_BookIDNum.Text;
                         bk.BookType = cmbBookType.Text;
@@ -85,7 +86,6 @@ namespace QRCodeBasedLMS
                         dgvBook.DataSource = db.sp_ViewBook(); ;
                         MessageBox.Show("Sucessfully Added!");
                         ClearText();
-                        EnableTextboxes();
                         txt_BookIDNum.Text = bk.GenerateBookIDNum();
                         cmbBookType.Text = "References";
                     }
@@ -102,10 +102,6 @@ namespace QRCodeBasedLMS
 
         public int getBookType(string booktype)
         {
-            //            References
-            //Filipiniana
-            //General Reference
-            //Fiction
             int bookIndex;
             if (booktype == "References")
             {
@@ -125,9 +121,9 @@ namespace QRCodeBasedLMS
 
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnAddOrUpdate.Text = "ADD COPY";
-            DisableTextboxes();
+            btnAddOrAddBookCopy.Text = "ADD COPY";
             gb_Copy.Visible = false;
+            btnUpdate.Visible = true;
             txt_BookIDNum.Text = dgvBook.CurrentRow.Cells[0].Value.ToString();
             cmbBookType.selectedIndex = getBookType(dgvBook.CurrentRow.Cells[1].Value.ToString());
             txt_ISBN.Text = (from s in db.tblBooks where s.book_BookNum == txt_BookIDNum.Text select s.book_ISBN).FirstOrDefault();
@@ -144,43 +140,7 @@ namespace QRCodeBasedLMS
             lbl_NumCopies.Visible = true;
             lbl_NumCopies.Text = "Total No. of Copies : " +db.sp_TotalBookCopy(txt_BookIDNum.Text).Count().ToString();
         }
-
-        public void DisableTextboxes()
-        {
-            cmbBookType.Enabled = false;
-            txt_ISBN.Enabled = false;
-            txt_CallNumber.Enabled = false;
-            txt_AccessionNumber.Enabled = false;
-            dtp_DateReceived.Enabled = false;
-            txt_Title.Enabled = false;
-            txt_Author.Enabled = false;
-            txt_Publisher.Enabled = false;
-            txt_CopyrightYear.Enabled = false;
-            txt_Edition.Enabled = false;
-            txt_Volume.Enabled = false;
-            txt_Pages.Enabled = false;
-            cmb_Status.Enabled = false;
-            txt_Remarks.Enabled = false;
-        }
-
-        public void EnableTextboxes()
-        {
-            cmbBookType.Enabled = true;
-            txt_ISBN.Enabled = true;
-            txt_CallNumber.Enabled = true;
-            txt_AccessionNumber.Enabled = true;
-            dtp_DateReceived.Enabled = true;
-            txt_Title.Enabled = true;
-            txt_Author.Enabled = true;
-            txt_Publisher.Enabled = true;
-            txt_CopyrightYear.Enabled = true;
-            txt_Edition.Enabled = true;
-            txt_Volume.Enabled = true;
-            txt_Pages.Enabled = true;
-            cmb_Status.Enabled = true;
-            txt_Remarks.Enabled = true;
-        }
-
+        
         private void txt_BookIDNum_OnValueChanged(object sender, EventArgs e)
         {
             
@@ -204,33 +164,20 @@ namespace QRCodeBasedLMS
             txt_Pages.Text = "";
             cmb_Status.Text = "";
             txt_Remarks.Text = "";
-            btnAddOrUpdate.Text = "ADD";
+            btnAddOrAddBookCopy.Text = "ADD";
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             ClearText();
-            EnableTextboxes();
             txt_BookIDNum.Text = bk.GenerateBookIDNum();
             cmbBookType.Text = "References";
             gb_Copy.Visible = true;
+            btnUpdate.Visible = false;
             lbl_NumCopies.Visible = false;
             dgvBook.DataSource = db.sp_ViewBook();
         }
-
-        private void cmb_SearchCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cmb_SearchCategory.Text == "QR Code")
-            {
-                Link_Scan.Visible = true;
-                txt_Search.Visible = false;
-            }
-            else
-            {
-                txt_Search.Visible = true;
-                Link_Scan.Visible = false;
-            }
-        }
+        
 
         private void txt_AccessionNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -261,28 +208,8 @@ namespace QRCodeBasedLMS
 
         private void Link_Scan_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            btnScanQRCode scan = new btnScanQRCode("book","");
-            scan.Show();
-            this.Close();
+            
         }
-
-
-        private void link_SignIn_Click(object sender, EventArgs e)
-        {
-            btnScanQRCode scan = new btnScanQRCode("book","");
-            scan.Show();
-            this.Close();
-        }
-
-        //private void btn_Clear_Click(object sender, EventArgs e)
-        //{
-        //    ClearText();
-        //    EnableTextboxes();
-        //    gb_Copy.Visible = true;
-        //    lbl_NumCopies.Visible = false;
-        //    dgvBook.DataSource = db.sp_ViewBook();
-        //}
-
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             MainForm MF = new MainForm();
@@ -313,19 +240,65 @@ namespace QRCodeBasedLMS
         {
             if (cmb_SearchCategory.selectedValue == "QR Code")
             {
-                Link_Scan.Visible = true;
+                link_Scan.Visible = true;
                 txt_Search.Visible = false;
             }
             else
             {
                 txt_Search.Visible = true;
-                Link_Scan.Visible = false;
+                link_Scan.Visible = false;
             }
         }
 
         private void dgvBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void link_Scan_Click(object sender, EventArgs e)
+        {
+            ScanQRCode scan = new ScanQRCode("book");
+            scan.Show();
+            this.Close();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txt_BookIDNum.Text) || string.IsNullOrWhiteSpace(txt_Title.Text) || string.IsNullOrWhiteSpace(txt_Publisher.Text) || string.IsNullOrWhiteSpace(txt_CopyrightYear.Text))
+            {
+                MessageBox.Show("Incomplete Information!\nPlease enter values in textboxes that has (*) indicator.");
+            }
+            else
+            {
+                if (bk.CheckValidCopyrightYear() == false)
+                {
+                    MessageBox.Show("Invalid Copyright Year!");
+                }
+                else
+                {
+                    bk.BookIDNumber = txt_BookIDNum.Text;
+                    bk.BookType = cmbBookType.Text;
+                    bk.ISBN = txt_ISBN.Text;
+                    bk.CallNumber = txt_CallNumber.Text;
+                    bk.Title = txt_Title.Text;
+                    bk.Author = txt_Author.Text;
+                    bk.Publisher = txt_Publisher.Text;
+                    bk.CopyrightYear = int.Parse(txt_CopyrightYear.Text);
+                    bk.Edition = txt_Edition.Text;
+                    bk.Volume = txt_Volume.Text;
+                    bk.Pages = int.Parse(txt_Pages.Text);
+                    bk.Remarks = txt_Remarks.Text;
+
+
+                    bk.UpdateRecord();
+                    dgvBook.DataSource = db.sp_ViewBook();
+                    MessageBox.Show("Sucessfully Updated!");
+                    ClearText();
+                    btnUpdate.Visible = false;
+
+                }
+
+            }
         }
     }
 }

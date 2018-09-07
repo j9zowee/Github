@@ -19,9 +19,9 @@ namespace QRCodeBasedLMS
         clsUser user = new clsUser();
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            
-            if (string.IsNullOrWhiteSpace(txt_UserIDNum.Text)||string.IsNullOrWhiteSpace(txt_Firstname.Text) || string.IsNullOrWhiteSpace(txt_Lastname.Text) || string.IsNullOrWhiteSpace(txt_Username.Text) || string.IsNullOrWhiteSpace(txt_Password.Text) ||
-                string.IsNullOrWhiteSpace(cmb_SecretQuestion.Text) || string.IsNullOrWhiteSpace(txt_SecretAnswer.Text))
+            int sq = cmb_SecretQuestion.selectedIndex;
+            if (string.IsNullOrWhiteSpace(txt_UserIDNum.Text) || string.IsNullOrWhiteSpace(txt_Firstname.Text) || string.IsNullOrWhiteSpace(txt_Lastname.Text) || string.IsNullOrWhiteSpace(txt_Username.Text) || string.IsNullOrWhiteSpace(txt_Password.Text) ||
+                string.IsNullOrWhiteSpace(txt_SecretAnswer.Text))
             {
                 MessageBox.Show("Incomplete Information!\nPlease enter values in all of the textboxes.");
 
@@ -34,7 +34,7 @@ namespace QRCodeBasedLMS
                 user.Lastname = txt_Lastname.Text;
                 user.Username = txt_Username.Text;
                 user.Password = txt_Password.Text;
-                user.SecretQuestion = cmb_SecretQuestion.Text;
+                user.SecretQuestion = cmb_SecretQuestion.selectedValue;
                 user.SecretAnswer = txt_SecretAnswer.Text;
                 user.Usertype = "Staff";
                 user.Status = "Inactive";
@@ -56,8 +56,7 @@ namespace QRCodeBasedLMS
 
         //method for clearing texts
         public void ClearText()
-        {
-            
+        {            
             txt_UserIDNum.Text = "";
             txt_Firstname.Text = "";
             txt_Lastname.Text = "";
@@ -77,8 +76,8 @@ namespace QRCodeBasedLMS
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
-            mf.Show();
+            UserLogin login = new UserLogin();
+            login.Show();
             this.Hide();
         }
 

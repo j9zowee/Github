@@ -68,24 +68,24 @@ namespace QRCodeBasedLMS
                         bk.Show();
                         this.Close();
                     }
-                    else if (origin == "borrower_brwr")
-                    {
-                        Borrower br = new Borrower(decoded);
-                        br.Show();
-                        this.Close();
-                    }
-                    else if (origin == "inquiry")
-                    {
-                        Borrower br = new Borrower(decoded);
-                        br.Show();
-                        this.Close();
-                    }
-                    else if (origin == "attendance")
-                    {
-                        AttendanceMonitoring am = new AttendanceMonitoring(decoded);
-                        am.Show();
-                        this.Close();
-                    }
+                    //else if (origin == "borrower_brwr")
+                    //{
+                    //    Borrower br = new Borrower(decoded);
+                    //    br.Show();
+                    //    this.Close();
+                    //}
+                    //else if (origin == "inquiry")
+                    //{
+                    //    Inquiry inq = new Inquiry(decoded);
+                    //    inq.Show();
+                    //    this.Close();
+                    //}
+                    //else if (origin == "attendance")
+                    //{
+                    //    AttendanceMonitoring am = new AttendanceMonitoring(decoded);
+                    //    am.Show();
+                    //    this.Close();
+                    //}
                     else
                     {
                         MessageBox.Show("Invalid Destination");

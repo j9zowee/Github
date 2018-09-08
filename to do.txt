@@ -1,14 +1,4 @@
-AUG 26,2018(SUN)
 
-*autogenerate IDnumbers
-	-book
-	-users
-	-borrow
-
-*Do not display all information in the dgv
-	-book
-*User can already borrow multiple books
--------------------------
 -----------------------------------
 *Check if the library card is from the current schoolyear
 *Nonreading materials
@@ -18,6 +8,7 @@ AUG 26,2018(SUN)
 		:Title,Author,CopyrightYear,edition,volume(as book)
 		:ISBN
 *user can only borrow 3 books at a time	
+*Do not display all information in the dgv
 --------------------
 BUGs
 *duplication of first two idnumbers

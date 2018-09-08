@@ -341,6 +341,13 @@ namespace QRCodeBasedLMS
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), acctType);
 			return ((ISingleResult<sp_ViewAccountResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBorrowedBooks")]
+		public ISingleResult<sp_ViewBorrowedBooksResult> sp_ViewBorrowedBooks([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID);
+			return ((ISingleResult<sp_ViewBorrowedBooksResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblAttendance")]
@@ -3373,6 +3380,140 @@ namespace QRCodeBasedLMS
 				if ((this._UserStatus != value))
 				{
 					this._UserStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewBorrowedBooksResult
+	{
+		
+		private string _TransactionNumber;
+		
+		private string _BookNumber;
+		
+		private string _Title;
+		
+		private string _Author;
+		
+		private int _CopyrightYear;
+		
+		private System.DateTime _BorrowedDate;
+		
+		private System.DateTime _DueDate;
+		
+		public sp_ViewBorrowedBooksResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string TransactionNumber
+		{
+			get
+			{
+				return this._TransactionNumber;
+			}
+			set
+			{
+				if ((this._TransactionNumber != value))
+				{
+					this._TransactionNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string BookNumber
+		{
+			get
+			{
+				return this._BookNumber;
+			}
+			set
+			{
+				if ((this._BookNumber != value))
+				{
+					this._BookNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(50)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this._Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
+		public int CopyrightYear
+		{
+			get
+			{
+				return this._CopyrightYear;
+			}
+			set
+			{
+				if ((this._CopyrightYear != value))
+				{
+					this._CopyrightYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowedDate", DbType="Date NOT NULL")]
+		public System.DateTime BorrowedDate
+		{
+			get
+			{
+				return this._BorrowedDate;
+			}
+			set
+			{
+				if ((this._BorrowedDate != value))
+				{
+					this._BorrowedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DueDate", DbType="Date NOT NULL")]
+		public System.DateTime DueDate
+		{
+			get
+			{
+				return this._DueDate;
+			}
+			set
+			{
+				if ((this._DueDate != value))
+				{
+					this._DueDate = value;
 				}
 			}
 		}

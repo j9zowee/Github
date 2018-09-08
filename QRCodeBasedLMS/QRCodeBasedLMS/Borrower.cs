@@ -30,10 +30,7 @@ namespace QRCodeBasedLMS
         private void Borrower_Load(object sender, EventArgs e)
         {
             
-            if(qrcode != "")
-            {
-                txt_SchoolID.Text = qrcode;
-            }
+            
         }
         public void ClearText()
         {

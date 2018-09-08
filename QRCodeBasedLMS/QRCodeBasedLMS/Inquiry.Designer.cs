@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inquiry));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnUpdateorSave = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_ContactNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txt_Address = new System.Windows.Forms.TextBox();
@@ -42,7 +42,6 @@
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.link_ScanBrwr = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.rb_Female = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rb_Male = new System.Windows.Forms.RadioButton();
@@ -54,11 +53,12 @@
             this.pbBorrowerQR = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.dgvBorrowed = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBorrowerQR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -100,39 +100,40 @@
             this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             // 
-            // btnUpdateorSave
+            // btnUpdate
             // 
-            this.btnUpdateorSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnUpdateorSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnUpdateorSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdateorSave.BorderRadius = 7;
-            this.btnUpdateorSave.ButtonText = "UPDATE INFORMATION";
-            this.btnUpdateorSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateorSave.DisabledColor = System.Drawing.Color.Gray;
-            this.btnUpdateorSave.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUpdateorSave.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdateorSave.Iconimage")));
-            this.btnUpdateorSave.Iconimage_right = null;
-            this.btnUpdateorSave.Iconimage_right_Selected = null;
-            this.btnUpdateorSave.Iconimage_Selected = null;
-            this.btnUpdateorSave.IconMarginLeft = 0;
-            this.btnUpdateorSave.IconMarginRight = 0;
-            this.btnUpdateorSave.IconRightVisible = false;
-            this.btnUpdateorSave.IconRightZoom = 0D;
-            this.btnUpdateorSave.IconVisible = true;
-            this.btnUpdateorSave.IconZoom = 80D;
-            this.btnUpdateorSave.IsTab = false;
-            this.btnUpdateorSave.Location = new System.Drawing.Point(598, 202);
-            this.btnUpdateorSave.Name = "btnUpdateorSave";
-            this.btnUpdateorSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnUpdateorSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnUpdateorSave.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnUpdateorSave.selected = false;
-            this.btnUpdateorSave.Size = new System.Drawing.Size(128, 41);
-            this.btnUpdateorSave.TabIndex = 94;
-            this.btnUpdateorSave.Text = "UPDATE INFORMATION";
-            this.btnUpdateorSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnUpdateorSave.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnUpdateorSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnUpdate.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdate.BorderRadius = 7;
+            this.btnUpdate.ButtonText = "UPDATE INFORMATION";
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdate.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdate.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Iconimage")));
+            this.btnUpdate.Iconimage_right = null;
+            this.btnUpdate.Iconimage_right_Selected = null;
+            this.btnUpdate.Iconimage_Selected = null;
+            this.btnUpdate.IconMarginLeft = 0;
+            this.btnUpdate.IconMarginRight = 0;
+            this.btnUpdate.IconRightVisible = false;
+            this.btnUpdate.IconRightZoom = 0D;
+            this.btnUpdate.IconVisible = true;
+            this.btnUpdate.IconZoom = 80D;
+            this.btnUpdate.IsTab = false;
+            this.btnUpdate.Location = new System.Drawing.Point(598, 202);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnUpdate.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnUpdate.selected = false;
+            this.btnUpdate.Size = new System.Drawing.Size(128, 41);
+            this.btnUpdate.TabIndex = 94;
+            this.btnUpdate.Text = "UPDATE INFORMATION";
+            this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnUpdate.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnUpdate.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txt_ContactNum
             // 
@@ -224,6 +225,7 @@
             this.txt_SchoolID.Size = new System.Drawing.Size(176, 22);
             this.txt_SchoolID.TabIndex = 89;
             this.txt_SchoolID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_SchoolID.OnValueChanged += new System.EventHandler(this.txt_SchoolID_OnValueChanged);
             // 
             // bunifuElipse2
             // 
@@ -273,21 +275,6 @@
             this.label2.Size = new System.Drawing.Size(292, 20);
             this.label2.TabIndex = 87;
             this.label2.Text = "CURRENTLY BORROWED BOOKS";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 303);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(690, 190);
-            this.dataGridView1.TabIndex = 86;
             // 
             // rb_Female
             // 
@@ -403,14 +390,23 @@
             this.label5.TabIndex = 79;
             this.label5.Text = "Firstname :";
             // 
+            // dgvBorrowed
+            // 
+            this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBorrowed.Location = new System.Drawing.Point(36, 304);
+            this.dgvBorrowed.Name = "dgvBorrowed";
+            this.dgvBorrowed.Size = new System.Drawing.Size(690, 205);
+            this.dgvBorrowed.TabIndex = 97;
+            // 
             // Inquiry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(763, 521);
+            this.Controls.Add(this.dgvBorrowed);
             this.Controls.Add(this.link_GoBack);
-            this.Controls.Add(this.btnUpdateorSave);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txt_ContactNum);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_Lastname);
@@ -418,7 +414,6 @@
             this.Controls.Add(this.txt_SchoolID);
             this.Controls.Add(this.link_ScanBrwr);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -431,13 +426,14 @@
             this.Name = "Inquiry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inquiry";
+            this.Load += new System.EventHandler(this.Inquiry_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBorrowerQR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -447,7 +443,7 @@
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
-        private Bunifu.Framework.UI.BunifuFlatButton btnUpdateorSave;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdate;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_ContactNum;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_Address;
@@ -456,7 +452,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_SchoolID;
         private Bunifu.Framework.UI.BunifuFlatButton link_ScanBrwr;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rb_Female;
         private System.Windows.Forms.RadioButton rb_Male;
@@ -469,5 +464,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse2;
+        private System.Windows.Forms.DataGridView dgvBorrowed;
     }
 }

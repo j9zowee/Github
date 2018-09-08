@@ -50,7 +50,7 @@
         <elementListCompartment Id="f1fd1043-7770-4e57-a429-7e8c1e29322e" absoluteBounds="6.265, 4.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 4.76044840494792); (3.5 : 4.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 4.76044840494792); (3.04166666666667 : 4.76044840494792 : JumpStart); (3.20833333333333 : 4.76044840494792 : JumpEnd); (3.5 : 4.76044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/dcLMSDataContext/tblBook/tblBook_tblBookCopy" />
       <nodes>
         <classShapeMoniker Id="637c1ea1-8b56-4d05-bdb3-7f6247c10b87" />

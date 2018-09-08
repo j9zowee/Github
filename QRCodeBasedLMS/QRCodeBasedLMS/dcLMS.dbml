@@ -357,4 +357,16 @@
       <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_ViewBorrowedBooks" Method="sp_ViewBorrowedBooks">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewBorrowedBooksResult">
+      <Column Name="TransactionNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

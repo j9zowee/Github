@@ -53,6 +53,7 @@
             this.link_ScanBrwr = new Bunifu.Framework.UI.BunifuFlatButton();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPrintLibCard = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBorrowerQR)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -428,12 +429,21 @@
             this.btnPrintLibCard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.btnPrintLibCard.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(431, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 80;
+            // 
             // Borrower
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(736, 507);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnPrintLibCard);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.link_ScanBrwr);
@@ -494,5 +504,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton link_ScanBrwr;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
         private Bunifu.Framework.UI.BunifuFlatButton btnPrintLibCard;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

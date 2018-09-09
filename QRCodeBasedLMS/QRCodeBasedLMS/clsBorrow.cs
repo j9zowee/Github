@@ -8,11 +8,11 @@ namespace QRCodeBasedLMS
 {
     class clsBorrow
     {
-        private string bookIDNum;
-        public string BookIDNum
+        private string accessionIDNumber;
+        public string AccessionIDNumber
         {
-            get { return bookIDNum; }
-            set { bookIDNum = value; }
+            get { return accessionIDNumber; }
+            set { accessionIDNumber = value; }
         }
         private string bookTitle;
         public string BookTitle

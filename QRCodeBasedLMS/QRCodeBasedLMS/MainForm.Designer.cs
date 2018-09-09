@@ -34,7 +34,6 @@
             this.mASTERFILESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.borrowersInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nonReadingMaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uSERACCOUNTSMANAGERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,18 +90,10 @@
             // 
             // borrowersToolStripMenuItem
             // 
-            this.borrowersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.borrowersInformationToolStripMenuItem});
             this.borrowersToolStripMenuItem.Name = "borrowersToolStripMenuItem";
             this.borrowersToolStripMenuItem.Size = new System.Drawing.Size(304, 30);
             this.borrowersToolStripMenuItem.Text = "Borrowers";
-            // 
-            // borrowersInformationToolStripMenuItem
-            // 
-            this.borrowersInformationToolStripMenuItem.Name = "borrowersInformationToolStripMenuItem";
-            this.borrowersInformationToolStripMenuItem.Size = new System.Drawing.Size(297, 30);
-            this.borrowersInformationToolStripMenuItem.Text = "Borrower\'s Information";
-            this.borrowersInformationToolStripMenuItem.Click += new System.EventHandler(this.borrowersInformationToolStripMenuItem_Click);
+            this.borrowersToolStripMenuItem.Click += new System.EventHandler(this.borrowersToolStripMenuItem_Click);
             // 
             // nonReadingMaterialsToolStripMenuItem
             // 
@@ -292,7 +283,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
 
         private System.Windows.Forms.ToolStripMenuItem borrowBookToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem borrowersInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem returnBookToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox4;
         private Bunifu.Framework.UI.BunifuTileButton btnBorrow;

@@ -1,11 +1,10 @@
 use dbLibraryManagement
 
-CREATE PROCEDURE sp_BorrowIDnumber
+CREATE PROCEDURE sp_LastBorrowNumber
 AS
-DECLARE @ID int
-SELECT @ID=IDENT_CURRENT('tblBorrow')
-RETURN @ID;
-select * from tblBorrow
+begin
+	select tblBorrow.borrow_BorrowID from tblBorrow
+end
 
 CREATE PROCEDURE sp_ReturnIDnumber
 AS
@@ -16,16 +15,16 @@ RETURN @ID;
 CREATE PROCEDURE sp_BorrowBook
 @BorrowNum varchar(50),
 @SchoolID varchar(50),
-@BookNum varchar(50),
+@AccNum varchar(50),
 @BorrowedDate datetime,
 @DueDate date
 AS
 BEGIN
 	DECLARE @libUserID int
-	Declare @bookID int
+	Declare @copyID int
 	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
-	select @bookID = dbo.tblBook.book_BookID FROM dbo.tblBook where tblBook.book_BookNum = @BookNum
-	insert into tblBorrow values(@BorrowNum,@libUserID,@bookID,@BorrowedDate,@DueDate)
+	select @copyID = dbo.tblBookCopy.copy_CopyID FROM dbo.tblBookCopy where tblBookCopy.copy_AccNum = @AccNum
+	insert into tblBorrow values(@BorrowNum,@libUserID,@copyID,@BorrowedDate,@DueDate)
 END
 
 

@@ -3,11 +3,11 @@ use dbLibraryManagement
 ---*STORED PROCEDURES*----
 
 ----FOR tblBook----
-CREATE PROCEDURE sp_BookIDnumber
+CREATE PROCEDURE sp_LastBookIDNum
 AS
-DECLARE @ID int
-SELECT @ID=IDENT_CURRENT('tblBook')
-RETURN @ID;
+begin
+	select tblBook.book_BookID from tblBook
+end
 
 CREATE PROCEDURE sp_AddBook
 @BookNum varchar(50),
@@ -60,9 +60,10 @@ CREATE PROCEDURE sp_ViewBookCopy
 AS
 BEGIN
 	SELECT tblBook.book_BookNum as BookIDNumber, tblBookCopy.copy_AccNum as AccessionNumber,
-		tblBookCopy.copy_DateReceived as DateReceived, tblBookCopy.book_Status as Status
+		tblBookCopy.copy_DateReceived as DateReceived, tblBookCopy.copy_Status as Status
 	FROM dbo.tblBook INNER JOIN dbo.tblBookCopy ON dbo.tblBook.book_BookID = dbo.tblBookCopy.book_BookID
 	WHERE tblBook.book_BookNum = @BookNum
+	ORDER BY tblBookCopy.copy_AccNum DESC
 END
 
 CREATE PROCEDURE sp_UpdateBook
@@ -87,6 +88,15 @@ BEGIN
 
 END
 
+CREATE PROCEDURE sp_UpdateBookStatus
+@AccNum varchar(20),
+@Status varchar(20)
+AS
+BEGIN
+	update tblBookCopy
+	set tblBookCopy.copy_Status = @Status
+	where tblBookCopy.copy_AccNum = @AccNum
+END
 
 CREATE PROCEDURE sp_SearchBook
 @Category varchar(50),
@@ -94,30 +104,22 @@ CREATE PROCEDURE sp_SearchBook
 AS
 BEGIN
 	if @Category = 'QR Code'
-	(SELECT dbo.tblBook.book_BookNum as BookIDNumber, dbo.tblBook.book_BookType as BookType, dbo.tblBook.book_ISBN as ISBN, dbo.tblBook.book_CallNum as CallNumber, 
-		dbo.tblBook.book_Title as Title, dbo.tblBook.book_Author as Author, dbo.tblBook.book_Publisher as Publisher, 
-		dbo.tblBook.book_CopyrightYear as CopyrightYear, dbo.tblBook.book_Edition as Edition, 
-		dbo.tblBook.book_Volume as Volume, dbo.tblBook.book_Pages as Pages, dbo.tblBook.book_Remarks as Remarks
-	 FROM dbo.tblBook
-	 where tblBook.book_BookNum like '%'+@searchKey+'%')
-	
+	(SELECT dbo.tblBook.book_BookNum as BookIDNumber, dbo.tblBook.book_BookType as BookType, dbo.tblBook.book_CallNum as CallNumber, 
+		dbo.tblBook.book_Title as Title, dbo.tblBook.book_Author as Author, 
+		dbo.tblBook.book_CopyrightYear as CopyrightYear
+	 FROM dbo.tblBook INNER JOIN dbo.tblBookCopy ON dbo.tblBook.book_BookID = dbo.tblBookCopy.book_BookID
+	 where tblBookCopy.copy_AccNum like '%'+@searchKey+'%')
+	 else if @Category = 'ISBN'
+	(SELECT dbo.tblBook.book_BookNum as BookIDNumber, dbo.tblBook.book_BookType as BookType, dbo.tblBook.book_CallNum as CallNumber, 
+		dbo.tblBook.book_Title as Title, dbo.tblBook.book_Author as Author, 
+		dbo.tblBook.book_CopyrightYear as CopyrightYear
+	 FROM dbo.tblBook INNER JOIN dbo.tblBookCopy ON dbo.tblBook.book_BookID = dbo.tblBookCopy.book_BookID
+	 where tblBook.book_ISBN like '%'+@searchKey+'%')
 	else
-	(SELECT dbo.tblBook.book_BookNum as BookIDNumber, dbo.tblBook.book_BookType as BookType, dbo.tblBook.book_ISBN as ISBN, dbo.tblBook.book_CallNum as CallNumber, 
-		dbo.tblBook.book_Title as Title, dbo.tblBook.book_Author as Author, dbo.tblBook.book_Publisher as Publisher, 
-		dbo.tblBook.book_CopyrightYear as CopyrightYear, dbo.tblBook.book_Edition as Edition, 
-		dbo.tblBook.book_Volume as Volume, dbo.tblBook.book_Pages as Pages, dbo.tblBook.book_Remarks as Remarks
+	(SELECT dbo.tblBook.book_BookNum as BookIDNumber, dbo.tblBook.book_BookType as BookType, dbo.tblBook.book_CallNum as CallNumber, 
+		dbo.tblBook.book_Title as Title, dbo.tblBook.book_Author as Author, 
+		dbo.tblBook.book_CopyrightYear as CopyrightYear
 	 FROM dbo.tblBook 
 	 where tblBook.book_Title like '%'+@searchKey+'%')
-	
 END
 
-CREATE PROCEDURE sp_TotalBookCopy
-@BookNum varchar(50)
-AS
-BEGIN
-	SELECT dbo.tblBookCopy.copy_AccNum
-	FROM dbo.tblBook INNER JOIN dbo.tblBookCopy ON dbo.tblBook.book_BookID = dbo.tblBookCopy.book_BookID
-	WHERE tblBook.book_BookNum = @BookNum
-END
-
-select * from tblLibraryUser

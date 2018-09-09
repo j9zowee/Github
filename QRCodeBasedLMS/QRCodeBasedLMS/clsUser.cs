@@ -81,7 +81,7 @@ namespace QRCodeBasedLMS
         public string GenerateAccountIDNum()
         {
             DateTime dt = DateTime.Now;
-            int x = db.sp_AccountIDnumber()+1;
+            int x = db.sp_LastAcctIDNum().Count() + 1;
             string accID = "Acct-" + x + "-" + dt.Day + dt.Month + dt.Year;
             return accID;
         }

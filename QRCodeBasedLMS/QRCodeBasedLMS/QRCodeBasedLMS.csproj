@@ -116,15 +116,9 @@
     </Compile>
     <Compile Include="clsBook.cs" />
     <Compile Include="clsBorrow.cs" />
-    <Compile Include="clsBorrower.cs" />
     <Compile Include="clsLibrary.cs" />
     <Compile Include="clsReturn.cs" />
     <Compile Include="clsUser.cs" />
-    <Compile Include="dbLibraryManagementDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbLibraryManagementDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="dcLMS.cs">
       <DependentUpon>dcLMS.dbml</DependentUpon>
     </Compile>
@@ -243,17 +237,6 @@
     <EmbeddedResource Include="UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dbLibraryManagementDataSet.xsc">
-      <DependentUpon>dbLibraryManagementDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbLibraryManagementDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbLibraryManagementDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbLibraryManagementDataSet.xss">
-      <DependentUpon>dbLibraryManagementDataSet.xsd</DependentUpon>
-    </None>
     <None Include="dcLMS.dbml.layout">
       <DependentUpon>dcLMS.dbml</DependentUpon>
     </None>

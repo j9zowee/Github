@@ -16,8 +16,6 @@ namespace QRCodeBasedLMS
         public LibraryUserMasterlist()
         {
             InitializeComponent();
-            setSelectedIndex(cmbStartYear);
-            setSelectedIndex(cmbLibraryUser);
         }
         dcLMSDataContext db = new dcLMSDataContext();
         private void btnChoose_Click(object sender, EventArgs e)
@@ -48,16 +46,22 @@ namespace QRCodeBasedLMS
                 DialogResult res = MessageBox.Show("Do you want to import this table to the database?", "Save table", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
-                    string schoolyear = cmbStartYear.Text + "-" + txtEndYear.Text;
-                    for (int i = 0; i < dgvList.RowCount; i++)
+                    if(db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue).Count() != 0)
                     {
-
-                        db.sp_AddLibraryUser(dgvList.Rows[i].Cells[0].Value.ToString(), dgvList.Rows[i].Cells[1].Value.ToString(), dgvList.Rows[i].Cells[2].Value.ToString(),
-                            dgvList.Rows[i].Cells[3].Value.ToString(), dgvList.Rows[i].Cells[4].Value.ToString(), dgvList.Rows[i].Cells[5].Value.ToString(), cmbLibraryUser.Text, schoolyear, false);
-
+                        MessageBox.Show("This record of library users already exists in the database.");
                     }
-                    MessageBox.Show("Successfully Saved to the database!");
-                    dgvList.DataSource = db.sp_ViewLibraryUser(schoolyear);
+                    else
+                    {
+                        for (int i = 0; i < dgvList.RowCount; i++)
+                        {
+
+                            db.sp_AddLibraryUser(dgvList.Rows[i].Cells[0].Value.ToString(), dgvList.Rows[i].Cells[1].Value.ToString(), dgvList.Rows[i].Cells[2].Value.ToString(),
+                                dgvList.Rows[i].Cells[3].Value.ToString(), dgvList.Rows[i].Cells[4].Value.ToString(), dgvList.Rows[i].Cells[5].Value.ToString(), cmbLibraryUser.selectedValue, cmbSchoolYear.selectedValue, false);
+
+                        }
+                        MessageBox.Show("Successfully Saved to the database!");
+                        dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                    }
                 }
                 else
                 {
@@ -65,29 +69,41 @@ namespace QRCodeBasedLMS
                 }
             }
         }
-
         
-        private void cmbStartYear_Leave(object sender, EventArgs e)
-        {
-            int endyear = int.Parse(cmbStartYear.Text) + 1;
-            txtEndYear.Text = endyear.ToString();
-        }
-
         private void LibraryUserMasterlist_Load(object sender, EventArgs e)
         {
+            for (int x = DateTime.Today.Year; x >= (DateTime.Today.Year -10); x--)
+            {
+                cmbSchoolYear.AddItem(x + " - " + (x + 1));
+            }
+            cmbLibraryUser.selectedIndex = 0;
+            cmbSchoolYear.selectedIndex = 0;
 
+            dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
         }
 
-        private void setSelectedIndex(Bunifu.Framework.UI.BunifuDropdown cmb)
+        private void cmbLibraryUser_onItemSelected(object sender, EventArgs e)
         {
-            foreach (Control ctl in cmb.Controls)
+            if(cmbLibraryUser.selectedIndex != -1)
             {
-                if (ctl.GetType() == typeof(ComboBox))
-                {
-                    var drp = (ComboBox)ctl;
-                    drp.SelectedIndex = -1;
-                }
+                dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
+            
+        }
+
+        private void cmbSchoolYear_onItemSelected(object sender, EventArgs e)
+        {
+            if (cmbSchoolYear.selectedIndex != -1)
+            {
+                dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            }
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MainForm main = new MainForm();
+            main.Show();
+            this.Hide();
         }
     } 
 }

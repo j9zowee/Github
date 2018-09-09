@@ -60,7 +60,7 @@
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(179, 22);
-            this.txtUsername.TabIndex = 46;
+            this.txtUsername.TabIndex = 1;
             this.txtUsername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // txtPassword
@@ -77,7 +77,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(179, 22);
-            this.txtPassword.TabIndex = 45;
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // btnLogin
@@ -108,7 +108,7 @@
             this.btnLogin.OnHoverTextColor = System.Drawing.Color.White;
             this.btnLogin.selected = false;
             this.btnLogin.Size = new System.Drawing.Size(108, 40);
-            this.btnLogin.TabIndex = 44;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLogin.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
@@ -165,7 +165,7 @@
             this.link_ForgotPassword.OnHoverTextColor = System.Drawing.Color.White;
             this.link_ForgotPassword.selected = false;
             this.link_ForgotPassword.Size = new System.Drawing.Size(107, 22);
-            this.link_ForgotPassword.TabIndex = 47;
+            this.link_ForgotPassword.TabIndex = 4;
             this.link_ForgotPassword.Text = "Forgot Password?";
             this.link_ForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.link_ForgotPassword.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
@@ -199,7 +199,7 @@
             this.linkSignUp.OnHoverTextColor = System.Drawing.Color.White;
             this.linkSignUp.selected = false;
             this.linkSignUp.Size = new System.Drawing.Size(72, 22);
-            this.linkSignUp.TabIndex = 50;
+            this.linkSignUp.TabIndex = 6;
             this.linkSignUp.Text = "Sign Up";
             this.linkSignUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.linkSignUp.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
@@ -234,7 +234,7 @@
             this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
             this.link_GoBack.selected = false;
             this.link_GoBack.Size = new System.Drawing.Size(72, 22);
-            this.link_GoBack.TabIndex = 51;
+            this.link_GoBack.TabIndex = 5;
             this.link_GoBack.Text = "Go Back";
             this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));

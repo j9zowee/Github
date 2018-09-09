@@ -18,6 +18,8 @@ namespace QRCodeBasedLMS
 {
     public partial class ScanQRCode : Form
     {
+        public string schoolyear;
+        public string brwrtype;
         private string origin;
         public ScanQRCode(string org)
         {
@@ -68,24 +70,32 @@ namespace QRCodeBasedLMS
                         bk.Show();
                         this.Close();
                     }
-                    //else if (origin == "borrower_brwr")
-                    //{
-                    //    Borrower br = new Borrower(decoded);
-                    //    br.Show();
-                    //    this.Close();
-                    //}
-                    //else if (origin == "inquiry")
-                    //{
-                    //    Inquiry inq = new Inquiry(decoded);
-                    //    inq.Show();
-                    //    this.Close();
-                    //}
-                    //else if (origin == "attendance")
-                    //{
-                    //    AttendanceMonitoring am = new AttendanceMonitoring(decoded);
-                    //    am.Show();
-                    //    this.Close();
-                    //}
+                    else if (origin == "booksearch")
+                    {
+                        BookSearch bs = new BookSearch(decoded);
+                        bs.Show();
+                        this.Close();
+                    }
+                    else if (origin == "brwr")
+                    {
+                        Borrower br = new Borrower(decoded);
+                        br.sy = schoolyear;
+                        br.bt = brwrtype;
+                        br.Show();
+                        this.Close();
+                    }
+                    else if (origin == "inquiry")
+                    {
+                        Inquiry inq = new Inquiry(decoded);
+                        inq.Show();
+                        this.Close();
+                    }
+                    else if (origin == "attendance")
+                    {
+                        AttendanceMonitoring am = new AttendanceMonitoring(decoded);
+                        am.Show();
+                        this.Close();
+                    }
                     else
                     {
                         MessageBox.Show("Invalid Destination");

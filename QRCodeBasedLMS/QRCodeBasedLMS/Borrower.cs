@@ -16,21 +16,42 @@ namespace QRCodeBasedLMS
 {
     public partial class Borrower : Form
     {
+        public string sy;
+        public string bt;
         private string qrcode;
-        private string sy;
         public Borrower(string qr)
         {
             InitializeComponent();
             qrcode = qr;
         }
         dcLMSDataContext db = new dcLMSDataContext();
-        clsBorrower brwr = new clsBorrower();
+        ScanQRCode scan = new ScanQRCode("brwr");
+        private Boolean withcard;
         
-
         private void Borrower_Load(object sender, EventArgs e)
         {
+            for (int x = DateTime.Today.Year; x >= (DateTime.Today.Year - 10); x--)
+            {
+                cmbSchoolYear.AddItem(x + " - " + (x + 1));
+            }
+            cmb_SearchCategory.selectedIndex = 0;
+            DisableControls();
+            ClearText();
+            if (qrcode != "")
+            {
+                setDrpText(cmbLibraryUser, bt);
+                setDrpText(cmbSchoolYear, sy);
+                dgvBorrowers.DataSource = db.sp_SearchBorrower(cmb_SearchCategory.selectedValue, sy, bt, qrcode);
+                AssignValuesToTextboxes();
+            }
+            else
+            {
+                cmbSchoolYear.selectedIndex = 0;
+                cmbLibraryUser.selectedIndex = 0;     
+                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            }
             
-            
+
         }
         public void ClearText()
         {
@@ -50,87 +71,157 @@ namespace QRCodeBasedLMS
 
         private void txt_SchoolID_OnValueChanged(object sender, EventArgs e)
         {
-            var fname = (from s in db.tblLibraryUsers
-                         where s.lib_SchoolID == txt_SchoolID.Text
-                         select s.lib_Firstname).FirstOrDefault();
-            var lname = (from s in db.tblLibraryUsers
-                         where s.lib_SchoolID == txt_SchoolID.Text
-                         select s.lib_Lastname).FirstOrDefault();
-            var gender = (from s in db.tblLibraryUsers
-                          where s.lib_SchoolID == txt_SchoolID.Text
-                          select s.lib_Gender).FirstOrDefault();
-            var address = (from s in db.tblLibraryUsers
-                           where s.lib_SchoolID == txt_SchoolID.Text
-                           select s.lib_Address).FirstOrDefault();
-            var contact = (from s in db.tblLibraryUsers
-                           where s.lib_SchoolID == txt_SchoolID.Text
-                           select s.lib_ContactNumber).FirstOrDefault();
-            sy = (from s in db.tblLibraryUsers
-                  where s.lib_SchoolID == txt_SchoolID.Text
-                  select s.lib_SchoolYear).FirstOrDefault();
-
-            txt_Firstname.Text = fname;
-            txt_Lastname.Text = lname;
-            if (gender == "Male")
-            {
-                rb_Male.Checked = true;
-            }
-            else
-            {
-                rb_Female.Checked = true;
-            }
-            txt_Address.Text = address;
-            txt_ContactNum.Text = contact;
-            if (fname != null && lname != null)
-            {
-
-                MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
-                encode.QRCodeScale = 6;
-                Bitmap bmp = encode.Encode(txt_SchoolID.Text);
-                pbBorrowerQR.Image = bmp;
-            }
+            MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
+            encode.QRCodeScale = 6;
+            Bitmap bmp = encode.Encode(txt_SchoolID.Text);
+            pbBorrowerQR.Image = bmp;
         }
 
-        private void btnUpdateorSave_Click_1(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (btnUpdateorSave.Text == "UPDATE")
+            string gen;
+            if (rb_Male.Checked)
             {
-                btnUpdateorSave.Text = "Save";
-                txt_Lastname.Enabled = true;
-                txt_Firstname.Enabled = true;
-                rb_Male.Enabled = true;
-                rb_Female.Enabled = true;
-                txt_Address.Enabled = true;
-                txt_ContactNum.Enabled = true;
+                gen = "Male";
             }
             else
             {
-                string gen;
-                if (rb_Male.Checked)
-                {
-                    gen = "Male";
-                }
-                else
-                {
-                    gen = "Female";
-                }
-                db.sp_UpdateLibraryUser(txt_SchoolID.Text, txt_Firstname.Text, txt_Lastname.Text, gen, txt_Address.Text, txt_ContactNum.Text, sy, true);
-                MessageBox.Show("Sucessfully Updated!");
-                btnUpdateorSave.Text = "Update";
-                txt_Lastname.Enabled = false;
-                txt_Firstname.Enabled = false;
-                rb_Male.Enabled = false;
-                rb_Female.Enabled = false;
-                txt_Address.Enabled = false;
-                txt_ContactNum.Enabled = false;
+                gen = "Female";
             }
+            db.sp_UpdateLibraryUser(txt_SchoolID.Text, txt_Firstname.Text, txt_Lastname.Text, gen, txt_Address.Text, txt_ContactNum.Text, cmbSchoolYear.selectedValue, withcard);
+            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            MessageBox.Show("Sucessfully Updated!");
+            
         }
         
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            IndexForm index = new IndexForm();
-            index.Show();
+            MainForm main = new MainForm();
+            main.Show();
             this.Hide();
+        }
+
+        private void cmb_SearchCategory_onItemSelected(object sender, EventArgs e)
+        {
+            if (cmb_SearchCategory.selectedValue == "QR Code")
+            {
+                link_ScanQr.Visible = true;
+                txt_Search.Visible = false;
+            }
+            else
+            {
+                txt_Search.Visible = true;
+                link_ScanQr.Visible = false;
+            }
+        }
+
+        private void cmbLibraryUser_onItemSelected(object sender, EventArgs e)
+        {
+            if (cmbLibraryUser.selectedIndex != -1)
+            {
+                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            }
+            ClearText();
+        }
+
+        private void cmbSchoolYear_onItemSelected(object sender, EventArgs e)
+        {
+            if (cmbSchoolYear.selectedIndex != -1)
+            {
+                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            }
+            ClearText();
+        }
+
+        private void dgvBorrowers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AssignValuesToTextboxes();
+        }
+        public void AssignValuesToTextboxes()
+        {
+            EnableControls();
+            txt_SchoolID.Text = dgvBorrowers.CurrentRow.Cells[0].Value.ToString();
+            txt_Firstname.Text = dgvBorrowers.CurrentRow.Cells[1].Value.ToString();
+            txt_Lastname.Text = dgvBorrowers.CurrentRow.Cells[2].Value.ToString();
+            string gen = dgvBorrowers.CurrentRow.Cells[3].Value.ToString();
+            if (gen == "Male") rb_Male.Checked = true;
+            else rb_Female.Checked = true;
+            txt_Address.Text = dgvBorrowers.CurrentRow.Cells[4].Value.ToString();
+            txt_ContactNum.Text = dgvBorrowers.CurrentRow.Cells[5].Value.ToString();
+            withcard = Boolean.Parse(dgvBorrowers.CurrentRow.Cells[6].Value.ToString());
+        }
+        public void DisableControls()
+        {
+            btnUpdate.Enabled = false;
+            btnPrintLibCard.Enabled = false;
+            txt_SchoolID.Enabled = false;
+            txt_Lastname.Enabled = false;
+            txt_Firstname.Enabled = false;
+            rb_Male.Enabled = false;
+            rb_Female.Enabled = false;
+            txt_Address.Enabled = false;
+            txt_ContactNum.Enabled = false;
+        }
+        public void EnableControls()
+        {
+            btnUpdate.Enabled = true;
+            btnPrintLibCard.Enabled = true;
+            txt_SchoolID.Enabled = false;
+            txt_Lastname.Enabled = true;
+            txt_Firstname.Enabled = true;
+            rb_Male.Enabled = true;
+            rb_Female.Enabled = true;
+            txt_Address.Enabled = true;
+            txt_ContactNum.Enabled = true;
+        }
+
+        private void btnPrintLibCard_Click(object sender, EventArgs e)
+        {
+            string gen;
+            if (rb_Male.Checked)
+            {
+                gen = "Male";
+            }
+            else
+            {
+                gen = "Female";
+            }
+            db.sp_UpdateLibraryUser(txt_SchoolID.Text, txt_Firstname.Text, txt_Lastname.Text, gen, txt_Address.Text, txt_ContactNum.Text, cmbSchoolYear.selectedValue, true);
+            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
+            {
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    pbBorrowerQR.Image.Save(sfd.FileName, ImageFormat.Jpeg);
+                }
+            }
+            ClearText();
+            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            MessageBox.Show("Printing!");
+            DisableControls();
+        }
+
+        private void link_ScanQr_Click(object sender, EventArgs e)
+        {            
+            scan.schoolyear = cmbSchoolYear.selectedValue;
+            scan.brwrtype = cmbLibraryUser.selectedValue;
+            scan.Show();
+            this.Hide();
+        }
+
+        private void txt_Search_OnValueChanged(object sender, EventArgs e)
+        {
+            dgvBorrowers.DataSource = db.sp_SearchBorrower(cmb_SearchCategory.selectedValue, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue, txt_Search.Text);
+        }
+        public void setDrpText(Bunifu.Framework.UI.BunifuDropdown drpCombo, string text)
+        {
+            foreach (Control ctl in drpCombo.Controls)
+            {
+                if (ctl.GetType() == typeof(ComboBox))
+                {
+                    var cmb = (ComboBox)ctl;
+                    cmb.Text = text;                    
+                }
+            }
         }
     }
 }

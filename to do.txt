@@ -1,4 +1,17 @@
+*check for duplication of records
+	-BOOK
+		:Accession Number
+		:Title,Author,CopyrightYear,edition,volume(as book)
+		:ISBN
 
+*Do not display all information in the dgv
+*check for duplication of first two idnumbers
+*Order list(order by)
+*Allow pages(book) to be null
+-----------------------------------
+-----------------------------------
+-----------------------------------
+-----------------------------------
 -----------------------------------
 *Check if the library card is from the current schoolyear
 *Nonreading materials
@@ -22,7 +35,7 @@ BUGs
 *borrower school year
 *maximize use of classes
 *Allow pages(book) to be null	
-
+*nonreadingmaterials
 <TAKE NOTE:>
 *Return transaction shall only be done by the libarian or staff.
 *Borrowing Transaction shall be done by the student.

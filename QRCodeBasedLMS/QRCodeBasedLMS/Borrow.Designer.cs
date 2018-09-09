@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvBorrow = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BookIDNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,7 +43,6 @@
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.txt_BorrowerID = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_Name = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.txt_BookIDNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_Title = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.btnScan = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnBorrows = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -54,6 +53,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.link_GoBack = new System.Windows.Forms.LinkLabel();
+            this.txtAccNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -77,9 +77,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Book ID Number :";
+            this.label2.Text = "Accession Number :";
             // 
             // dgvBorrow
             // 
@@ -90,7 +90,7 @@
             this.dgvBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBorrow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delete,
-            this.BookIDNum,
+            this.AccessionNumber,
             this.bookTitleDataGridViewTextBoxColumn,
             this.dueDateDataGridViewTextBoxColumn});
             this.dgvBorrow.DataSource = this.clsBorrowBindingSource;
@@ -112,12 +112,12 @@
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
-            // BookIDNum
+            // AccessionNumber
             // 
-            this.BookIDNum.DataPropertyName = "BookIDNum";
-            this.BookIDNum.HeaderText = "Book ID Number";
-            this.BookIDNum.Name = "BookIDNum";
-            this.BookIDNum.ReadOnly = true;
+            this.AccessionNumber.DataPropertyName = "AccessionIDNumber";
+            this.AccessionNumber.HeaderText = "AccessionNumber";
+            this.AccessionNumber.Name = "AccessionNumber";
+            this.AccessionNumber.ReadOnly = true;
             // 
             // bookTitleDataGridViewTextBoxColumn
             // 
@@ -196,24 +196,6 @@
             this.txt_Name.Size = new System.Drawing.Size(224, 22);
             this.txt_Name.TabIndex = 68;
             this.txt_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // txt_BookIDNum
-            // 
-            this.txt_BookIDNum.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_BookIDNum.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.txt_BookIDNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_BookIDNum.BorderThickness = 1;
-            this.txt_BookIDNum.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txt_BookIDNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txt_BookIDNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.txt_BookIDNum.isPassword = false;
-            this.txt_BookIDNum.Location = new System.Drawing.Point(129, 14);
-            this.txt_BookIDNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_BookIDNum.Name = "txt_BookIDNum";
-            this.txt_BookIDNum.Size = new System.Drawing.Size(165, 22);
-            this.txt_BookIDNum.TabIndex = 69;
-            this.txt_BookIDNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_BookIDNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNums_OnValueChanged);
             // 
             // txt_Title
             // 
@@ -380,7 +362,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txt_BookIDNum);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txt_Title);
@@ -406,12 +387,31 @@
             this.link_GoBack.Text = "Go Back";
             this.link_GoBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_GoBack_LinkClicked);
             // 
+            // txtAccNum
+            // 
+            this.txtAccNum.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txtAccNum.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.txtAccNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txtAccNum.BorderThickness = 1;
+            this.txtAccNum.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtAccNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtAccNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.txtAccNum.isPassword = false;
+            this.txtAccNum.Location = new System.Drawing.Point(581, 173);
+            this.txtAccNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtAccNum.Name = "txtAccNum";
+            this.txtAccNum.Size = new System.Drawing.Size(150, 22);
+            this.txtAccNum.TabIndex = 71;
+            this.txtAccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAccNum.OnValueChanged += new System.EventHandler(this.txtAccNum_OnValueChanged);
+            // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(750, 621);
+            this.Controls.Add(this.txtAccNum);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -448,7 +448,6 @@
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_BorrowerID;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Name;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txt_BookIDNum;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Title;
         private Bunifu.Framework.UI.BunifuFlatButton btnScan;
         private Bunifu.Framework.UI.BunifuFlatButton btnBorrows;
@@ -459,10 +458,11 @@
         private System.Windows.Forms.PictureBox pb_ScanQR;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.BindingSource clsBorrowBindingSource;
+        private System.Windows.Forms.LinkLabel link_GoBack;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookIDNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccessionNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.LinkLabel link_GoBack;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txtAccNum;
     }
 }

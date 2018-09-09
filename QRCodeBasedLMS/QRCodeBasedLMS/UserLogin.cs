@@ -17,9 +17,23 @@ namespace QRCodeBasedLMS
             InitializeComponent();
         }
         dcLMSDataContext db = new dcLMSDataContext();
+        clsUser user = new clsUser();
         private void UserLogin_Load(object sender, EventArgs e)
         {
+            if(db.sp_LastAcctIDNum().Count() == 0)
+            {
+                user.UserIDNumber = user.GenerateAccountIDNum();
+                user.Firstname = "SuperAdmin";
+                user.Lastname = "";
+                user.Username = "SuperAdmin";
+                user.Password = "JaneDoe";
+                user.SecretQuestion = "";
+                user.SecretAnswer = "";
+                user.Usertype = "SuperAdmin";
+                user.Status = "Active";
 
+                user.AddRecord();
+            }
         }
 
         private void linkSignUp_Click(object sender, EventArgs e)

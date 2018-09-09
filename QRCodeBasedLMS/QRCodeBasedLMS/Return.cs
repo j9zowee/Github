@@ -77,7 +77,7 @@ namespace QRCodeBasedLMS
         private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            int x = db.sp_BorrowIDnumber() + 1;
+            int x = db.sp_LastBorrowNumber().Count() + 1;
             string returnID = "RTN-" + x + "-" + dt.Day + dt.Month + dt.Year;
             string remarks = "";
             if (lblTotalFee.Text == "0")

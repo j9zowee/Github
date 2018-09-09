@@ -31,19 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookSearch));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBook = new System.Windows.Forms.DataGridView();
             this.link_Scan = new Bunifu.Framework.UI.BunifuFlatButton();
             this.cmb_SearchCategory = new Bunifu.Framework.UI.BunifuDropdown();
             this.label14 = new System.Windows.Forms.Label();
             this.txt_Search = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.rb_Lost = new System.Windows.Forms.RadioButton();
-            this.rb_Damaged = new System.Windows.Forms.RadioButton();
-            this.rb_Borrowed = new System.Windows.Forms.RadioButton();
-            this.rb_Available = new System.Windows.Forms.RadioButton();
-            this.rb_All = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -51,14 +45,17 @@
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // dataGridView1
+            // dgvBook
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 87);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(920, 370);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvBook.AllowUserToAddRows = false;
+            this.dgvBook.AllowUserToDeleteRows = false;
+            this.dgvBook.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
+            this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBook.Location = new System.Drawing.Point(12, 74);
+            this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
+            this.dgvBook.Size = new System.Drawing.Size(607, 371);
+            this.dgvBook.TabIndex = 0;
             // 
             // link_Scan
             // 
@@ -93,6 +90,8 @@
             this.link_Scan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.link_Scan.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_Scan.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.link_Scan.Visible = false;
+            this.link_Scan.Click += new System.EventHandler(this.link_Scan_Click);
             // 
             // cmb_SearchCategory
             // 
@@ -104,8 +103,7 @@
             this.cmb_SearchCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.cmb_SearchCategory.Items = new string[] {
         "QR Code",
-        "Title",
-        "Author"};
+        "Title"};
             this.cmb_SearchCategory.Location = new System.Drawing.Point(90, 33);
             this.cmb_SearchCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_SearchCategory.Name = "cmb_SearchCategory";
@@ -114,6 +112,7 @@
             this.cmb_SearchCategory.selectedIndex = -1;
             this.cmb_SearchCategory.Size = new System.Drawing.Size(153, 21);
             this.cmb_SearchCategory.TabIndex = 76;
+            this.cmb_SearchCategory.onItemSelected += new System.EventHandler(this.cmb_SearchCategory_onItemSelected);
             // 
             // label14
             // 
@@ -137,102 +136,65 @@
             this.txt_Search.Location = new System.Drawing.Point(251, 33);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Size = new System.Drawing.Size(147, 22);
+            this.txt_Search.Size = new System.Drawing.Size(208, 22);
             this.txt_Search.TabIndex = 77;
             this.txt_Search.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_Search.Visible = false;
+            this.txt_Search.OnValueChanged += new System.EventHandler(this.txt_Search_OnValueChanged);
             // 
-            // rb_Lost
+            // link_GoBack
             // 
-            this.rb_Lost.AutoSize = true;
-            this.rb_Lost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Lost.Location = new System.Drawing.Point(350, 28);
-            this.rb_Lost.Name = "rb_Lost";
-            this.rb_Lost.Size = new System.Drawing.Size(51, 20);
-            this.rb_Lost.TabIndex = 83;
-            this.rb_Lost.TabStop = true;
-            this.rb_Lost.Text = "Lost";
-            this.rb_Lost.UseVisualStyleBackColor = true;
-            // 
-            // rb_Damaged
-            // 
-            this.rb_Damaged.AutoSize = true;
-            this.rb_Damaged.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Damaged.Location = new System.Drawing.Point(257, 28);
-            this.rb_Damaged.Name = "rb_Damaged";
-            this.rb_Damaged.Size = new System.Drawing.Size(87, 20);
-            this.rb_Damaged.TabIndex = 82;
-            this.rb_Damaged.TabStop = true;
-            this.rb_Damaged.Text = "Damaged";
-            this.rb_Damaged.UseVisualStyleBackColor = true;
-            // 
-            // rb_Borrowed
-            // 
-            this.rb_Borrowed.AutoSize = true;
-            this.rb_Borrowed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Borrowed.Location = new System.Drawing.Point(165, 28);
-            this.rb_Borrowed.Name = "rb_Borrowed";
-            this.rb_Borrowed.Size = new System.Drawing.Size(84, 20);
-            this.rb_Borrowed.TabIndex = 81;
-            this.rb_Borrowed.TabStop = true;
-            this.rb_Borrowed.Text = "Borrowed";
-            this.rb_Borrowed.UseVisualStyleBackColor = true;
-            // 
-            // rb_Available
-            // 
-            this.rb_Available.AutoSize = true;
-            this.rb_Available.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_Available.Location = new System.Drawing.Point(76, 29);
-            this.rb_Available.Name = "rb_Available";
-            this.rb_Available.Size = new System.Drawing.Size(83, 20);
-            this.rb_Available.TabIndex = 80;
-            this.rb_Available.TabStop = true;
-            this.rb_Available.Text = "Available";
-            this.rb_Available.UseVisualStyleBackColor = true;
-            // 
-            // rb_All
-            // 
-            this.rb_All.AutoSize = true;
-            this.rb_All.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_All.Location = new System.Drawing.Point(29, 30);
-            this.rb_All.Name = "rb_All";
-            this.rb_All.Size = new System.Drawing.Size(41, 20);
-            this.rb_All.TabIndex = 79;
-            this.rb_All.TabStop = true;
-            this.rb_All.Text = "All";
-            this.rb_All.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rb_All);
-            this.groupBox1.Controls.Add(this.rb_Available);
-            this.groupBox1.Controls.Add(this.rb_Lost);
-            this.groupBox1.Controls.Add(this.rb_Borrowed);
-            this.groupBox1.Controls.Add(this.rb_Damaged);
-            this.groupBox1.Location = new System.Drawing.Point(513, 1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 67);
-            this.groupBox1.TabIndex = 85;
-            this.groupBox1.TabStop = false;
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(552, 12);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(72, 22);
+            this.link_GoBack.TabIndex = 97;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
             // BookSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(944, 469);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(636, 462);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.link_Scan);
             this.Controls.Add(this.cmb_SearchCategory);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_Search);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvBook);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BookSearch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BookSearch";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Load += new System.EventHandler(this.BookSearch_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,16 +203,11 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBook;
         private Bunifu.Framework.UI.BunifuFlatButton link_Scan;
         private Bunifu.Framework.UI.BunifuDropdown cmb_SearchCategory;
         private System.Windows.Forms.Label label14;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Search;
-        private System.Windows.Forms.RadioButton rb_Lost;
-        private System.Windows.Forms.RadioButton rb_Damaged;
-        private System.Windows.Forms.RadioButton rb_Borrowed;
-        private System.Windows.Forms.RadioButton rb_Available;
-        private System.Windows.Forms.RadioButton rb_All;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

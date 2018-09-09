@@ -31,6 +31,7 @@ namespace QRCodeBasedLMS
                 MessageBox.Show("Successfully recorded your attendance.");
                 txt_SchoolIDNumber.Text = "";
                 txt_Name.Text = "";
+                pb_ScanQR.Image = null;
             }
         }
         
@@ -66,6 +67,7 @@ namespace QRCodeBasedLMS
             db.sp_Attendance(txt_SchoolIDNumber.Text, txt_Name.Text, dt);
             txt_SchoolIDNumber.Text = "";
             txt_Name.Text = "";
+            pb_ScanQR.Image = null;
         }
 
         private void link_ScanQR_Click(object sender, EventArgs e)

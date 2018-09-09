@@ -72,21 +72,17 @@ namespace QRCodeBasedLMS
             var lname = (from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text select s.lib_Lastname).FirstOrDefault();
             txt_Name.Text = lname + ", " + fname;
         }
-        private void txt_BookIDNums_OnValueChanged(object sender, EventArgs e)
-        {
-            txt_Title.Text = (from s in db.tblBooks where s.book_BookNum == txt_BookIDNum.Text select s.book_Title).FirstOrDefault();
-        }
-
         private void btnScans_Click(object sender, EventArgs e)
         {
             timer.Enabled = true;
             timer.Start();
+            
         }
 
         private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            int x = db.sp_BorrowIDnumber() + 1;
+            int x = db.sp_LastBorrowNumber().Count() + 1;
             string borrowID = "BRW-" + x + "-" + dt.Day + dt.Month + dt.Year;
             DialogResult res = MessageBox.Show("CONFIRM:\nDo you want to borrow all the books in the table?", "Borrow Book", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
@@ -97,7 +93,7 @@ namespace QRCodeBasedLMS
                 }
 
                 MessageBox.Show("Successully Borrowed!");
-                txt_BookIDNum.Text = "";
+                txtAccNum.Text = "";
                 txt_BorrowerID.Text = "";
                 IndexForm index = new IndexForm();
                 index.Show();
@@ -121,10 +117,10 @@ namespace QRCodeBasedLMS
                     }
                     else
                     {
-                        txt_BookIDNum.Text = decoded;
+                        txtAccNum.Text = decoded;
                         DateTime dt = DateTime.Now;
                         DateTime due = dt.AddDays(3);
-                        clsBorrowBindingSource.Add(new clsBorrow() {BookIDNum = txt_BookIDNum.Text, BookTitle = txt_Title.Text, DueDate = due});
+                        clsBorrowBindingSource.Add(new clsBorrow() {AccessionIDNumber = txt_AccNum.Text, BookTitle = txt_Title.Text, DueDate = due});
                         btnScan.Text = "Scan Another Book";
                     }
                     
@@ -166,6 +162,13 @@ namespace QRCodeBasedLMS
             IndexForm index = new IndexForm();
             index.Show();
             this.Close();
+        }
+
+        private void txtAccNum_OnValueChanged(object sender, EventArgs e)
+        {
+            string x = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == txt_AccNum.Text select book.book_Title).FirstOrDefault();
+
+            MessageBox.Show(x);
         }
     }
 }

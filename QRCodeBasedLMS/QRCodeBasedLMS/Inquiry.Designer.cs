@@ -40,7 +40,6 @@
             this.txt_Firstname = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_SchoolID = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.bunifuElipse2 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.link_ScanBrwr = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label2 = new System.Windows.Forms.Label();
             this.rb_Female = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -216,6 +215,7 @@
             this.txt_SchoolID.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.txt_SchoolID.BorderThickness = 1;
             this.txt_SchoolID.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_SchoolID.Enabled = false;
             this.txt_SchoolID.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_SchoolID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_SchoolID.isPassword = false;
@@ -231,40 +231,6 @@
             // 
             this.bunifuElipse2.ElipseRadius = 5;
             this.bunifuElipse2.TargetControl = this;
-            // 
-            // link_ScanBrwr
-            // 
-            this.link_ScanBrwr.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.link_ScanBrwr.BackColor = System.Drawing.Color.Transparent;
-            this.link_ScanBrwr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.link_ScanBrwr.BorderRadius = 7;
-            this.link_ScanBrwr.ButtonText = "Scan Borrower QR Code";
-            this.link_ScanBrwr.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.link_ScanBrwr.DisabledColor = System.Drawing.Color.Gray;
-            this.link_ScanBrwr.Iconcolor = System.Drawing.Color.Transparent;
-            this.link_ScanBrwr.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_ScanBrwr.Iconimage")));
-            this.link_ScanBrwr.Iconimage_right = null;
-            this.link_ScanBrwr.Iconimage_right_Selected = null;
-            this.link_ScanBrwr.Iconimage_Selected = null;
-            this.link_ScanBrwr.IconMarginLeft = 0;
-            this.link_ScanBrwr.IconMarginRight = 0;
-            this.link_ScanBrwr.IconRightVisible = false;
-            this.link_ScanBrwr.IconRightZoom = 0D;
-            this.link_ScanBrwr.IconVisible = false;
-            this.link_ScanBrwr.IconZoom = 110D;
-            this.link_ScanBrwr.IsTab = false;
-            this.link_ScanBrwr.Location = new System.Drawing.Point(23, 202);
-            this.link_ScanBrwr.Name = "link_ScanBrwr";
-            this.link_ScanBrwr.Normalcolor = System.Drawing.Color.Transparent;
-            this.link_ScanBrwr.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.link_ScanBrwr.OnHoverTextColor = System.Drawing.Color.White;
-            this.link_ScanBrwr.selected = false;
-            this.link_ScanBrwr.Size = new System.Drawing.Size(176, 22);
-            this.link_ScanBrwr.TabIndex = 95;
-            this.link_ScanBrwr.Text = "Scan Borrower QR Code";
-            this.link_ScanBrwr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.link_ScanBrwr.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.link_ScanBrwr.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             // 
             // label2
             // 
@@ -392,9 +358,13 @@
             // 
             // dgvBorrowed
             // 
+            this.dgvBorrowed.AllowUserToAddRows = false;
+            this.dgvBorrowed.AllowUserToDeleteRows = false;
+            this.dgvBorrowed.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBorrowed.Location = new System.Drawing.Point(36, 304);
             this.dgvBorrowed.Name = "dgvBorrowed";
+            this.dgvBorrowed.ReadOnly = true;
             this.dgvBorrowed.Size = new System.Drawing.Size(690, 205);
             this.dgvBorrowed.TabIndex = 97;
             // 
@@ -412,7 +382,6 @@
             this.Controls.Add(this.txt_Lastname);
             this.Controls.Add(this.txt_Firstname);
             this.Controls.Add(this.txt_SchoolID);
-            this.Controls.Add(this.link_ScanBrwr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label10);
@@ -450,7 +419,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Lastname;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Firstname;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_SchoolID;
-        private Bunifu.Framework.UI.BunifuFlatButton link_ScanBrwr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rb_Female;

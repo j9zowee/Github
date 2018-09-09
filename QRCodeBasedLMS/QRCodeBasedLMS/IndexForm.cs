@@ -73,7 +73,7 @@ namespace QRCodeBasedLMS
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            BookSearch bs = new BookSearch();
+            BookSearch bs = new BookSearch("");
             bs.Show();
             this.Hide();
         }

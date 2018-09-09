@@ -1,11 +1,10 @@
 use dbLibraryManagement
 ----for tblUser---
-CREATE PROCEDURE sp_AccountIDnumber
+CREATE PROCEDURE sp_LastAcctIDNum
 AS
-DECLARE @ID int
-SELECT @ID=IDENT_CURRENT('tblUserAccount')
-RETURN @ID;
-
+begin
+	select tblUserAccount.user_UserID from tblUserAccount
+end
 
 select * from tblUserAccount
 create procedure sp_AddAccount
@@ -32,12 +31,12 @@ BEGIN
 	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 	FROM dbo.tblUserAccount
-	where (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'Super Administrator')
+	where (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'SuperAdmin')
 	else
 	((SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 		FROM dbo.tblUserAccount
-		where dbo.tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'Super Administrator'))
+		where dbo.tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'SuperAdmin'))
 END
 
 
@@ -81,11 +80,11 @@ BEGIN
 	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 	FROM dbo.tblUserAccount
-	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'Super Administrator')
+	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'SuperAdmin')
 	else 
 	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 	FROM dbo.tblUserAccount
-	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'Super Administrator')
+	 where (tblUserAccount.user_UserNum like '%'+@searchKey+'%' or tblUserAccount.user_Firstname like '%'+@searchKey+'%' or tblUserAccount.user_Lastname like '%'+@searchKey+'%')and (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'SuperAdmin')
 END
 

@@ -44,9 +44,9 @@ book_Remarks varchar(200))
 
 create table tblBookCopy(
 copy_CopyID int identity(1,1) primary key,
-copy_AccNum int not null,
+copy_AccNum varchar(20) not null,
 copy_DateReceived date,
-book_Status varchar(20)not null,
+copy_Status varchar(20),
 book_BookID int foreign key references tblBook(book_BookID))
 
 create table tblNonReadingMaterial(
@@ -61,7 +61,7 @@ create table tblBorrow(
 borrow_BorrowID int identity(1,1) primary key,
 borrow_BorrowNum varchar(50)not null,
 lib_UserID int foreign key references tblLibraryUser(lib_UserID),
-book_BookID int foreign key references tblBook(book_BookID),
+copy_CopyID int foreign key references tblBookCopy(copy_CopyID),
 borrow_BorrowedDate date not null,
 borrow_DueDate date not null)
 
@@ -72,6 +72,14 @@ borrow_BorrowID int foreign key references tblBorrow(borrow_BorrowID),
 return_ReturnDate date not null,
 return_Penalty decimal not null,
 return_PenaltyRemarks varchar(20) not null)
+
+
+create table tblPenalty(
+penalty_PenaltyID int identity(1,1) primary key,
+penalty_NumOfDaysUnreturned int,
+penalty_PenaltyFee double,
+penalty_Remarks varchar(50),
+return_ReturnID int foreign key references tblReturn(return_ReturnID))
 
 create table tblAttendance(
 attendance_AttendanceID int identity(1,1) primary key,

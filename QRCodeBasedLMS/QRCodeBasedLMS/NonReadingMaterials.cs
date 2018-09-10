@@ -45,20 +45,25 @@ namespace QRCodeBasedLMS
 
         private void dgv_NonReadingMaterials_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txt_MaterialIDNumber.Text = dgv_NonReadingMaterials.CurrentRow.Cells[1].Value.ToString();
-            setComboBoxValue(cmb_MatType, dgv_NonReadingMaterials.CurrentRow.Cells[2].Value.ToString());
-            txt_Title.Text = dgv_NonReadingMaterials.CurrentRow.Cells[3].Value.ToString();
-            txt_Volume.Text = dgv_NonReadingMaterials.CurrentRow.Cells[4].Value.ToString();
-            txt_Issue.Text = dgv_NonReadingMaterials.CurrentRow.Cells[5].Value.ToString();
-            txt_CopyrightYear.Text = dgv_NonReadingMaterials.CurrentRow.Cells[6].Value.ToString();
-            txt_Author.Text = dgv_NonReadingMaterials.CurrentRow.Cells[7].Value.ToString();
-            txt_Publisher.Text = dgv_NonReadingMaterials.CurrentRow.Cells[8].Value.ToString();
-            txt_Page.Text = dgv_NonReadingMaterials.CurrentRow.Cells[9].Value.ToString();
-            txt_NumberOfCopies.Text = dgv_NonReadingMaterials.CurrentRow.Cells[10].Value.ToString();
+            txt_MaterialIDNumber.Text = dgv_NonReadingMaterials.CurrentRow.Cells[0].Value.ToString();
+            setComboBoxValue(cmb_MatType, dgv_NonReadingMaterials.CurrentRow.Cells[1].Value.ToString());
+            txt_Title.Text = dgv_NonReadingMaterials.CurrentRow.Cells[2].Value.ToString();
+            txt_Volume.Text = dgv_NonReadingMaterials.CurrentRow.Cells[3].Value.ToString();
+            txt_Issue.Text = dgv_NonReadingMaterials.CurrentRow.Cells[4].Value.ToString();
+            txt_CopyrightYear.Text = dgv_NonReadingMaterials.CurrentRow.Cells[5].Value.ToString();
+            txt_Author.Text = dgv_NonReadingMaterials.CurrentRow.Cells[6].Value.ToString();
+            txt_Publisher.Text = dgv_NonReadingMaterials.CurrentRow.Cells[7].Value.ToString();
+            txt_Page.Text = dgv_NonReadingMaterials.CurrentRow.Cells[8].Value.ToString();
+            txt_NumberOfCopies.Text = dgv_NonReadingMaterials.CurrentRow.Cells[9].Value.ToString();
             btnAddOrUpdate.Text = "UPDATE";
         }
 
-        // mao ni ako pasabot diay oy hahahahah
+        private void txt_Search_OnValueChanged(object sender, EventArgs e)
+        {
+            dgv_NonReadingMaterials.DataSource = db.sp_SearchNonReadingMaterial(txt_Search.Text);
+        }
+
+        
         public void Clear()
         {
             txt_MaterialIDNumber.Text = "";
@@ -71,6 +76,7 @@ namespace QRCodeBasedLMS
             txt_Publisher.Text = "";
             txt_Page.Text = "";
             txt_NumberOfCopies.Text = "";
+            btnAddOrUpdate.Text = "ADD";
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -91,7 +97,5 @@ namespace QRCodeBasedLMS
                 }
             }
         }
-
-
     }
 }

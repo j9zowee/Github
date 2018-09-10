@@ -125,19 +125,20 @@ namespace QRCodeBasedLMS
                     {
                         txt_BookIDNum.Text = decoded;
 
-                        int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_BookIDNum.Text);
-                        DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
-                        DateTime dt = DateTime.Now;
-                        int diff = (dt - due).Days;
-                        if (diff < 0) { diff = 0; }
-                        double penalty = 0;
-                        if ((diff * 3) < 0) { penalty = 0; }
-                        else { penalty = diff * 3; }
+                        // usbunon ang name sa db since giusab ang column name
+                        //int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_BookIDNum.Text);
+                        //DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
+                        //DateTime dt = DateTime.Now;
+                        //int diff = (dt - due).Days;
+                        //if (diff < 0) { diff = 0; }
+                        //double penalty = 0;
+                        //if ((diff * 3) < 0) { penalty = 0; }
+                        //else { penalty = diff * 3; }
 
-                        //-----
-                        clsReturnBindingSource.Add(new clsReturn() {BookIDNum = txt_BookIDNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
-                        GetTotalPenalty();
-                        btnScan.Text = "Scan Another Book";
+                        ////-----
+                        //clsReturnBindingSource.Add(new clsReturn() {BookIDNum = txt_BookIDNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
+                        //GetTotalPenalty();
+                        //btnScan.Text = "Scan Another Book";
                     }
 
                 }

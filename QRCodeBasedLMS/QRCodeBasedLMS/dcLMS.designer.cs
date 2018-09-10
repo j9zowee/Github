@@ -54,7 +54,7 @@ namespace QRCodeBasedLMS
     #endregion
 		
 		public dcLMSDataContext() : 
-				base(global::QRCodeBasedLMS.Properties.Settings.Default.dbLibraryManagementConnectionString, mappingSource)
+				base(global::QRCodeBasedLMS.Properties.Settings.Default.dbLibraryManagementConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -139,6 +139,13 @@ namespace QRCodeBasedLMS
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddAccount")]
+		public int sp_AddAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretQuestion", DbType="VarChar(100)")] string secretQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretAnswer", DbType="VarChar(100)")] string secretAnswer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(20)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, firstname, lastname, username, password, secretQuestion, secretAnswer, userType, status);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddBook")]
 		public int sp_AddBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookType", DbType="VarChar(50)")] string bookType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISBN", DbType="VarChar(50)")] string iSBN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="Int")] System.Nullable<int> accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallNum", DbType="VarChar(50)")] string callNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateReceived", DbType="Date")] System.Nullable<System.DateTime> dateReceived, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="VarChar(200)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Author", DbType="VarChar(50)")] string author, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Publisher", DbType="VarChar(100)")] string publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CopyrightYear", DbType="Int")] System.Nullable<int> copyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edition", DbType="VarChar(50)")] string edition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Volume", DbType="VarChar(50)")] string volume, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pages", DbType="Int")] System.Nullable<int> pages, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="VarChar(200)")] string remarks)
 		{
@@ -160,165 +167,18 @@ namespace QRCodeBasedLMS
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddNonReadingMaterial")]
+		public int sp_AddNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nrm_MaterialNum, nrm_MaterialType, nrm_Title, nrm_Volume, nrm_Issue, nrm_CopyrightYear, nrm_Author, nrm_Publisher, nrm_Page, nrm_NumberOfCopies);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Attendance")]
 		public int sp_Attendance([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StudentID", DbType="VarChar(50)")] string studentID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Name", DbType="VarChar(50)")] string name, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoginTime", DbType="DateTime")] System.Nullable<System.DateTime> loginTime)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), studentID, name, loginTime);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateBook")]
-		public int sp_UpdateBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookType", DbType="VarChar(50)")] string bookType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISBN", DbType="VarChar(50)")] string iSBN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallNum", DbType="VarChar(50)")] string callNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="VarChar(200)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Author", DbType="VarChar(50)")] string author, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Publisher", DbType="VarChar(100)")] string publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CopyrightYear", DbType="Int")] System.Nullable<int> copyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edition", DbType="VarChar(50)")] string edition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Volume", DbType="VarChar(50)")] string volume, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pages", DbType="Int")] System.Nullable<int> pages, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="VarChar(200)")] string remarks)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum, bookType, iSBN, callNum, title, author, publisher, copyrightYear, edition, volume, pages, remarks);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBook")]
-		public ISingleResult<sp_ViewBookResult> sp_ViewBook()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_ViewBookResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnBook")]
-		public int sp_ReturnBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnNum", DbType="VarChar(50)")] string returnNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnDate", DbType="Date")] System.Nullable<System.DateTime> returnDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumOfDaysUnreturned", DbType="Int")] System.Nullable<int> numOfDaysUnreturned, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Penalty", DbType="Decimal(18,0)")] System.Nullable<decimal> penalty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PenaltyRemarks", DbType="VarChar(20)")] string penaltyRemarks)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), returnNum, schoolID, bookNum, returnDate, numOfDaysUnreturned, penalty, penaltyRemarks);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetBorrowIDForReturn")]
-		public int sp_GetBorrowIDForReturn([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, bookNum);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnIDnumber")]
-		public int sp_ReturnIDnumber()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Login")]
-		public ISingleResult<sp_LoginResult> sp_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
-			return ((ISingleResult<sp_LoginResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddAccount")]
-		public int sp_AddAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretQuestion", DbType="VarChar(100)")] string secretQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretAnswer", DbType="VarChar(100)")] string secretAnswer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(20)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, firstname, lastname, username, password, secretQuestion, secretAnswer, userType, status);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateAccount")]
-		public int sp_UpdateAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretQuestion", DbType="VarChar(100)")] string secretQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretAnswer", DbType="VarChar(100)")] string secretAnswer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(20)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, firstname, lastname, username, password, secretQuestion, secretAnswer, userType, status);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateAccountStatus")]
-		public int sp_UpdateAccountStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, status);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBorrowedBooks")]
-		public ISingleResult<sp_ViewBorrowedBooksResult> sp_ViewBorrowedBooks([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID);
-			return ((ISingleResult<sp_ViewBorrowedBooksResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastAcctIDNum")]
-		public ISingleResult<sp_LastAcctIDNumResult> sp_LastAcctIDNum()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_LastAcctIDNumResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewAccount")]
-		public ISingleResult<sp_ViewAccountResult> sp_ViewAccount([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string acctType)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), acctType);
-			return ((ISingleResult<sp_ViewAccountResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchAccount")]
-		public ISingleResult<sp_SearchAccountResult> sp_SearchAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccType", DbType="VarChar(50)")] string accType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string searchkey)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accType, searchkey);
-			return ((ISingleResult<sp_SearchAccountResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastBookIDNum")]
-		public ISingleResult<sp_LastBookIDNumResult> sp_LastBookIDNum()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_LastBookIDNumResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateBookStatus")]
-		public int sp_UpdateBookStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(20)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accNum, status);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBookCopy")]
-		public ISingleResult<sp_ViewBookCopyResult> sp_ViewBookCopy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum);
-			return ((ISingleResult<sp_ViewBookCopyResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchBook")]
-		public ISingleResult<sp_SearchBookResult> sp_SearchBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="VarChar(50)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string searchKey)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, searchKey);
-			return ((ISingleResult<sp_SearchBookResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TotalBookCopy")]
-		public ISingleResult<sp_TotalBookCopyResult> sp_TotalBookCopy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum);
-			return ((ISingleResult<sp_TotalBookCopyResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewLibraryUser")]
-		public ISingleResult<sp_ViewLibraryUserResult> sp_ViewLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolYear, userType);
-			return ((ISingleResult<sp_ViewLibraryUserResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateLibraryUser")]
-		public int sp_UpdateLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactNumber", DbType="VarChar(50)")] string contactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WithLibraryCard", DbType="Bit")] System.Nullable<bool> withLibraryCard)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, firstname, lastname, gender, address, contactNumber, schoolYear, withLibraryCard);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchBorrower")]
-		public ISingleResult<sp_SearchBorrowerResult> sp_SearchBorrower([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="VarChar(50)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(100)")] string searchKey)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, schoolYear, userType, searchKey);
-			return ((ISingleResult<sp_SearchBorrowerResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastBorrowNumber")]
-		public ISingleResult<sp_LastBorrowNumberResult> sp_LastBorrowNumber()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<sp_LastBorrowNumberResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowBook")]
@@ -335,11 +195,155 @@ namespace QRCodeBasedLMS
 			return ((ISingleResult<sp_BorrowedBooksResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddNonReadingMaterial")]
-		public int sp_AddNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetBorrowIDForReturn")]
+		public void sp_GetBorrowIDForReturn([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, bookNum);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastAcctIDNum")]
+		public ISingleResult<sp_LastAcctIDNumResult> sp_LastAcctIDNum()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_LastAcctIDNumResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastBookIDNum")]
+		public ISingleResult<sp_LastBookIDNumResult> sp_LastBookIDNum()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_LastBookIDNumResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastBorrowNumber")]
+		public ISingleResult<sp_LastBorrowNumberResult> sp_LastBorrowNumber()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_LastBorrowNumberResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Login")]
+		public ISingleResult<sp_LoginResult> sp_Login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), username, password);
+			return ((ISingleResult<sp_LoginResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnBook")]
+		public void sp_ReturnBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnNum", DbType="VarChar(50)")] string returnNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnDate", DbType="Date")] System.Nullable<System.DateTime> returnDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumOfDaysUnreturned", DbType="Int")] System.Nullable<int> numOfDaysUnreturned, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Penalty", DbType="Decimal(18,0)")] System.Nullable<decimal> penalty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PenaltyRemarks", DbType="VarChar(20)")] string penaltyRemarks)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), returnNum, schoolID, bookNum, returnDate, numOfDaysUnreturned, penalty, penaltyRemarks);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnIDnumber")]
+		public int sp_ReturnIDnumber()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchAccount")]
+		public ISingleResult<sp_SearchAccountResult> sp_SearchAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccType", DbType="VarChar(50)")] string accType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string searchkey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accType, searchkey);
+			return ((ISingleResult<sp_SearchAccountResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchBook")]
+		public ISingleResult<sp_SearchBookResult> sp_SearchBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="VarChar(50)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, searchKey);
+			return ((ISingleResult<sp_SearchBookResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchBorrower")]
+		public ISingleResult<sp_SearchBorrowerResult> sp_SearchBorrower([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Category", DbType="VarChar(50)")] string category, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SearchKey", DbType="VarChar(100)")] string searchKey)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), category, schoolYear, userType, searchKey);
+			return ((ISingleResult<sp_SearchBorrowerResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_TotalBookCopy")]
+		public ISingleResult<sp_TotalBookCopyResult> sp_TotalBookCopy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum);
+			return ((ISingleResult<sp_TotalBookCopyResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateAccount")]
+		public int sp_UpdateAccount([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="VarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(50)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretQuestion", DbType="VarChar(100)")] string secretQuestion, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SecretAnswer", DbType="VarChar(100)")] string secretAnswer, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(20)")] string userType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, firstname, lastname, username, password, secretQuestion, secretAnswer, userType, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateAccountStatus")]
+		public int sp_UpdateAccountStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserNum", DbType="VarChar(50)")] string userNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(10)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userNum, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateBook")]
+		public int sp_UpdateBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookType", DbType="VarChar(50)")] string bookType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ISBN", DbType="VarChar(50)")] string iSBN, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CallNum", DbType="VarChar(50)")] string callNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="VarChar(200)")] string title, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Author", DbType="VarChar(50)")] string author, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Publisher", DbType="VarChar(100)")] string publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CopyrightYear", DbType="Int")] System.Nullable<int> copyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Edition", DbType="VarChar(50)")] string edition, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Volume", DbType="VarChar(50)")] string volume, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Pages", DbType="Int")] System.Nullable<int> pages, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Remarks", DbType="VarChar(200)")] string remarks)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum, bookType, iSBN, callNum, title, author, publisher, copyrightYear, edition, volume, pages, remarks);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateBookStatus")]
+		public int sp_UpdateBookStatus([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(20)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="VarChar(20)")] string status)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accNum, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateLibraryUser")]
+		public int sp_UpdateLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Firstname", DbType="VarChar(100)")] string firstname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lastname", DbType="VarChar(100)")] string lastname, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(10)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(100)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ContactNumber", DbType="VarChar(50)")] string contactNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WithLibraryCard", DbType="Bit")] System.Nullable<bool> withLibraryCard)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, firstname, lastname, gender, address, contactNumber, schoolYear, withLibraryCard);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateNonReadingMaterial")]
+		public int sp_UpdateNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nrm_MaterialNum, nrm_MaterialType, nrm_Title, nrm_Volume, nrm_Issue, nrm_CopyrightYear, nrm_Author, nrm_Publisher, nrm_Page, nrm_NumberOfCopies);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewAccount")]
+		public ISingleResult<sp_ViewAccountResult> sp_ViewAccount([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string acctType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), acctType);
+			return ((ISingleResult<sp_ViewAccountResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBook")]
+		public ISingleResult<sp_ViewBookResult> sp_ViewBook()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ViewBookResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBookCopy")]
+		public ISingleResult<sp_ViewBookCopyResult> sp_ViewBookCopy([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BookNum", DbType="VarChar(50)")] string bookNum)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bookNum);
+			return ((ISingleResult<sp_ViewBookCopyResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewBorrowedBooks")]
+		public void sp_ViewBorrowedBooks([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID)
+		{
+			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID);
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewLibraryUser")]
+		public ISingleResult<sp_ViewLibraryUserResult> sp_ViewLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolYear, userType);
+			return ((ISingleResult<sp_ViewLibraryUserResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewNonReadingMaterial")]
@@ -349,11 +353,11 @@ namespace QRCodeBasedLMS
 			return ((ISingleResult<sp_ViewNonReadingMaterialResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateNonReadingMaterial")]
-		public int sp_UpdateNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SearchNonReadingMaterial")]
+		public ISingleResult<sp_SearchNonReadingMaterialResult> sp_SearchNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string searchKey)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nrm_MaterialNum, nrm_MaterialType, nrm_Title, nrm_Volume, nrm_Issue, nrm_CopyrightYear, nrm_Author, nrm_Publisher, nrm_Page, nrm_NumberOfCopies);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), searchKey);
+			return ((ISingleResult<sp_SearchNonReadingMaterialResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2246,117 +2250,195 @@ namespace QRCodeBasedLMS
 		}
 	}
 	
-	public partial class sp_ViewBookResult
+	public partial class sp_BorrowedBooksResult
 	{
 		
-		private string _BookIDNumber;
+		private string _copy_AccNum;
 		
-		private string _BookType;
+		private string _book_Title;
 		
-		private string _CallNumber;
+		private string _book_Author;
 		
-		private string _Title;
+		private int _book_CopyrightYear;
 		
-		private string _Author;
+		private System.DateTime _borrow_BorrowedDate;
 		
-		private int _CopyrightYear;
+		private System.DateTime _borrow_DueDate;
 		
-		public sp_ViewBookResult()
+		public sp_BorrowedBooksResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookIDNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string BookIDNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_copy_AccNum", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string copy_AccNum
 		{
 			get
 			{
-				return this._BookIDNumber;
+				return this._copy_AccNum;
 			}
 			set
 			{
-				if ((this._BookIDNumber != value))
+				if ((this._copy_AccNum != value))
 				{
-					this._BookIDNumber = value;
+					this._copy_AccNum = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string BookType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string book_Title
 		{
 			get
 			{
-				return this._BookType;
+				return this._book_Title;
 			}
 			set
 			{
-				if ((this._BookType != value))
+				if ((this._book_Title != value))
 				{
-					this._BookType = value;
+					this._book_Title = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallNumber", DbType="VarChar(50)")]
-		public string CallNumber
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Author", DbType="VarChar(50)")]
+		public string book_Author
 		{
 			get
 			{
-				return this._CallNumber;
+				return this._book_Author;
 			}
 			set
 			{
-				if ((this._CallNumber != value))
+				if ((this._book_Author != value))
 				{
-					this._CallNumber = value;
+					this._book_Author = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Title
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_CopyrightYear", DbType="Int NOT NULL")]
+		public int book_CopyrightYear
 		{
 			get
 			{
-				return this._Title;
+				return this._book_CopyrightYear;
 			}
 			set
 			{
-				if ((this._Title != value))
+				if ((this._book_CopyrightYear != value))
 				{
-					this._Title = value;
+					this._book_CopyrightYear = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(50)")]
-		public string Author
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_BorrowedDate", DbType="Date NOT NULL")]
+		public System.DateTime borrow_BorrowedDate
 		{
 			get
 			{
-				return this._Author;
+				return this._borrow_BorrowedDate;
 			}
 			set
 			{
-				if ((this._Author != value))
+				if ((this._borrow_BorrowedDate != value))
 				{
-					this._Author = value;
+					this._borrow_BorrowedDate = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
-		public int CopyrightYear
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_DueDate", DbType="Date NOT NULL")]
+		public System.DateTime borrow_DueDate
 		{
 			get
 			{
-				return this._CopyrightYear;
+				return this._borrow_DueDate;
 			}
 			set
 			{
-				if ((this._CopyrightYear != value))
+				if ((this._borrow_DueDate != value))
 				{
-					this._CopyrightYear = value;
+					this._borrow_DueDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_LastAcctIDNumResult
+	{
+		
+		private int _user_UserID;
+		
+		public sp_LastAcctIDNumResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_UserID", DbType="Int NOT NULL")]
+		public int user_UserID
+		{
+			get
+			{
+				return this._user_UserID;
+			}
+			set
+			{
+				if ((this._user_UserID != value))
+				{
+					this._user_UserID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_LastBookIDNumResult
+	{
+		
+		private int _book_BookID;
+		
+		public sp_LastBookIDNumResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_BookID", DbType="Int NOT NULL")]
+		public int book_BookID
+		{
+			get
+			{
+				return this._book_BookID;
+			}
+			set
+			{
+				if ((this._book_BookID != value))
+				{
+					this._book_BookID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_LastBorrowNumberResult
+	{
+		
+		private int _borrow_BorrowID;
+		
+		public sp_LastBorrowNumberResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_BorrowID", DbType="Int NOT NULL")]
+		public int borrow_BorrowID
+		{
+			get
+			{
+				return this._borrow_BorrowID;
+			}
+			set
+			{
+				if ((this._borrow_BorrowID != value))
+				{
+					this._borrow_BorrowID = value;
 				}
 			}
 		}
@@ -2550,264 +2632,6 @@ namespace QRCodeBasedLMS
 		}
 	}
 	
-	public partial class sp_ViewBorrowedBooksResult
-	{
-		
-		private string _TransactionNumber;
-		
-		private string _BookNumber;
-		
-		private string _Title;
-		
-		private string _Author;
-		
-		private int _CopyrightYear;
-		
-		private System.DateTime _BorrowedDate;
-		
-		private System.DateTime _DueDate;
-		
-		public sp_ViewBorrowedBooksResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TransactionNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string TransactionNumber
-		{
-			get
-			{
-				return this._TransactionNumber;
-			}
-			set
-			{
-				if ((this._TransactionNumber != value))
-				{
-					this._TransactionNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string BookNumber
-		{
-			get
-			{
-				return this._BookNumber;
-			}
-			set
-			{
-				if ((this._BookNumber != value))
-				{
-					this._BookNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this._Title = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(50)")]
-		public string Author
-		{
-			get
-			{
-				return this._Author;
-			}
-			set
-			{
-				if ((this._Author != value))
-				{
-					this._Author = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
-		public int CopyrightYear
-		{
-			get
-			{
-				return this._CopyrightYear;
-			}
-			set
-			{
-				if ((this._CopyrightYear != value))
-				{
-					this._CopyrightYear = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BorrowedDate", DbType="Date NOT NULL")]
-		public System.DateTime BorrowedDate
-		{
-			get
-			{
-				return this._BorrowedDate;
-			}
-			set
-			{
-				if ((this._BorrowedDate != value))
-				{
-					this._BorrowedDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DueDate", DbType="Date NOT NULL")]
-		public System.DateTime DueDate
-		{
-			get
-			{
-				return this._DueDate;
-			}
-			set
-			{
-				if ((this._DueDate != value))
-				{
-					this._DueDate = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_LastAcctIDNumResult
-	{
-		
-		private int _user_UserID;
-		
-		public sp_LastAcctIDNumResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_UserID", DbType="Int NOT NULL")]
-		public int user_UserID
-		{
-			get
-			{
-				return this._user_UserID;
-			}
-			set
-			{
-				if ((this._user_UserID != value))
-				{
-					this._user_UserID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ViewAccountResult
-	{
-		
-		private string _user_UserNum;
-		
-		private string _user_Firstname;
-		
-		private string _user_Lastname;
-		
-		private string _user_Username;
-		
-		private string _UserStatus;
-		
-		public sp_ViewAccountResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_UserNum", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string user_UserNum
-		{
-			get
-			{
-				return this._user_UserNum;
-			}
-			set
-			{
-				if ((this._user_UserNum != value))
-				{
-					this._user_UserNum = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Firstname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string user_Firstname
-		{
-			get
-			{
-				return this._user_Firstname;
-			}
-			set
-			{
-				if ((this._user_Firstname != value))
-				{
-					this._user_Firstname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Lastname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string user_Lastname
-		{
-			get
-			{
-				return this._user_Lastname;
-			}
-			set
-			{
-				if ((this._user_Lastname != value))
-				{
-					this._user_Lastname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string user_Username
-		{
-			get
-			{
-				return this._user_Username;
-			}
-			set
-			{
-				if ((this._user_Username != value))
-				{
-					this._user_Username = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserStatus", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string UserStatus
-		{
-			get
-			{
-				return this._UserStatus;
-			}
-			set
-			{
-				if ((this._UserStatus != value))
-				{
-					this._UserStatus = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_SearchAccountResult
 	{
 		
@@ -2901,112 +2725,6 @@ namespace QRCodeBasedLMS
 				if ((this._UserStatus != value))
 				{
 					this._UserStatus = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_LastBookIDNumResult
-	{
-		
-		private int _book_BookID;
-		
-		public sp_LastBookIDNumResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_BookID", DbType="Int NOT NULL")]
-		public int book_BookID
-		{
-			get
-			{
-				return this._book_BookID;
-			}
-			set
-			{
-				if ((this._book_BookID != value))
-				{
-					this._book_BookID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ViewBookCopyResult
-	{
-		
-		private string _BookIDNumber;
-		
-		private string _AccessionNumber;
-		
-		private System.Nullable<System.DateTime> _DateReceived;
-		
-		private string _Status;
-		
-		public sp_ViewBookCopyResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookIDNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string BookIDNumber
-		{
-			get
-			{
-				return this._BookIDNumber;
-			}
-			set
-			{
-				if ((this._BookIDNumber != value))
-				{
-					this._BookIDNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessionNumber", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string AccessionNumber
-		{
-			get
-			{
-				return this._AccessionNumber;
-			}
-			set
-			{
-				if ((this._AccessionNumber != value))
-				{
-					this._AccessionNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateReceived", DbType="Date")]
-		public System.Nullable<System.DateTime> DateReceived
-		{
-			get
-			{
-				return this._DateReceived;
-			}
-			set
-			{
-				if ((this._DateReceived != value))
-				{
-					this._DateReceived = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
 				}
 			}
 		}
@@ -3123,166 +2841,6 @@ namespace QRCodeBasedLMS
 				if ((this._CopyrightYear != value))
 				{
 					this._CopyrightYear = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_TotalBookCopyResult
-	{
-		
-		private string _copy_AccNum;
-		
-		public sp_TotalBookCopyResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_copy_AccNum", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string copy_AccNum
-		{
-			get
-			{
-				return this._copy_AccNum;
-			}
-			set
-			{
-				if ((this._copy_AccNum != value))
-				{
-					this._copy_AccNum = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_ViewLibraryUserResult
-	{
-		
-		private string _SchoolID;
-		
-		private string _Firstname;
-		
-		private string _Lastname;
-		
-		private string _Gender;
-		
-		private string _HomeAddress;
-		
-		private string _ContactNumber;
-		
-		private System.Nullable<bool> _WithLibraryCard;
-		
-		public sp_ViewLibraryUserResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string SchoolID
-		{
-			get
-			{
-				return this._SchoolID;
-			}
-			set
-			{
-				if ((this._SchoolID != value))
-				{
-					this._SchoolID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Firstname
-		{
-			get
-			{
-				return this._Firstname;
-			}
-			set
-			{
-				if ((this._Firstname != value))
-				{
-					this._Firstname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Lastname
-		{
-			get
-			{
-				return this._Lastname;
-			}
-			set
-			{
-				if ((this._Lastname != value))
-				{
-					this._Lastname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(10)")]
-		public string Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this._Gender = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="VarChar(100)")]
-		public string HomeAddress
-		{
-			get
-			{
-				return this._HomeAddress;
-			}
-			set
-			{
-				if ((this._HomeAddress != value))
-				{
-					this._HomeAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
-		public string ContactNumber
-		{
-			get
-			{
-				return this._ContactNumber;
-			}
-			set
-			{
-				if ((this._ContactNumber != value))
-				{
-					this._ContactNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithLibraryCard", DbType="Bit")]
-		public System.Nullable<bool> WithLibraryCard
-		{
-			get
-			{
-				return this._WithLibraryCard;
-			}
-			set
-			{
-				if ((this._WithLibraryCard != value))
-				{
-					this._WithLibraryCard = value;
 				}
 			}
 		}
@@ -3422,48 +2980,12 @@ namespace QRCodeBasedLMS
 		}
 	}
 	
-	public partial class sp_LastBorrowNumberResult
-	{
-		
-		private int _borrow_BorrowID;
-		
-		public sp_LastBorrowNumberResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_BorrowID", DbType="Int NOT NULL")]
-		public int borrow_BorrowID
-		{
-			get
-			{
-				return this._borrow_BorrowID;
-			}
-			set
-			{
-				if ((this._borrow_BorrowID != value))
-				{
-					this._borrow_BorrowID = value;
-				}
-			}
-		}
-	}
-	
-	public partial class sp_BorrowedBooksResult
+	public partial class sp_TotalBookCopyResult
 	{
 		
 		private string _copy_AccNum;
 		
-		private string _book_Title;
-		
-		private string _book_Author;
-		
-		private int _book_CopyrightYear;
-		
-		private System.DateTime _borrow_BorrowedDate;
-		
-		private System.DateTime _borrow_DueDate;
-		
-		public sp_BorrowedBooksResult()
+		public sp_TotalBookCopyResult()
 		{
 		}
 		
@@ -3482,83 +3004,431 @@ namespace QRCodeBasedLMS
 				}
 			}
 		}
+	}
+	
+	public partial class sp_ViewAccountResult
+	{
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-		public string book_Title
+		private string _user_UserNum;
+		
+		private string _user_Firstname;
+		
+		private string _user_Lastname;
+		
+		private string _user_Username;
+		
+		private string _UserStatus;
+		
+		public sp_ViewAccountResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_UserNum", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string user_UserNum
 		{
 			get
 			{
-				return this._book_Title;
+				return this._user_UserNum;
 			}
 			set
 			{
-				if ((this._book_Title != value))
+				if ((this._user_UserNum != value))
 				{
-					this._book_Title = value;
+					this._user_UserNum = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Author", DbType="VarChar(50)")]
-		public string book_Author
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Firstname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string user_Firstname
 		{
 			get
 			{
-				return this._book_Author;
+				return this._user_Firstname;
 			}
 			set
 			{
-				if ((this._book_Author != value))
+				if ((this._user_Firstname != value))
 				{
-					this._book_Author = value;
+					this._user_Firstname = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_CopyrightYear", DbType="Int NOT NULL")]
-		public int book_CopyrightYear
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Lastname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string user_Lastname
 		{
 			get
 			{
-				return this._book_CopyrightYear;
+				return this._user_Lastname;
 			}
 			set
 			{
-				if ((this._book_CopyrightYear != value))
+				if ((this._user_Lastname != value))
 				{
-					this._book_CopyrightYear = value;
+					this._user_Lastname = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_BorrowedDate", DbType="Date NOT NULL")]
-		public System.DateTime borrow_BorrowedDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_user_Username", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string user_Username
 		{
 			get
 			{
-				return this._borrow_BorrowedDate;
+				return this._user_Username;
 			}
 			set
 			{
-				if ((this._borrow_BorrowedDate != value))
+				if ((this._user_Username != value))
 				{
-					this._borrow_BorrowedDate = value;
+					this._user_Username = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_DueDate", DbType="Date NOT NULL")]
-		public System.DateTime borrow_DueDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserStatus", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string UserStatus
 		{
 			get
 			{
-				return this._borrow_DueDate;
+				return this._UserStatus;
 			}
 			set
 			{
-				if ((this._borrow_DueDate != value))
+				if ((this._UserStatus != value))
 				{
-					this._borrow_DueDate = value;
+					this._UserStatus = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewBookResult
+	{
+		
+		private string _BookIDNumber;
+		
+		private string _BookType;
+		
+		private string _CallNumber;
+		
+		private string _Title;
+		
+		private string _Author;
+		
+		private int _CopyrightYear;
+		
+		public sp_ViewBookResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookIDNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string BookIDNumber
+		{
+			get
+			{
+				return this._BookIDNumber;
+			}
+			set
+			{
+				if ((this._BookIDNumber != value))
+				{
+					this._BookIDNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookType", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string BookType
+		{
+			get
+			{
+				return this._BookType;
+			}
+			set
+			{
+				if ((this._BookType != value))
+				{
+					this._BookType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CallNumber", DbType="VarChar(50)")]
+		public string CallNumber
+		{
+			get
+			{
+				return this._CallNumber;
+			}
+			set
+			{
+				if ((this._CallNumber != value))
+				{
+					this._CallNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(50)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this._Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
+		public int CopyrightYear
+		{
+			get
+			{
+				return this._CopyrightYear;
+			}
+			set
+			{
+				if ((this._CopyrightYear != value))
+				{
+					this._CopyrightYear = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewBookCopyResult
+	{
+		
+		private string _BookIDNumber;
+		
+		private string _AccessionNumber;
+		
+		private System.Nullable<System.DateTime> _DateReceived;
+		
+		private string _Status;
+		
+		public sp_ViewBookCopyResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookIDNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string BookIDNumber
+		{
+			get
+			{
+				return this._BookIDNumber;
+			}
+			set
+			{
+				if ((this._BookIDNumber != value))
+				{
+					this._BookIDNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccessionNumber", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string AccessionNumber
+		{
+			get
+			{
+				return this._AccessionNumber;
+			}
+			set
+			{
+				if ((this._AccessionNumber != value))
+				{
+					this._AccessionNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateReceived", DbType="Date")]
+		public System.Nullable<System.DateTime> DateReceived
+		{
+			get
+			{
+				return this._DateReceived;
+			}
+			set
+			{
+				if ((this._DateReceived != value))
+				{
+					this._DateReceived = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(20)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewLibraryUserResult
+	{
+		
+		private string _SchoolID;
+		
+		private string _Firstname;
+		
+		private string _Lastname;
+		
+		private string _Gender;
+		
+		private string _HomeAddress;
+		
+		private string _ContactNumber;
+		
+		private System.Nullable<bool> _WithLibraryCard;
+		
+		public sp_ViewLibraryUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string SchoolID
+		{
+			get
+			{
+				return this._SchoolID;
+			}
+			set
+			{
+				if ((this._SchoolID != value))
+				{
+					this._SchoolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Firstname
+		{
+			get
+			{
+				return this._Firstname;
+			}
+			set
+			{
+				if ((this._Firstname != value))
+				{
+					this._Firstname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Lastname
+		{
+			get
+			{
+				return this._Lastname;
+			}
+			set
+			{
+				if ((this._Lastname != value))
+				{
+					this._Lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(10)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="VarChar(100)")]
+		public string HomeAddress
+		{
+			get
+			{
+				return this._HomeAddress;
+			}
+			set
+			{
+				if ((this._HomeAddress != value))
+				{
+					this._HomeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
+		public string ContactNumber
+		{
+			get
+			{
+				return this._ContactNumber;
+			}
+			set
+			{
+				if ((this._ContactNumber != value))
+				{
+					this._ContactNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithLibraryCard", DbType="Bit")]
+		public System.Nullable<bool> WithLibraryCard
+		{
+			get
+			{
+				return this._WithLibraryCard;
+			}
+			set
+			{
+				if ((this._WithLibraryCard != value))
+				{
+					this._WithLibraryCard = value;
 				}
 			}
 		}
@@ -3567,204 +3437,374 @@ namespace QRCodeBasedLMS
 	public partial class sp_ViewNonReadingMaterialResult
 	{
 		
-		private int _nrm_MaterialID;
+		private string _MaterialNumber;
 		
-		private string _nrm_MaterialNum;
+		private string _MaterialType;
 		
-		private string _nrm_MaterialType;
+		private string _Title;
 		
-		private string _nrm_Title;
+		private string _Volume;
 		
-		private string _nrm_Volume;
+		private string _Issue;
 		
-		private string _nrm_Issue;
+		private int _CopyrightYear;
 		
-		private int _nrm_CopyrightYear;
+		private string _Author;
 		
-		private string _nrm_Author;
+		private string _Publisher;
 		
-		private string _nrm_Publisher;
+		private int _Page;
 		
-		private int _nrm_Page;
-		
-		private int _nrm_NumberOfCopies;
+		private int _NumberOfCopies;
 		
 		public sp_ViewNonReadingMaterialResult()
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialID", DbType="Int NOT NULL")]
-		public int nrm_MaterialID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaterialNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string MaterialNumber
 		{
 			get
 			{
-				return this._nrm_MaterialID;
+				return this._MaterialNumber;
 			}
 			set
 			{
-				if ((this._nrm_MaterialID != value))
+				if ((this._MaterialNumber != value))
 				{
-					this._nrm_MaterialID = value;
+					this._MaterialNumber = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialNum", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nrm_MaterialNum
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaterialType", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string MaterialType
 		{
 			get
 			{
-				return this._nrm_MaterialNum;
+				return this._MaterialType;
 			}
 			set
 			{
-				if ((this._nrm_MaterialNum != value))
+				if ((this._MaterialType != value))
 				{
-					this._nrm_MaterialNum = value;
+					this._MaterialType = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialType", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string nrm_MaterialType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
 		{
 			get
 			{
-				return this._nrm_MaterialType;
+				return this._Title;
 			}
 			set
 			{
-				if ((this._nrm_MaterialType != value))
+				if ((this._Title != value))
 				{
-					this._nrm_MaterialType = value;
+					this._Title = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nrm_Title
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Volume", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Volume
 		{
 			get
 			{
-				return this._nrm_Title;
+				return this._Volume;
 			}
 			set
 			{
-				if ((this._nrm_Title != value))
+				if ((this._Volume != value))
 				{
-					this._nrm_Title = value;
+					this._Volume = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Volume", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string nrm_Volume
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issue", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Issue
 		{
 			get
 			{
-				return this._nrm_Volume;
+				return this._Issue;
 			}
 			set
 			{
-				if ((this._nrm_Volume != value))
+				if ((this._Issue != value))
 				{
-					this._nrm_Volume = value;
+					this._Issue = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Issue", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string nrm_Issue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
+		public int CopyrightYear
 		{
 			get
 			{
-				return this._nrm_Issue;
+				return this._CopyrightYear;
 			}
 			set
 			{
-				if ((this._nrm_Issue != value))
+				if ((this._CopyrightYear != value))
 				{
-					this._nrm_Issue = value;
+					this._CopyrightYear = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_CopyrightYear", DbType="Int NOT NULL")]
-		public int nrm_CopyrightYear
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Author
 		{
 			get
 			{
-				return this._nrm_CopyrightYear;
+				return this._Author;
 			}
 			set
 			{
-				if ((this._nrm_CopyrightYear != value))
+				if ((this._Author != value))
 				{
-					this._nrm_CopyrightYear = value;
+					this._Author = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Author", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nrm_Author
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Publisher", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Publisher
 		{
 			get
 			{
-				return this._nrm_Author;
+				return this._Publisher;
 			}
 			set
 			{
-				if ((this._nrm_Author != value))
+				if ((this._Publisher != value))
 				{
-					this._nrm_Author = value;
+					this._Publisher = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Publisher", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string nrm_Publisher
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Page", DbType="Int NOT NULL")]
+		public int Page
 		{
 			get
 			{
-				return this._nrm_Publisher;
+				return this._Page;
 			}
 			set
 			{
-				if ((this._nrm_Publisher != value))
+				if ((this._Page != value))
 				{
-					this._nrm_Publisher = value;
+					this._Page = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Page", DbType="Int NOT NULL")]
-		public int nrm_Page
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberOfCopies", DbType="Int NOT NULL")]
+		public int NumberOfCopies
 		{
 			get
 			{
-				return this._nrm_Page;
+				return this._NumberOfCopies;
 			}
 			set
 			{
-				if ((this._nrm_Page != value))
+				if ((this._NumberOfCopies != value))
 				{
-					this._nrm_Page = value;
+					this._NumberOfCopies = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_SearchNonReadingMaterialResult
+	{
+		
+		private string _MaterialNumber;
+		
+		private string _MaterialType;
+		
+		private string _Title;
+		
+		private string _Volume;
+		
+		private string _Issue;
+		
+		private int _CopyrightYear;
+		
+		private string _Author;
+		
+		private string _Publisher;
+		
+		private int _Page;
+		
+		private int _NumberOfCopies;
+		
+		public sp_SearchNonReadingMaterialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaterialNumber", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string MaterialNumber
+		{
+			get
+			{
+				return this._MaterialNumber;
+			}
+			set
+			{
+				if ((this._MaterialNumber != value))
+				{
+					this._MaterialNumber = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_NumberOfCopies", DbType="Int NOT NULL")]
-		public int nrm_NumberOfCopies
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaterialType", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string MaterialType
 		{
 			get
 			{
-				return this._nrm_NumberOfCopies;
+				return this._MaterialType;
 			}
 			set
 			{
-				if ((this._nrm_NumberOfCopies != value))
+				if ((this._MaterialType != value))
 				{
-					this._nrm_NumberOfCopies = value;
+					this._MaterialType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Volume", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Volume
+		{
+			get
+			{
+				return this._Volume;
+			}
+			set
+			{
+				if ((this._Volume != value))
+				{
+					this._Volume = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Issue", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Issue
+		{
+			get
+			{
+				return this._Issue;
+			}
+			set
+			{
+				if ((this._Issue != value))
+				{
+					this._Issue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopyrightYear", DbType="Int NOT NULL")]
+		public int CopyrightYear
+		{
+			get
+			{
+				return this._CopyrightYear;
+			}
+			set
+			{
+				if ((this._CopyrightYear != value))
+				{
+					this._CopyrightYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this._Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Publisher", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Publisher
+		{
+			get
+			{
+				return this._Publisher;
+			}
+			set
+			{
+				if ((this._Publisher != value))
+				{
+					this._Publisher = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Page", DbType="Int NOT NULL")]
+		public int Page
+		{
+			get
+			{
+				return this._Page;
+			}
+			set
+			{
+				if ((this._Page != value))
+				{
+					this._Page = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberOfCopies", DbType="Int NOT NULL")]
+		public int NumberOfCopies
+		{
+			get
+			{
+				return this._NumberOfCopies;
+			}
+			set
+			{
+				if ((this._NumberOfCopies != value))
+				{
+					this._NumberOfCopies = value;
 				}
 			}
 		}

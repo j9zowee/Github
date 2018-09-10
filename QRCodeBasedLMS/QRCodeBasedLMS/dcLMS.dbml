@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbLibraryManagement" Class="dcLMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DELL-PC\SQLEXPRESS;Initial Catalog=dbLibraryManagement;Integrated Security=True" SettingsObjectName="QRCodeBasedLMS.Properties.Settings" SettingsPropertyName="dbLibraryManagementConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=klayd-pc\sqlexpress;Initial Catalog=dbLibraryManagement;Integrated Security=True" SettingsObjectName="QRCodeBasedLMS.Properties.Settings" SettingsPropertyName="dbLibraryManagementConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAttendance" Member="tblAttendances">
     <Type Name="tblAttendance">
       <Column Name="attendance_AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -93,6 +93,18 @@
       <Column Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Function Name="dbo.sp_AddAccount" Method="sp_AddAccount">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_AddBook" Method="sp_AddBook">
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="BookType" Parameter="bookType" Type="System.String" DbType="VarChar(50)" />
@@ -130,218 +142,24 @@
     <Parameter Name="WithLibraryCard" Parameter="withLibraryCard" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_AddNonReadingMaterial" Method="sp_AddNonReadingMaterial">
+    <Parameter Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Title" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Volume" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Issue" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_Author" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Publisher" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_Attendance" Method="sp_Attendance">
     <Parameter Name="StudentID" Parameter="studentID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="LoginTime" Parameter="loginTime" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_UpdateBook" Method="sp_UpdateBook">
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BookType" Parameter="bookType" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="ISBN" Parameter="iSBN" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="CallNum" Parameter="callNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(200)" />
-    <Parameter Name="Author" Parameter="author" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Publisher" Parameter="publisher" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="CopyrightYear" Parameter="copyrightYear" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Edition" Parameter="edition" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Volume" Parameter="volume" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Pages" Parameter="pages" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="VarChar(200)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ViewBook" Method="sp_ViewBook">
-    <ElementType Name="sp_ViewBookResult">
-      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BookType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CallNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ReturnBook" Method="sp_ReturnBook">
-    <Parameter Name="ReturnNum" Parameter="returnNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="ReturnDate" Parameter="returnDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="NumOfDaysUnreturned" Parameter="numOfDaysUnreturned" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Penalty" Parameter="penalty" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="PenaltyRemarks" Parameter="penaltyRemarks" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_GetBorrowIDForReturn" Method="sp_GetBorrowIDForReturn">
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ReturnIDnumber" Method="sp_ReturnIDnumber">
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_Login" Method="sp_Login">
-    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_LoginResult">
-      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_SecretQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="user_SecretAnswer" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="user_UserType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_AddAccount" Method="sp_AddAccount">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_UpdateAccount" Method="sp_UpdateAccount">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_UpdateAccountStatus" Method="sp_UpdateAccountStatus">
-    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ViewBorrowedBooks" Method="sp_ViewBorrowedBooks">
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_ViewBorrowedBooksResult">
-      <Column Name="TransactionNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BookNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_LastAcctIDNum" Method="sp_LastAcctIDNum">
-    <ElementType Name="sp_LastAcctIDNumResult">
-      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ViewAccount" Method="sp_ViewAccount">
-    <Parameter Name="acctType" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_ViewAccountResult">
-      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_SearchAccount" Method="sp_SearchAccount">
-    <Parameter Name="AccType" Parameter="accType" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_SearchAccountResult">
-      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_LastBookIDNum" Method="sp_LastBookIDNum">
-    <ElementType Name="sp_LastBookIDNumResult">
-      <Column Name="book_BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_UpdateBookStatus" Method="sp_UpdateBookStatus">
-    <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_ViewBookCopy" Method="sp_ViewBookCopy">
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_ViewBookCopyResult">
-      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="AccessionNumber" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="DateReceived" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_SearchBook" Method="sp_SearchBook">
-    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="searchKey" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_SearchBookResult">
-      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="BookType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CallNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_TotalBookCopy" Method="sp_TotalBookCopy">
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_TotalBookCopyResult">
-      <Column Name="copy_AccNum" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ViewLibraryUser" Method="sp_ViewLibraryUser">
-    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_ViewLibraryUserResult">
-      <Column Name="SchoolID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Firstname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Lastname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="WithLibraryCard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_UpdateLibraryUser" Method="sp_UpdateLibraryUser">
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(10)" />
-    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="ContactNumber" Parameter="contactNumber" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="WithLibraryCard" Parameter="withLibraryCard" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.sp_SearchBorrower" Method="sp_SearchBorrower">
-    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(100)" />
-    <ElementType Name="sp_SearchBorrowerResult">
-      <Column Name="SchoolID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="Firstname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Lastname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="WithLibraryCard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_LastBorrowNumber" Method="sp_LastBorrowNumber">
-    <ElementType Name="sp_LastBorrowNumberResult">
-      <Column Name="borrow_BorrowID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </ElementType>
   </Function>
   <Function Name="dbo.sp_BorrowBook" Method="sp_BorrowBook">
     <Parameter Name="BorrowNum" Parameter="borrowNum" Type="System.String" DbType="VarChar(50)" />
@@ -363,33 +181,144 @@
       <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_AddNonReadingMaterial" Method="sp_AddNonReadingMaterial">
-    <Parameter Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="nrm_Title" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="nrm_Volume" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="nrm_Issue" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int" />
-    <Parameter Name="nrm_Author" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="nrm_Publisher" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="nrm_Page" Type="System.Int32" DbType="Int" />
-    <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
+  <Function Name="dbo.sp_GetBorrowIDForReturn" Method="sp_GetBorrowIDForReturn">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+  </Function>
+  <Function Name="dbo.sp_LastAcctIDNum" Method="sp_LastAcctIDNum">
+    <ElementType Name="sp_LastAcctIDNumResult">
+      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LastBookIDNum" Method="sp_LastBookIDNum">
+    <ElementType Name="sp_LastBookIDNumResult">
+      <Column Name="book_BookID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LastBorrowNumber" Method="sp_LastBorrowNumber">
+    <ElementType Name="sp_LastBorrowNumberResult">
+      <Column Name="borrow_BorrowID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_Login" Method="sp_Login">
+    <Parameter Name="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="password" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_LoginResult">
+      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretAnswer" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ReturnBook" Method="sp_ReturnBook">
+    <Parameter Name="ReturnNum" Parameter="returnNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ReturnDate" Parameter="returnDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumOfDaysUnreturned" Parameter="numOfDaysUnreturned" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Penalty" Parameter="penalty" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="PenaltyRemarks" Parameter="penaltyRemarks" Type="System.String" DbType="VarChar(20)" />
+  </Function>
+  <Function Name="dbo.sp_ReturnIDnumber" Method="sp_ReturnIDnumber">
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_ViewNonReadingMaterial" Method="sp_ViewNonReadingMaterial">
-    <ElementType Name="sp_ViewNonReadingMaterialResult">
-      <Column Name="nrm_MaterialID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Volume" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Issue" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+  <Function Name="dbo.sp_SearchAccount" Method="sp_SearchAccount">
+    <Parameter Name="AccType" Parameter="accType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="searchkey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_SearchAccountResult">
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SearchBook" Method="sp_SearchBook">
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="searchKey" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_SearchBookResult">
+      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CallNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SearchBorrower" Method="sp_SearchBorrower">
+    <Parameter Name="Category" Parameter="category" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SearchKey" Parameter="searchKey" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="sp_SearchBorrowerResult">
+      <Column Name="SchoolID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Firstname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Lastname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WithLibraryCard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_TotalBookCopy" Method="sp_TotalBookCopy">
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_TotalBookCopyResult">
+      <Column Name="copy_AccNum" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_UpdateAccount" Method="sp_UpdateAccount">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SecretQuestion" Parameter="secretQuestion" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="SecretAnswer" Parameter="secretAnswer" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateAccountStatus" Method="sp_UpdateAccountStatus">
+    <Parameter Name="UserNum" Parameter="userNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateBook" Method="sp_UpdateBook">
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="BookType" Parameter="bookType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ISBN" Parameter="iSBN" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CallNum" Parameter="callNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Title" Parameter="title" Type="System.String" DbType="VarChar(200)" />
+    <Parameter Name="Author" Parameter="author" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Publisher" Parameter="publisher" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CopyrightYear" Parameter="copyrightYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Edition" Parameter="edition" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Volume" Parameter="volume" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Pages" Parameter="pages" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Remarks" Parameter="remarks" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateBookStatus" Method="sp_UpdateBookStatus">
+    <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="Status" Parameter="status" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdateLibraryUser" Method="sp_UpdateLibraryUser">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Firstname" Parameter="firstname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Lastname" Parameter="lastname" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="ContactNumber" Parameter="contactNumber" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="WithLibraryCard" Parameter="withLibraryCard" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_UpdateNonReadingMaterial" Method="sp_UpdateNonReadingMaterial">
     <Parameter Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50)" />
@@ -403,5 +332,79 @@
     <Parameter Name="nrm_Page" Type="System.Int32" DbType="Int" />
     <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ViewAccount" Method="sp_ViewAccount">
+    <Parameter Name="acctType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewAccountResult">
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewBook" Method="sp_ViewBook">
+    <ElementType Name="sp_ViewBookResult">
+      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BookType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CallNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewBookCopy" Method="sp_ViewBookCopy">
+    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewBookCopyResult">
+      <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AccessionNumber" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DateReceived" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewBorrowedBooks" Method="sp_ViewBorrowedBooks">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+  </Function>
+  <Function Name="dbo.sp_ViewLibraryUser" Method="sp_ViewLibraryUser">
+    <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="UserType" Parameter="userType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewLibraryUserResult">
+      <Column Name="SchoolID" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Firstname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Lastname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WithLibraryCard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewNonReadingMaterial" Method="sp_ViewNonReadingMaterial">
+    <ElementType Name="sp_ViewNonReadingMaterialResult">
+      <Column Name="MaterialNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Issue" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SearchNonReadingMaterial" Method="sp_SearchNonReadingMaterial">
+    <Parameter Name="searchKey" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="sp_SearchNonReadingMaterialResult">
+      <Column Name="MaterialNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaterialType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Volume" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Issue" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

@@ -71,7 +71,8 @@ namespace QRCodeBasedLMS
                 pbBorrowerQR.Image = bmp;
             }
 
-            dgvBorrowed.DataSource = db.sp_ViewBorrowedBooks(txt_SchoolID.Text);
+            // usbunon ang name sa db since giusab ang column name
+            //dgvBorrowed.DataSource = db.sp_ViewBorrowedBooks(txt_SchoolID.Text);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

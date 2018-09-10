@@ -44,5 +44,16 @@ namespace QRCodeBasedLMS.Properties {
                 return ((string)(this["dbLibraryManagementConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=klayd-pc\\sqlexpress;Initial Catalog=dbLibraryManagement;Integrated Se" +
+            "curity=True")]
+        public string dbLibraryManagementConnectionString1 {
+            get {
+                return ((string)(this["dbLibraryManagementConnectionString1"]));
+            }
+        }
     }
 }

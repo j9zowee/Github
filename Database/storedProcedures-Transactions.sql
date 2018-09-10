@@ -151,7 +151,9 @@ END
 CREATE PROCEDURE sp_ViewNonReadingMaterial
 AS
 BEGIN
-	SELECT * FROM tblNonReadingMaterial
+	SELECT nrm_MaterialNum as MaterialNumber, nrm_MaterialType as MaterialType, nrm_Title as Title, nrm_Volume as Volume, nrm_Issue as Issue, nrm_CopyrightYear as CopyrightYear,
+		nrm_Author as Author, nrm_Publisher as Publisher, nrm_Page as Page, nrm_NumberOfCopies as NumberOfCopies
+	FROM tblNonReadingMaterial
 END
 
 CREATE PROCEDURE sp_UpdateNonReadingMaterial
@@ -174,4 +176,16 @@ BEGIN
 					, nrm_NumberOfCopies = @nrm_NumberOfCopies
 		WHERE @nrm_MaterialNum = nrm_MaterialNum
 END
+
+CREATE PROCEDURE sp_SearchNonReadingMaterial
+@searchKey varchar(100)
+AS
+BEGIN
+	SELECT nrm_MaterialNum as MaterialNumber, nrm_MaterialType as MaterialType, nrm_Title as Title, nrm_Volume as Volume, nrm_Issue as Issue, nrm_CopyrightYear as CopyrightYear,
+		nrm_Author as Author, nrm_Publisher as Publisher, nrm_Page as Page, nrm_NumberOfCopies as NumberOfCopies
+	FROM tblNonReadingMaterial
+		WHERE nrm_Title like '%'+@searchKey+'%'
+END
+
+
 ------------------------ NEW - Non Reading Materials --------------------

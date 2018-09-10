@@ -254,7 +254,6 @@ C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QR
 C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.LibraryUserMasterlist.resources
 C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\Interop.MSDAOSP.dll
 C:\Users\Dell\OneDrive\PERSONAL FILES\thesis\Individual\Zoe\4th\11thPrototype\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.ResolveComReference.cache
-<<<<<<< HEAD
 C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\QRCodeBasedLMS.exe.config
 C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\Interop.MSDAOSP.dll
 C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csproj.ResolveComReference.cache
@@ -331,7 +330,6 @@ C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BorrowerInfoForLibraryCard.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.csprojResolveAssemblyReference.cache
->>>>>>> da4873f47a5114589849518fcdb724f6f9d83ca4
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\bin\Debug\Bunifu_UI_v1.5.3.dll
 C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BorrowerInfoForLibraryCard.resources
 C:\Users\k\Documents\GitHub\QRCodeBasedLMS\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Return.resources
@@ -402,13 +400,9 @@ C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCod
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BookCopy.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrow.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.Borrower.resources
-C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.BorrowerInfoForLibraryCard.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.IndexForm.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.LibraryUserMasterlist.resources
-C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.btnReturn.resources
-C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.btnScanQRCode.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UnapprovedAccounts.resources
-C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UpdateBookInfo.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.UserInformation.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.MainForm.resources
 C:\Users\Dell\Documents\GitHub\QRCodeBasedLibraryManagement\QRCodeBasedLMS\QRCodeBasedLMS\obj\Debug\QRCodeBasedLMS.NonReadingMaterials.resources

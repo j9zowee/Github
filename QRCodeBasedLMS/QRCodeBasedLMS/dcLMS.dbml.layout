@@ -59,5 +59,11 @@
         <classShapeMoniker Id="ba133544-85d0-45c2-83a3-82b9ef2af901" />
       </nodes>
     </associationConnector>
+    <classShape Id="fb27c50d-285d-482b-954d-c01535412527" absoluteBounds="0.75, 4.875, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/dcLMSDataContext/tblNonReadingMaterial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="675e1419-909e-4024-8eb7-01b347279998" absoluteBounds="0.76499999999999968, 5.335, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

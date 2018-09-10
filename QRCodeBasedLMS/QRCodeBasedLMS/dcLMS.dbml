@@ -78,6 +78,21 @@
       <Association Name="tblLibraryUser_tblBorrow" Member="tblBorrows" ThisKey="lib_UserID" OtherKey="lib_UserID" Type="tblBorrow" />
     </Type>
   </Table>
+  <Table Name="dbo.tblNonReadingMaterial" Member="tblNonReadingMaterials">
+    <Type Name="tblNonReadingMaterial">
+      <Column Name="nrm_MaterialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Volume" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Issue" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_AddBook" Method="sp_AddBook">
     <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="BookType" Parameter="bookType" Type="System.String" DbType="VarChar(50)" />
@@ -334,6 +349,59 @@
     <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="BorrowedDate" Parameter="borrowedDate" Type="System.DateTime" DbType="DateTime" />
     <Parameter Name="DueDate" Parameter="dueDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="CurrentSchoolYear" Parameter="currentSchoolYear" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_BorrowedBooks" Method="sp_BorrowedBooks">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_BorrowedBooksResult">
+      <Column Name="copy_AccNum" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="book_Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="book_Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="book_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_AddNonReadingMaterial" Method="sp_AddNonReadingMaterial">
+    <Parameter Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Title" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Volume" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Issue" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_Author" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Publisher" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ViewNonReadingMaterial" Method="sp_ViewNonReadingMaterial">
+    <ElementType Name="sp_ViewNonReadingMaterialResult">
+      <Column Name="nrm_MaterialID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Volume" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Issue" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Author" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_UpdateNonReadingMaterial" Method="sp_UpdateNonReadingMaterial">
+    <Parameter Name="nrm_MaterialNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="nrm_MaterialType" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Title" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Volume" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_Issue" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="nrm_CopyrightYear" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_Author" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Publisher" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="nrm_Page" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

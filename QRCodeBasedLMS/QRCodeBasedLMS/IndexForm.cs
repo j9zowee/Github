@@ -26,7 +26,7 @@ namespace QRCodeBasedLMS
 
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            Borrow sbi = new Borrow();
+            Borrow sbi = new Borrow("index");
             sbi.Show();
             this.Hide();
         }

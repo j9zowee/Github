@@ -52,7 +52,7 @@ namespace QRCodeBasedLMS
 
         private void borrowBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Borrow brw = new Borrow();
+            Borrow brw = new Borrow("main");
             brw.Show();
             this.Hide();
         }
@@ -80,7 +80,7 @@ namespace QRCodeBasedLMS
 
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            Borrow brw = new Borrow();
+            Borrow brw = new Borrow("main");
             brw.Show();
             this.Hide();
         }

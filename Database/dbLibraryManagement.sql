@@ -50,11 +50,18 @@ copy_Status varchar(20),
 book_BookID int foreign key references tblBook(book_BookID))
 
 create table tblNonReadingMaterial(
-nrm_MaterialID int identity(1,1)primary key,
-nrm_MaterialNum varchar(50)not null,
-nrm_Name varchar(50)not null,
-nrm_Quantity int not null,
-nrm_Remarks varchar(200))
+nrm_MaterialID int identity(1,1) primary key,
+nrm_MaterialNum varchar(50) not null,
+nrm_MaterialType varchar(20) not null,
+nrm_Title varchar(100) not null,
+nrm_Volume varchar(20) not null,
+nrm_Issue varchar(20) not null,
+nrm_CopyrightYear int not null,
+nrm_Author varchar(100) not null,
+nrm_Publisher varchar(100) not null,
+nrm_Page int not null,
+nrm_NumberOfCopies int not null
+)
 
 ----TRANSACTION TABLES---
 create table tblBorrow(

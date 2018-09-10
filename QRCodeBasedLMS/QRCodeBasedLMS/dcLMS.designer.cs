@@ -48,6 +48,9 @@ namespace QRCodeBasedLMS
     partial void InserttblLibraryUser(tblLibraryUser instance);
     partial void UpdatetblLibraryUser(tblLibraryUser instance);
     partial void DeletetblLibraryUser(tblLibraryUser instance);
+    partial void InserttblNonReadingMaterial(tblNonReadingMaterial instance);
+    partial void UpdatetblNonReadingMaterial(tblNonReadingMaterial instance);
+    partial void DeletetblNonReadingMaterial(tblNonReadingMaterial instance);
     #endregion
 		
 		public dcLMSDataContext() : 
@@ -125,6 +128,14 @@ namespace QRCodeBasedLMS
 			get
 			{
 				return this.GetTable<tblLibraryUser>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblNonReadingMaterial> tblNonReadingMaterials
+		{
+			get
+			{
+				return this.GetTable<tblNonReadingMaterial>();
 			}
 		}
 		
@@ -311,9 +322,37 @@ namespace QRCodeBasedLMS
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowBook")]
-		public int sp_BorrowBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BorrowNum", DbType="VarChar(50)")] string borrowNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BorrowedDate", DbType="DateTime")] System.Nullable<System.DateTime> borrowedDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DueDate", DbType="Date")] System.Nullable<System.DateTime> dueDate)
+		public int sp_BorrowBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BorrowNum", DbType="VarChar(50)")] string borrowNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="BorrowedDate", DbType="DateTime")] System.Nullable<System.DateTime> borrowedDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DueDate", DbType="Date")] System.Nullable<System.DateTime> dueDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentSchoolYear", DbType="VarChar(50)")] string currentSchoolYear)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), borrowNum, schoolID, accNum, borrowedDate, dueDate);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), borrowNum, schoolID, accNum, borrowedDate, dueDate, currentSchoolYear);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_BorrowedBooks")]
+		public ISingleResult<sp_BorrowedBooksResult> sp_BorrowedBooks([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID);
+			return ((ISingleResult<sp_BorrowedBooksResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_AddNonReadingMaterial")]
+		public int sp_AddNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nrm_MaterialNum, nrm_MaterialType, nrm_Title, nrm_Volume, nrm_Issue, nrm_CopyrightYear, nrm_Author, nrm_Publisher, nrm_Page, nrm_NumberOfCopies);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewNonReadingMaterial")]
+		public ISingleResult<sp_ViewNonReadingMaterialResult> sp_ViewNonReadingMaterial()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<sp_ViewNonReadingMaterialResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdateNonReadingMaterial")]
+		public int sp_UpdateNonReadingMaterial([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string nrm_MaterialNum, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_MaterialType, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Title, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Volume, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(20)")] string nrm_Issue, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_CopyrightYear, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Author, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(100)")] string nrm_Publisher, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_Page, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nrm_NumberOfCopies)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nrm_MaterialNum, nrm_MaterialType, nrm_Title, nrm_Volume, nrm_Issue, nrm_CopyrightYear, nrm_Author, nrm_Publisher, nrm_Page, nrm_NumberOfCopies);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -1905,6 +1944,308 @@ namespace QRCodeBasedLMS
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblNonReadingMaterial")]
+	public partial class tblNonReadingMaterial : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _nrm_MaterialID;
+		
+		private string _nrm_MaterialNum;
+		
+		private string _nrm_MaterialType;
+		
+		private string _nrm_Title;
+		
+		private string _nrm_Volume;
+		
+		private string _nrm_Issue;
+		
+		private int _nrm_CopyrightYear;
+		
+		private string _nrm_Author;
+		
+		private string _nrm_Publisher;
+		
+		private int _nrm_Page;
+		
+		private int _nrm_NumberOfCopies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onnrm_MaterialIDChanging(int value);
+    partial void Onnrm_MaterialIDChanged();
+    partial void Onnrm_MaterialNumChanging(string value);
+    partial void Onnrm_MaterialNumChanged();
+    partial void Onnrm_MaterialTypeChanging(string value);
+    partial void Onnrm_MaterialTypeChanged();
+    partial void Onnrm_TitleChanging(string value);
+    partial void Onnrm_TitleChanged();
+    partial void Onnrm_VolumeChanging(string value);
+    partial void Onnrm_VolumeChanged();
+    partial void Onnrm_IssueChanging(string value);
+    partial void Onnrm_IssueChanged();
+    partial void Onnrm_CopyrightYearChanging(int value);
+    partial void Onnrm_CopyrightYearChanged();
+    partial void Onnrm_AuthorChanging(string value);
+    partial void Onnrm_AuthorChanged();
+    partial void Onnrm_PublisherChanging(string value);
+    partial void Onnrm_PublisherChanged();
+    partial void Onnrm_PageChanging(int value);
+    partial void Onnrm_PageChanged();
+    partial void Onnrm_NumberOfCopiesChanging(int value);
+    partial void Onnrm_NumberOfCopiesChanged();
+    #endregion
+		
+		public tblNonReadingMaterial()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int nrm_MaterialID
+		{
+			get
+			{
+				return this._nrm_MaterialID;
+			}
+			set
+			{
+				if ((this._nrm_MaterialID != value))
+				{
+					this.Onnrm_MaterialIDChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_MaterialID = value;
+					this.SendPropertyChanged("nrm_MaterialID");
+					this.Onnrm_MaterialIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialNum", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nrm_MaterialNum
+		{
+			get
+			{
+				return this._nrm_MaterialNum;
+			}
+			set
+			{
+				if ((this._nrm_MaterialNum != value))
+				{
+					this.Onnrm_MaterialNumChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_MaterialNum = value;
+					this.SendPropertyChanged("nrm_MaterialNum");
+					this.Onnrm_MaterialNumChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialType", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_MaterialType
+		{
+			get
+			{
+				return this._nrm_MaterialType;
+			}
+			set
+			{
+				if ((this._nrm_MaterialType != value))
+				{
+					this.Onnrm_MaterialTypeChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_MaterialType = value;
+					this.SendPropertyChanged("nrm_MaterialType");
+					this.Onnrm_MaterialTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Title
+		{
+			get
+			{
+				return this._nrm_Title;
+			}
+			set
+			{
+				if ((this._nrm_Title != value))
+				{
+					this.Onnrm_TitleChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Title = value;
+					this.SendPropertyChanged("nrm_Title");
+					this.Onnrm_TitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Volume", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_Volume
+		{
+			get
+			{
+				return this._nrm_Volume;
+			}
+			set
+			{
+				if ((this._nrm_Volume != value))
+				{
+					this.Onnrm_VolumeChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Volume = value;
+					this.SendPropertyChanged("nrm_Volume");
+					this.Onnrm_VolumeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Issue", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_Issue
+		{
+			get
+			{
+				return this._nrm_Issue;
+			}
+			set
+			{
+				if ((this._nrm_Issue != value))
+				{
+					this.Onnrm_IssueChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Issue = value;
+					this.SendPropertyChanged("nrm_Issue");
+					this.Onnrm_IssueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_CopyrightYear", DbType="Int NOT NULL")]
+		public int nrm_CopyrightYear
+		{
+			get
+			{
+				return this._nrm_CopyrightYear;
+			}
+			set
+			{
+				if ((this._nrm_CopyrightYear != value))
+				{
+					this.Onnrm_CopyrightYearChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_CopyrightYear = value;
+					this.SendPropertyChanged("nrm_CopyrightYear");
+					this.Onnrm_CopyrightYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Author", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Author
+		{
+			get
+			{
+				return this._nrm_Author;
+			}
+			set
+			{
+				if ((this._nrm_Author != value))
+				{
+					this.Onnrm_AuthorChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Author = value;
+					this.SendPropertyChanged("nrm_Author");
+					this.Onnrm_AuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Publisher", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Publisher
+		{
+			get
+			{
+				return this._nrm_Publisher;
+			}
+			set
+			{
+				if ((this._nrm_Publisher != value))
+				{
+					this.Onnrm_PublisherChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Publisher = value;
+					this.SendPropertyChanged("nrm_Publisher");
+					this.Onnrm_PublisherChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Page", DbType="Int NOT NULL")]
+		public int nrm_Page
+		{
+			get
+			{
+				return this._nrm_Page;
+			}
+			set
+			{
+				if ((this._nrm_Page != value))
+				{
+					this.Onnrm_PageChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_Page = value;
+					this.SendPropertyChanged("nrm_Page");
+					this.Onnrm_PageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_NumberOfCopies", DbType="Int NOT NULL")]
+		public int nrm_NumberOfCopies
+		{
+			get
+			{
+				return this._nrm_NumberOfCopies;
+			}
+			set
+			{
+				if ((this._nrm_NumberOfCopies != value))
+				{
+					this.Onnrm_NumberOfCopiesChanging(value);
+					this.SendPropertyChanging();
+					this._nrm_NumberOfCopies = value;
+					this.SendPropertyChanged("nrm_NumberOfCopies");
+					this.Onnrm_NumberOfCopiesChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class sp_ViewBookResult
 	{
 		
@@ -3102,6 +3443,328 @@ namespace QRCodeBasedLMS
 				if ((this._borrow_BorrowID != value))
 				{
 					this._borrow_BorrowID = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_BorrowedBooksResult
+	{
+		
+		private string _copy_AccNum;
+		
+		private string _book_Title;
+		
+		private string _book_Author;
+		
+		private int _book_CopyrightYear;
+		
+		private System.DateTime _borrow_BorrowedDate;
+		
+		private System.DateTime _borrow_DueDate;
+		
+		public sp_BorrowedBooksResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_copy_AccNum", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string copy_AccNum
+		{
+			get
+			{
+				return this._copy_AccNum;
+			}
+			set
+			{
+				if ((this._copy_AccNum != value))
+				{
+					this._copy_AccNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Title", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+		public string book_Title
+		{
+			get
+			{
+				return this._book_Title;
+			}
+			set
+			{
+				if ((this._book_Title != value))
+				{
+					this._book_Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_Author", DbType="VarChar(50)")]
+		public string book_Author
+		{
+			get
+			{
+				return this._book_Author;
+			}
+			set
+			{
+				if ((this._book_Author != value))
+				{
+					this._book_Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_CopyrightYear", DbType="Int NOT NULL")]
+		public int book_CopyrightYear
+		{
+			get
+			{
+				return this._book_CopyrightYear;
+			}
+			set
+			{
+				if ((this._book_CopyrightYear != value))
+				{
+					this._book_CopyrightYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_BorrowedDate", DbType="Date NOT NULL")]
+		public System.DateTime borrow_BorrowedDate
+		{
+			get
+			{
+				return this._borrow_BorrowedDate;
+			}
+			set
+			{
+				if ((this._borrow_BorrowedDate != value))
+				{
+					this._borrow_BorrowedDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_borrow_DueDate", DbType="Date NOT NULL")]
+		public System.DateTime borrow_DueDate
+		{
+			get
+			{
+				return this._borrow_DueDate;
+			}
+			set
+			{
+				if ((this._borrow_DueDate != value))
+				{
+					this._borrow_DueDate = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewNonReadingMaterialResult
+	{
+		
+		private int _nrm_MaterialID;
+		
+		private string _nrm_MaterialNum;
+		
+		private string _nrm_MaterialType;
+		
+		private string _nrm_Title;
+		
+		private string _nrm_Volume;
+		
+		private string _nrm_Issue;
+		
+		private int _nrm_CopyrightYear;
+		
+		private string _nrm_Author;
+		
+		private string _nrm_Publisher;
+		
+		private int _nrm_Page;
+		
+		private int _nrm_NumberOfCopies;
+		
+		public sp_ViewNonReadingMaterialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialID", DbType="Int NOT NULL")]
+		public int nrm_MaterialID
+		{
+			get
+			{
+				return this._nrm_MaterialID;
+			}
+			set
+			{
+				if ((this._nrm_MaterialID != value))
+				{
+					this._nrm_MaterialID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialNum", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nrm_MaterialNum
+		{
+			get
+			{
+				return this._nrm_MaterialNum;
+			}
+			set
+			{
+				if ((this._nrm_MaterialNum != value))
+				{
+					this._nrm_MaterialNum = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_MaterialType", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_MaterialType
+		{
+			get
+			{
+				return this._nrm_MaterialType;
+			}
+			set
+			{
+				if ((this._nrm_MaterialType != value))
+				{
+					this._nrm_MaterialType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Title
+		{
+			get
+			{
+				return this._nrm_Title;
+			}
+			set
+			{
+				if ((this._nrm_Title != value))
+				{
+					this._nrm_Title = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Volume", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_Volume
+		{
+			get
+			{
+				return this._nrm_Volume;
+			}
+			set
+			{
+				if ((this._nrm_Volume != value))
+				{
+					this._nrm_Volume = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Issue", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string nrm_Issue
+		{
+			get
+			{
+				return this._nrm_Issue;
+			}
+			set
+			{
+				if ((this._nrm_Issue != value))
+				{
+					this._nrm_Issue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_CopyrightYear", DbType="Int NOT NULL")]
+		public int nrm_CopyrightYear
+		{
+			get
+			{
+				return this._nrm_CopyrightYear;
+			}
+			set
+			{
+				if ((this._nrm_CopyrightYear != value))
+				{
+					this._nrm_CopyrightYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Author", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Author
+		{
+			get
+			{
+				return this._nrm_Author;
+			}
+			set
+			{
+				if ((this._nrm_Author != value))
+				{
+					this._nrm_Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Publisher", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string nrm_Publisher
+		{
+			get
+			{
+				return this._nrm_Publisher;
+			}
+			set
+			{
+				if ((this._nrm_Publisher != value))
+				{
+					this._nrm_Publisher = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_Page", DbType="Int NOT NULL")]
+		public int nrm_Page
+		{
+			get
+			{
+				return this._nrm_Page;
+			}
+			set
+			{
+				if ((this._nrm_Page != value))
+				{
+					this._nrm_Page = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nrm_NumberOfCopies", DbType="Int NOT NULL")]
+		public int nrm_NumberOfCopies
+		{
+			get
+			{
+				return this._nrm_NumberOfCopies;
+			}
+			set
+			{
+				if ((this._nrm_NumberOfCopies != value))
+				{
+					this._nrm_NumberOfCopies = value;
 				}
 			}
 		}

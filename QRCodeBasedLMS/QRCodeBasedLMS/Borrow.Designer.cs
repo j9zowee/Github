@@ -50,10 +50,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitle = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -347,9 +348,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 16);
+            this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 26;
-            this.label2.Text = "Borrower ID Number :";
+            this.label2.Text = "Accession Number :";
             // 
             // label4
             // 
@@ -378,24 +379,6 @@
             this.txtTitle.Size = new System.Drawing.Size(238, 22);
             this.txtTitle.TabIndex = 68;
             this.txtTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dueDateDataGridViewTextBoxColumn
-            // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
-            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clsBorrowBindingSource
-            // 
-            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
             // 
             // link_GoBack
             // 
@@ -431,6 +414,28 @@
             this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dueDateDataGridViewTextBoxColumn
+            // 
+            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clsBorrowBindingSource
+            // 
+            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
             // 
             // Borrow
             // 
@@ -489,5 +494,6 @@
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtTitle;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

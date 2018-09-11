@@ -93,47 +93,46 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                if (lastlogin.Month != dt.Month && lastlogin.Day != dt.Day && lastlogin.Year != dt.Year)
+                if (lastlogin.Date != dt.Date)
                 {
                     MessageBox.Show("Your library attendance should be taken first before you can borrow a book from the library.\n Please proceed to the library entrance to scan your card.");
                 }
                 else
                 {
-                    MessageBox.Show(db.sp_BorrowedBooks(txt_BorrowerID.Text).Count()+"");
-                    //if ((db.sp_BorrowedBooks(txt_BorrowerID.Text).Count() + dgvBorrow.Rows.Count) <= 2)
-                    //{
-                    //    //int x = db.sp_LastBorrowNumber().Count() + 1;
-                    //    //string borrowID = "BRW-" + x + "-" + dt.Day + dt.Month + dt.Year;
-                    //    //DialogResult res = MessageBox.Show("CONFIRM:\nDo you want to borrow all the books in the table?", "Borrow Book", MessageBoxButtons.YesNo);
-                    //    //if (res == DialogResult.Yes)
-                    //    //{
-                    //    //    for (int i = 0; i < dgvBorrow.RowCount; i++)
-                    //    //    {
-                    //    //        db.sp_BorrowBook(borrowID, txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()),currentSY);
-                    //    //        db.sp_UpdateBookStatus(dgvBorrow.Rows[i].Cells[1].Value.ToString(), "Borrowed");
-                    //    //    }
+                    if ((db.sp_BorrowedBooks(txt_BorrowerID.Text).Count() + dgvBorrow.Rows.Count) <= 3)
+                    {
+                        int x = db.sp_LastBorrowNumber().Count() + 1;
+                        string borrowID = "BRW-" + x + "-" + dt.Day + dt.Month + dt.Year;
+                        DialogResult res = MessageBox.Show("CONFIRM:\nDo you want to borrow all the books in the table?", "Borrow Book", MessageBoxButtons.YesNo);
+                        if (res == DialogResult.Yes)
+                        {
+                            for (int i = 0; i < dgvBorrow.RowCount; i++)
+                            {
+                                db.sp_BorrowBook(borrowID, txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()), currentSY);
+                                db.sp_UpdateBookStatus(dgvBorrow.Rows[i].Cells[1].Value.ToString(), "Borrowed");
+                            }
 
-                    //    //    MessageBox.Show("Successully Borrowed!");
-                    //    //    txtAccNumber.Text = "";
-                    //    //    txt_BorrowerID.Text = "";
-                    //    //    if (origin == "index")
-                    //    //    {
-                    //    //        IndexForm index = new IndexForm();
-                    //    //        index.Show();
-                    //    //        this.Hide();
-                    //    //    }
-                    //    //    else
-                    //    //    {
-                    //    //        MainForm main = new MainForm();
-                    //    //        main.Show();
-                    //    //        this.Hide();
-                    //    //    }
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("You can only borrow 3 books at a time. You already have " + db.sp_BorrowedBooks(txt_BorrowerID.Text) + " borrowed books.\nIf you wish to borrow more books, please return some of the borrowed books to the librarian.");
-                    //}
+                            MessageBox.Show("Successully Borrowed!");
+                            txtAccNumber.Text = "";
+                            txt_BorrowerID.Text = "";
+                            if (origin == "index")
+                            {
+                                IndexForm index = new IndexForm();
+                                index.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MainForm main = new MainForm();
+                                main.Show();
+                                this.Hide();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can only borrow 3 books at a time. You already have " + db.sp_BorrowedBooks(txt_BorrowerID.Text) + " borrowed books.\nIf you wish to borrow more books, please return some of the borrowed books to the librarian.");
+                    }
                 }
             }
         }
@@ -265,6 +264,11 @@ namespace QRCodeBasedLMS
                 main.Show();
                 this.Hide();
             }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
         }
     }
 }

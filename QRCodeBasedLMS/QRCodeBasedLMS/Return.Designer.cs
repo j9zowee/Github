@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt_BookIDNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.txt_AccNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Title = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -51,14 +51,14 @@
             this.lblTotalFee = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvReturn = new System.Windows.Forms.DataGridView();
+            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BookIDNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -74,7 +74,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txt_BookIDNum);
+            this.groupBox2.Controls.Add(this.txt_AccNum);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txt_Title);
@@ -84,23 +84,23 @@
             this.groupBox2.TabIndex = 86;
             this.groupBox2.TabStop = false;
             // 
-            // txt_BookIDNum
+            // txt_AccNum
             // 
-            this.txt_BookIDNum.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_BookIDNum.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.txt_BookIDNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.txt_BookIDNum.BorderThickness = 1;
-            this.txt_BookIDNum.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txt_BookIDNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txt_BookIDNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.txt_BookIDNum.isPassword = false;
-            this.txt_BookIDNum.Location = new System.Drawing.Point(129, 14);
-            this.txt_BookIDNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_BookIDNum.Name = "txt_BookIDNum";
-            this.txt_BookIDNum.Size = new System.Drawing.Size(165, 22);
-            this.txt_BookIDNum.TabIndex = 69;
-            this.txt_BookIDNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_BookIDNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNum_OnValueChanged);
+            this.txt_AccNum.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txt_AccNum.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.txt_AccNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.txt_AccNum.BorderThickness = 1;
+            this.txt_AccNum.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_AccNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txt_AccNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.txt_AccNum.isPassword = false;
+            this.txt_AccNum.Location = new System.Drawing.Point(143, 14);
+            this.txt_AccNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_AccNum.Name = "txt_AccNum";
+            this.txt_AccNum.Size = new System.Drawing.Size(151, 22);
+            this.txt_AccNum.TabIndex = 69;
+            this.txt_AccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txt_AccNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNum_OnValueChanged);
             // 
             // label2
             // 
@@ -108,9 +108,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 16);
+            this.label2.Size = new System.Drawing.Size(128, 16);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Book ID Number :";
+            this.label2.Text = "Accession Number :";
             // 
             // label4
             // 
@@ -395,7 +395,7 @@
             this.dgvReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReturn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Delete,
-            this.BookIDNum,
+            this.AccessionNumber,
             this.bookTitleDataGridViewTextBoxColumn,
             this.dueDateDataGridViewTextBoxColumn,
             this.NoOfDaysUnreturned,
@@ -411,6 +411,14 @@
             this.dgvReturn.TabIndex = 88;
             this.dgvReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturn_CellContentClick);
             // 
+            // clsReturnBindingSource
+            // 
+            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
+            // 
+            // clsBorrowBindingSource
+            // 
+            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
+            // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete";
@@ -419,12 +427,12 @@
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
-            // BookIDNum
+            // AccessionNumber
             // 
-            this.BookIDNum.DataPropertyName = "BookIDNum";
-            this.BookIDNum.HeaderText = "Book ID Number";
-            this.BookIDNum.Name = "BookIDNum";
-            this.BookIDNum.ReadOnly = true;
+            this.AccessionNumber.DataPropertyName = "AccNum";
+            this.AccessionNumber.HeaderText = "AccessionNumber";
+            this.AccessionNumber.Name = "AccessionNumber";
+            this.AccessionNumber.ReadOnly = true;
             // 
             // bookTitleDataGridViewTextBoxColumn
             // 
@@ -453,14 +461,6 @@
             this.PenaltyFee.HeaderText = "PenaltyFee";
             this.PenaltyFee.Name = "PenaltyFee";
             this.PenaltyFee.ReadOnly = true;
-            // 
-            // clsReturnBindingSource
-            // 
-            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
-            // 
-            // clsBorrowBindingSource
-            // 
-            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
             // 
             // Return
             // 
@@ -504,7 +504,7 @@
         private System.Windows.Forms.BindingSource clsBorrowBindingSource;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txt_BookIDNum;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txt_AccNum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Title;
@@ -524,12 +524,12 @@
         private System.Windows.Forms.Label lblTotalFee;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvReturn;
+        private System.Windows.Forms.BindingSource clsReturnBindingSource;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BookIDNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccessionNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfDaysUnreturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn PenaltyFee;
-        private System.Windows.Forms.BindingSource clsReturnBindingSource;
     }
 }

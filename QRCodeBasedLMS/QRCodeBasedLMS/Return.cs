@@ -31,7 +31,7 @@ namespace QRCodeBasedLMS
         {
             if (txt_Name.Text == "")
             {
-                txt_BookIDNum.Enabled = false;
+                txt_AccNum.Enabled = false;
                 btnScan.Text = "Scan Borrower";
             }
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
@@ -71,13 +71,13 @@ namespace QRCodeBasedLMS
 
         private void txt_BookIDNum_OnValueChanged(object sender, EventArgs e)
         {
-            txt_Title.Text = (from s in db.tblBooks where s.book_BookNum == txt_BookIDNum.Text select s.book_Title).FirstOrDefault();
+            txt_Title.Text = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == txt_AccNum.Text select book.book_Title).FirstOrDefault();
         }
 
         private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            int x = db.sp_LastBorrowNumber().Count() + 1;
+            int x = db.sp_LastReturnNumber().Count() + 1;
             string returnID = "RTN-" + x + "-" + dt.Day + dt.Month + dt.Year;
             string remarks = "";
             if (lblTotalFee.Text == "0")
@@ -94,15 +94,16 @@ namespace QRCodeBasedLMS
                 for (int i = 0; i < dgvReturn.RowCount; i++)
                 {
                     db.sp_ReturnBook(returnID, txt_BorrowerID.Text, dgvReturn.Rows[i].Cells[1].Value.ToString(), dt, int.Parse(dgvReturn.Rows[i].Cells[4].Value.ToString()), decimal.Parse(dgvReturn.Rows[i].Cells[5].Value.ToString()), remarks);
+                    db.sp_UpdateBookStatus(dgvReturn.Rows[i].Cells[1].Value.ToString(), "Available");
                 }
 
                 MessageBox.Show("Successully Returned Books!");
 
-                txt_BookIDNum.Text = null;
+                txt_AccNum.Text = null;
                 txt_BorrowerID.Text = null;
                 MainForm main = new MainForm();
                 main.Show();
-                this.Close();
+                this.Hide();
             }
         }
 
@@ -123,22 +124,21 @@ namespace QRCodeBasedLMS
                     }
                     else
                     {
-                        txt_BookIDNum.Text = decoded;
+                        txt_AccNum.Text = decoded;
 
-                        // usbunon ang name sa db since giusab ang column name
-                        //int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_BookIDNum.Text);
-                        //DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
-                        //DateTime dt = DateTime.Now;
-                        //int diff = (dt - due).Days;
-                        //if (diff < 0) { diff = 0; }
-                        //double penalty = 0;
-                        //if ((diff * 3) < 0) { penalty = 0; }
-                        //else { penalty = diff * 3; }
+                        int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_AccNum.Text);
+                        DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
+                        DateTime dt = DateTime.Now;
+                        int diff = (dt - due).Days;
+                        if (diff < 0) { diff = 0; }
+                        double penalty = 0;
+                        if ((diff * 3) < 0) { penalty = 0; }
+                        else { penalty = diff * 3; }
 
-                        ////-----
-                        //clsReturnBindingSource.Add(new clsReturn() {BookIDNum = txt_BookIDNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
-                        //GetTotalPenalty();
-                        //btnScan.Text = "Scan Another Book";
+                        //-----
+                        clsReturnBindingSource.Add(new clsReturn() { AccNum = txt_AccNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
+                        GetTotalPenalty();
+                        btnScan.Text = "Scan Another Book";
                     }
 
                 }

@@ -16,7 +16,7 @@ namespace QRCodeBasedLMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new NonReadingMaterials());
+            Application.Run(new IndexForm());
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="dbLibraryManagement" Class="dcLMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=klayd-pc\sqlexpress;Initial Catalog=dbLibraryManagement;Integrated Security=True" SettingsObjectName="QRCodeBasedLMS.Properties.Settings" SettingsPropertyName="dbLibraryManagementConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DELL-PC\SQLEXPRESS;Initial Catalog=dbLibraryManagement;Integrated Security=True" SettingsObjectName="QRCodeBasedLMS.Properties.Settings" SettingsPropertyName="dbLibraryManagementConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tblAttendance" Member="tblAttendances">
     <Type Name="tblAttendance">
       <Column Name="attendance_AttendanceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -170,21 +170,6 @@
     <Parameter Name="CurrentSchoolYear" Parameter="currentSchoolYear" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_BorrowedBooks" Method="sp_BorrowedBooks">
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_BorrowedBooksResult">
-      <Column Name="copy_AccNum" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="book_Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="book_Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="book_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="borrow_BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.sp_GetBorrowIDForReturn" Method="sp_GetBorrowIDForReturn">
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-  </Function>
   <Function Name="dbo.sp_LastAcctIDNum" Method="sp_LastAcctIDNum">
     <ElementType Name="sp_LastAcctIDNumResult">
       <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -215,18 +200,6 @@
       <Column Name="user_UserType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="user_Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
     </ElementType>
-  </Function>
-  <Function Name="dbo.sp_ReturnBook" Method="sp_ReturnBook">
-    <Parameter Name="ReturnNum" Parameter="returnNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="BookNum" Parameter="bookNum" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="ReturnDate" Parameter="returnDate" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="NumOfDaysUnreturned" Parameter="numOfDaysUnreturned" Type="System.Int32" DbType="Int" />
-    <Parameter Name="Penalty" Parameter="penalty" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="PenaltyRemarks" Parameter="penaltyRemarks" Type="System.String" DbType="VarChar(20)" />
-  </Function>
-  <Function Name="dbo.sp_ReturnIDnumber" Method="sp_ReturnIDnumber">
-    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.sp_SearchAccount" Method="sp_SearchAccount">
     <Parameter Name="AccType" Parameter="accType" Type="System.String" DbType="VarChar(50)" />
@@ -362,8 +335,9 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.sp_ViewBorrowedBooks" Method="sp_ViewBorrowedBooks">
+  <Function Name="dbo.sp_ViewBorrowedBooks" Method="sp_ViewBorrowedBooks" IsComposable="true">
     <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="object" />
   </Function>
   <Function Name="dbo.sp_ViewLibraryUser" Method="sp_ViewLibraryUser">
     <Parameter Name="SchoolYear" Parameter="schoolYear" Type="System.String" DbType="VarChar(50)" />
@@ -406,5 +380,37 @@
       <Column Name="Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_BorrowedBooks" Method="sp_BorrowedBooks">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_BorrowedBooksResult">
+      <Column Name="copy_AccNum" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="book_Title" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="book_Author" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="book_Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="book_CopyrightYear" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_LastReturnNumber" Method="sp_LastReturnNumber">
+    <ElementType Name="sp_LastReturnNumberResult">
+      <Column Name="return_ReturnID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ReturnBook" Method="sp_ReturnBook">
+    <Parameter Name="ReturnNum" Parameter="returnNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ReturnDate" Parameter="returnDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="NumOfDaysUnreturned" Parameter="numOfDaysUnreturned" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Penalty" Parameter="penalty" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="PenaltyRemarks" Parameter="penaltyRemarks" Type="System.String" DbType="VarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_GetBorrowIDForReturn" Method="sp_GetBorrowIDForReturn">
+    <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

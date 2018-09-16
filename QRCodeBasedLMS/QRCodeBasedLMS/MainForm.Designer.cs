@@ -185,9 +185,10 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(156, 48);
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(167, 27);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(1182, 670);
+            this.pictureBox4.Size = new System.Drawing.Size(1182, 703);
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
@@ -204,7 +205,7 @@
             this.btnBorrow.ImageZoom = 50;
             this.btnBorrow.LabelPosition = 40;
             this.btnBorrow.LabelText = "BORROW";
-            this.btnBorrow.Location = new System.Drawing.Point(8, 57);
+            this.btnBorrow.Location = new System.Drawing.Point(15, 151);
             this.btnBorrow.Margin = new System.Windows.Forms.Padding(6);
             this.btnBorrow.Name = "btnBorrow";
             this.btnBorrow.Size = new System.Drawing.Size(141, 139);
@@ -224,7 +225,7 @@
             this.btnReturn.ImageZoom = 50;
             this.btnReturn.LabelPosition = 40;
             this.btnReturn.LabelText = "RETURN";
-            this.btnReturn.Location = new System.Drawing.Point(8, 224);
+            this.btnReturn.Location = new System.Drawing.Point(15, 302);
             this.btnReturn.Margin = new System.Windows.Forms.Padding(6);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(141, 139);
@@ -244,7 +245,7 @@
             this.btnBorrower.ImageZoom = 50;
             this.btnBorrower.LabelPosition = 40;
             this.btnBorrower.LabelText = "BORROWERS";
-            this.btnBorrower.Location = new System.Drawing.Point(8, 375);
+            this.btnBorrower.Location = new System.Drawing.Point(15, 453);
             this.btnBorrower.Margin = new System.Windows.Forms.Padding(6);
             this.btnBorrower.Name = "btnBorrower";
             this.btnBorrower.Size = new System.Drawing.Size(141, 139);
@@ -260,8 +261,8 @@
             this.Controls.Add(this.btnBorrower);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnBorrow);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.ms_Mainform);
+            this.Controls.Add(this.pictureBox4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.ms_Mainform;
             this.Name = "MainForm";

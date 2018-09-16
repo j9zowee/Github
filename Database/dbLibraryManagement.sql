@@ -13,7 +13,6 @@ user_SecretQuestion varchar(100)not null,
 user_SecretAnswer varchar(100)not null,
 user_UserType varchar(20)not null,
 user_Status varchar(10) not null)
- select * from tblBook
 
 create table tblLibraryUser(
 lib_UserID int identity(1,1) primary key,	
@@ -76,15 +75,13 @@ create table tblReturn(
 return_ReturnID int identity(1,1) primary key,
 return_ReturnNum varchar(50) not null,
 borrow_BorrowID int foreign key references tblBorrow(borrow_BorrowID),
-return_ReturnDate date not null,
-return_Penalty decimal not null,
-return_PenaltyRemarks varchar(20) not null)
+return_ReturnDate date not null)
 
 
 create table tblPenalty(
 penalty_PenaltyID int identity(1,1) primary key,
 penalty_NumOfDaysUnreturned int,
-penalty_PenaltyFee double,
+penalty_PenaltyFee decimal,
 penalty_Remarks varchar(50),
 return_ReturnID int foreign key references tblReturn(return_ReturnID))
 

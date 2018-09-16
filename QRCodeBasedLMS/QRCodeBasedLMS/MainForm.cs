@@ -110,5 +110,11 @@ namespace QRCodeBasedLMS
             brwr.Show();
             this.Hide();
         }
+
+        private void bookListingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BookListings bl = new BookListings();
+            bl.ShowDialog();
+        }
     }
 }

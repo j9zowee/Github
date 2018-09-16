@@ -51,21 +51,19 @@
             this.lblTotalFee = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvReturn = new System.Windows.Forms.DataGridView();
-            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsReturnBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // timer
@@ -411,14 +409,6 @@
             this.dgvReturn.TabIndex = 88;
             this.dgvReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturn_CellContentClick);
             // 
-            // clsReturnBindingSource
-            // 
-            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
-            // 
-            // clsBorrowBindingSource
-            // 
-            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
-            // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete";
@@ -462,6 +452,10 @@
             this.PenaltyFee.Name = "PenaltyFee";
             this.PenaltyFee.ReadOnly = true;
             // 
+            // clsReturnBindingSource
+            // 
+            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
+            // 
             // Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -493,15 +487,12 @@
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsReturnBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource clsBorrowBindingSource;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.GroupBox groupBox2;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_AccNum;

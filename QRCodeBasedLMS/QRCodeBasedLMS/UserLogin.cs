@@ -70,5 +70,12 @@ namespace QRCodeBasedLMS
             i.Show();
             this.Hide();
         }
+
+        private void link_ForgotPassword_Click(object sender, EventArgs e)
+        {
+            ForgotPassword fp = new ForgotPassword();
+            fp.Show();
+            this.Hide();
+        }
     }
 }

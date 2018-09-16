@@ -48,6 +48,11 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\..\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MessagingToolkit.QRCode">
       <HintPath>..\..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
     </Reference>
@@ -59,6 +64,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +103,18 @@
     <Compile Include="BookCopy.Designer.cs">
       <DependentUpon>BookCopy.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookListings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookListings.Designer.cs">
+      <DependentUpon>BookListings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookListingsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookListingsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BookSearch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +145,17 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dcLMS.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="dsBookList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBookList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
     <Compile Include="IndexForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +234,13 @@
     <EmbeddedResource Include="BookCopy.resx">
       <DependentUpon>BookCopy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BookListings.resx">
+      <DependentUpon>BookListings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookListingsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BookListingsReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookSearch.resx">
       <DependentUpon>BookSearch.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Borrower.resx">
       <DependentUpon>Borrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
@@ -263,6 +303,17 @@
       <LastGenOutput>dcLMS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="dsBookList.xsc">
+      <DependentUpon>dsBookList.xsd</DependentUpon>
+    </None>
+    <None Include="dsBookList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBookList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsBookList.xss">
+      <DependentUpon>dsBookList.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\clsBorrow.datasource" />
     <None Include="Properties\DataSources\clsReturn.datasource" />
@@ -281,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

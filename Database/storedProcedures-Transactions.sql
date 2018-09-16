@@ -22,35 +22,32 @@ BEGIN
 	select @copyID = dbo.tblBookCopy.copy_CopyID FROM dbo.tblBookCopy where tblBookCopy.copy_AccNum = @AccNum
 	insert into tblBorrow values(@BorrowNum,@libUserID,@copyID,@BorrowedDate,@DueDate)
 END
-select * from tblBookCopy
+select * from tblAttendance
+select * from tblBorrow
 
 CREATE PROCEDURE sp_BorrowedBooks
 @SchoolID varchar(50)
 AS
 BEGIN
-	DECLARE @libUserID int
-	declare @currentSY datetime
-	select @currentSY = max(tblLibraryUser.lib_SchoolYear) from tblLibraryUser
-	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID and dbo.tblLibraryUser.lib_SchoolYear = @currentSY
-	
-	select tblBookCopy.copy_AccNum, tblBook.book_Title, tblBook.book_Author,
-	tblBook.book_CopyrightYear, tblBorrow.borrow_BorrowedDate,tblBorrow.borrow_DueDate
-	FROM dbo.tblBorrow INNER JOIN dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID 
-	INNER JOIN dbo.tblBook ON dbo.tblBookCopy.book_BookID = dbo.tblBook.book_BookID
-	 where tblBorrow.lib_UserID = @libUserID and tblBookCopy.copy_Status = 'Borrowed'
+	SELECT dbo.tblBookCopy.copy_AccNum, dbo.tblBook.book_Title, dbo.tblBook.book_Author, dbo.tblBook.book_Publisher, dbo.tblBook.book_CopyrightYear, 
+        dbo.tblBorrow.borrow_BorrowedDate, dbo.tblBorrow.borrow_DueDate
+		FROM dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
+        dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID INNER JOIN
+        dbo.tblBook ON dbo.tblBookCopy.book_BookID = dbo.tblBook.book_BookID
+		where tblLibraryUser.lib_SchoolID=@SchoolID and tblBookCopy.copy_Status = 'Borrowed'
 END
 
 CREATE PROCEDURE sp_GetBorrowIDForReturn
 @SchoolID varchar(50),
-@BookNum varchar(50)
+@AccNum varchar(50)
 AS
 BEGIN
-	DECLARE @libUserID int
-	Declare @bookID int
+	
 	Declare @borrowID int
-	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
-	select @bookID = dbo.tblBook.book_BookID FROM dbo.tblBook where tblBook.book_BookNum = @BookNum
-	select @borrowID=tblBorrow.borrow_BorrowID from tblBorrow where tblBorrow.lib_UserID = @libUserID and tblBorrow.book_BookID = @bookID
+	SELECT @borrowID=dbo.tblBorrow.borrow_BorrowID
+	FROM dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
+    dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID
+	where tblLibraryUser.lib_SchoolID = @SchoolID and tblBookCopy.copy_AccNum = @AccNum
 	return @borrowID
 	
 END
@@ -71,16 +68,16 @@ END
 ---------------END OF ATTENDANCE-------------
 
 ----------------------RETURN-----------------
-CREATE PROCEDURE sp_ReturnIDnumber
+CREATE PROCEDURE sp_LastReturnNumber
 AS
-DECLARE @ID int
-SELECT @ID=IDENT_CURRENT('tblReturn')
-RETURN @ID;
+begin
+	select tblReturn.return_ReturnID from tblReturn
+end
 
 create PROCEDURE sp_ReturnBook
 @ReturnNum varchar(50),
 @SchoolID varchar(50),
-@BookNum varchar(50),
+@AccNum varchar(50),
 @ReturnDate date,
 @NumOfDaysUnreturned int,
 @Penalty decimal,
@@ -88,11 +85,11 @@ create PROCEDURE sp_ReturnBook
 AS
 BEGIN
 	DECLARE @libUserID int
-	Declare @bookID int
+	Declare @copyID int
 	Declare @borrowID int
 	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
-	select @bookID = dbo.tblBook.book_BookID FROM dbo.tblBook where tblBook.book_BookNum = @BookNum
-	select @borrowID=tblBorrow.borrow_BorrowID from tblBorrow where tblBorrow.lib_UserID = @libUserID and tblBorrow.book_BookID = @bookID
+	select @copyID = dbo.tblBookCopy.copy_CopyID FROM dbo.tblBookCopy where tblBookCopy.copy_AccNum = @AccNum
+	select @borrowID=tblBorrow.borrow_BorrowID from tblBorrow where tblBorrow.lib_UserID = @libUserID and tblBorrow.copy_CopyID = @copyID
 
 	insert into tblReturn values(@ReturnNum,@borrowID,@ReturnDate)
 	insert into tblPenalty values(@NumOfDaysUnreturned,@Penalty,@PenaltyRemarks,@@IDENTITY)

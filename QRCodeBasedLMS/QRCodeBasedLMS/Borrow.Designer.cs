@@ -51,7 +51,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitle = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -415,10 +414,6 @@
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
             // bookTitleDataGridViewTextBoxColumn
             // 
             this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
@@ -494,6 +489,5 @@
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtTitle;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

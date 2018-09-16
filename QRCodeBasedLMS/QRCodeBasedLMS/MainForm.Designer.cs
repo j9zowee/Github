@@ -49,6 +49,7 @@
             this.btnBorrow = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnReturn = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnBorrower = new Bunifu.Framework.UI.BunifuTileButton();
+            this.bookListingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_Mainform.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +158,8 @@
             // 
             // rEPORTSToolStripMenuItem
             // 
+            this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bookListingsToolStripMenuItem});
             this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
             this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(125, 29);
             this.rEPORTSToolStripMenuItem.Text = "REPORTS";
@@ -241,6 +244,13 @@
             this.btnBorrower.TabIndex = 9;
             this.btnBorrower.Click += new System.EventHandler(this.btnBorrower_Click);
             // 
+            // bookListingsToolStripMenuItem
+            // 
+            this.bookListingsToolStripMenuItem.Name = "bookListingsToolStripMenuItem";
+            this.bookListingsToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.bookListingsToolStripMenuItem.Text = "Book Listings";
+            this.bookListingsToolStripMenuItem.Click += new System.EventHandler(this.bookListingsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +298,6 @@
         private Bunifu.Framework.UI.BunifuTileButton btnBorrow;
         private Bunifu.Framework.UI.BunifuTileButton btnBorrower;
         private Bunifu.Framework.UI.BunifuTileButton btnReturn;
+        private System.Windows.Forms.ToolStripMenuItem bookListingsToolStripMenuItem;
     }
 }

@@ -170,6 +170,7 @@
             this.link_ForgotPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.link_ForgotPassword.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_ForgotPassword.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_ForgotPassword.Click += new System.EventHandler(this.link_ForgotPassword_Click);
             // 
             // linkSignUp
             // 

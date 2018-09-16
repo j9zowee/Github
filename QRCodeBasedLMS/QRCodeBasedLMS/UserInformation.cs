@@ -14,9 +14,11 @@ namespace QRCodeBasedLMS
 {
     public partial class UserInformation : Form
     {
-        public UserInformation()
+        private string usertype;
+        public UserInformation(string type)
         {
             InitializeComponent();
+            usertype = type;
         }
         clsUser user = new clsUser();
         dcLMSDataContext db = new dcLMSDataContext();
@@ -39,8 +41,9 @@ namespace QRCodeBasedLMS
         private void UserInformation_Load(object sender, EventArgs e)
         {
             txt_UserIDNum.Text = user.GenerateAccountIDNum();
-            dgvAccount.DataSource = db.sp_ViewAccount("Active");
-            
+            cmb_SecretQuestion.selectedIndex = 0;
+            dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
+            MessageBox.Show(usertype);
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -72,10 +75,11 @@ namespace QRCodeBasedLMS
             DialogResult res = MessageBox.Show("Do you want to deactivate this account?", "Deactivate Account", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                db.sp_UpdateAccountStatus(txt_UserIDNum.Text, "Deactivate");
+                db.sp_UpdateAccountStatus(txt_UserIDNum.Text, "Inactive");
                 MessageBox.Show("Successfully deactivated account!");
-                dgvAccount.DataSource = db.sp_ViewAccount("Active");
+                dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
                 ClearText();
+                txt_UserIDNum.Text = user.GenerateAccountIDNum();
             }
                 
         }
@@ -83,51 +87,57 @@ namespace QRCodeBasedLMS
         private void btnAddOrUpdate_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_UserIDNum.Text) || string.IsNullOrWhiteSpace(txt_Firstname.Text) || string.IsNullOrWhiteSpace(txt_Lastname.Text) || string.IsNullOrWhiteSpace(txt_Username.Text) || string.IsNullOrWhiteSpace(txt_Password.Text) ||
-                string.IsNullOrWhiteSpace(cmb_SecretQuestion.Text) || string.IsNullOrWhiteSpace(txt_SecretAnswer.Text))
+               string.IsNullOrWhiteSpace(txt_SecretAnswer.Text))
             {
                 MessageBox.Show("Incomplete Information!\nPlease enter values in all of the textboxes.");
             }
             else
             {
-                //store values to properties found inside the clsUser
-                string usertype;
-                if (rb_Admin.Checked == true)
+                if (db.sp_CheckUsername(txt_Username.Text).Count() != 0)
                 {
-                    usertype = "Admin";
+                    MessageBox.Show("The username you entered is already taken.\nPlease use other username.");
                 }
                 else
                 {
-                    usertype = "Staff";
+                    //store values to properties found inside the clsUser
+                    string usertype;
+                    if (rb_Admin.Checked == true)
+                    {
+                        usertype = "Admin";
+                    }
+                    else
+                    {
+                        usertype = "Staff";
+                    }
+
+
+                    user.UserIDNumber = txt_UserIDNum.Text;
+                    user.Firstname = txt_Firstname.Text;
+                    user.Lastname = txt_Lastname.Text;
+                    user.Username = txt_Username.Text;
+                    user.Password = txt_Password.Text;
+                    user.SecretQuestion = cmb_SecretQuestion.selectedValue;
+                    user.SecretAnswer = txt_SecretAnswer.Text;
+                    user.Usertype = usertype;
+                    user.Status = "Active";
+
+                    if (btnAddOrUpdate.Text == "ADD")
+                    {
+                        //adding of User
+                        user.AddRecord();
+                        MessageBox.Show("Successfully Registered!");
+                        dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
+                        ClearText();
+                    }
+                    else
+                    {
+                        user.UpdateRecord();
+                        ClearText();
+                        MessageBox.Show("Successfully Registered!");
+                        dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
+
+                    }
                 }
-
-
-                user.UserIDNumber = txt_UserIDNum.Text;
-                user.Firstname = txt_Firstname.Text;
-                user.Lastname = txt_Lastname.Text;
-                user.Username = txt_Username.Text;
-                user.Password = txt_Password.Text;
-                user.SecretQuestion = cmb_SecretQuestion.selectedValue;
-                user.SecretAnswer = txt_SecretAnswer.Text;
-                user.Usertype = usertype;
-                user.Status = "Active";
-
-                if (btnAddOrUpdate.Text == "ADD")
-                {
-                    //adding of User
-                    user.AddRecord();
-                    MessageBox.Show("Successfully Registered!");
-                    dgvAccount.DataSource = db.sp_ViewAccount("Active");
-                    ClearText();
-                }
-                else
-                {
-                    user.UpdateRecord();
-                    ClearText();
-                    MessageBox.Show("Successfully Registered!");
-                    dgvAccount.DataSource = db.sp_ViewAccount("Active");
-
-                }
-
             }
         }
 
@@ -138,7 +148,7 @@ namespace QRCodeBasedLMS
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
+            MainForm mf = new MainForm(usertype);
             mf.Show();
             this.Hide();
         }

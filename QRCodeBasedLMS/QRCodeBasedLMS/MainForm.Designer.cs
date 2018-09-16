@@ -31,25 +31,25 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ms_Mainform = new System.Windows.Forms.MenuStrip();
-            this.mASTERFILESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_Masterfiles = new System.Windows.Forms.ToolStripMenuItem();
             this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nonReadingMaterialsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uSERACCOUNTSMANAGERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_accountsManager = new System.Windows.Forms.ToolStripMenuItem();
             this.userAccountsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unapprovedUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tRANSACTIONSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_Transactions = new System.Windows.Forms.ToolStripMenuItem();
             this.borrowBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.returnBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOGOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_Reports = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookListingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ms_Logout = new System.Windows.Forms.ToolStripMenuItem();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnBorrow = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnReturn = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnBorrower = new Bunifu.Framework.UI.BunifuTileButton();
-            this.bookListingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ms_Mainform.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -60,27 +60,27 @@
             this.ms_Mainform.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ms_Mainform.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ms_Mainform.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mASTERFILESToolStripMenuItem,
-            this.uSERACCOUNTSMANAGERToolStripMenuItem,
-            this.tRANSACTIONSToolStripMenuItem,
-            this.rEPORTSToolStripMenuItem,
-            this.lOGOUTToolStripMenuItem});
+            this.ms_Masterfiles,
+            this.ms_accountsManager,
+            this.ms_Transactions,
+            this.ms_Reports,
+            this.ms_Logout});
             this.ms_Mainform.Location = new System.Drawing.Point(0, 0);
             this.ms_Mainform.Name = "ms_Mainform";
             this.ms_Mainform.Size = new System.Drawing.Size(1350, 33);
             this.ms_Mainform.TabIndex = 0;
             this.ms_Mainform.Text = "menuStrip1";
             // 
-            // mASTERFILESToolStripMenuItem
+            // ms_Masterfiles
             // 
-            this.mASTERFILESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_Masterfiles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookToolStripMenuItem,
             this.borrowersToolStripMenuItem,
             this.nonReadingMaterialsToolStripMenuItem,
             this.libraryUsersToolStripMenuItem});
-            this.mASTERFILESToolStripMenuItem.Name = "mASTERFILESToolStripMenuItem";
-            this.mASTERFILESToolStripMenuItem.Size = new System.Drawing.Size(170, 29);
-            this.mASTERFILESToolStripMenuItem.Text = "MASTERFILES";
+            this.ms_Masterfiles.Name = "ms_Masterfiles";
+            this.ms_Masterfiles.Size = new System.Drawing.Size(170, 29);
+            this.ms_Masterfiles.Text = "MASTERFILES";
             // 
             // bookToolStripMenuItem
             // 
@@ -110,14 +110,14 @@
             this.libraryUsersToolStripMenuItem.Text = "Library Users";
             this.libraryUsersToolStripMenuItem.Click += new System.EventHandler(this.libraryUsersToolStripMenuItem_Click);
             // 
-            // uSERACCOUNTSMANAGERToolStripMenuItem
+            // ms_accountsManager
             // 
-            this.uSERACCOUNTSMANAGERToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_accountsManager.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userAccountsToolStripMenuItem,
             this.unapprovedUsersToolStripMenuItem});
-            this.uSERACCOUNTSMANAGERToolStripMenuItem.Name = "uSERACCOUNTSMANAGERToolStripMenuItem";
-            this.uSERACCOUNTSMANAGERToolStripMenuItem.Size = new System.Drawing.Size(253, 29);
-            this.uSERACCOUNTSMANAGERToolStripMenuItem.Text = "ACCOUNTS MANAGER";
+            this.ms_accountsManager.Name = "ms_accountsManager";
+            this.ms_accountsManager.Size = new System.Drawing.Size(253, 29);
+            this.ms_accountsManager.Text = "ACCOUNTS MANAGER";
             // 
             // userAccountsToolStripMenuItem
             // 
@@ -133,14 +133,14 @@
             this.unapprovedUsersToolStripMenuItem.Text = "Unapproved Users";
             this.unapprovedUsersToolStripMenuItem.Click += new System.EventHandler(this.unapprovedUsersToolStripMenuItem_Click);
             // 
-            // tRANSACTIONSToolStripMenuItem
+            // ms_Transactions
             // 
-            this.tRANSACTIONSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_Transactions.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.borrowBookToolStripMenuItem,
             this.returnBookToolStripMenuItem});
-            this.tRANSACTIONSToolStripMenuItem.Name = "tRANSACTIONSToolStripMenuItem";
-            this.tRANSACTIONSToolStripMenuItem.Size = new System.Drawing.Size(187, 29);
-            this.tRANSACTIONSToolStripMenuItem.Text = "TRANSACTIONS";
+            this.ms_Transactions.Name = "ms_Transactions";
+            this.ms_Transactions.Size = new System.Drawing.Size(187, 29);
+            this.ms_Transactions.Text = "TRANSACTIONS";
             // 
             // borrowBookToolStripMenuItem
             // 
@@ -156,20 +156,27 @@
             this.returnBookToolStripMenuItem.Text = "Return Book";
             this.returnBookToolStripMenuItem.Click += new System.EventHandler(this.returnBookToolStripMenuItem_Click);
             // 
-            // rEPORTSToolStripMenuItem
+            // ms_Reports
             // 
-            this.rEPORTSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ms_Reports.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookListingsToolStripMenuItem});
-            this.rEPORTSToolStripMenuItem.Name = "rEPORTSToolStripMenuItem";
-            this.rEPORTSToolStripMenuItem.Size = new System.Drawing.Size(125, 29);
-            this.rEPORTSToolStripMenuItem.Text = "REPORTS";
+            this.ms_Reports.Name = "ms_Reports";
+            this.ms_Reports.Size = new System.Drawing.Size(125, 29);
+            this.ms_Reports.Text = "REPORTS";
             // 
-            // lOGOUTToolStripMenuItem
+            // bookListingsToolStripMenuItem
             // 
-            this.lOGOUTToolStripMenuItem.Name = "lOGOUTToolStripMenuItem";
-            this.lOGOUTToolStripMenuItem.Size = new System.Drawing.Size(112, 29);
-            this.lOGOUTToolStripMenuItem.Text = "LOGOUT";
-            this.lOGOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
+            this.bookListingsToolStripMenuItem.Name = "bookListingsToolStripMenuItem";
+            this.bookListingsToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.bookListingsToolStripMenuItem.Text = "Book Listings";
+            this.bookListingsToolStripMenuItem.Click += new System.EventHandler(this.bookListingsToolStripMenuItem_Click);
+            // 
+            // ms_Logout
+            // 
+            this.ms_Logout.Name = "ms_Logout";
+            this.ms_Logout.Size = new System.Drawing.Size(112, 29);
+            this.ms_Logout.Text = "LOGOUT";
+            this.ms_Logout.Click += new System.EventHandler(this.lOGOUTToolStripMenuItem_Click);
             // 
             // bunifuElipse1
             // 
@@ -244,13 +251,6 @@
             this.btnBorrower.TabIndex = 9;
             this.btnBorrower.Click += new System.EventHandler(this.btnBorrower_Click);
             // 
-            // bookListingsToolStripMenuItem
-            // 
-            this.bookListingsToolStripMenuItem.Name = "bookListingsToolStripMenuItem";
-            this.bookListingsToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
-            this.bookListingsToolStripMenuItem.Text = "Book Listings";
-            this.bookListingsToolStripMenuItem.Click += new System.EventHandler(this.bookListingsToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,6 +267,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ms_Mainform.ResumeLayout(false);
             this.ms_Mainform.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -278,14 +279,14 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip ms_Mainform;
-        private System.Windows.Forms.ToolStripMenuItem mASTERFILESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ms_Masterfiles;
         private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrowersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nonReadingMaterialsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uSERACCOUNTSMANAGERToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tRANSACTIONSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rEPORTSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOGOUTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ms_accountsManager;
+        private System.Windows.Forms.ToolStripMenuItem ms_Transactions;
+        private System.Windows.Forms.ToolStripMenuItem ms_Reports;
+        private System.Windows.Forms.ToolStripMenuItem ms_Logout;
         private System.Windows.Forms.ToolStripMenuItem userAccountsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unapprovedUsersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem libraryUsersToolStripMenuItem;

@@ -123,7 +123,7 @@ namespace QRCodeBasedLMS
                             }
                             else
                             {
-                                MainForm main = new MainForm();
+                                MainForm main = new MainForm("");
                                 main.Show();
                                 this.Hide();
                             }
@@ -260,7 +260,7 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                MainForm main = new MainForm();
+                MainForm main = new MainForm("");
                 main.Show();
                 this.Hide();
             }

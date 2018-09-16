@@ -174,8 +174,7 @@
             this.cmb_Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.cmb_Status.Items = new string[] {
         "Active",
-        "Inactive",
-        "Deactivate"};
+        "Inactive"};
             this.cmb_Status.Location = new System.Drawing.Point(125, 220);
             this.cmb_Status.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Status.Name = "cmb_Status";

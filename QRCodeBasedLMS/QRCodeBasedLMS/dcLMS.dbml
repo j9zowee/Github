@@ -59,6 +59,7 @@
       <Column Name="copy_CopyID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="borrow_BorrowedDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="borrow_DueDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tblBorrow_tblReturn" Member="tblReturns" ThisKey="borrow_BorrowID" OtherKey="borrow_BorrowID" Type="tblReturn" />
       <Association Name="tblBookCopy_tblBorrow" Member="tblBookCopy" ThisKey="copy_CopyID" OtherKey="copy_CopyID" Type="tblBookCopy" IsForeignKey="true" />
       <Association Name="tblLibraryUser_tblBorrow" Member="tblLibraryUser" ThisKey="lib_UserID" OtherKey="lib_UserID" Type="tblLibraryUser" IsForeignKey="true" />
     </Type>
@@ -91,6 +92,26 @@
       <Column Name="nrm_Publisher" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="nrm_Page" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPenalty" Member="tblPenalties">
+    <Type Name="tblPenalty">
+      <Column Name="penalty_PenaltyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="penalty_NumOfDaysUnreturned" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="penalty_PenaltyFee" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="penalty_Remarks" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="return_ReturnID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblReturn_tblPenalty" Member="tblReturn" ThisKey="return_ReturnID" OtherKey="return_ReturnID" Type="tblReturn" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReturn" Member="tblReturns">
+    <Type Name="tblReturn">
+      <Column Name="return_ReturnID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="return_ReturnNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="borrow_BorrowID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="return_ReturnDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="tblReturn_tblPenalty" Member="tblPenalties" ThisKey="return_ReturnID" OtherKey="return_ReturnID" Type="tblPenalty" />
+      <Association Name="tblBorrow_tblReturn" Member="tblBorrow" ThisKey="borrow_BorrowID" OtherKey="borrow_BorrowID" Type="tblBorrow" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_AddAccount" Method="sp_AddAccount">
@@ -306,16 +327,6 @@
     <Parameter Name="nrm_NumberOfCopies" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.sp_ViewAccount" Method="sp_ViewAccount">
-    <Parameter Name="acctType" Type="System.String" DbType="VarChar(50)" />
-    <ElementType Name="sp_ViewAccountResult">
-      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.sp_ViewBook" Method="sp_ViewBook">
     <ElementType Name="sp_ViewBookResult">
       <Column Name="BookIDNumber" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -412,5 +423,36 @@
     <Parameter Name="SchoolID" Parameter="schoolID" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="AccNum" Parameter="accNum" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_UpdatePassword" Method="sp_UpdatePassword">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(10)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CheckUsername" Method="sp_CheckUsername">
+    <Parameter Name="Username" Parameter="username" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_CheckUsernameResult">
+      <Column Name="user_UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretQuestion" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_SecretAnswer" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="user_UserType" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Status" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ViewAccount" Method="sp_ViewAccount">
+    <Parameter Name="acctType" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="userType" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="sp_ViewAccountResult">
+      <Column Name="user_UserNum" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Firstname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Lastname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserStatus" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

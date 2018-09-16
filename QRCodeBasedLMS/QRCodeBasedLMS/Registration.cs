@@ -17,6 +17,7 @@ namespace QRCodeBasedLMS
             InitializeComponent();
         }
         clsUser user = new clsUser();
+        dcLMSDataContext db = new dcLMSDataContext();
         private void btnRegister_Click(object sender, EventArgs e)
         {
             int sq = cmb_SecretQuestion.selectedIndex;
@@ -28,30 +29,45 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                //store values to properties found in the clsUser
-                user.UserIDNumber = txt_UserIDNum.Text;
-                user.Firstname = txt_Firstname.Text;
-                user.Lastname = txt_Lastname.Text;
-                user.Username = txt_Username.Text;
-                user.Password = txt_Password.Text;
-                user.SecretQuestion = cmb_SecretQuestion.selectedValue;
-                user.SecretAnswer = txt_SecretAnswer.Text;
-                user.Usertype = "Staff";
-                user.Status = "Inactive";
-
-                if (txt_ConfirmPassword.Text != txt_Password.Text)
+                if(db.sp_CheckUsername(txt_Username.Text).Count() != 0)
                 {
-                    MessageBox.Show("Passwords does not match!");
+                    MessageBox.Show("The username you entered is already taken.\nPlease use other username.");
                 }
                 else
                 {
-                    //Register user
-                    user.AddRecord();
-                    MessageBox.Show("Successfully Registered!\nPlease wait for the Admin to approve your registration.");
-                    ClearText();
-                }
-            }
+                    user.UserIDNumber = txt_UserIDNum.Text;
+                    user.Firstname = txt_Firstname.Text;
+                    user.Lastname = txt_Lastname.Text;
+                    user.Username = txt_Username.Text;
+                    user.Password = txt_Password.Text;
+                    user.SecretQuestion = cmb_SecretQuestion.selectedValue;
+                    user.SecretAnswer = txt_SecretAnswer.Text;
 
+
+                    if (txt_ConfirmPassword.Text != txt_Password.Text)
+                    {
+                        MessageBox.Show("Passwords does not match!");
+                    }
+                    else
+                    {
+                        if (db.sp_LastAcctIDNum().Count() == 0)
+                        {
+                            user.Usertype = "SuperAdmin";
+                            user.Status = "Active";
+                            MessageBox.Show("You have successfully created the Super Admin account!");
+                        }
+                        else
+                        {
+                            user.Usertype = "Staff";
+                            user.Status = "Inactive";
+                            MessageBox.Show("Successfully Registered!\nPlease wait for the Admin to approve your registration.");
+                        }
+                        user.AddRecord();
+                        txt_UserIDNum.Text = user.GenerateAccountIDNum();
+                        ClearText();
+                    }
+                }                
+            }
         }
 
         //method for clearing texts
@@ -74,16 +90,17 @@ namespace QRCodeBasedLMS
                 MessageBox.Show("Passwords does not match!");
             }
         }
-        private void btnExit_Click(object sender, EventArgs e)
+        
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            txt_UserIDNum.Text = user.GenerateAccountIDNum();
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
         {
             UserLogin login = new UserLogin();
             login.Show();
             this.Hide();
-        }
-
-        private void Registration_Load(object sender, EventArgs e)
-        {
-            txt_UserIDNum.Text = user.GenerateAccountIDNum();
         }
     }
 }

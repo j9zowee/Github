@@ -21,9 +21,11 @@ namespace QRCodeBasedLMS
         public string schoolyear;
         public string brwrtype;
         private string origin;
-        public ScanQRCode(string org)
+        private string usertype;
+        public ScanQRCode(string type,string org)
         {
             InitializeComponent();
+            usertype = type;
             origin = org;
         }
         private FilterInfoCollection CaptureDevice;
@@ -66,19 +68,19 @@ namespace QRCodeBasedLMS
                     if (origin == "book")
                     {
 
-                        Book bk = new Book(decoded);
+                        Book bk = new Book(usertype, decoded);
                         bk.Show();
                         this.Close();
                     }
                     else if (origin == "booksearch")
                     {
-                        BookSearch bs = new BookSearch(decoded);
+                        BookSearch bs = new BookSearch(usertype,decoded);
                         bs.Show();
                         this.Close();
                     }
                     else if (origin == "brwr")
                     {
-                        Borrower br = new Borrower(decoded);
+                        Borrower br = new Borrower(usertype, decoded);
                         br.sy = schoolyear;
                         br.bt = brwrtype;
                         br.Show();

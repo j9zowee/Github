@@ -6,7 +6,13 @@ begin
 	select tblUserAccount.user_UserID from tblUserAccount
 end
 
-select * from tblUserAccount
+CREATE PROCEDURE sp_CheckUsername
+@Username varchar(50)
+AS
+begin
+	select * from tblUserAccount where tblUserAccount.user_Username = @Username
+end 
+
 create procedure sp_AddAccount
 @UserNum varchar(50),
 @Firstname varchar(100),
@@ -24,19 +30,30 @@ begin
 end
 
 create PROCEDURE sp_ViewAccount
-@acctType varchar(50)
+@acctType varchar(50),
+@userType varchar(50)
 AS
 BEGIN
-	if @acctType = 'Inactive'
+	if @acctType = 'Inactive' and @userType = 'Admin'
 	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 	FROM dbo.tblUserAccount
-	where (dbo.tblUserAccount.user_Status = 'Inactive' or dbo.tblUserAccount.user_Status = 'Deactivate') and tblUserAccount.user_UserType != 'SuperAdmin')
-	else
-	((SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	where dbo.tblUserAccount.user_Status = 'Inactive' and tblUserAccount.user_UserType != 'SuperAdmin')
+	else if @acctType = 'Active' and @userType = 'Admin'
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
 	dbo.tblUserAccount.user_Status as UserStatus
 		FROM dbo.tblUserAccount
-		where dbo.tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'SuperAdmin'))
+		where dbo.tblUserAccount.user_Status = 'Active' and tblUserAccount.user_UserType != 'SuperAdmin')
+	else if @acctType = 'Active' and @userType = 'SuperAdmin'
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
+		FROM dbo.tblUserAccount
+		where dbo.tblUserAccount.user_Status = 'Active')
+	else
+	(SELECT dbo.tblUserAccount.user_UserNum, dbo.tblUserAccount.user_Firstname, dbo.tblUserAccount.user_Lastname, dbo.tblUserAccount.user_Username,
+	dbo.tblUserAccount.user_Status as UserStatus
+		FROM dbo.tblUserAccount
+		where dbo.tblUserAccount.user_Status = 'Inactive')
 END
 
 
@@ -58,6 +75,16 @@ BEGIN
 		tblUserAccount.user_SecretAnswer=@SecretAnswer, tblUserAccount.user_UserType=@UserType, tblUserAccount.user_Status=@Status
 	from tblUserAccount
 	where tblUserAccount.user_UserNum= @UserNum	
+END
+
+create PROCEDURE sp_UpdatePassword
+@Username varchar(50),
+@Password varchar(10)
+AS
+BEGIN
+	update tblUserAccount
+	set tblUserAccount.user_Password=@Password from tblUserAccount
+	where tblUserAccount.user_Username= @Username	
 END
 
 create PROCEDURE sp_UpdateAccountStatus

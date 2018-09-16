@@ -12,20 +12,19 @@ namespace QRCodeBasedLMS
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private string usertype;
+        public MainForm(string type)
         {
             InitializeComponent();
+            usertype = type;
         }
-
+        dcLMSDataContext db = new dcLMSDataContext();
         private void RegistrationToolStripMenu_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
             reg.Show();
             this.Hide();
         }
-
-        
-
         private void lOGOUTToolStripMenuItem_Click(object sender, EventArgs e)
         {
             IndexForm index = new IndexForm();
@@ -34,7 +33,7 @@ namespace QRCodeBasedLMS
         }
         private void unapprovedUsersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UnapprovedAccounts ua = new UnapprovedAccounts();
+            UnapprovedAccounts ua = new UnapprovedAccounts(usertype);
             ua.Show();
             this.Hide();
         }
@@ -66,14 +65,14 @@ namespace QRCodeBasedLMS
 
         private void userAccountsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UserInformation ui = new UserInformation();
+            UserInformation ui = new UserInformation(usertype);
             ui.Show();
             this.Hide();
         }
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Book bk = new Book("");
+            Book bk = new Book(usertype,"");
             bk.Show();
             this.Hide();
         }
@@ -94,19 +93,21 @@ namespace QRCodeBasedLMS
 
         private void btnBorrower_Click(object sender, EventArgs e)
         {
-            Borrower brwr = new Borrower("");
+            Borrower brwr = new Borrower(usertype,"");
             brwr.Show();
             this.Hide();
         }
 
         private void nonReadingMaterialsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NonReadingMaterials nrm = new NonReadingMaterials();
+            nrm.Show();
+            this.Hide();
         }
 
         private void borrowersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Borrower brwr = new Borrower("");
+            Borrower brwr = new Borrower(usertype,"");
             brwr.Show();
             this.Hide();
         }
@@ -115,6 +116,16 @@ namespace QRCodeBasedLMS
         {
             BookListings bl = new BookListings();
             bl.ShowDialog();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(usertype);
+            if (usertype == "Staff")
+            {
+                ms_accountsManager.Visible = false;
+                ms_Reports.Visible = false;
+            }
         }
     }
 }

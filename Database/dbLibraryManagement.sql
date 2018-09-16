@@ -13,6 +13,7 @@ user_SecretQuestion varchar(100)not null,
 user_SecretAnswer varchar(100)not null,
 user_UserType varchar(20)not null,
 user_Status varchar(10) not null)
+select * from tblUserAccount
 
 create table tblLibraryUser(
 lib_UserID int identity(1,1) primary key,	

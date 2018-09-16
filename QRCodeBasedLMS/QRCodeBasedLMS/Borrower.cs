@@ -19,13 +19,15 @@ namespace QRCodeBasedLMS
         public string sy;
         public string bt;
         private string qrcode;
-        public Borrower(string qr)
+        static string usertype;
+        public Borrower(string type, string qr)
         {
             InitializeComponent();
+            usertype = type;
             qrcode = qr;
         }
         dcLMSDataContext db = new dcLMSDataContext();
-        ScanQRCode scan = new ScanQRCode("brwr");
+        ScanQRCode scan = new ScanQRCode(usertype,"brwr");
         private Boolean withcard;
         
         private void Borrower_Load(object sender, EventArgs e)
@@ -64,7 +66,7 @@ namespace QRCodeBasedLMS
         }
         private void link_ScanBrwr_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("borrower_brwr");
+            ScanQRCode scan = new ScanQRCode(usertype,"borrower_brwr");
             scan.Show();
             this.Close();
         }
@@ -96,7 +98,7 @@ namespace QRCodeBasedLMS
         
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
+            MainForm main = new MainForm(usertype);
             main.Show();
             this.Hide();
         }

@@ -221,7 +221,7 @@
             this.txt_Password.Cursor = System.Windows.Forms.Cursors.Default;
             this.txt_Password.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.txt_Password.isPassword = false;
+            this.txt_Password.isPassword = true;
             this.txt_Password.Location = new System.Drawing.Point(135, 163);
             this.txt_Password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Password.Name = "txt_Password";

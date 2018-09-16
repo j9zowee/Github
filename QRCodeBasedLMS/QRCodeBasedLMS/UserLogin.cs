@@ -22,17 +22,15 @@ namespace QRCodeBasedLMS
         {
             if(db.sp_LastAcctIDNum().Count() == 0)
             {
-                user.UserIDNumber = user.GenerateAccountIDNum();
-                user.Firstname = "SuperAdmin";
-                user.Lastname = "";
-                user.Username = "SuperAdmin";
-                user.Password = "JaneDoe";
-                user.SecretQuestion = "";
-                user.SecretAnswer = "";
-                user.Usertype = "SuperAdmin";
-                user.Status = "Active";
-
-                user.AddRecord();
+                link_ForgotPassword.Visible = false;
+                linkSignUp.Visible = false;
+                grpCreateSuperAdmin.Visible = true;
+            }
+            else
+            {
+                link_ForgotPassword.Visible = true;
+                linkSignUp.Visible = true;
+                grpCreateSuperAdmin.Visible = false;
             }
         }
 
@@ -57,9 +55,18 @@ namespace QRCodeBasedLMS
                 }
                 else
                 {
-                    MainForm main = new MainForm();
-                    main.Show();
-                    this.Hide();
+                    string status = (from s in db.tblUserAccounts where s.user_Username == txtUsername.Text select s.user_Status).FirstOrDefault();
+                    if(status == "Inactive")
+                    {
+                        MessageBox.Show("This account is currently deactivated.");
+                    }
+                    else
+                    {
+                        string usertype = (from s in db.tblUserAccounts where s.user_Username == txtUsername.Text select s.user_UserType).FirstOrDefault();
+                        MainForm main = new MainForm(usertype);
+                        main.Show();
+                        this.Hide();
+                    }                    
                 }
             }     
         }
@@ -76,6 +83,12 @@ namespace QRCodeBasedLMS
             ForgotPassword fp = new ForgotPassword();
             fp.Show();
             this.Hide();
+        }
+
+        private void btnCreateSuperAdmin_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.ShowDialog();
         }
     }
 }

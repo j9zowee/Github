@@ -101,7 +101,7 @@ namespace QRCodeBasedLMS
 
                 txt_AccNum.Text = null;
                 txt_BorrowerID.Text = null;
-                MainForm main = new MainForm();
+                MainForm main = new MainForm("");
                 main.Show();
                 this.Hide();
             }
@@ -200,7 +200,7 @@ namespace QRCodeBasedLMS
 
         private void link_Back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MainForm main = new MainForm();
+            MainForm main = new MainForm("");
             main.Show();
             this.Close();
         }

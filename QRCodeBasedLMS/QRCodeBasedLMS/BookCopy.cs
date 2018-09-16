@@ -12,9 +12,11 @@ namespace QRCodeBasedLMS
 {
     public partial class BookCopy : Form
     {
-        public BookCopy(string bookIDNum)
+        private string usertype;
+        public BookCopy(string type, string bookIDNum)
         {
             InitializeComponent();
+            usertype = type;
             txt_BookIDNum.Text = bookIDNum;
         }
         dcLMSDataContext db = new dcLMSDataContext();
@@ -84,7 +86,7 @@ namespace QRCodeBasedLMS
 
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            Book bk = new Book("");
+            Book bk = new Book(usertype,"");
             bk.Show();
             this.Hide();
         }

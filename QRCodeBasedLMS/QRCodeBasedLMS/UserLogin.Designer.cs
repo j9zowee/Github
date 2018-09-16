@@ -39,6 +39,9 @@
             this.link_ForgotPassword = new Bunifu.Framework.UI.BunifuFlatButton();
             this.linkSignUp = new Bunifu.Framework.UI.BunifuFlatButton();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.grpCreateSuperAdmin = new System.Windows.Forms.GroupBox();
+            this.btnCreateSuperAdmin = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.grpCreateSuperAdmin.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuElipse1
@@ -193,7 +196,7 @@
             this.linkSignUp.IconVisible = false;
             this.linkSignUp.IconZoom = 110D;
             this.linkSignUp.IsTab = false;
-            this.linkSignUp.Location = new System.Drawing.Point(273, 17);
+            this.linkSignUp.Location = new System.Drawing.Point(192, 12);
             this.linkSignUp.Name = "linkSignUp";
             this.linkSignUp.Normalcolor = System.Drawing.Color.Transparent;
             this.linkSignUp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -228,7 +231,7 @@
             this.link_GoBack.IconVisible = false;
             this.link_GoBack.IconZoom = 110D;
             this.link_GoBack.IsTab = false;
-            this.link_GoBack.Location = new System.Drawing.Point(195, 17);
+            this.link_GoBack.Location = new System.Drawing.Point(270, 12);
             this.link_GoBack.Name = "link_GoBack";
             this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
             this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -242,12 +245,57 @@
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
+            // grpCreateSuperAdmin
+            // 
+            this.grpCreateSuperAdmin.Controls.Add(this.btnCreateSuperAdmin);
+            this.grpCreateSuperAdmin.Location = new System.Drawing.Point(38, 64);
+            this.grpCreateSuperAdmin.Name = "grpCreateSuperAdmin";
+            this.grpCreateSuperAdmin.Size = new System.Drawing.Size(272, 125);
+            this.grpCreateSuperAdmin.TabIndex = 44;
+            this.grpCreateSuperAdmin.TabStop = false;
+            // 
+            // btnCreateSuperAdmin
+            // 
+            this.btnCreateSuperAdmin.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnCreateSuperAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnCreateSuperAdmin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCreateSuperAdmin.BorderRadius = 7;
+            this.btnCreateSuperAdmin.ButtonText = "CREATE SUPER ADMIN ACCOUNT";
+            this.btnCreateSuperAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCreateSuperAdmin.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCreateSuperAdmin.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCreateSuperAdmin.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCreateSuperAdmin.Iconimage")));
+            this.btnCreateSuperAdmin.Iconimage_right = null;
+            this.btnCreateSuperAdmin.Iconimage_right_Selected = null;
+            this.btnCreateSuperAdmin.Iconimage_Selected = null;
+            this.btnCreateSuperAdmin.IconMarginLeft = 0;
+            this.btnCreateSuperAdmin.IconMarginRight = 0;
+            this.btnCreateSuperAdmin.IconRightVisible = false;
+            this.btnCreateSuperAdmin.IconRightZoom = 0D;
+            this.btnCreateSuperAdmin.IconVisible = true;
+            this.btnCreateSuperAdmin.IconZoom = 50D;
+            this.btnCreateSuperAdmin.IsTab = false;
+            this.btnCreateSuperAdmin.Location = new System.Drawing.Point(29, 37);
+            this.btnCreateSuperAdmin.Name = "btnCreateSuperAdmin";
+            this.btnCreateSuperAdmin.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnCreateSuperAdmin.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnCreateSuperAdmin.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCreateSuperAdmin.selected = false;
+            this.btnCreateSuperAdmin.Size = new System.Drawing.Size(204, 62);
+            this.btnCreateSuperAdmin.TabIndex = 45;
+            this.btnCreateSuperAdmin.Text = "CREATE SUPER ADMIN ACCOUNT";
+            this.btnCreateSuperAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCreateSuperAdmin.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnCreateSuperAdmin.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnCreateSuperAdmin.Click += new System.EventHandler(this.btnCreateSuperAdmin_Click);
+            // 
             // UserLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(357, 271);
+            this.ClientSize = new System.Drawing.Size(354, 271);
+            this.Controls.Add(this.grpCreateSuperAdmin);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.linkSignUp);
             this.Controls.Add(this.link_ForgotPassword);
@@ -261,6 +309,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "7";
             this.Load += new System.EventHandler(this.UserLogin_Load);
+            this.grpCreateSuperAdmin.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +326,7 @@
         private Bunifu.Framework.UI.BunifuFlatButton link_ForgotPassword;
         private Bunifu.Framework.UI.BunifuFlatButton linkSignUp;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
+        private System.Windows.Forms.GroupBox grpCreateSuperAdmin;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCreateSuperAdmin;
     }
 }

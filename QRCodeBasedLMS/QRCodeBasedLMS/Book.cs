@@ -14,17 +14,20 @@ namespace QRCodeBasedLMS
 {
     public partial class Book : Form
     {
+        private string usertype;
         private string qrcode;
-        public Book(string qr)
+        public Book(string type,string qr)
         {
             InitializeComponent();
             qrcode = qr;
+            usertype = type;
         }
         
         dcLMSDataContext db = new dcLMSDataContext();
         clsBook bk = new clsBook();
         private void Book_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(usertype);
             btnUpdate.Visible = false;
             txt_BookIDNum.Text= bk.GenerateBookIDNum();
             cmbBookType.selectedIndex = 0;
@@ -88,7 +91,7 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                BookCopy bc = new BookCopy(txt_BookIDNum.Text);
+                BookCopy bc = new BookCopy(usertype,txt_BookIDNum.Text);
                 bc.Show();
                 this.Hide();
             }
@@ -192,7 +195,7 @@ namespace QRCodeBasedLMS
 
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            MainForm MF = new MainForm();
+            MainForm MF = new MainForm(usertype);
             MF.Show();
             this.Hide();
         }
@@ -204,7 +207,7 @@ namespace QRCodeBasedLMS
 
         private void link_ScanQr_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("book");
+            ScanQRCode scan = new ScanQRCode(usertype,"book");
             scan.Show();
             this.Hide();
         }

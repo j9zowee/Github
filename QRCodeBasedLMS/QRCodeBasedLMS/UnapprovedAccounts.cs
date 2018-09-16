@@ -14,15 +14,17 @@ namespace QRCodeBasedLMS
 {
     public partial class UnapprovedAccounts : Form
     {
-        public UnapprovedAccounts()
+        private string usertype;
+        public UnapprovedAccounts(string type)
         {
             InitializeComponent();
+            usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
         private void UnapprovedAccounts_Load(object sender, EventArgs e)
         {
-            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
-            
+            dgvAccount.DataSource = db.sp_ViewAccount("Inactive", usertype);
+            cmb_Status.selectedIndex = 0;
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -38,7 +40,7 @@ namespace QRCodeBasedLMS
         private void btnSave_Click(object sender, EventArgs e)
         {
             db.sp_UpdateAccountStatus(txt_UserIDNum.Text, cmb_Status.selectedValue);
-            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
+            dgvAccount.DataSource = db.sp_ViewAccount("Inactive", usertype);
             MessageBox.Show("Saved!");
             ClearText();
         }
@@ -55,12 +57,12 @@ namespace QRCodeBasedLMS
         private void brnClear_Click(object sender, EventArgs e)
         {
             ClearText();
-            dgvAccount.DataSource = db.sp_ViewAccount("Inactive");
+            dgvAccount.DataSource = db.sp_ViewAccount(usertype,"Inactive");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            MainForm mf = new MainForm();
+            MainForm mf = new MainForm(usertype);
             mf.Show();
             this.Hide();
         }

@@ -101,7 +101,7 @@ namespace QRCodeBasedLMS
 
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm();
+            MainForm main = new MainForm("");
             main.Show();
             this.Hide();
         }

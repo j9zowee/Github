@@ -12,10 +12,12 @@ namespace QRCodeBasedLMS
 {
     public partial class BookSearch : Form
     {
+        private string usertype;
         private string qrcode;
-        public BookSearch(string qr)
+        public BookSearch(string type,string qr)
         {
             InitializeComponent();
+            usertype = type;
             qrcode = qr;
         }
         dcLMSDataContext db = new dcLMSDataContext();
@@ -55,7 +57,7 @@ namespace QRCodeBasedLMS
 
         private void link_Scan_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("booksearch");
+            ScanQRCode scan = new ScanQRCode(usertype,"booksearch");
             scan.Show();
             this.Hide();
         }

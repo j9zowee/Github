@@ -12,14 +12,19 @@ namespace QRCodeBasedLMS
 {
     public partial class NonReadingMaterials : Form
     {
-        public NonReadingMaterials()
+        private string usertype;
+        public NonReadingMaterials(string type)
         {
             InitializeComponent();
+            usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
+
         private void NonReadingMaterials_Load(object sender, EventArgs e)
         {
             dgv_NonReadingMaterials.DataSource = db.sp_ViewNonReadingMaterial();
+            DateTime dt = DateTime.Now;
+            txt_MaterialIDNumber.Text = "NRM-" + (db.sp_LastNonReadingIDNumber().Count() + 1) + "-" + dt.Day + dt.Month + dt.Year;
         }
 
         private void btnAddOrUpdate_Click(object sender, EventArgs e)
@@ -66,7 +71,8 @@ namespace QRCodeBasedLMS
         
         public void Clear()
         {
-            txt_MaterialIDNumber.Text = "";
+            DateTime dt = DateTime.Now;
+            txt_MaterialIDNumber.Text = "NRM-" + (db.sp_LastNonReadingIDNumber().Count()+1) + "-" + dt.Day + dt.Month + dt.Year;
             cmb_MatType.selectedIndex = 0;
             txt_Title.Text = "";
             txt_Volume.Text = "";
@@ -96,6 +102,13 @@ namespace QRCodeBasedLMS
                     // Set other properties & events here...
                 }
             }
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MainForm main = new MainForm(usertype);
+            main.Show();
+            this.Hide();
         }
     }
 }

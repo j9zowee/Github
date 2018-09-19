@@ -26,7 +26,7 @@ namespace QRCodeBasedLMS
             {
                 txt_SchoolID.Text = qrcode;
             }
-
+            dgvBorrowed.DataSource = db.sp_BorrowedBooks(txt_SchoolID.Text);
         }
 
         private void txt_SchoolID_OnValueChanged(object sender, EventArgs e)
@@ -70,9 +70,8 @@ namespace QRCodeBasedLMS
                 Bitmap bmp = encode.Encode(txt_SchoolID.Text);
                 pbBorrowerQR.Image = bmp;
             }
-
-            // usbunon ang name sa db since giusab ang column name
-            //dgvBorrowed.DataSource = db.sp_ViewBorrowedBooks(txt_SchoolID.Text);
+            
+            dgvBorrowed.DataSource = db.sp_BorrowedBooks(txt_SchoolID.Text);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -88,6 +87,13 @@ namespace QRCodeBasedLMS
             }
             db.sp_UpdateLibraryUser(txt_SchoolID.Text, txt_Firstname.Text, txt_Lastname.Text, gen, txt_Address.Text, txt_ContactNum.Text, sy, true);
             MessageBox.Show("Sucessfully Updated!");
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            IndexForm index = new IndexForm();
+            index.Show();
+            this.Hide();
         }
     }
 }

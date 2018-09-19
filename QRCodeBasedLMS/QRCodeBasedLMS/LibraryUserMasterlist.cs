@@ -13,9 +13,11 @@ namespace QRCodeBasedLMS
 {
     public partial class LibraryUserMasterlist : Form
     {
-        public LibraryUserMasterlist()
+        private string usertype;
+        public LibraryUserMasterlist(string type)
         {
             InitializeComponent();
+            usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
         private void btnChoose_Click(object sender, EventArgs e)
@@ -101,7 +103,7 @@ namespace QRCodeBasedLMS
 
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm("");
+            MainForm main = new MainForm(usertype);
             main.Show();
             this.Hide();
         }

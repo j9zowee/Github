@@ -45,6 +45,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Clear = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSave = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pb_QRBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.panel3.SuspendLayout();
@@ -64,7 +65,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(153, 57);
+            this.label2.Location = new System.Drawing.Point(153, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(113, 16);
             this.label2.TabIndex = 56;
@@ -74,16 +75,16 @@
             // 
             this.dtp_DateReceived.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.dtp_DateReceived.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DateReceived.Location = new System.Drawing.Point(272, 113);
+            this.dtp_DateReceived.Location = new System.Drawing.Point(272, 108);
             this.dtp_DateReceived.Name = "dtp_DateReceived";
-            this.dtp_DateReceived.Size = new System.Drawing.Size(145, 20);
+            this.dtp_DateReceived.Size = new System.Drawing.Size(211, 20);
             this.dtp_DateReceived.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(153, 89);
+            this.label1.Location = new System.Drawing.Point(153, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 16);
             this.label1.TabIndex = 57;
@@ -93,7 +94,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(153, 117);
+            this.label15.Location = new System.Drawing.Point(153, 112);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(105, 16);
             this.label15.TabIndex = 58;
@@ -111,7 +112,7 @@
             this.dgvBook.MultiSelect = false;
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBook.Size = new System.Drawing.Size(404, 222);
+            this.dgvBook.Size = new System.Drawing.Size(471, 222);
             this.dgvBook.TabIndex = 60;
             this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellClick);
             // 
@@ -119,7 +120,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(153, 145);
+            this.label11.Location = new System.Drawing.Point(153, 140);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 16);
             this.label11.TabIndex = 64;
@@ -143,13 +144,13 @@
         "Borrowed",
         "Damaged",
         "Lost"};
-            this.cmb_Status.Location = new System.Drawing.Point(272, 140);
+            this.cmb_Status.Location = new System.Drawing.Point(272, 135);
             this.cmb_Status.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Status.Name = "cmb_Status";
             this.cmb_Status.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.cmb_Status.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.cmb_Status.selectedIndex = -1;
-            this.cmb_Status.Size = new System.Drawing.Size(145, 21);
+            this.cmb_Status.Size = new System.Drawing.Size(211, 21);
             this.cmb_Status.TabIndex = 4;
             // 
             // txt_BookIDNum
@@ -164,10 +165,10 @@
             this.txt_BookIDNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_BookIDNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_BookIDNum.isPassword = false;
-            this.txt_BookIDNum.Location = new System.Drawing.Point(272, 51);
+            this.txt_BookIDNum.Location = new System.Drawing.Point(272, 46);
             this.txt_BookIDNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_BookIDNum.Name = "txt_BookIDNum";
-            this.txt_BookIDNum.Size = new System.Drawing.Size(145, 22);
+            this.txt_BookIDNum.Size = new System.Drawing.Size(211, 22);
             this.txt_BookIDNum.TabIndex = 1;
             this.txt_BookIDNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_BookIDNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNum_OnValueChanged);
@@ -183,10 +184,10 @@
             this.txt_AccessionNumber.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_AccessionNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_AccessionNumber.isPassword = false;
-            this.txt_AccessionNumber.Location = new System.Drawing.Point(272, 83);
+            this.txt_AccessionNumber.Location = new System.Drawing.Point(272, 78);
             this.txt_AccessionNumber.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_AccessionNumber.Name = "txt_AccessionNumber";
-            this.txt_AccessionNumber.Size = new System.Drawing.Size(145, 22);
+            this.txt_AccessionNumber.Size = new System.Drawing.Size(211, 22);
             this.txt_AccessionNumber.TabIndex = 2;
             this.txt_AccessionNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txt_AccessionNumber.OnValueChanged += new System.EventHandler(this.txt_AccessionNumber_OnValueChanged);
@@ -212,7 +213,7 @@
             this.btnAddOrUpdate.IconVisible = true;
             this.btnAddOrUpdate.IconZoom = 80D;
             this.btnAddOrUpdate.IsTab = false;
-            this.btnAddOrUpdate.Location = new System.Drawing.Point(191, 169);
+            this.btnAddOrUpdate.Location = new System.Drawing.Point(142, 170);
             this.btnAddOrUpdate.Name = "btnAddOrUpdate";
             this.btnAddOrUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btnAddOrUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -230,7 +231,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.panel3.Controls.Add(this.pb_QRBook);
-            this.panel3.Location = new System.Drawing.Point(12, 40);
+            this.panel3.Location = new System.Drawing.Point(12, 29);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(132, 132);
             this.panel3.TabIndex = 76;
@@ -256,7 +257,7 @@
             this.link_GoBack.IconVisible = false;
             this.link_GoBack.IconZoom = 110D;
             this.link_GoBack.IsTab = false;
-            this.link_GoBack.Location = new System.Drawing.Point(357, 12);
+            this.link_GoBack.Location = new System.Drawing.Point(423, 12);
             this.link_GoBack.Name = "link_GoBack";
             this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
             this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -291,7 +292,7 @@
             this.btn_Clear.IconVisible = true;
             this.btn_Clear.IconZoom = 80D;
             this.btn_Clear.IsTab = false;
-            this.btn_Clear.Location = new System.Drawing.Point(307, 169);
+            this.btn_Clear.Location = new System.Drawing.Point(258, 169);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btn_Clear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -305,12 +306,48 @@
             this.btn_Clear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSave.BorderRadius = 7;
+            this.btnSave.ButtonText = "SAVE QR CODE";
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSave.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSave.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSave.Iconimage")));
+            this.btnSave.Iconimage_right = null;
+            this.btnSave.Iconimage_right_Selected = null;
+            this.btnSave.Iconimage_Selected = null;
+            this.btnSave.IconMarginLeft = 0;
+            this.btnSave.IconMarginRight = 0;
+            this.btnSave.IconRightVisible = false;
+            this.btnSave.IconRightZoom = 0D;
+            this.btnSave.IconVisible = true;
+            this.btnSave.IconZoom = 80D;
+            this.btnSave.IsTab = false;
+            this.btnSave.Location = new System.Drawing.Point(374, 169);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnSave.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSave.selected = false;
+            this.btnSave.Size = new System.Drawing.Size(110, 41);
+            this.btnSave.TabIndex = 99;
+            this.btnSave.Text = "SAVE QR CODE";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSave.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // BookCopy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(430, 450);
+            this.ClientSize = new System.Drawing.Size(499, 450);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.btnAddOrUpdate);
@@ -354,5 +391,6 @@
         private System.Windows.Forms.Panel panel3;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Clear;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSave;
     }
 }

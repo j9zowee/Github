@@ -42,9 +42,9 @@
             this.cmb_Status = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnSave = new Bunifu.Framework.UI.BunifuFlatButton();
             this.brnClear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnExit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_Search = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label15 = new System.Windows.Forms.Label();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +52,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(8, 131);
+            this.label9.Location = new System.Drawing.Point(8, 164);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 117;
@@ -62,7 +62,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 195);
+            this.label3.Location = new System.Drawing.Point(8, 228);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 116;
@@ -72,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 163);
+            this.label1.Location = new System.Drawing.Point(8, 196);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 115;
@@ -86,7 +86,7 @@
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAccount.Location = new System.Drawing.Point(291, 41);
+            this.dgvAccount.Location = new System.Drawing.Point(291, 74);
             this.dgvAccount.MultiSelect = false;
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -98,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 228);
+            this.label2.Location = new System.Drawing.Point(8, 261);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 16);
             this.label2.TabIndex = 118;
@@ -120,7 +120,7 @@
             this.txt_Lastname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Lastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Lastname.isPassword = false;
-            this.txt_Lastname.Location = new System.Drawing.Point(125, 189);
+            this.txt_Lastname.Location = new System.Drawing.Point(125, 222);
             this.txt_Lastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Lastname.Name = "txt_Lastname";
             this.txt_Lastname.Size = new System.Drawing.Size(159, 22);
@@ -138,7 +138,7 @@
             this.txt_Firstname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Firstname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Firstname.isPassword = false;
-            this.txt_Firstname.Location = new System.Drawing.Point(125, 157);
+            this.txt_Firstname.Location = new System.Drawing.Point(125, 190);
             this.txt_Firstname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Firstname.Name = "txt_Firstname";
             this.txt_Firstname.Size = new System.Drawing.Size(159, 22);
@@ -156,7 +156,7 @@
             this.txt_UserIDNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_UserIDNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_UserIDNum.isPassword = false;
-            this.txt_UserIDNum.Location = new System.Drawing.Point(125, 125);
+            this.txt_UserIDNum.Location = new System.Drawing.Point(125, 158);
             this.txt_UserIDNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_UserIDNum.Name = "txt_UserIDNum";
             this.txt_UserIDNum.Size = new System.Drawing.Size(159, 22);
@@ -175,7 +175,7 @@
             this.cmb_Status.Items = new string[] {
         "Active",
         "Inactive"};
-            this.cmb_Status.Location = new System.Drawing.Point(125, 220);
+            this.cmb_Status.Location = new System.Drawing.Point(125, 253);
             this.cmb_Status.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_Status.Name = "cmb_Status";
             this.cmb_Status.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
@@ -205,7 +205,7 @@
             this.btnSave.IconVisible = true;
             this.btnSave.IconZoom = 85D;
             this.btnSave.IsTab = false;
-            this.btnSave.Location = new System.Drawing.Point(13, 301);
+            this.btnSave.Location = new System.Drawing.Point(13, 334);
             this.btnSave.Name = "btnSave";
             this.btnSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btnSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -240,7 +240,7 @@
             this.brnClear.IconVisible = true;
             this.brnClear.IconZoom = 85D;
             this.brnClear.IsTab = false;
-            this.brnClear.Location = new System.Drawing.Point(95, 301);
+            this.brnClear.Location = new System.Drawing.Point(95, 334);
             this.brnClear.Name = "brnClear";
             this.brnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.brnClear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -254,41 +254,6 @@
             this.brnClear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.brnClear.Click += new System.EventHandler(this.brnClear_Click);
             // 
-            // btnExit
-            // 
-            this.btnExit.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.BorderRadius = 7;
-            this.btnExit.ButtonText = "EXIT";
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.DisabledColor = System.Drawing.Color.Gray;
-            this.btnExit.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnExit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnExit.Iconimage")));
-            this.btnExit.Iconimage_right = null;
-            this.btnExit.Iconimage_right_Selected = null;
-            this.btnExit.Iconimage_Selected = null;
-            this.btnExit.IconMarginLeft = 0;
-            this.btnExit.IconMarginRight = 0;
-            this.btnExit.IconRightVisible = false;
-            this.btnExit.IconRightZoom = 0D;
-            this.btnExit.IconVisible = true;
-            this.btnExit.IconZoom = 85D;
-            this.btnExit.IsTab = false;
-            this.btnExit.Location = new System.Drawing.Point(191, 301);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnExit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnExit.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnExit.selected = false;
-            this.btnExit.Size = new System.Drawing.Size(78, 39);
-            this.btnExit.TabIndex = 132;
-            this.btnExit.Text = "EXIT";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnExit.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnExit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // txt_Search
             // 
             this.txt_Search.BorderColorFocused = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -299,7 +264,7 @@
             this.txt_Search.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Search.isPassword = false;
-            this.txt_Search.Location = new System.Drawing.Point(346, 13);
+            this.txt_Search.Location = new System.Drawing.Point(346, 46);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(213, 22);
@@ -310,19 +275,54 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(292, 21);
+            this.label15.Location = new System.Drawing.Point(292, 54);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 113;
             this.label15.Text = "Search :";
+            // 
+            // link_GoBack
+            // 
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(635, 12);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(60, 22);
+            this.link_GoBack.TabIndex = 137;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
             // UnapprovedAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(707, 352);
-            this.Controls.Add(this.btnExit);
+            this.ClientSize = new System.Drawing.Size(707, 385);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.brnClear);
             this.Controls.Add(this.cmb_Status);
@@ -361,8 +361,8 @@
         private Bunifu.Framework.UI.BunifuDropdown cmb_Status;
         private Bunifu.Framework.UI.BunifuFlatButton btnSave;
         private Bunifu.Framework.UI.BunifuFlatButton brnClear;
-        private Bunifu.Framework.UI.BunifuFlatButton btnExit;
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Search;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

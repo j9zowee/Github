@@ -146,11 +146,12 @@ namespace QRCodeBasedLMS
             DialogResult res = MessageBox.Show("Do you want to cancel? ", "Borrow Book", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                this.Close();
-            }
-            else
-            {
-
+                if(origin== "inquiry")
+                {
+                    IndexForm index = new IndexForm();
+                    index.Show();
+                    this.Hide();
+                }
             }
         }
     }

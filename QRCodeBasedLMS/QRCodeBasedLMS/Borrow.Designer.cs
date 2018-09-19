@@ -34,6 +34,9 @@
             this.dgvBorrow = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.txt_BorrowerID = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -51,14 +54,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitle = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsBorrowBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,6 +108,24 @@
             this.AccessionNumber.HeaderText = "AccessionNumber";
             this.AccessionNumber.Name = "AccessionNumber";
             this.AccessionNumber.ReadOnly = true;
+            // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dueDateDataGridViewTextBoxColumn
+            // 
+            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clsBorrowBindingSource
+            // 
+            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
             // 
             // label3
             // 
@@ -414,24 +432,6 @@
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dueDateDataGridViewTextBoxColumn
-            // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
-            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clsBorrowBindingSource
-            // 
-            this.clsBorrowBindingSource.DataSource = typeof(QRCodeBasedLMS.clsBorrow);
-            // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -454,12 +454,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Borrow_FormClosing);
             this.Load += new System.EventHandler(this.Borrow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clsBorrowBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

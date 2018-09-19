@@ -35,6 +35,7 @@ namespace QRCodeBasedLMS
             cmb_SecretQuestion.Text = "";
             txt_SecretAnswer.Text = "";
             rb_Staff.Checked = true;
+            cmb_SecretQuestion.selectedIndex = 0;
             btnAddOrUpdate.Text = "ADD";
         }
         
@@ -43,7 +44,6 @@ namespace QRCodeBasedLMS
             txt_UserIDNum.Text = user.GenerateAccountIDNum();
             cmb_SecretQuestion.selectedIndex = 0;
             dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
-            MessageBox.Show(usertype);
         }
 
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -59,8 +59,8 @@ namespace QRCodeBasedLMS
             setDrpText(cmb_SecretQuestion, (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_SecretQuestion).FirstOrDefault());
             txt_SecretAnswer.Text = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_SecretAnswer).FirstOrDefault();
             txt_Password.Text = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_Password).FirstOrDefault();
-            string usertype = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_UserType).FirstOrDefault();
-            if (usertype == "Admin")
+            string utype = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_UserType).FirstOrDefault();
+            if (utype == "Admin")
             {
                 rb_Admin.Checked = true;
             }
@@ -100,14 +100,14 @@ namespace QRCodeBasedLMS
                 else
                 {
                     //store values to properties found inside the clsUser
-                    string usertype;
+                    string utype;
                     if (rb_Admin.Checked == true)
                     {
-                        usertype = "Admin";
+                        utype = "Admin";
                     }
                     else
                     {
-                        usertype = "Staff";
+                        utype = "Staff";
                     }
 
 
@@ -118,7 +118,7 @@ namespace QRCodeBasedLMS
                     user.Password = txt_Password.Text;
                     user.SecretQuestion = cmb_SecretQuestion.selectedValue;
                     user.SecretAnswer = txt_SecretAnswer.Text;
-                    user.Usertype = usertype;
+                    user.Usertype = utype;
                     user.Status = "Active";
 
                     if (btnAddOrUpdate.Text == "ADD")
@@ -145,13 +145,7 @@ namespace QRCodeBasedLMS
         {
             ClearText();
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            MainForm mf = new MainForm(usertype);
-            mf.Show();
-            this.Hide();
-        }
+        
         private void txt_Search_OnValueChanged(object sender, EventArgs e)
         {
             dgvAccount.DataSource = db.sp_SearchAccount("Active", txt_Search.Text);
@@ -169,6 +163,13 @@ namespace QRCodeBasedLMS
                     // Set other properties & events here...
                 }
             }
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm(usertype);
+            mf.Show();
+            this.Hide();
         }
     }
 }

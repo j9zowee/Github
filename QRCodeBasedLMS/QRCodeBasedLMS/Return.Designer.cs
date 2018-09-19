@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Return));
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_AccNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -46,17 +47,17 @@
             this.btnBorrows = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnScan = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.link_Back = new System.Windows.Forms.LinkLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblTotalFee = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvReturn = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -278,7 +279,7 @@
             this.btnBorrows.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBorrows.DisabledColor = System.Drawing.Color.Gray;
             this.btnBorrows.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBorrows.Iconimage = null;
+            this.btnBorrows.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBorrows.Iconimage")));
             this.btnBorrows.Iconimage_right = null;
             this.btnBorrows.Iconimage_right_Selected = null;
             this.btnBorrows.Iconimage_Selected = null;
@@ -313,7 +314,7 @@
             this.btnScan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnScan.DisabledColor = System.Drawing.Color.Gray;
             this.btnScan.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnScan.Iconimage = null;
+            this.btnScan.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnScan.Iconimage")));
             this.btnScan.Iconimage_right = null;
             this.btnScan.Iconimage_right_Selected = null;
             this.btnScan.Iconimage_Selected = null;
@@ -342,18 +343,6 @@
             // 
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
-            // 
-            // link_Back
-            // 
-            this.link_Back.AutoSize = true;
-            this.link_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link_Back.Location = new System.Drawing.Point(661, 1);
-            this.link_Back.Name = "link_Back";
-            this.link_Back.Size = new System.Drawing.Size(60, 16);
-            this.link_Back.TabIndex = 79;
-            this.link_Back.TabStop = true;
-            this.link_Back.Text = "Go Back";
-            this.link_Back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Back_LinkClicked);
             // 
             // groupBox3
             // 
@@ -405,7 +394,7 @@
             this.dgvReturn.Name = "dgvReturn";
             this.dgvReturn.ReadOnly = true;
             this.dgvReturn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvReturn.Size = new System.Drawing.Size(714, 215);
+            this.dgvReturn.Size = new System.Drawing.Size(714, 203);
             this.dgvReturn.TabIndex = 88;
             this.dgvReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturn_CellContentClick);
             // 
@@ -424,20 +413,6 @@
             this.AccessionNumber.Name = "AccessionNumber";
             this.AccessionNumber.ReadOnly = true;
             // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dueDateDataGridViewTextBoxColumn
-            // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
-            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // NoOfDaysUnreturned
             // 
             this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
@@ -452,6 +427,55 @@
             this.PenaltyFee.Name = "PenaltyFee";
             this.PenaltyFee.ReadOnly = true;
             // 
+            // link_GoBack
+            // 
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(647, 13);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(73, 22);
+            this.link_GoBack.TabIndex = 98;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
+            // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dueDateDataGridViewTextBoxColumn
+            // 
+            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // clsReturnBindingSource
             // 
             this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
@@ -462,6 +486,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(734, 583);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.dgvReturn);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -471,7 +496,6 @@
             this.Controls.Add(this.pb_ScanQR);
             this.Controls.Add(this.btnBorrows);
             this.Controls.Add(this.btnScan);
-            this.Controls.Add(this.link_Back);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Return";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -488,7 +512,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clsReturnBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -510,7 +533,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnBorrows;
         private Bunifu.Framework.UI.BunifuFlatButton btnScan;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private System.Windows.Forms.LinkLabel link_Back;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblTotalFee;
         private System.Windows.Forms.Label label5;
@@ -522,5 +544,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfDaysUnreturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn PenaltyFee;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

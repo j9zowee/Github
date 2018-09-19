@@ -49,13 +49,13 @@
             this.txt_Lastname = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_Firstname = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_UserIDNum = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.btnExit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAddOrUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.brnClear = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_Search = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.link_deactivate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.label15 = new System.Windows.Forms.Label();
             this.cmb_SecretQuestion = new Bunifu.Framework.UI.BunifuDropdown();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -68,11 +68,11 @@
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvAccount.Location = new System.Drawing.Point(335, 49);
+            this.dgvAccount.Location = new System.Drawing.Point(353, 68);
             this.dgvAccount.MultiSelect = false;
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAccount.Size = new System.Drawing.Size(563, 339);
+            this.dgvAccount.Size = new System.Drawing.Size(545, 339);
             this.dgvAccount.TabIndex = 84;
             this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
             // 
@@ -80,7 +80,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 57);
+            this.label9.Location = new System.Drawing.Point(18, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 16);
             this.label9.TabIndex = 105;
@@ -90,7 +90,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(18, 249);
+            this.label8.Location = new System.Drawing.Point(18, 268);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 16);
             this.label8.TabIndex = 104;
@@ -100,7 +100,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 199);
+            this.label7.Location = new System.Drawing.Point(18, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(109, 16);
             this.label7.TabIndex = 103;
@@ -110,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(18, 172);
+            this.label5.Location = new System.Drawing.Point(18, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 16);
             this.label5.TabIndex = 101;
@@ -120,7 +120,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 144);
+            this.label4.Location = new System.Drawing.Point(18, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 16);
             this.label4.TabIndex = 100;
@@ -130,7 +130,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(18, 116);
+            this.label3.Location = new System.Drawing.Point(18, 135);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 99;
@@ -140,7 +140,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 88);
+            this.label1.Location = new System.Drawing.Point(18, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 16);
             this.label1.TabIndex = 98;
@@ -150,7 +150,7 @@
             // 
             this.groupBox1.Controls.Add(this.rb_Staff);
             this.groupBox1.Controls.Add(this.rb_Admin);
-            this.groupBox1.Location = new System.Drawing.Point(97, 267);
+            this.groupBox1.Location = new System.Drawing.Point(135, 295);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(170, 33);
             this.groupBox1.TabIndex = 106;
@@ -184,7 +184,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 279);
+            this.label2.Location = new System.Drawing.Point(18, 307);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 16);
             this.label2.TabIndex = 107;
@@ -205,10 +205,10 @@
             this.txt_SecretAnswer.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_SecretAnswer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_SecretAnswer.isPassword = false;
-            this.txt_SecretAnswer.Location = new System.Drawing.Point(135, 246);
+            this.txt_SecretAnswer.Location = new System.Drawing.Point(135, 265);
             this.txt_SecretAnswer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_SecretAnswer.Name = "txt_SecretAnswer";
-            this.txt_SecretAnswer.Size = new System.Drawing.Size(189, 22);
+            this.txt_SecretAnswer.Size = new System.Drawing.Size(212, 22);
             this.txt_SecretAnswer.TabIndex = 116;
             this.txt_SecretAnswer.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -222,10 +222,10 @@
             this.txt_Password.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Password.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Password.isPassword = true;
-            this.txt_Password.Location = new System.Drawing.Point(135, 163);
+            this.txt_Password.Location = new System.Drawing.Point(135, 182);
             this.txt_Password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Password.Name = "txt_Password";
-            this.txt_Password.Size = new System.Drawing.Size(189, 22);
+            this.txt_Password.Size = new System.Drawing.Size(212, 22);
             this.txt_Password.TabIndex = 113;
             this.txt_Password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -239,10 +239,10 @@
             this.txt_Username.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Username.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Username.isPassword = false;
-            this.txt_Username.Location = new System.Drawing.Point(135, 135);
+            this.txt_Username.Location = new System.Drawing.Point(135, 154);
             this.txt_Username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Username.Name = "txt_Username";
-            this.txt_Username.Size = new System.Drawing.Size(189, 22);
+            this.txt_Username.Size = new System.Drawing.Size(212, 22);
             this.txt_Username.TabIndex = 112;
             this.txt_Username.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -256,10 +256,10 @@
             this.txt_Lastname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Lastname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Lastname.isPassword = false;
-            this.txt_Lastname.Location = new System.Drawing.Point(135, 107);
+            this.txt_Lastname.Location = new System.Drawing.Point(135, 126);
             this.txt_Lastname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Lastname.Name = "txt_Lastname";
-            this.txt_Lastname.Size = new System.Drawing.Size(189, 22);
+            this.txt_Lastname.Size = new System.Drawing.Size(212, 22);
             this.txt_Lastname.TabIndex = 111;
             this.txt_Lastname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -273,10 +273,10 @@
             this.txt_Firstname.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Firstname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Firstname.isPassword = false;
-            this.txt_Firstname.Location = new System.Drawing.Point(135, 79);
+            this.txt_Firstname.Location = new System.Drawing.Point(135, 98);
             this.txt_Firstname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Firstname.Name = "txt_Firstname";
-            this.txt_Firstname.Size = new System.Drawing.Size(189, 22);
+            this.txt_Firstname.Size = new System.Drawing.Size(212, 22);
             this.txt_Firstname.TabIndex = 110;
             this.txt_Firstname.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -287,50 +287,16 @@
             this.txt_UserIDNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.txt_UserIDNum.BorderThickness = 1;
             this.txt_UserIDNum.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_UserIDNum.Enabled = false;
             this.txt_UserIDNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_UserIDNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_UserIDNum.isPassword = false;
-            this.txt_UserIDNum.Location = new System.Drawing.Point(135, 51);
+            this.txt_UserIDNum.Location = new System.Drawing.Point(135, 70);
             this.txt_UserIDNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_UserIDNum.Name = "txt_UserIDNum";
-            this.txt_UserIDNum.Size = new System.Drawing.Size(189, 22);
+            this.txt_UserIDNum.Size = new System.Drawing.Size(212, 22);
             this.txt_UserIDNum.TabIndex = 109;
             this.txt_UserIDNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnExit
-            // 
-            this.btnExit.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnExit.BorderRadius = 7;
-            this.btnExit.ButtonText = "EXIT";
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.DisabledColor = System.Drawing.Color.Gray;
-            this.btnExit.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnExit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnExit.Iconimage")));
-            this.btnExit.Iconimage_right = null;
-            this.btnExit.Iconimage_right_Selected = null;
-            this.btnExit.Iconimage_Selected = null;
-            this.btnExit.IconMarginLeft = 0;
-            this.btnExit.IconMarginRight = 0;
-            this.btnExit.IconRightVisible = false;
-            this.btnExit.IconRightZoom = 0D;
-            this.btnExit.IconVisible = true;
-            this.btnExit.IconZoom = 80D;
-            this.btnExit.IsTab = false;
-            this.btnExit.Location = new System.Drawing.Point(224, 347);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnExit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnExit.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnExit.selected = false;
-            this.btnExit.Size = new System.Drawing.Size(100, 41);
-            this.btnExit.TabIndex = 119;
-            this.btnExit.Text = "EXIT";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnExit.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnExit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnAddOrUpdate
             // 
@@ -353,7 +319,7 @@
             this.btnAddOrUpdate.IconVisible = true;
             this.btnAddOrUpdate.IconZoom = 80D;
             this.btnAddOrUpdate.IsTab = false;
-            this.btnAddOrUpdate.Location = new System.Drawing.Point(12, 347);
+            this.btnAddOrUpdate.Location = new System.Drawing.Point(12, 366);
             this.btnAddOrUpdate.Name = "btnAddOrUpdate";
             this.btnAddOrUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btnAddOrUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -388,7 +354,7 @@
             this.brnClear.IconVisible = true;
             this.brnClear.IconZoom = 80D;
             this.brnClear.IsTab = false;
-            this.brnClear.Location = new System.Drawing.Point(118, 347);
+            this.brnClear.Location = new System.Drawing.Point(118, 366);
             this.brnClear.Name = "brnClear";
             this.brnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.brnClear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -412,7 +378,7 @@
             this.txt_Search.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Search.isPassword = false;
-            this.txt_Search.Location = new System.Drawing.Point(386, 14);
+            this.txt_Search.Location = new System.Drawing.Point(408, 33);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(241, 22);
@@ -441,7 +407,7 @@
             this.link_deactivate.IconVisible = false;
             this.link_deactivate.IconZoom = 110D;
             this.link_deactivate.IsTab = false;
-            this.link_deactivate.Location = new System.Drawing.Point(2, 321);
+            this.link_deactivate.Location = new System.Drawing.Point(2, 340);
             this.link_deactivate.Name = "link_deactivate";
             this.link_deactivate.Normalcolor = System.Drawing.Color.Transparent;
             this.link_deactivate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -458,7 +424,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(332, 19);
+            this.label15.Location = new System.Drawing.Point(354, 38);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 88;
@@ -480,25 +446,60 @@
         "In what city or town did your mother and father meet?",
         "In what town was your first job?",
         "What school did you attend for sixth grade?"};
-            this.cmb_SecretQuestion.Location = new System.Drawing.Point(135, 194);
+            this.cmb_SecretQuestion.Location = new System.Drawing.Point(134, 213);
             this.cmb_SecretQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmb_SecretQuestion.Name = "cmb_SecretQuestion";
             this.cmb_SecretQuestion.NomalColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.cmb_SecretQuestion.onHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.cmb_SecretQuestion.selectedIndex = -1;
-            this.cmb_SecretQuestion.Size = new System.Drawing.Size(189, 45);
+            this.cmb_SecretQuestion.Size = new System.Drawing.Size(212, 45);
             this.cmb_SecretQuestion.TabIndex = 135;
+            // 
+            // link_GoBack
+            // 
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(838, 10);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(60, 22);
+            this.link_GoBack.TabIndex = 136;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
             // UserInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(910, 402);
+            this.ClientSize = new System.Drawing.Size(910, 425);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.cmb_SecretQuestion);
             this.Controls.Add(this.link_deactivate);
             this.Controls.Add(this.txt_Search);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAddOrUpdate);
             this.Controls.Add(this.brnClear);
             this.Controls.Add(this.txt_SecretAnswer);
@@ -551,12 +552,12 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Lastname;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Firstname;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_UserIDNum;
-        private Bunifu.Framework.UI.BunifuFlatButton btnExit;
         private Bunifu.Framework.UI.BunifuFlatButton btnAddOrUpdate;
         private Bunifu.Framework.UI.BunifuFlatButton brnClear;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Search;
         private Bunifu.Framework.UI.BunifuFlatButton link_deactivate;
         private System.Windows.Forms.Label label15;
         private Bunifu.Framework.UI.BunifuDropdown cmb_SecretQuestion;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

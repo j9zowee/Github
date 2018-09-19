@@ -98,6 +98,7 @@
             this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
             // btnUpdate
             // 
@@ -141,7 +142,6 @@
             this.txt_ContactNum.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.txt_ContactNum.BorderThickness = 1;
             this.txt_ContactNum.Cursor = System.Windows.Forms.Cursors.Default;
-            this.txt_ContactNum.Enabled = false;
             this.txt_ContactNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_ContactNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_ContactNum.isPassword = false;
@@ -164,7 +164,6 @@
             // txt_Address
             // 
             this.txt_Address.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
-            this.txt_Address.Enabled = false;
             this.txt_Address.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Address.Location = new System.Drawing.Point(1, 1);
             this.txt_Address.Multiline = true;
@@ -245,6 +244,7 @@
             // rb_Female
             // 
             this.rb_Female.AutoSize = true;
+            this.rb_Female.Enabled = false;
             this.rb_Female.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Female.Location = new System.Drawing.Point(90, 12);
             this.rb_Female.Name = "rb_Female";
@@ -268,6 +268,7 @@
             // rb_Male
             // 
             this.rb_Male.AutoSize = true;
+            this.rb_Male.Enabled = false;
             this.rb_Male.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_Male.Location = new System.Drawing.Point(17, 12);
             this.rb_Male.Name = "rb_Male";

@@ -35,13 +35,6 @@ namespace QRCodeBasedLMS
             }
         }
         
-        private void link_Back_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            IndexForm index = new IndexForm();
-            index.Show();
-            this.Close();
-        }
-        
         private void txt_SchoolID_OnValueChanged(object sender, EventArgs e)
         {
             var fname = (from s in db.tblLibraryUsers
@@ -76,6 +69,12 @@ namespace QRCodeBasedLMS
             scan.Show();
             this.Hide();
         }
-        
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            IndexForm index = new IndexForm();
+            index.Show();
+            this.Hide();
+        }
     }
 }

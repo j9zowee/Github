@@ -59,18 +59,18 @@ namespace QRCodeBasedLMS
             ClearText();
             dgvAccount.DataSource = db.sp_ViewAccount(usertype,"Inactive");
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            MainForm mf = new MainForm(usertype);
-            mf.Show();
-            this.Hide();
-        }
         
         private void txt_Search_OnValueChanged(object sender, EventArgs e)
         {
             dgvAccount.DataSource = db.sp_SearchAccount("Inactive", txt_Search.Text);
             
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MainForm mf = new MainForm(usertype);
+            mf.Show();
+            this.Hide();
         }
 
         //private void setEnability(Bunifu.Framework.UI.BunifuDropdown cmb, Boolean bln)

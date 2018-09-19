@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttendanceMonitoring));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.link_Back = new System.Windows.Forms.LinkLabel();
             this.pb_ScanQR = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
@@ -41,6 +40,7 @@
             this.txt_SchoolIDNumber = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.link_ScanQR = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -66,18 +66,6 @@
             this.label3.Size = new System.Drawing.Size(51, 16);
             this.label3.TabIndex = 26;
             this.label3.Text = "Name :";
-            // 
-            // link_Back
-            // 
-            this.link_Back.AutoSize = true;
-            this.link_Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.link_Back.Location = new System.Drawing.Point(248, 9);
-            this.link_Back.Name = "link_Back";
-            this.link_Back.Size = new System.Drawing.Size(60, 16);
-            this.link_Back.TabIndex = 33;
-            this.link_Back.TabStop = true;
-            this.link_Back.Text = "Go Back";
-            this.link_Back.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_Back_LinkClicked);
             // 
             // pb_ScanQR
             // 
@@ -219,18 +207,53 @@
             this.panel3.Size = new System.Drawing.Size(132, 132);
             this.panel3.TabIndex = 66;
             // 
+            // link_GoBack
+            // 
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(255, 12);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(60, 22);
+            this.link_GoBack.TabIndex = 98;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
+            // 
             // AttendanceMonitoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(327, 408);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.link_ScanQR);
             this.Controls.Add(this.txt_SchoolIDNumber);
             this.Controls.Add(this.txt_Name);
             this.Controls.Add(this.btn_Submit);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.link_Back);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
@@ -249,7 +272,6 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel link_Back;
         private System.Windows.Forms.PictureBox pb_ScanQR;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
@@ -258,5 +280,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_SchoolIDNumber;
         private Bunifu.Framework.UI.BunifuFlatButton link_ScanQR;
         private System.Windows.Forms.Panel panel3;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

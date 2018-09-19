@@ -53,11 +53,11 @@
             this.txt_Page = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.txt_Search = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.cmb_MatType = new Bunifu.Framework.UI.BunifuDropdown();
-            this.btn_Exit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAddOrUpdate = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnClear = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txt_NumberOfCopies = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label8 = new System.Windows.Forms.Label();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NonReadingMaterials)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(347, 14);
+            this.label14.Location = new System.Drawing.Point(346, 37);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(70, 13);
             this.label14.TabIndex = 51;
@@ -79,11 +79,11 @@
             this.dgv_NonReadingMaterials.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.dgv_NonReadingMaterials.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_NonReadingMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_NonReadingMaterials.Location = new System.Drawing.Point(350, 37);
+            this.dgv_NonReadingMaterials.Location = new System.Drawing.Point(350, 60);
             this.dgv_NonReadingMaterials.Name = "dgv_NonReadingMaterials";
             this.dgv_NonReadingMaterials.ReadOnly = true;
             this.dgv_NonReadingMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_NonReadingMaterials.Size = new System.Drawing.Size(595, 448);
+            this.dgv_NonReadingMaterials.Size = new System.Drawing.Size(595, 425);
             this.dgv_NonReadingMaterials.TabIndex = 52;
             this.dgv_NonReadingMaterials.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NonReadingMaterials_CellClick);
             // 
@@ -200,6 +200,7 @@
             this.txt_MaterialIDNumber.BorderColorMouseHover = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.txt_MaterialIDNumber.BorderThickness = 1;
             this.txt_MaterialIDNumber.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txt_MaterialIDNumber.Enabled = false;
             this.txt_MaterialIDNumber.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_MaterialIDNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_MaterialIDNumber.isPassword = false;
@@ -331,7 +332,7 @@
             this.txt_Search.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_Search.isPassword = false;
-            this.txt_Search.Location = new System.Drawing.Point(424, 7);
+            this.txt_Search.Location = new System.Drawing.Point(423, 30);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Search.Name = "txt_Search";
             this.txt_Search.Size = new System.Drawing.Size(189, 22);
@@ -358,40 +359,6 @@
             this.cmb_MatType.selectedIndex = 0;
             this.cmb_MatType.Size = new System.Drawing.Size(189, 24);
             this.cmb_MatType.TabIndex = 87;
-            // 
-            // btn_Exit
-            // 
-            this.btn_Exit.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Exit.BorderRadius = 7;
-            this.btn_Exit.ButtonText = "EXIT";
-            this.btn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Exit.DisabledColor = System.Drawing.Color.Gray;
-            this.btn_Exit.Iconcolor = System.Drawing.Color.Transparent;
-            this.btn_Exit.Iconimage = ((System.Drawing.Image)(resources.GetObject("btn_Exit.Iconimage")));
-            this.btn_Exit.Iconimage_right = null;
-            this.btn_Exit.Iconimage_right_Selected = null;
-            this.btn_Exit.Iconimage_Selected = null;
-            this.btn_Exit.IconMarginLeft = 0;
-            this.btn_Exit.IconMarginRight = 0;
-            this.btn_Exit.IconRightVisible = false;
-            this.btn_Exit.IconRightZoom = 0D;
-            this.btn_Exit.IconVisible = true;
-            this.btn_Exit.IconZoom = 80D;
-            this.btn_Exit.IsTab = false;
-            this.btn_Exit.Location = new System.Drawing.Point(235, 421);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btn_Exit.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btn_Exit.OnHoverTextColor = System.Drawing.Color.White;
-            this.btn_Exit.selected = false;
-            this.btn_Exit.Size = new System.Drawing.Size(101, 45);
-            this.btn_Exit.TabIndex = 90;
-            this.btn_Exit.Text = "EXIT";
-            this.btn_Exit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_Exit.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btn_Exit.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             // 
             // btnAddOrUpdate
             // 
@@ -490,15 +457,50 @@
             this.label8.TabIndex = 91;
             this.label8.Text = "Number of Copies :";
             // 
+            // link_GoBack
+            // 
+            this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.BackColor = System.Drawing.Color.Transparent;
+            this.link_GoBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.link_GoBack.BorderRadius = 7;
+            this.link_GoBack.ButtonText = "Go Back";
+            this.link_GoBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.link_GoBack.DisabledColor = System.Drawing.Color.Gray;
+            this.link_GoBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("link_GoBack.Iconimage")));
+            this.link_GoBack.Iconimage_right = null;
+            this.link_GoBack.Iconimage_right_Selected = null;
+            this.link_GoBack.Iconimage_Selected = null;
+            this.link_GoBack.IconMarginLeft = 0;
+            this.link_GoBack.IconMarginRight = 0;
+            this.link_GoBack.IconRightVisible = false;
+            this.link_GoBack.IconRightZoom = 0D;
+            this.link_GoBack.IconVisible = false;
+            this.link_GoBack.IconZoom = 110D;
+            this.link_GoBack.IsTab = false;
+            this.link_GoBack.Location = new System.Drawing.Point(873, 12);
+            this.link_GoBack.Name = "link_GoBack";
+            this.link_GoBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.link_GoBack.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.link_GoBack.OnHoverTextColor = System.Drawing.Color.White;
+            this.link_GoBack.selected = false;
+            this.link_GoBack.Size = new System.Drawing.Size(72, 22);
+            this.link_GoBack.TabIndex = 97;
+            this.link_GoBack.Text = "Go Back";
+            this.link_GoBack.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
+            // 
             // NonReadingMaterials
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(957, 497);
+            this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.txt_NumberOfCopies);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btnAddOrUpdate);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cmb_MatType);
@@ -559,10 +561,10 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Page;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Search;
         private Bunifu.Framework.UI.BunifuDropdown cmb_MatType;
-        private Bunifu.Framework.UI.BunifuFlatButton btn_Exit;
         private Bunifu.Framework.UI.BunifuFlatButton btnAddOrUpdate;
         private Bunifu.Framework.UI.BunifuFlatButton btnClear;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_NumberOfCopies;
         private System.Windows.Forms.Label label8;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

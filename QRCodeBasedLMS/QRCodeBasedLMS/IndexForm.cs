@@ -26,7 +26,7 @@ namespace QRCodeBasedLMS
 
         private void btnBorrow_Click(object sender, EventArgs e)
         {
-            Borrow sbi = new Borrow("index");
+            Borrow sbi = new Borrow("index","brwr");
             sbi.Show();
             this.Hide();
         }
@@ -66,7 +66,7 @@ namespace QRCodeBasedLMS
 
         private void btnInquiry_Click(object sender, EventArgs e)
         {
-            ScanQRCode scan = new ScanQRCode("","inquiry");
+            ScanQRCode scan = new ScanQRCode("brwr","inquiry");
             scan.Show();
             this.Hide();
         }

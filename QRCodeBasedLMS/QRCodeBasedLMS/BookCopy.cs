@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,12 +27,8 @@ namespace QRCodeBasedLMS
             dgvBook.DataSource = db.sp_ViewBookCopy(txt_BookIDNum.Text);
             cmb_Status.selectedIndex = 0;
             ClearText();
+            btnSave.Enabled = false;
         }
-
-        private void txt_BookIDNum_OnValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAddOrUpdate.Text = "UPDATE";
@@ -40,7 +37,7 @@ namespace QRCodeBasedLMS
             dtp_DateReceived.Enabled = false;
             txt_AccessionNumber.Text = dgvBook.CurrentRow.Cells[1].Value.ToString();
             dtp_DateReceived.Text = dgvBook.CurrentRow.Cells[2].Value.ToString();
-            bk.setDrpText(cmb_Status, dgvBook.CurrentRow.Cells[3].Value.ToString());
+            bk.SetDropdownText(cmb_Status, dgvBook.CurrentRow.Cells[3].Value.ToString());
         }
 
         private void txt_AccessionNumber_OnValueChanged(object sender, EventArgs e)
@@ -49,6 +46,8 @@ namespace QRCodeBasedLMS
             encode.QRCodeScale = 6;
             Bitmap bmp = encode.Encode(txt_AccessionNumber.Text);
             pb_QRBook.Image = bmp;
+            if (txt_AccessionNumber.Text == "") btnSave.Enabled = false;
+            else btnSave.Enabled = true;
         }
 
         private void btnAddOrUpdate_Click(object sender, EventArgs e)
@@ -99,6 +98,25 @@ namespace QRCodeBasedLMS
         {
             txt_AccessionNumber.Text = "";
             cmb_Status.selectedIndex = 0;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(usertype == "Staff")
+            {
+                MessageBox.Show("Only administrators can print QR codes.");
+            }
+            else
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
+                {
+                    sfd.FileName = txt_AccessionNumber.Text;
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        pb_QRBook.Image.Save(sfd.FileName, ImageFormat.Jpeg);
+                    }
+                }
+            }
         }
     }
 }

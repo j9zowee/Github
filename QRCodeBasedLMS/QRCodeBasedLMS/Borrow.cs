@@ -19,10 +19,12 @@ namespace QRCodeBasedLMS
     public partial class Borrow : Form
     {
         private string origin;
-        public Borrow(string org)
+        private string usertype;
+        public Borrow(string org,string type)
         {
             InitializeComponent();
             origin = org;
+            usertype = type;
         }
         
         dcLMSDataContext db = new dcLMSDataContext();
@@ -31,7 +33,6 @@ namespace QRCodeBasedLMS
         private string decoded;
         private void Borrow_Load(object sender, EventArgs e)
         {
-            this.Refresh();
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo Device in CaptureDevice)
             {
@@ -260,7 +261,7 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                MainForm main = new MainForm("");
+                MainForm main = new MainForm(usertype);
                 main.Show();
                 this.Hide();
             }

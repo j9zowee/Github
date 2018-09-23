@@ -23,25 +23,9 @@ namespace QRCodeBasedLMS
         clsUser user = new clsUser();
         dcLMSDataContext db = new dcLMSDataContext();
 
-        //clearing texts in textboxes
-        public void ClearText()
-        {
-           
-            txt_UserIDNum.Text = "";
-            txt_Firstname.Text = "";
-            txt_Lastname.Text = "";
-            txt_Username.Text = "";
-            txt_Password.Text = "";
-            cmb_SecretQuestion.Text = "";
-            txt_SecretAnswer.Text = "";
-            rb_Staff.Checked = true;
-            cmb_SecretQuestion.selectedIndex = 0;
-            btnAddOrUpdate.Text = "ADD";
-        }
-        
         private void UserInformation_Load(object sender, EventArgs e)
         {
-            txt_UserIDNum.Text = user.GenerateAccountIDNum();
+            txt_UserIDNum.Text = user.GenerateIDNumber();
             cmb_SecretQuestion.selectedIndex = 0;
             dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
         }
@@ -55,20 +39,13 @@ namespace QRCodeBasedLMS
             txt_Firstname.Text = dgvAccount.CurrentRow.Cells[1].Value.ToString();
             txt_Lastname.Text = dgvAccount.CurrentRow.Cells[2].Value.ToString();
             txt_Username.Text = dgvAccount.CurrentRow.Cells[3].Value.ToString();
-            //cmb_SecretQuestion.Text = dgvAccount.CurrentRow.Cells[5].Value.ToString();
             setDrpText(cmb_SecretQuestion, (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_SecretQuestion).FirstOrDefault());
             txt_SecretAnswer.Text = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_SecretAnswer).FirstOrDefault();
             txt_Password.Text = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_Password).FirstOrDefault();
             string utype = (from s in db.tblUserAccounts where s.user_UserNum == txt_UserIDNum.Text select s.user_UserType).FirstOrDefault();
-            if (utype == "Admin")
-            {
-                rb_Admin.Checked = true;
-            }
-            else
-            {
-                rb_Staff.Checked = true;
-            }
-            
+            if (utype == "Admin") rb_Admin.Checked = true;
+            else rb_Staff.Checked = true;
+
         }
         private void link_deactivate_Click(object sender, EventArgs e)
         {
@@ -79,7 +56,7 @@ namespace QRCodeBasedLMS
                 MessageBox.Show("Successfully deactivated account!");
                 dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
                 ClearText();
-                txt_UserIDNum.Text = user.GenerateAccountIDNum();
+                txt_UserIDNum.Text = user.GenerateIDNumber();
             }
                 
         }
@@ -101,15 +78,8 @@ namespace QRCodeBasedLMS
                 {
                     //store values to properties found inside the clsUser
                     string utype;
-                    if (rb_Admin.Checked == true)
-                    {
-                        utype = "Admin";
-                    }
-                    else
-                    {
-                        utype = "Staff";
-                    }
-
+                    if (rb_Admin.Checked == true) utype = "Admin";
+                    else utype = "Staff";
 
                     user.UserIDNumber = txt_UserIDNum.Text;
                     user.Firstname = txt_Firstname.Text;
@@ -171,5 +141,22 @@ namespace QRCodeBasedLMS
             mf.Show();
             this.Hide();
         }
+
+        //clearing texts in textboxes
+        public void ClearText()
+        {
+
+            txt_UserIDNum.Text = "";
+            txt_Firstname.Text = "";
+            txt_Lastname.Text = "";
+            txt_Username.Text = "";
+            txt_Password.Text = "";
+            cmb_SecretQuestion.Text = "";
+            txt_SecretAnswer.Text = "";
+            rb_Staff.Checked = true;
+            cmb_SecretQuestion.selectedIndex = 0;
+            btnAddOrUpdate.Text = "ADD";
+        }
+
     }
 }

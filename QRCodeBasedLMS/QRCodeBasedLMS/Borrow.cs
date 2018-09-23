@@ -28,6 +28,7 @@ namespace QRCodeBasedLMS
         }
         
         dcLMSDataContext db = new dcLMSDataContext();
+        clsBorrow brw = new clsBorrow();
         private FilterInfoCollection CaptureDevice;
         private VideoCaptureDevice FinalFrame;
         private string decoded;
@@ -85,31 +86,28 @@ namespace QRCodeBasedLMS
         private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            string currentSY = (from s in db.tblLibraryUsers select s.lib_SchoolYear).Max();
-            Boolean withcard = Boolean.Parse((from s in db.tblLibraryUsers where s.lib_SchoolID == txt_BorrowerID.Text && s.lib_SchoolYear == currentSY select s.lib_WithCard).FirstOrDefault().ToString());
-            DateTime lastlogin = DateTime.Parse((from s in db.tblAttendances where s.attendance_StudentIDNum == txt_BorrowerID.Text select s.attendance_LoginTime).Max().ToString());
-            if (withcard == false)
+            string currentSY = (from s in db.tblLibraryUsers select s.lib_SchoolYear).Max();            
+            if (brw.DoesBorrowerHaveCard(txt_BorrowerID.Text) == false)
             {
                 MessageBox.Show("You are using an invalid library card. Please print a new one.");
             }
             else
             {
-                if (lastlogin.Date != dt.Date)
+                if (brw.DidBorrowerLoggedInForAttendance(txt_BorrowerID.Text) == false)
                 {
                     MessageBox.Show("Your library attendance should be taken first before you can borrow a book from the library.\n Please proceed to the library entrance to scan your card.");
                 }
                 else
                 {
-                    if ((db.sp_BorrowedBooks(txt_BorrowerID.Text).Count() + dgvBorrow.Rows.Count) <= 3)
+                    if (brw.checkNumberofBorrowedBooksIsValid(txt_BorrowerID.Text, dgvBorrow.RowCount) == true)
                     {
-                        int x = db.sp_LastBorrowNumber().Count() + 1;
-                        string borrowID = "BRW-" + x + "-" + dt.Day + dt.Month + dt.Year;
+                        
                         DialogResult res = MessageBox.Show("CONFIRM:\nDo you want to borrow all the books in the table?", "Borrow Book", MessageBoxButtons.YesNo);
                         if (res == DialogResult.Yes)
                         {
                             for (int i = 0; i < dgvBorrow.RowCount; i++)
                             {
-                                db.sp_BorrowBook(borrowID, txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()), currentSY);
+                                db.sp_BorrowBook(brw.GenerateIDNumber(), txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()), currentSY);
                                 db.sp_UpdateBookStatus(dgvBorrow.Rows[i].Cells[1].Value.ToString(), "Borrowed");
                             }
 
@@ -124,7 +122,7 @@ namespace QRCodeBasedLMS
                             }
                             else
                             {
-                                MainForm main = new MainForm("");
+                                MainForm main = new MainForm(usertype);
                                 main.Show();
                                 this.Hide();
                             }
@@ -132,7 +130,7 @@ namespace QRCodeBasedLMS
                     }
                     else
                     {
-                        MessageBox.Show("You can only borrow 3 books at a time. You already have " + db.sp_BorrowedBooks(txt_BorrowerID.Text) + " borrowed books.\nIf you wish to borrow more books, please return some of the borrowed books to the librarian.");
+                        MessageBox.Show("You can only borrow 3 books at a time. You already have " + db.sp_BorrowedBooks(txt_BorrowerID.Text).Count() + " borrowed books.\nIf you wish to borrow more books, please return some of the borrowed books to the librarian.");
                     }
                 }
             }
@@ -196,7 +194,6 @@ namespace QRCodeBasedLMS
 
                         }
 
-
                     }
                     
                 }
@@ -236,20 +233,7 @@ namespace QRCodeBasedLMS
         {
             txtTitle.Text = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == txtAccNumber.Text select book.book_Title).FirstOrDefault();
         }
-        public int CheckIfBookExistInTheDGV()
-        {
-            int ctr = 0;
-            for (int i = 0; i < dgvBorrow.Rows.Count; i++)
-            {
-                if (txtAccNumber.Text == dgvBorrow.Rows[i].Cells[1].Value.ToString())
-                {
-                    ctr++;
-                }
-                else { }
-            }
-            return ctr;
-
-        }
+        
 
         private void link_GoBack_Click(object sender, EventArgs e)
         {
@@ -265,6 +249,20 @@ namespace QRCodeBasedLMS
                 main.Show();
                 this.Hide();
             }
+        }
+        public int CheckIfBookExistInTheDGV()
+        {
+            int ctr = 0;
+            for (int i = 0; i < dgvBorrow.Rows.Count; i++)
+            {
+                if (txtAccNumber.Text == dgvBorrow.Rows[i].Cells[1].Value.ToString())
+                {
+                    ctr++;
+                }
+                else { }
+            }
+            return ctr;
+
         }
     }
 }

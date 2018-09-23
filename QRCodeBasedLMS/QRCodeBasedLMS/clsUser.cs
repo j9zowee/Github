@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace QRCodeBasedLMS
 {
-    class clsUser
+    class clsUser : clsLibrary
     {
         dcLMSDataContext db = new dcLMSDataContext();
 
@@ -69,16 +69,16 @@ namespace QRCodeBasedLMS
 
 
         //methods        
-        public void AddRecord()
+        public override void AddRecord()
         {
             db.sp_AddAccount(userIDNumber, firstname, lastname, username, password, secretQuestion, secretAnswer, usertype, status);
         }
 
-        public void UpdateRecord()
+        public override void UpdateRecord()
         {
             db.sp_UpdateAccount(userIDNumber, firstname, lastname, username, password, secretQuestion, secretAnswer, usertype, status);
         }
-        public string GenerateAccountIDNum()
+        public override string GenerateIDNumber()
         {
             DateTime dt = DateTime.Now;
             int x = db.sp_LastAcctIDNum().Count() + 1;

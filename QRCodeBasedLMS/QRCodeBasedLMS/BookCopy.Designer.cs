@@ -171,7 +171,6 @@
             this.txt_BookIDNum.Size = new System.Drawing.Size(211, 22);
             this.txt_BookIDNum.TabIndex = 1;
             this.txt_BookIDNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_BookIDNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNum_OnValueChanged);
             // 
             // txt_AccessionNumber
             // 

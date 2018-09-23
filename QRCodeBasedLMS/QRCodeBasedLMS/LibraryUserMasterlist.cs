@@ -20,6 +20,7 @@ namespace QRCodeBasedLMS
             usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
+        clsBorrower brwr = new clsBorrower();
         private void btnChoose_Click(object sender, EventArgs e)
         {
             OpenFileDialog fd = new OpenFileDialog();
@@ -42,13 +43,13 @@ namespace QRCodeBasedLMS
                 OleDbDataAdapter sda = new OleDbDataAdapter("SELECT * FROM [Sheet1$]", con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
-                dgvList.DataSource = dt;
-
+                dgvList.DataSource = dt;               
+                
 
                 DialogResult res = MessageBox.Show("Do you want to import this table to the database?", "Save table", MessageBoxButtons.YesNo);
                 if (res == DialogResult.Yes)
                 {
-                    if(db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue).Count() != 0)
+                    if(brwr.DoesBorrowerExist(cmbSchoolYear.selectedValue,cmbLibraryUser.selectedValue) == true)
                     {
                         MessageBox.Show("This record of library users already exists in the database.");
                     }
@@ -56,18 +57,20 @@ namespace QRCodeBasedLMS
                     {
                         for (int i = 0; i < dgvList.RowCount; i++)
                         {
-
-                            db.sp_AddLibraryUser(dgvList.Rows[i].Cells[0].Value.ToString(), dgvList.Rows[i].Cells[1].Value.ToString(), dgvList.Rows[i].Cells[2].Value.ToString(),
-                                dgvList.Rows[i].Cells[3].Value.ToString(), dgvList.Rows[i].Cells[4].Value.ToString(), dgvList.Rows[i].Cells[5].Value.ToString(), cmbLibraryUser.selectedValue, cmbSchoolYear.selectedValue, false);
-
+                            brwr.SchoolID = dgvList.Rows[i].Cells[0].Value.ToString();
+                            brwr.Firstname = dgvList.Rows[i].Cells[1].Value.ToString();
+                            brwr.Lastname = dgvList.Rows[i].Cells[2].Value.ToString();
+                            brwr.Gender = dgvList.Rows[i].Cells[3].Value.ToString();
+                            brwr.Address = dgvList.Rows[i].Cells[4].Value.ToString();
+                            brwr.ContactNumber = dgvList.Rows[i].Cells[5].Value.ToString();
+                            brwr.Usertype = cmbLibraryUser.selectedValue;
+                            brwr.SchoolYear = cmbSchoolYear.selectedValue;
+                            brwr.WithCard = false;
+                            brwr.AddRecord();                            
                         }
                         MessageBox.Show("Successfully Saved to the database!");
                         dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
                     }
-                }
-                else
-                {
-
                 }
             }
         }

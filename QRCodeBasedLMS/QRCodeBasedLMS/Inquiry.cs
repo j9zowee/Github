@@ -19,6 +19,7 @@ namespace QRCodeBasedLMS
             qrcode = qr;
         }
         dcLMSDataContext db = new dcLMSDataContext();
+        clsBorrower brwr = new clsBorrower();
         string sy;
         private void Inquiry_Load(object sender, EventArgs e)
         {
@@ -31,44 +32,10 @@ namespace QRCodeBasedLMS
 
         private void txt_SchoolID_OnValueChanged(object sender, EventArgs e)
         {
-            var fname = (from s in db.tblLibraryUsers
-                         where s.lib_SchoolID == txt_SchoolID.Text
-                         select s.lib_Firstname).FirstOrDefault();
-            var lname = (from s in db.tblLibraryUsers
-                         where s.lib_SchoolID == txt_SchoolID.Text
-                         select s.lib_Lastname).FirstOrDefault();
-            var gender = (from s in db.tblLibraryUsers
-                          where s.lib_SchoolID == txt_SchoolID.Text
-                          select s.lib_Gender).FirstOrDefault();
-            var address = (from s in db.tblLibraryUsers
-                           where s.lib_SchoolID == txt_SchoolID.Text
-                           select s.lib_Address).FirstOrDefault();
-            var contact = (from s in db.tblLibraryUsers
-                           where s.lib_SchoolID == txt_SchoolID.Text
-                           select s.lib_ContactNumber).FirstOrDefault();
-            sy = (from s in db.tblLibraryUsers
-                  where s.lib_SchoolID == txt_SchoolID.Text
-                  select s.lib_SchoolYear).FirstOrDefault();
-
-            txt_Firstname.Text = fname;
-            txt_Lastname.Text = lname;
-            if (gender == "Male")
+            SetValuesToTextBoxes();
+            if (txt_Firstname.Text != null && txt_Lastname != null)
             {
-                rb_Male.Checked = true;
-            }
-            else
-            {
-                rb_Female.Checked = true;
-            }
-            txt_Address.Text = address;
-            txt_ContactNum.Text = contact;
-            if (fname != null && lname != null)
-            {
-
-                MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
-                encode.QRCodeScale = 6;
-                Bitmap bmp = encode.Encode(txt_SchoolID.Text);
-                pbBorrowerQR.Image = bmp;
+                pbBorrowerQR.Image = brwr.GenerateQRCode(txt_SchoolID.Text);
             }
             
             dgvBorrowed.DataSource = db.sp_BorrowedBooks(txt_SchoolID.Text);
@@ -77,15 +44,17 @@ namespace QRCodeBasedLMS
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string gen;
-            if (rb_Male.Checked)
-            {
-                gen = "Male";
-            }
-            else
-            {
-                gen = "Female";
-            }
-            db.sp_UpdateLibraryUser(txt_SchoolID.Text, txt_Firstname.Text, txt_Lastname.Text, gen, txt_Address.Text, txt_ContactNum.Text, sy, true);
+            if (rb_Male.Checked) gen = "Male"; else gen = "Female";
+            brwr.SchoolID = txt_SchoolID.Text;
+            brwr.Firstname = txt_Firstname.Text;
+            brwr.Lastname = txt_Lastname.Text;
+            brwr.Gender = gen;
+            brwr.Address = txt_Address.Text;
+            brwr.ContactNumber = txt_ContactNum.Text;
+            brwr.Usertype = "";
+            brwr.SchoolYear = sy;
+            brwr.WithCard = true;
+            brwr.UpdateRecord();
             MessageBox.Show("Sucessfully Updated!");
         }
 
@@ -94,6 +63,28 @@ namespace QRCodeBasedLMS
             IndexForm index = new IndexForm();
             index.Show();
             this.Hide();
+        }
+        public void SetValuesToTextBoxes()
+        {
+            txt_Firstname.Text = (from s in db.tblLibraryUsers
+                         where s.lib_SchoolID == txt_SchoolID.Text
+                         select s.lib_Firstname).FirstOrDefault();
+            txt_Lastname.Text = (from s in db.tblLibraryUsers
+                         where s.lib_SchoolID == txt_SchoolID.Text
+                         select s.lib_Lastname).FirstOrDefault();
+            var gender = (from s in db.tblLibraryUsers
+                          where s.lib_SchoolID == txt_SchoolID.Text
+                          select s.lib_Gender).FirstOrDefault();
+            if (gender == "Male") rb_Male.Checked = true; else rb_Female.Checked = true;
+            txt_Address.Text= (from s in db.tblLibraryUsers
+                           where s.lib_SchoolID == txt_SchoolID.Text
+                           select s.lib_Address).FirstOrDefault();
+            txt_ContactNum.Text = (from s in db.tblLibraryUsers
+                           where s.lib_SchoolID == txt_SchoolID.Text
+                           select s.lib_ContactNumber).FirstOrDefault();
+            sy = (from s in db.tblLibraryUsers
+                  where s.lib_SchoolID == txt_SchoolID.Text
+                  select s.lib_SchoolYear).FirstOrDefault();
         }
     }
 }

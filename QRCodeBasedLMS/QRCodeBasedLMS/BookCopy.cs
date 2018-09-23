@@ -42,10 +42,7 @@ namespace QRCodeBasedLMS
 
         private void txt_AccessionNumber_OnValueChanged(object sender, EventArgs e)
         {
-            MessagingToolkit.QRCode.Codec.QRCodeEncoder encode = new MessagingToolkit.QRCode.Codec.QRCodeEncoder();
-            encode.QRCodeScale = 6;
-            Bitmap bmp = encode.Encode(txt_AccessionNumber.Text);
-            pb_QRBook.Image = bmp;
+            pb_QRBook.Image = bk.GenerateQRCode(txt_AccessionNumber.Text);
             if (txt_AccessionNumber.Text == "") btnSave.Enabled = false;
             else btnSave.Enabled = true;
         }

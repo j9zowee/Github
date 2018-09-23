@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace QRCodeBasedLMS
 {
-    class clsReturn
+    class clsReturn : clsLibrary
     {
-        private string accNum;
-        public string AccNum
+        dcLMSDataContext db = new dcLMSDataContext();
+        private string accessionNumber;
+        public string AccessionNumber
         {
-            get { return accNum; }
-            set { accNum = value; }
+            get { return accessionNumber; }
+            set { accessionNumber = value; }
         }
         private string bookTitle;
         public string BookTitle
@@ -37,6 +38,14 @@ namespace QRCodeBasedLMS
         {
             get { return penaltyFee; }
             set { penaltyFee = value; }
+        }
+
+        public override string GenerateIDNumber()
+        {
+            DateTime dt = DateTime.Now;
+            int x = db.sp_LastReturnNumber().Count() + 1;
+            string returnID = "RTN-" + x + "-" + dt.Day + dt.Month + dt.Year;
+            return returnID;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace QRCodeBasedLMS
             usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
+        clsUser user = new clsUser();
         private void UnapprovedAccounts_Load(object sender, EventArgs e)
         {
             dgvAccount.DataSource = db.sp_ViewAccount("Inactive", usertype);
@@ -33,7 +34,7 @@ namespace QRCodeBasedLMS
             txt_UserIDNum.Text = dgvAccount.CurrentRow.Cells[0].Value.ToString();
             txt_Firstname.Text = dgvAccount.CurrentRow.Cells[1].Value.ToString();
             txt_Lastname.Text = dgvAccount.CurrentRow.Cells[2].Value.ToString();
-            cmb_Status.Text = dgvAccount.CurrentRow.Cells[3].Value.ToString();
+            user.SetDropdownText(cmb_Status, dgvAccount.CurrentRow.Cells[3].Value.ToString());            
         }
         
 
@@ -72,17 +73,6 @@ namespace QRCodeBasedLMS
             mf.Show();
             this.Hide();
         }
-
-        //private void setEnability(Bunifu.Framework.UI.BunifuDropdown cmb, Boolean bln)
-        //{
-        //    foreach (Control ctl in cmb.Controls)
-        //    {
-        //        if (ctl.GetType() == typeof(ComboBox))
-        //        {
-        //            var drp = (ComboBox)ctl;
-        //            drp.Enabled = bln;
-        //        }
-        //    }
-        //}
+        
     }
 }

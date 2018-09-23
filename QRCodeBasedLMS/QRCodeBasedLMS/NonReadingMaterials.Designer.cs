@@ -381,7 +381,7 @@
             this.btnAddOrUpdate.IconVisible = true;
             this.btnAddOrUpdate.IconZoom = 80D;
             this.btnAddOrUpdate.IsTab = false;
-            this.btnAddOrUpdate.Location = new System.Drawing.Point(15, 421);
+            this.btnAddOrUpdate.Location = new System.Drawing.Point(128, 421);
             this.btnAddOrUpdate.Name = "btnAddOrUpdate";
             this.btnAddOrUpdate.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btnAddOrUpdate.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -416,7 +416,7 @@
             this.btnClear.IconVisible = true;
             this.btnClear.IconZoom = 80D;
             this.btnClear.IsTab = false;
-            this.btnClear.Location = new System.Drawing.Point(126, 421);
+            this.btnClear.Location = new System.Drawing.Point(235, 421);
             this.btnClear.Name = "btnClear";
             this.btnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
             this.btnClear.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));

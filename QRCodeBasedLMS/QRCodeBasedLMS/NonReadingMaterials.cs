@@ -19,30 +19,39 @@ namespace QRCodeBasedLMS
             usertype = type;
         }
         dcLMSDataContext db = new dcLMSDataContext();
-
+        clsNonReadingMaterials nrm = new clsNonReadingMaterials();
         private void NonReadingMaterials_Load(object sender, EventArgs e)
         {
             dgv_NonReadingMaterials.DataSource = db.sp_ViewNonReadingMaterial();
             DateTime dt = DateTime.Now;
-            txt_MaterialIDNumber.Text = "NRM-" + (db.sp_LastNonReadingIDNumber().Count() + 1) + "-" + dt.Day + dt.Month + dt.Year;
+            txt_MaterialIDNumber.Text = nrm.GenerateIDNumber();
+            cmb_MatType.selectedIndex = 0;
         }
 
         private void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
+            nrm.MaterialIDNumber = txt_MaterialIDNumber.Text;
+            nrm.MaterialType = cmb_MatType.selectedValue;
+            nrm.Title = txt_Title.Text;
+            nrm.Volume = txt_Volume.Text;
+            nrm.Issue = txt_Issue.Text;
+            nrm.CopyrightYear = int.Parse(txt_CopyrightYear.Text);
+            nrm.Author = txt_Author.Text;
+            nrm.Publisher = txt_Publisher.Text;
+            nrm.Page = int.Parse(txt_Page.Text);
+            nrm.NumberOfCopies = int.Parse(txt_NumberOfCopies.Text);
             if (btnAddOrUpdate.Text == "ADD")
             {
-                db.sp_AddNonReadingMaterial(txt_MaterialIDNumber.Text, cmb_MatType.selectedValue, txt_Title.Text, txt_Volume.Text
-                , txt_Issue.Text, int.Parse(txt_CopyrightYear.Text), txt_Author.Text, txt_Publisher.Text
-                   , int.Parse(txt_Page.Text), int.Parse(txt_NumberOfCopies.Text));
-                MessageBox.Show("Good job (y)");
+                nrm.AddRecord();
+                MessageBox.Show("Successfully Added!");
                 Clear();
                 dgv_NonReadingMaterials.DataSource = db.sp_ViewNonReadingMaterial();
-            } else
+                txt_MaterialIDNumber.Text = nrm.GenerateIDNumber();
+            }
+            else
             {
-                db.sp_UpdateNonReadingMaterial(txt_MaterialIDNumber.Text, cmb_MatType.selectedValue, txt_Title.Text, txt_Volume.Text
-                , txt_Issue.Text, int.Parse(txt_CopyrightYear.Text), txt_Author.Text, txt_Publisher.Text
-                   , int.Parse(txt_Page.Text), int.Parse(txt_NumberOfCopies.Text));
-                MessageBox.Show("Good job (y)");
+                nrm.UpdateRecord();
+                MessageBox.Show("Successfully Updated!");
                 Clear();
                 dgv_NonReadingMaterials.DataSource = db.sp_ViewNonReadingMaterial();
             }
@@ -51,7 +60,7 @@ namespace QRCodeBasedLMS
         private void dgv_NonReadingMaterials_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txt_MaterialIDNumber.Text = dgv_NonReadingMaterials.CurrentRow.Cells[0].Value.ToString();
-            setComboBoxValue(cmb_MatType, dgv_NonReadingMaterials.CurrentRow.Cells[1].Value.ToString());
+            nrm.SetDropdownText(cmb_MatType, dgv_NonReadingMaterials.CurrentRow.Cells[1].Value.ToString());
             txt_Title.Text = dgv_NonReadingMaterials.CurrentRow.Cells[2].Value.ToString();
             txt_Volume.Text = dgv_NonReadingMaterials.CurrentRow.Cells[3].Value.ToString();
             txt_Issue.Text = dgv_NonReadingMaterials.CurrentRow.Cells[4].Value.ToString();
@@ -67,12 +76,23 @@ namespace QRCodeBasedLMS
         {
             dgv_NonReadingMaterials.DataSource = db.sp_SearchNonReadingMaterial(txt_Search.Text);
         }
-
         
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void link_GoBack_Click(object sender, EventArgs e)
+        {
+            MainForm main = new MainForm(usertype);
+            main.Show();
+            this.Hide();
+        }
+
         public void Clear()
         {
             DateTime dt = DateTime.Now;
-            txt_MaterialIDNumber.Text = "NRM-" + (db.sp_LastNonReadingIDNumber().Count()+1) + "-" + dt.Day + dt.Month + dt.Year;
+            txt_MaterialIDNumber.Text = nrm.GenerateIDNumber();
             cmb_MatType.selectedIndex = 0;
             txt_Title.Text = "";
             txt_Volume.Text = "";
@@ -83,32 +103,6 @@ namespace QRCodeBasedLMS
             txt_Page.Text = "";
             txt_NumberOfCopies.Text = "";
             btnAddOrUpdate.Text = "ADD";
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
-
-        public void setComboBoxValue(Bunifu.Framework.UI.BunifuDropdown cmbDrop, string value)
-        {
-            foreach (Control ctl in cmbDrop.Controls)
-            {
-                if (ctl.GetType() == typeof(ComboBox))
-                {
-                    var cmb = (ComboBox)ctl;
-                    cmb.Text = value;
-
-                    // Set other properties & events here...
-                }
-            }
-        }
-
-        private void link_GoBack_Click(object sender, EventArgs e)
-        {
-            MainForm main = new MainForm(usertype);
-            main.Show();
-            this.Hide();
         }
     }
 }

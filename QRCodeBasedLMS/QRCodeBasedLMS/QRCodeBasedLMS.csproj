@@ -135,7 +135,9 @@
     </Compile>
     <Compile Include="clsBook.cs" />
     <Compile Include="clsBorrow.cs" />
+    <Compile Include="clsBorrower.cs" />
     <Compile Include="clsLibrary.cs" />
+    <Compile Include="clsNonReadingMaterials.cs" />
     <Compile Include="clsReturn.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="dcLMS.cs">

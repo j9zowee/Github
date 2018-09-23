@@ -77,8 +77,6 @@ namespace QRCodeBasedLMS
         private void btnBorrows_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            int x = db.sp_LastReturnNumber().Count() + 1;
-            string returnID = "RTN-" + x + "-" + dt.Day + dt.Month + dt.Year;
             string remarks = "";
             if (lblTotalFee.Text == "0")
             {
@@ -93,7 +91,7 @@ namespace QRCodeBasedLMS
             {
                 for (int i = 0; i < dgvReturn.RowCount; i++)
                 {
-                    db.sp_ReturnBook(returnID, txt_BorrowerID.Text, dgvReturn.Rows[i].Cells[1].Value.ToString(), dt, int.Parse(dgvReturn.Rows[i].Cells[4].Value.ToString()), decimal.Parse(dgvReturn.Rows[i].Cells[5].Value.ToString()), remarks);
+                    db.sp_ReturnBook(r.GenerateIDNumber(), txt_BorrowerID.Text, dgvReturn.Rows[i].Cells[1].Value.ToString(), dt, int.Parse(dgvReturn.Rows[i].Cells[4].Value.ToString()), decimal.Parse(dgvReturn.Rows[i].Cells[5].Value.ToString()), remarks);
                     db.sp_UpdateBookStatus(dgvReturn.Rows[i].Cells[1].Value.ToString(), "Available");
                 }
 
@@ -101,7 +99,7 @@ namespace QRCodeBasedLMS
 
                 txt_AccNum.Text = null;
                 txt_BorrowerID.Text = null;
-                MainForm main = new MainForm("");
+                MainForm main = new MainForm(usertype);
                 main.Show();
                 this.Hide();
             }

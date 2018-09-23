@@ -63,7 +63,7 @@ namespace QRCodeBasedLMS
                             MessageBox.Show("Successfully Registered!\nPlease wait for the Admin to approve your registration.");
                         }
                         user.AddRecord();
-                        txt_UserIDNum.Text = user.GenerateAccountIDNum();
+                        txt_UserIDNum.Text = user.GenerateIDNumber();
                         ClearText();
                     }
                 }                
@@ -93,7 +93,7 @@ namespace QRCodeBasedLMS
         
         private void Registration_Load(object sender, EventArgs e)
         {
-            txt_UserIDNum.Text = user.GenerateAccountIDNum();
+            txt_UserIDNum.Text = user.GenerateIDNumber();
         }
 
         private void link_GoBack_Click(object sender, EventArgs e)

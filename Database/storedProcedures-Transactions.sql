@@ -35,7 +35,7 @@ BEGIN
 		FROM dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
         dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID INNER JOIN
         dbo.tblBook ON dbo.tblBookCopy.book_BookID = dbo.tblBook.book_BookID
-		where tblLibraryUser.lib_SchoolID=@SchoolID and tblBookCopy.copy_Status = 'Borrowed'
+		where tblLibraryUser.lib_SchoolID='15-200571' and tblBookCopy.copy_Status = 'Borrowed'
 END
 
 CREATE PROCEDURE sp_GetBorrowIDForReturn

@@ -50,6 +50,7 @@ namespace QRCodeBasedLMS
             FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
+            if (dgvReturn.Rows.Count == 0) btnReturn.Enabled = false;
         }
         private void FinalFrame_NewFrame(Object sender, NewFrameEventArgs eventArgs)
         {
@@ -74,7 +75,7 @@ namespace QRCodeBasedLMS
             txt_Title.Text = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == txt_AccNum.Text select book.book_Title).FirstOrDefault();
         }
 
-        private void btnBorrows_Click(object sender, EventArgs e)
+        private void btnReturn_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             string remarks = "";
@@ -117,26 +118,43 @@ namespace QRCodeBasedLMS
                     timer.Stop();
                     if (txt_Name.Text == "")
                     {
-                        txt_BorrowerID.Text = decoded;
-                        if (txt_Name.Text != "") { btnScan.Text = "Scan Book"; }
+                        var fname = (from s in db.tblLibraryUsers where s.lib_SchoolID == decoded select s.lib_Firstname).FirstOrDefault();
+                        var lname = (from s in db.tblLibraryUsers where s.lib_SchoolID == decoded select s.lib_Lastname).FirstOrDefault();
+                        if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname))
+                        {
+                            MessageBox.Show("Invalid SchoolID.");
+                        }
+                        else
+                        {
+                            txt_BorrowerID.Text = decoded;
+                            btnScan.Text = "Scan Book";
+                        }
                     }
                     else
                     {
-                        txt_AccNum.Text = decoded;
+                        var title = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == decoded select book.book_Title).FirstOrDefault();
+                        if (string.IsNullOrWhiteSpace(title))
+                        {
+                            MessageBox.Show("Invalid Accession Number!");
+                        }
+                        else
+                        {
+                            txt_AccNum.Text = decoded;
 
-                        int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_AccNum.Text);
-                        DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
-                        DateTime dt = DateTime.Now;
-                        int diff = (dt - due).Days;
-                        if (diff < 0) { diff = 0; }
-                        double penalty = 0;
-                        if ((diff * 3) < 0) { penalty = 0; }
-                        else { penalty = diff * 3; }
+                            int borrowID = db.sp_GetBorrowIDForReturn(txt_BorrowerID.Text, txt_AccNum.Text);
+                            DateTime due = (from s in db.tblBorrows where s.borrow_BorrowID == borrowID select s.borrow_DueDate).FirstOrDefault();
+                            DateTime dt = DateTime.Now;
+                            int diff = (dt - due).Days;
+                            if (diff < 0) { diff = 0; }
+                            double penalty = 0;
+                            if ((diff * 3) < 0) { penalty = 0; }
+                            else { penalty = diff * 3; }
 
-                        //-----
-                        clsReturnBindingSource.Add(new clsReturn() { AccNum = txt_AccNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
-                        GetTotalPenalty();
-                        btnScan.Text = "Scan Another Book";
+                            //-----
+                            clsReturnBindingSource.Add(new clsReturn() { AccessionNumber = txt_AccNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
+                            GetTotalPenalty();
+                            btnScan.Text = "Scan Another Book";
+                        }
                     }
 
                 }
@@ -188,6 +206,7 @@ namespace QRCodeBasedLMS
                     clsReturnBindingSource.RemoveCurrent();
                     btnScan.Text = "Scan Another Book";
                     GetTotalPenalty();
+                    if (dgvReturn.Rows.Count == 0) btnReturn.Enabled = false;
                 }
             }
         }

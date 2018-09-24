@@ -44,7 +44,7 @@
             this.cmbDevice = new Bunifu.Framework.UI.BunifuDropdown();
             this.btnCamera = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pb_ScanQR = new System.Windows.Forms.PictureBox();
-            this.btnBorrows = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnReturn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnScan = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -53,12 +53,12 @@
             this.dgvReturn = new System.Windows.Forms.DataGridView();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -269,40 +269,40 @@
             this.pb_ScanQR.TabIndex = 82;
             this.pb_ScanQR.TabStop = false;
             // 
-            // btnBorrows
+            // btnReturn
             // 
-            this.btnBorrows.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnBorrows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnBorrows.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBorrows.BorderRadius = 7;
-            this.btnBorrows.ButtonText = "RETURN";
-            this.btnBorrows.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBorrows.DisabledColor = System.Drawing.Color.Gray;
-            this.btnBorrows.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBorrows.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBorrows.Iconimage")));
-            this.btnBorrows.Iconimage_right = null;
-            this.btnBorrows.Iconimage_right_Selected = null;
-            this.btnBorrows.Iconimage_Selected = null;
-            this.btnBorrows.IconMarginLeft = 0;
-            this.btnBorrows.IconMarginRight = 0;
-            this.btnBorrows.IconRightVisible = false;
-            this.btnBorrows.IconRightZoom = 0D;
-            this.btnBorrows.IconVisible = true;
-            this.btnBorrows.IconZoom = 80D;
-            this.btnBorrows.IsTab = false;
-            this.btnBorrows.Location = new System.Drawing.Point(575, 311);
-            this.btnBorrows.Name = "btnBorrows";
-            this.btnBorrows.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnBorrows.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnBorrows.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnBorrows.selected = false;
-            this.btnBorrows.Size = new System.Drawing.Size(131, 41);
-            this.btnBorrows.TabIndex = 81;
-            this.btnBorrows.Text = "RETURN";
-            this.btnBorrows.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBorrows.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnBorrows.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnBorrows.Click += new System.EventHandler(this.btnBorrows_Click);
+            this.btnReturn.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnReturn.BorderRadius = 7;
+            this.btnReturn.ButtonText = "RETURN";
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.DisabledColor = System.Drawing.Color.Gray;
+            this.btnReturn.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnReturn.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnReturn.Iconimage")));
+            this.btnReturn.Iconimage_right = null;
+            this.btnReturn.Iconimage_right_Selected = null;
+            this.btnReturn.Iconimage_Selected = null;
+            this.btnReturn.IconMarginLeft = 0;
+            this.btnReturn.IconMarginRight = 0;
+            this.btnReturn.IconRightVisible = false;
+            this.btnReturn.IconRightZoom = 0D;
+            this.btnReturn.IconVisible = true;
+            this.btnReturn.IconZoom = 80D;
+            this.btnReturn.IsTab = false;
+            this.btnReturn.Location = new System.Drawing.Point(575, 311);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnReturn.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnReturn.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnReturn.selected = false;
+            this.btnReturn.Size = new System.Drawing.Size(131, 41);
+            this.btnReturn.TabIndex = 81;
+            this.btnReturn.Text = "RETURN";
+            this.btnReturn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnReturn.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnReturn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // btnScan
             // 
@@ -413,6 +413,20 @@
             this.AccessionNumber.Name = "AccessionNumber";
             this.AccessionNumber.ReadOnly = true;
             // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dueDateDataGridViewTextBoxColumn
+            // 
+            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // NoOfDaysUnreturned
             // 
             this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
@@ -426,6 +440,10 @@
             this.PenaltyFee.HeaderText = "PenaltyFee";
             this.PenaltyFee.Name = "PenaltyFee";
             this.PenaltyFee.ReadOnly = true;
+            // 
+            // clsReturnBindingSource
+            // 
+            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
             // 
             // link_GoBack
             // 
@@ -462,24 +480,6 @@
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
             // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dueDateDataGridViewTextBoxColumn
-            // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
-            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clsReturnBindingSource
-            // 
-            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
-            // 
             // Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,7 +494,7 @@
             this.Controls.Add(this.cmbDevice);
             this.Controls.Add(this.btnCamera);
             this.Controls.Add(this.pb_ScanQR);
-            this.Controls.Add(this.btnBorrows);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnScan);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Return";
@@ -530,7 +530,7 @@
         private Bunifu.Framework.UI.BunifuDropdown cmbDevice;
         private Bunifu.Framework.UI.BunifuFlatButton btnCamera;
         private System.Windows.Forms.PictureBox pb_ScanQR;
-        private Bunifu.Framework.UI.BunifuFlatButton btnBorrows;
+        private Bunifu.Framework.UI.BunifuFlatButton btnReturn;
         private Bunifu.Framework.UI.BunifuFlatButton btnScan;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private System.Windows.Forms.GroupBox groupBox3;

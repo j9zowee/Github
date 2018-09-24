@@ -156,7 +156,6 @@ namespace QRCodeBasedLMS
                         }
                         else
                         {
-                            txt_Name.Text = lname + ", " + fname;
                             txt_BorrowerID.Text = decoded;
                             btnScan.Text = "Scan Book";
                         }    

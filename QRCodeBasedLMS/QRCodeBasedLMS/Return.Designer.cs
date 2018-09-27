@@ -51,14 +51,16 @@
             this.lblTotalFee = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvReturn = new System.Windows.Forms.DataGridView();
+            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.AccessionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NoOfDaysUnreturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PenaltyFee = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clsReturnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_ScanQR)).BeginInit();
@@ -93,13 +95,13 @@
             this.txt_AccNum.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txt_AccNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.txt_AccNum.isPassword = false;
-            this.txt_AccNum.Location = new System.Drawing.Point(143, 14);
+            this.txt_AccNum.Location = new System.Drawing.Point(144, 18);
             this.txt_AccNum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_AccNum.Name = "txt_AccNum";
-            this.txt_AccNum.Size = new System.Drawing.Size(151, 22);
-            this.txt_AccNum.TabIndex = 69;
+            this.txt_AccNum.Size = new System.Drawing.Size(150, 22);
+            this.txt_AccNum.TabIndex = 71;
             this.txt_AccNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txt_AccNum.OnValueChanged += new System.EventHandler(this.txt_BookIDNum_OnValueChanged);
+            this.txt_AccNum.OnValueChanged += new System.EventHandler(this.txt_AccNum_OnValueChanged);
             // 
             // label2
             // 
@@ -398,53 +400,6 @@
             this.dgvReturn.TabIndex = 88;
             this.dgvReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReturn_CellContentClick);
             // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Text = "Delete";
-            this.Delete.UseColumnTextForButtonValue = true;
-            // 
-            // AccessionNumber
-            // 
-            this.AccessionNumber.DataPropertyName = "AccNum";
-            this.AccessionNumber.HeaderText = "AccessionNumber";
-            this.AccessionNumber.Name = "AccessionNumber";
-            this.AccessionNumber.ReadOnly = true;
-            // 
-            // bookTitleDataGridViewTextBoxColumn
-            // 
-            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
-            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
-            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dueDateDataGridViewTextBoxColumn
-            // 
-            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
-            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
-            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // NoOfDaysUnreturned
-            // 
-            this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.HeaderText = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.Name = "NoOfDaysUnreturned";
-            this.NoOfDaysUnreturned.ReadOnly = true;
-            // 
-            // PenaltyFee
-            // 
-            this.PenaltyFee.DataPropertyName = "PenaltyFee";
-            this.PenaltyFee.HeaderText = "PenaltyFee";
-            this.PenaltyFee.Name = "PenaltyFee";
-            this.PenaltyFee.ReadOnly = true;
-            // 
-            // clsReturnBindingSource
-            // 
-            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
-            // 
             // link_GoBack
             // 
             this.link_GoBack.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
@@ -479,6 +434,68 @@
             this.link_GoBack.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
             this.link_GoBack.TextFont = new System.Drawing.Font("Century Gothic", 9.75F);
             this.link_GoBack.Click += new System.EventHandler(this.link_GoBack_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // clsReturnBindingSource
+            // 
+            this.clsReturnBindingSource.DataSource = typeof(QRCodeBasedLMS.clsReturn);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Text = "Delete";
+            this.Delete.UseColumnTextForButtonValue = true;
+            // 
+            // AccessionNumber
+            // 
+            this.AccessionNumber.DataPropertyName = "AccessionNumber";
+            this.AccessionNumber.HeaderText = "AccessionNumber";
+            this.AccessionNumber.Name = "AccessionNumber";
+            this.AccessionNumber.ReadOnly = true;
+            // 
+            // bookTitleDataGridViewTextBoxColumn
+            // 
+            this.bookTitleDataGridViewTextBoxColumn.DataPropertyName = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.HeaderText = "BookTitle";
+            this.bookTitleDataGridViewTextBoxColumn.Name = "bookTitleDataGridViewTextBoxColumn";
+            this.bookTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dueDateDataGridViewTextBoxColumn
+            // 
+            this.dueDateDataGridViewTextBoxColumn.DataPropertyName = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.HeaderText = "DueDate";
+            this.dueDateDataGridViewTextBoxColumn.Name = "dueDateDataGridViewTextBoxColumn";
+            this.dueDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // NoOfDaysUnreturned
+            // 
+            this.NoOfDaysUnreturned.DataPropertyName = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.HeaderText = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.Name = "NoOfDaysUnreturned";
+            this.NoOfDaysUnreturned.ReadOnly = true;
+            // 
+            // PenaltyFee
+            // 
+            this.PenaltyFee.DataPropertyName = "PenaltyFee";
+            this.PenaltyFee.HeaderText = "PenaltyFee";
+            this.PenaltyFee.Name = "PenaltyFee";
+            this.PenaltyFee.ReadOnly = true;
             // 
             // Return
             // 
@@ -518,7 +535,6 @@
         #endregion
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txt_AccNum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private Bunifu.Framework.UI.BunifuMetroTextbox txt_Title;
@@ -538,12 +554,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvReturn;
         private System.Windows.Forms.BindingSource clsReturnBindingSource;
+        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txt_AccNum;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccessionNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn bookTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfDaysUnreturned;
         private System.Windows.Forms.DataGridViewTextBoxColumn PenaltyFee;
-        private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
     }
 }

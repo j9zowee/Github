@@ -322,32 +322,11 @@ namespace QRCodeBasedLMS
 			return ((ISingleResult<sp_ViewBookCopyResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewLibraryUser")]
-		public ISingleResult<sp_ViewLibraryUserResult> sp_ViewLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolYear, userType);
-			return ((ISingleResult<sp_ViewLibraryUserResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_LastReturnNumber")]
 		public ISingleResult<sp_LastReturnNumberResult> sp_LastReturnNumber()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_LastReturnNumberResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnBook")]
-		public int sp_ReturnBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnNum", DbType="VarChar(50)")] string returnNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnDate", DbType="Date")] System.Nullable<System.DateTime> returnDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumOfDaysUnreturned", DbType="Int")] System.Nullable<int> numOfDaysUnreturned, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Penalty", DbType="Decimal(18,0)")] System.Nullable<decimal> penalty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PenaltyRemarks", DbType="VarChar(20)")] string penaltyRemarks)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), returnNum, schoolID, accNum, returnDate, numOfDaysUnreturned, penalty, penaltyRemarks);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetBorrowIDForReturn")]
-		public int sp_GetBorrowIDForReturn([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, accNum);
-			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_UpdatePassword")]
@@ -397,6 +376,27 @@ namespace QRCodeBasedLMS
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<sp_LastNonReadingIDNumberResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetBorrowIDForReturn")]
+		public int sp_GetBorrowIDForReturn([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), schoolID, accNum);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ReturnBook")]
+		public int sp_ReturnBook([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnNum", DbType="VarChar(50)")] string returnNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolID", DbType="VarChar(50)")] string schoolID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccNum", DbType="VarChar(50)")] string accNum, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ReturnDate", DbType="Date")] System.Nullable<System.DateTime> returnDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="NumOfDaysUnreturned", DbType="Int")] System.Nullable<int> numOfDaysUnreturned, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Penalty", DbType="Decimal(18,0)")] System.Nullable<decimal> penalty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PenaltyRemarks", DbType="VarChar(20)")] string penaltyRemarks)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), returnNum, schoolID, accNum, returnDate, numOfDaysUnreturned, penalty, penaltyRemarks);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ViewLibraryUser")]
+		public ISingleResult<sp_ViewLibraryUserResult> sp_ViewLibraryUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="WithPenalty", DbType="Bit")] System.Nullable<bool> withPenalty, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SchoolYear", DbType="VarChar(50)")] string schoolYear, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserType", DbType="VarChar(50)")] string userType)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), withPenalty, schoolYear, userType);
+			return ((ISingleResult<sp_ViewLibraryUserResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -3555,140 +3555,6 @@ namespace QRCodeBasedLMS
 		}
 	}
 	
-	public partial class sp_ViewLibraryUserResult
-	{
-		
-		private string _SchoolID;
-		
-		private string _Firstname;
-		
-		private string _Lastname;
-		
-		private string _Gender;
-		
-		private string _HomeAddress;
-		
-		private string _ContactNumber;
-		
-		private System.Nullable<bool> _WithLibraryCard;
-		
-		public sp_ViewLibraryUserResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string SchoolID
-		{
-			get
-			{
-				return this._SchoolID;
-			}
-			set
-			{
-				if ((this._SchoolID != value))
-				{
-					this._SchoolID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Firstname
-		{
-			get
-			{
-				return this._Firstname;
-			}
-			set
-			{
-				if ((this._Firstname != value))
-				{
-					this._Firstname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Lastname
-		{
-			get
-			{
-				return this._Lastname;
-			}
-			set
-			{
-				if ((this._Lastname != value))
-				{
-					this._Lastname = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(10)")]
-		public string Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this._Gender = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="VarChar(100)")]
-		public string HomeAddress
-		{
-			get
-			{
-				return this._HomeAddress;
-			}
-			set
-			{
-				if ((this._HomeAddress != value))
-				{
-					this._HomeAddress = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
-		public string ContactNumber
-		{
-			get
-			{
-				return this._ContactNumber;
-			}
-			set
-			{
-				if ((this._ContactNumber != value))
-				{
-					this._ContactNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithLibraryCard", DbType="Bit")]
-		public System.Nullable<bool> WithLibraryCard
-		{
-			get
-			{
-				return this._WithLibraryCard;
-			}
-			set
-			{
-				if ((this._WithLibraryCard != value))
-				{
-					this._WithLibraryCard = value;
-				}
-			}
-		}
-	}
-	
 	public partial class sp_LastReturnNumberResult
 	{
 		
@@ -4712,6 +4578,140 @@ namespace QRCodeBasedLMS
 				if ((this._nrm_NumberOfCopies != value))
 				{
 					this._nrm_NumberOfCopies = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ViewLibraryUserResult
+	{
+		
+		private string _SchoolID;
+		
+		private string _Firstname;
+		
+		private string _Lastname;
+		
+		private string _Gender;
+		
+		private string _HomeAddress;
+		
+		private string _ContactNumber;
+		
+		private System.Nullable<bool> _WithLibraryCard;
+		
+		public sp_ViewLibraryUserResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SchoolID", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string SchoolID
+		{
+			get
+			{
+				return this._SchoolID;
+			}
+			set
+			{
+				if ((this._SchoolID != value))
+				{
+					this._SchoolID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Firstname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Firstname
+		{
+			get
+			{
+				return this._Firstname;
+			}
+			set
+			{
+				if ((this._Firstname != value))
+				{
+					this._Firstname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lastname", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Lastname
+		{
+			get
+			{
+				return this._Lastname;
+			}
+			set
+			{
+				if ((this._Lastname != value))
+				{
+					this._Lastname = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(10)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="VarChar(100)")]
+		public string HomeAddress
+		{
+			get
+			{
+				return this._HomeAddress;
+			}
+			set
+			{
+				if ((this._HomeAddress != value))
+				{
+					this._HomeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
+		public string ContactNumber
+		{
+			get
+			{
+				return this._ContactNumber;
+			}
+			set
+			{
+				if ((this._ContactNumber != value))
+				{
+					this._ContactNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithLibraryCard", DbType="Bit")]
+		public System.Nullable<bool> WithLibraryCard
+		{
+			get
+			{
+				return this._WithLibraryCard;
+			}
+			set
+			{
+				if ((this._WithLibraryCard != value))
+				{
+					this._WithLibraryCard = value;
 				}
 			}
 		}

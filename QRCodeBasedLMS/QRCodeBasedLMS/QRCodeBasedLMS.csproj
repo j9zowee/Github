@@ -302,7 +302,6 @@
     </EmbeddedResource>
     <None Include="dcLMS.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dcLMS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="dsBookList.xsc">

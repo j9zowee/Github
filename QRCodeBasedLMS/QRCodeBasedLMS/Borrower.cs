@@ -50,11 +50,10 @@ namespace QRCodeBasedLMS
             else
             {
                 cmbSchoolYear.selectedIndex = 0;
-                cmbLibraryUser.selectedIndex = 0;     
-                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                cmbLibraryUser.selectedIndex = 0;
+                cmb_Penalty.selectedIndex = 0;
+                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
-            
-
         }
         private void link_ScanBrwr_Click(object sender, EventArgs e)
         {
@@ -73,7 +72,7 @@ namespace QRCodeBasedLMS
             AssignValuesToClassProperties();
             brwr.WithCard = withcard;
             brwr.UpdateRecord();
-            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             MessageBox.Show("Sucessfully Updated!");
             ClearText();
             
@@ -93,7 +92,7 @@ namespace QRCodeBasedLMS
                 link_ScanQr.Visible = true;
                 txt_Search.Visible = false;
             }
-            else
+            else if(cmb_SearchCategory.selectedValue == "Name")
             {
                 txt_Search.Visible = true;
                 link_ScanQr.Visible = false;
@@ -102,20 +101,29 @@ namespace QRCodeBasedLMS
 
         private void cmbLibraryUser_onItemSelected(object sender, EventArgs e)
         {
-            if (cmbLibraryUser.selectedIndex != -1)
+            if (cmbSchoolYear.selectedIndex != -1)
             {
-                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                if (cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
             ClearText();
         }
-
+        private void cmb_Penalty_onItemSelected(object sender, EventArgs e)
+        {
+            if (cmbSchoolYear.selectedIndex != -1)
+            {
+                if(cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            }
+            ClearText();
+        }
         private void cmbSchoolYear_onItemSelected(object sender, EventArgs e)
         {
             if (cmbSchoolYear.selectedIndex != -1)
             {
-                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                if (cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
-            ClearText();
         }
 
         private void dgvBorrowers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -123,24 +131,6 @@ namespace QRCodeBasedLMS
             AssignValuesToTextboxes();
         }
         
-        private void btnPrintLibCard_Click(object sender, EventArgs e)
-        {
-            AssignValuesToClassProperties();
-            brwr.WithCard = true;
-            brwr.UpdateRecord();
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
-            {
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    pbBorrowerQR.Image.Save(sfd.FileName, ImageFormat.Jpeg);
-                }
-            }
-            ClearText();
-            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
-            MessageBox.Show("Printing!");
-            DisableControls();
-        }
-
         private void link_ScanQr_Click(object sender, EventArgs e)
         {            
             scan.schoolyear = cmbSchoolYear.selectedValue;
@@ -153,7 +143,23 @@ namespace QRCodeBasedLMS
         {
             dgvBorrowers.DataSource = db.sp_SearchBorrower(cmb_SearchCategory.selectedValue, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue, txt_Search.Text);
         }
+        private void btnPrintLibCard_Click(object sender, EventArgs e)
+        {
+            AssignValuesToClassProperties();
+            brwr.WithCard = true;
+            brwr.UpdateRecord();
 
+            printPreviewDialog1.ShowDialog();
+
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(pbBorrowerQR.Image, 25, 40, 130, 130);
+            e.Graphics.DrawString("School ID : " + txt_SchoolID.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(160, 80));
+            e.Graphics.DrawString("Name : " + txt_Lastname.Text + ", " + txt_Firstname.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(160, 100));
+            e.Graphics.DrawString("School Year : " + cmbSchoolYear.selectedValue, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(160, 120));
+        }
         public void ClearText()
         {
             txt_SchoolID.Text = "";
@@ -214,5 +220,7 @@ namespace QRCodeBasedLMS
             brwr.Usertype = cmbLibraryUser.selectedValue;
             brwr.SchoolYear = cmbSchoolYear.selectedValue;
         }
+
+       
     }
 }

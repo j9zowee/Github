@@ -50,7 +50,8 @@ namespace QRCodeBasedLMS
             FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
-            if (dgvReturn.Rows.Count == 0) btnReturn.Enabled = false;
+            if (dgvReturn.Rows.Count != 0) btnReturn.Enabled = true;
+            else btnReturn.Enabled =  false;
         }
         private void FinalFrame_NewFrame(Object sender, NewFrameEventArgs eventArgs)
         {
@@ -69,22 +70,20 @@ namespace QRCodeBasedLMS
             timer.Enabled = true;
             timer.Start();
         }
-
-        private void txt_BookIDNum_OnValueChanged(object sender, EventArgs e)
+        private void txt_AccNum_OnValueChanged(object sender, EventArgs e)
         {
             txt_Title.Text = (from book in db.tblBooks join copy in db.tblBookCopies on book.book_BookID equals copy.book_BookID where copy.copy_AccNum == txt_AccNum.Text select book.book_Title).FirstOrDefault();
         }
-
         private void btnReturn_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
             string remarks = "";
-            if (lblTotalFee.Text == "0")
-            {
+            if (lblTotalFee.Text == "0") {
                 remarks = "No Fee";
             }
             else
             {
+
                 remarks = "Unpaid";
             }
             DialogResult res = MessageBox.Show("CONFIRM:\nReturn all books in the table?", "Return Book", MessageBoxButtons.YesNo);
@@ -104,6 +103,7 @@ namespace QRCodeBasedLMS
                 main.Show();
                 this.Hide();
             }
+            if(lblTotalFee.Text != "0") { printPreviewDialog1.ShowDialog(); }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -148,12 +148,15 @@ namespace QRCodeBasedLMS
                             if (diff < 0) { diff = 0; }
                             double penalty = 0;
                             if ((diff * 3) < 0) { penalty = 0; }
-                            else { penalty = diff * 3; }
+                            else { penalty = diff * 2; }
 
                             //-----
                             clsReturnBindingSource.Add(new clsReturn() { AccessionNumber = txt_AccNum.Text, BookTitle = txt_Title.Text, DueDate = due, NoOfDaysUnreturned = diff, PenaltyFee = penalty });
+                            MessageBox.Show(r.AccessionNumber);
                             GetTotalPenalty();
                             btnScan.Text = "Scan Another Book";
+                            if (dgvReturn.Rows.Count != 0) btnReturn.Enabled = true;
+                            else btnReturn.Enabled = false;
                         }
                     }
 
@@ -206,7 +209,8 @@ namespace QRCodeBasedLMS
                     clsReturnBindingSource.RemoveCurrent();
                     btnScan.Text = "Scan Another Book";
                     GetTotalPenalty();
-                    if (dgvReturn.Rows.Count == 0) btnReturn.Enabled = false;
+                    if (dgvReturn.Rows.Count != 0) btnReturn.Enabled = true;
+                    else btnReturn.Enabled = false;
                 }
             }
         }
@@ -216,5 +220,18 @@ namespace QRCodeBasedLMS
             main.Show();
             this.Hide();
         }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("Date : " + DateTime.Now.Date, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 40));
+            e.Graphics.DrawString("Name : ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 60));
+            e.Graphics.DrawString("Total Fee : ", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 100));
+
+            e.Graphics.DrawLine(new Pen(Color.Black), 20, 200, 200, 200);
+
+            e.Graphics.DrawString("Librarian's Signature", new Font("Arial", 10, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(30, 220));
+        }
+
+       
     }
 }

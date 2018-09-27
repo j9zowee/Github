@@ -104,14 +104,7 @@ namespace QRCodeBasedLMS
             nrm.Show();
             this.Hide();
         }
-
-        private void borrowersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Borrower brwr = new Borrower(usertype,"");
-            brwr.Show();
-            this.Hide();
-        }
-
+        
         private void bookListingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BookListings bl = new BookListings();
@@ -120,12 +113,17 @@ namespace QRCodeBasedLMS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(usertype);
             if (usertype == "Staff")
             {
                 ms_accountsManager.Visible = false;
                 ms_Reports.Visible = false;
             }
+        }
+        private void borrowersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Borrower brwr = new Borrower(usertype, "");
+            brwr.Show();
+            this.Hide();
         }
     }
 }

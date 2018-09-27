@@ -45,7 +45,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.link_GoBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btn_Clear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnSave = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnPrintQR = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pb_QRBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.panel3.SuspendLayout();
@@ -305,40 +307,55 @@
             this.btn_Clear.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
-            // btnSave
+            // btnPrintQR
             // 
-            this.btnSave.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSave.BorderRadius = 7;
-            this.btnSave.ButtonText = "SAVE QR CODE";
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.DisabledColor = System.Drawing.Color.Gray;
-            this.btnSave.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnSave.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSave.Iconimage")));
-            this.btnSave.Iconimage_right = null;
-            this.btnSave.Iconimage_right_Selected = null;
-            this.btnSave.Iconimage_Selected = null;
-            this.btnSave.IconMarginLeft = 0;
-            this.btnSave.IconMarginRight = 0;
-            this.btnSave.IconRightVisible = false;
-            this.btnSave.IconRightZoom = 0D;
-            this.btnSave.IconVisible = true;
-            this.btnSave.IconZoom = 80D;
-            this.btnSave.IsTab = false;
-            this.btnSave.Location = new System.Drawing.Point(374, 169);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
-            this.btnSave.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.btnSave.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSave.selected = false;
-            this.btnSave.Size = new System.Drawing.Size(110, 41);
-            this.btnSave.TabIndex = 99;
-            this.btnSave.Text = "SAVE QR CODE";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSave.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
-            this.btnSave.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnPrintQR.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnPrintQR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnPrintQR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrintQR.BorderRadius = 7;
+            this.btnPrintQR.ButtonText = "Print QR Code";
+            this.btnPrintQR.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintQR.DisabledColor = System.Drawing.Color.Gray;
+            this.btnPrintQR.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnPrintQR.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnPrintQR.Iconimage")));
+            this.btnPrintQR.Iconimage_right = null;
+            this.btnPrintQR.Iconimage_right_Selected = null;
+            this.btnPrintQR.Iconimage_Selected = null;
+            this.btnPrintQR.IconMarginLeft = 0;
+            this.btnPrintQR.IconMarginRight = 0;
+            this.btnPrintQR.IconRightVisible = false;
+            this.btnPrintQR.IconRightZoom = 0D;
+            this.btnPrintQR.IconVisible = true;
+            this.btnPrintQR.IconZoom = 80D;
+            this.btnPrintQR.IsTab = false;
+            this.btnPrintQR.Location = new System.Drawing.Point(373, 169);
+            this.btnPrintQR.Name = "btnPrintQR";
+            this.btnPrintQR.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(134)))), ((int)(((byte)(247)))));
+            this.btnPrintQR.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnPrintQR.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnPrintQR.selected = false;
+            this.btnPrintQR.Size = new System.Drawing.Size(110, 41);
+            this.btnPrintQR.TabIndex = 99;
+            this.btnPrintQR.Text = "Print QR Code";
+            this.btnPrintQR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPrintQR.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(38)))));
+            this.btnPrintQR.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnPrintQR.Click += new System.EventHandler(this.btnPrintQR_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // BookCopy
             // 
@@ -346,7 +363,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(225)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(499, 450);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnPrintQR);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.link_GoBack);
             this.Controls.Add(this.btnAddOrUpdate);
@@ -390,6 +407,8 @@
         private System.Windows.Forms.Panel panel3;
         private Bunifu.Framework.UI.BunifuFlatButton link_GoBack;
         private Bunifu.Framework.UI.BunifuFlatButton btn_Clear;
-        private Bunifu.Framework.UI.BunifuFlatButton btnSave;
+        private Bunifu.Framework.UI.BunifuFlatButton btnPrintQR;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

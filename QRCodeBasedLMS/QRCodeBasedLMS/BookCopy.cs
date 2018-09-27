@@ -27,7 +27,7 @@ namespace QRCodeBasedLMS
             dgvBook.DataSource = db.sp_ViewBookCopy(txt_BookIDNum.Text);
             cmb_Status.selectedIndex = 0;
             ClearText();
-            btnSave.Enabled = false;
+            btnPrintQR.Enabled = false;
         }
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -43,8 +43,8 @@ namespace QRCodeBasedLMS
         private void txt_AccessionNumber_OnValueChanged(object sender, EventArgs e)
         {
             pb_QRBook.Image = bk.GenerateQRCode(txt_AccessionNumber.Text);
-            if (txt_AccessionNumber.Text == "") btnSave.Enabled = false;
-            else btnSave.Enabled = true;
+            if (txt_AccessionNumber.Text == "") btnPrintQR.Enabled = false;
+            else btnPrintQR.Enabled = true;
         }
 
         private void btnAddOrUpdate_Click(object sender, EventArgs e)
@@ -96,24 +96,32 @@ namespace QRCodeBasedLMS
             txt_AccessionNumber.Text = "";
             cmb_Status.selectedIndex = 0;
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        
+        private void btnPrintQR_Click(object sender, EventArgs e)
         {
-            if(usertype == "Staff")
+            if (usertype == "Staff")
             {
                 MessageBox.Show("Only administrators can print QR codes.");
             }
             else
             {
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
-                {
-                    sfd.FileName = txt_AccessionNumber.Text;
-                    if (sfd.ShowDialog() == DialogResult.OK)
-                    {
-                        pb_QRBook.Image.Save(sfd.FileName, ImageFormat.Jpeg);
-                    }
-                }
+                //using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true })
+                //{
+                //    sfd.FileName = txt_AccessionNumber.Text;
+                //    if (sfd.ShowDialog() == DialogResult.OK)
+                //    {
+                //        pb_QRBook.Image.Save(sfd.FileName, ImageFormat.Jpeg);
+                //    }
+                //}
+                printPreviewDialog1.ShowDialog();
+                
             }
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(pb_QRBook.Image, 25, 40, 130, 130);
+            e.Graphics.DrawString("Accession No.: " + txt_AccessionNumber.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(25, 190));
         }
     }
 }

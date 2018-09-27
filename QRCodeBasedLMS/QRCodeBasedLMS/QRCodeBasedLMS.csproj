@@ -140,9 +140,6 @@
     <Compile Include="clsNonReadingMaterials.cs" />
     <Compile Include="clsReturn.cs" />
     <Compile Include="clsUser.cs" />
-    <Compile Include="dcLMS.cs">
-      <DependentUpon>dcLMS.dbml</DependentUpon>
-    </Compile>
     <Compile Include="dcLMS.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +249,9 @@
     <EmbeddedResource Include="Borrower.resx">
       <DependentUpon>Borrower.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dcLMS.dbml.layout">
+      <DependentUpon>dcLMS.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -279,9 +279,6 @@
     <EmbeddedResource Include="UserLogin.resx">
       <DependentUpon>UserLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dcLMS.dbml.layout">
-      <DependentUpon>dcLMS.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +299,7 @@
     </EmbeddedResource>
     <None Include="dcLMS.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dcLMS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="dsBookList.xsc">

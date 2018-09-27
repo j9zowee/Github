@@ -107,7 +107,7 @@ namespace QRCodeBasedLMS
                         {
                             for (int i = 0; i < dgvBorrow.RowCount; i++)
                             {
-                                db.sp_BorrowBook(brw.GenerateIDNumber(), txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt, DateTime.Parse(dgvBorrow.Rows[i].Cells[3].Value.ToString()), currentSY);
+                                db.sp_BorrowBook(brw.GenerateIDNumber(), txt_BorrowerID.Text, dgvBorrow.Rows[i].Cells[1].Value.ToString(), dt,dt.AddDays(3), currentSY);
                                 db.sp_UpdateBookStatus(dgvBorrow.Rows[i].Cells[1].Value.ToString(), "Borrowed");
                             }
 

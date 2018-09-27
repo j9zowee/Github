@@ -52,7 +52,7 @@ namespace QRCodeBasedLMS
                 cmbSchoolYear.selectedIndex = 0;
                 cmbLibraryUser.selectedIndex = 0;
                 cmb_Penalty.selectedIndex = 0;
-                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
         }
         private void link_ScanBrwr_Click(object sender, EventArgs e)
@@ -72,7 +72,9 @@ namespace QRCodeBasedLMS
             AssignValuesToClassProperties();
             brwr.WithCard = withcard;
             brwr.UpdateRecord();
-            dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            if (cmb_Penalty.selectedIndex == 0) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            
             MessageBox.Show("Sucessfully Updated!");
             ClearText();
             
@@ -103,7 +105,7 @@ namespace QRCodeBasedLMS
         {
             if (cmbSchoolYear.selectedIndex != -1)
             {
-                if (cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                if (cmb_Penalty.selectedIndex == 0) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
                 else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
             ClearText();
@@ -112,7 +114,7 @@ namespace QRCodeBasedLMS
         {
             if (cmbSchoolYear.selectedIndex != -1)
             {
-                if(cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                if(cmb_Penalty.selectedIndex == 0) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
                 else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
             ClearText();
@@ -121,14 +123,28 @@ namespace QRCodeBasedLMS
         {
             if (cmbSchoolYear.selectedIndex != -1)
             {
-                if (cmb_Penalty.selectedIndex == 1) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                if (cmb_Penalty.selectedIndex == 0) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
                 else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
         }
 
         private void dgvBorrowers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            AssignValuesToTextboxes();
+            if (cmb_Penalty.selectedIndex == 0) AssignValuesToTextboxes();
+            else
+            {
+                DialogResult res = MessageBox.Show("Did the borrower paid his/her penalty?", "Paid Penalty", MessageBoxButtons.YesNo);
+                if (res == DialogResult.Yes)
+                {
+                    db.sp_PaidPenalty(dgvBorrowers.CurrentRow.Cells[0].Value.ToString());
+                    MessageBox.Show(dgvBorrowers.CurrentRow.Cells[1].Value.ToString() + " " + dgvBorrowers.CurrentRow.Cells[2].Value.ToString() + " had paid the penalty.");
+                    if (cmbSchoolYear.selectedIndex != -1)
+                    {
+                        if (cmb_Penalty.selectedIndex == 0) dgvBorrowers.DataSource = db.sp_ViewLibraryUser(false, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                        else dgvBorrowers.DataSource = db.sp_ViewLibraryUser(true, cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                    }
+                }
+            }
         }
         
         private void link_ScanQr_Click(object sender, EventArgs e)

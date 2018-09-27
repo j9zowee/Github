@@ -76,7 +76,7 @@ namespace QRCodeBasedLMS
         }
         public Boolean DoesBorrowerExist(string sy, string brwrtype)
         {
-            if (db.sp_ViewLibraryUser(sy, brwrtype).Count() != 0) return true;
+            if (db.sp_ViewLibraryUser(false,sy, brwrtype).Count() != 0) return true;
             else return false;
         }
         

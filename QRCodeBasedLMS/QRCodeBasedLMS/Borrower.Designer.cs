@@ -51,7 +51,7 @@
             this.btnPrintLibCard = new Bunifu.Framework.UI.BunifuFlatButton();
             this.cmbSchoolYear = new Bunifu.Framework.UI.BunifuDropdown();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl = new System.Windows.Forms.Label();
             this.cmbLibraryUser = new Bunifu.Framework.UI.BunifuDropdown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.link_ScanQr = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -401,15 +401,15 @@
             this.label1.TabIndex = 81;
             this.label1.Text = "Library User :";
             // 
-            // label2
+            // lbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(306, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 16);
-            this.label2.TabIndex = 80;
-            this.label2.Text = "Enter School Year :";
+            this.lbl.AutoSize = true;
+            this.lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl.Location = new System.Drawing.Point(306, 23);
+            this.lbl.Name = "lbl";
+            this.lbl.Size = new System.Drawing.Size(122, 16);
+            this.lbl.TabIndex = 80;
+            this.lbl.Text = "Enter School Year :";
             // 
             // cmbLibraryUser
             // 
@@ -437,7 +437,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbSchoolYear);
             this.groupBox1.Controls.Add(this.cmbLibraryUser);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.lbl);
             this.groupBox1.Location = new System.Drawing.Point(22, 65);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(651, 55);
@@ -664,7 +664,7 @@
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuDropdown cmbSchoolYear;
         private Bunifu.Framework.UI.BunifuDropdown cmbLibraryUser;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl;
         private Bunifu.Framework.UI.BunifuFlatButton link_ScanQr;
         private Bunifu.Framework.UI.BunifuDropdown cmb_SearchCategory;
         private System.Windows.Forms.Label label14;

@@ -35,7 +35,7 @@ BEGIN
 		FROM dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
         dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID INNER JOIN
         dbo.tblBook ON dbo.tblBookCopy.book_BookID = dbo.tblBook.book_BookID
-		where tblLibraryUser.lib_SchoolID='15-200571' and tblBookCopy.copy_Status = 'Borrowed'
+		where tblLibraryUser.lib_SchoolID= @SchoolID and tblBookCopy.copy_Status = 'Borrowed'
 END
 
 CREATE PROCEDURE sp_GetBorrowIDForReturn
@@ -98,7 +98,19 @@ BEGIN
 END
 -----------------END OF RETURN---------------
 
-
+create PROCEDURE sp_PaidPenalty
+@SchoolID varchar(20)
+AS
+BEGIN
+	update tblPenalty
+	set tblPenalty.penalty_Remarks = 'Paid'
+	from dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
+         dbo.tblReturn ON dbo.tblBorrow.borrow_BorrowID = dbo.tblReturn.borrow_BorrowID INNER JOIN
+         dbo.tblPenalty ON dbo.tblReturn.return_ReturnID = dbo.tblPenalty.return_ReturnID		 
+	where tblLibraryUser.lib_SchoolID = @SchoolID
+	
+END
+select * from tblPenalty
 -------------USER LOGIN---------------
 create procedure sp_Login
 @username varchar(50),
@@ -109,21 +121,5 @@ begin
 
 end
 --------------END OF USER LOGIN
-
-----this is not yet created
-drop PROCEDURE sp_ViewBorrowedBooks
-@SchoolID varchar(50)
-AS
-BEGIN
-	DECLARE @libUserID int
-	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
-	SELECT        dbo.tblBorrow.borrow_BorrowNum, dbo.tblBook.book_Title, dbo.tblBook.book_Author, dbo.tblBook.book_CopyrightYear, dbo.tblBorrow.borrow_BorrowedDate, 
-                         dbo.tblBorrow.borrow_DueDate
-	FROM            dbo.tblLibraryUser INNER JOIN
-                         dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
-                         dbo.tblBook ON dbo.tblBorrow.book_BookID = dbo.tblBook.book_BookID
-	
-END
----------------
 
 

@@ -69,7 +69,7 @@ namespace QRCodeBasedLMS
                             brwr.AddRecord();                            
                         }
                         MessageBox.Show("Successfully Saved to the database!");
-                        dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                        dgvList.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
                     }
                 }
             }
@@ -84,14 +84,14 @@ namespace QRCodeBasedLMS
             cmbLibraryUser.selectedIndex = 0;
             cmbSchoolYear.selectedIndex = 0;
 
-            dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+            dgvList.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
         }
 
         private void cmbLibraryUser_onItemSelected(object sender, EventArgs e)
         {
             if(cmbLibraryUser.selectedIndex != -1)
             {
-                dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                dgvList.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
             
         }
@@ -100,7 +100,7 @@ namespace QRCodeBasedLMS
         {
             if (cmbSchoolYear.selectedIndex != -1)
             {
-                dgvList.DataSource = db.sp_ViewLibraryUser(cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
+                dgvList.DataSource = db.sp_ViewLibraryUser(false,cmbSchoolYear.selectedValue, cmbLibraryUser.selectedValue);
             }
         }
 

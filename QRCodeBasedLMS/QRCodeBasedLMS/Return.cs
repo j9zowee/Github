@@ -103,7 +103,14 @@ namespace QRCodeBasedLMS
                 main.Show();
                 this.Hide();
             }
-            if(lblTotalFee.Text != "0") { printPreviewDialog1.ShowDialog(); }
+            if(lblTotalFee.Text != "0")
+            {
+                DialogResult ans = MessageBox.Show("Do you want to print penalty slip?", "Print Penalty Slip", MessageBoxButtons.YesNo);
+                if (ans == DialogResult.Yes)
+                {
+                    printPreviewDialog1.ShowDialog();
+                }
+            }
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -224,8 +231,8 @@ namespace QRCodeBasedLMS
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             e.Graphics.DrawString("Date : " + DateTime.Now.Date, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 40));
-            e.Graphics.DrawString("Name : ", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 60));
-            e.Graphics.DrawString("Total Fee : ", new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 100));
+            e.Graphics.DrawString("Name : "+txt_Name.Text, new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 60));
+            e.Graphics.DrawString("Total Fee : "+lblTotalFee.Text, new Font("Arial", 18, FontStyle.Regular), Brushes.Black, new System.Drawing.Point(25, 100));
 
             e.Graphics.DrawLine(new Pen(Color.Black), 20, 200, 200, 200);
 

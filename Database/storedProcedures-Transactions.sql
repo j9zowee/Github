@@ -90,8 +90,9 @@ BEGIN
 	Declare @borrowID int
 	select @libUserID = dbo.tblLibraryUser.lib_UserID FROM  dbo.tblLibraryUser where dbo.tblLibraryUser.lib_SchoolID = @SchoolID
 	select @copyID = dbo.tblBookCopy.copy_CopyID FROM dbo.tblBookCopy where tblBookCopy.copy_AccNum = @AccNum
-	select @borrowID=tblBorrow.borrow_BorrowID from tblBorrow where tblBorrow.lib_UserID = @libUserID and tblBorrow.copy_CopyID = @copyID
-
+	select @borrowID= dbo.tblBorrow.borrow_BorrowID FROM dbo.tblLibraryUser INNER JOIN dbo.tblBorrow ON dbo.tblLibraryUser.lib_UserID = dbo.tblBorrow.lib_UserID INNER JOIN
+			dbo.tblBookCopy ON dbo.tblBorrow.copy_CopyID = dbo.tblBookCopy.copy_CopyID
+	where tblLibraryUser.lib_SchoolID = @SchoolID and tblBookCopy.copy_AccNum = @AccNum
 	insert into tblReturn values(@ReturnNum,@borrowID,@ReturnDate)
 	insert into tblPenalty values(@NumOfDaysUnreturned,@Penalty,@PenaltyRemarks,@@IDENTITY)
 END

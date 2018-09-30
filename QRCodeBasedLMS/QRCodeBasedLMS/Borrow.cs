@@ -34,19 +34,17 @@ namespace QRCodeBasedLMS
         private string decoded;
         private void Borrow_Load(object sender, EventArgs e)
         {
+
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo Device in CaptureDevice)
             {
                 cmbDevice.AddItem(Device.Name);
             }
             cmbDevice.selectedIndex = 0;
+            
             FinalFrame = new VideoCaptureDevice();
             btnCamera.Visible = false;
 
-            if (FinalFrame.IsRunning == true)
-            {
-                FinalFrame.Stop();
-            }
             FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
@@ -122,9 +120,11 @@ namespace QRCodeBasedLMS
                             }
                             else
                             {
-                                MainForm main = new MainForm(usertype);
-                                main.Show();
-                                this.Hide();
+                                if (FinalFrame.IsRunning == true) FinalFrame.Stop();
+                                this.Close();
+                                //MainForm main = new MainForm(usertype);
+                                //main.Show();
+                                //this.Hide();
                             }
                         }
                     }
@@ -138,14 +138,19 @@ namespace QRCodeBasedLMS
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            BarcodeReader Reader = new BarcodeReader();
-            Result result = Reader.Decode((Bitmap)pb_ScanQR.Image);
+            //BarcodeReader Reader = new BarcodeReader();
+            //Result result = Reader.Decode((Bitmap)pb_ScanQR.Image);
+            
             try
             {
+                Bitmap bitmap = new Bitmap(pb_ScanQR.Image);
+                BarcodeReader reader = new BarcodeReader { AutoRotate = true, TryInverted = true };
+                Result result = reader.Decode(bitmap);
                 decoded = result.ToString().Trim();
+                timer.Stop();
                 if (decoded != "")
                 {
-                    timer.Stop();
+                    
                     if(txt_Name.Text == "")
                     {
                         var fname = (from s in db.tblLibraryUsers where s.lib_SchoolID == decoded select s.lib_Firstname).FirstOrDefault();
@@ -199,16 +204,14 @@ namespace QRCodeBasedLMS
             }
             catch (Exception ex)
             {
-
+                timer.Stop();
+                MessageBox.Show("No QR code detected.");                
             }
         }
 
         private void Borrow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (FinalFrame.IsRunning == true)
-            {
-                FinalFrame.Stop();
-            }
+            if (FinalFrame.IsRunning == true) FinalFrame.Stop();
         }
 
         private void cmbDevice_onItemSelected(object sender, EventArgs e)
@@ -238,15 +241,15 @@ namespace QRCodeBasedLMS
         {
             if(origin == "index")
             {
-                IndexForm index = new IndexForm();
-                index.Show();
-                this.Hide();
+                //IndexForm index = new IndexForm();
+                //index.Show();
+                this.Close();
             }
             else
             {
                 MainForm main = new MainForm(usertype);
                 main.Show();
-                this.Hide();
+                this.Close();
             }
         }
         public int CheckIfBookExistInTheDGV()

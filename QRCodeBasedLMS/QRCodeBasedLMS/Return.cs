@@ -44,9 +44,7 @@ namespace QRCodeBasedLMS
             cmbDevice.selectedIndex = 0;
             FinalFrame = new VideoCaptureDevice();
             btnCamera.Visible = false;
-
-            if (FinalFrame.IsRunning == true) FinalFrame.Stop();
-            else FinalFrame.Stop();
+            
             FinalFrame = new VideoCaptureDevice(CaptureDevice[cmbDevice.selectedIndex].MonikerString);
             FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);
             FinalFrame.Start();
@@ -115,10 +113,13 @@ namespace QRCodeBasedLMS
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            BarcodeReader Reader = new BarcodeReader();
-            Result result = Reader.Decode((Bitmap)pb_ScanQR.Image);
+            //BarcodeReader Reader = new BarcodeReader();
+            //Result result = Reader.Decode((Bitmap)pb_ScanQR.Image);
             try
             {
+                Bitmap bitmap = new Bitmap(pb_ScanQR.Image);
+                BarcodeReader reader = new BarcodeReader { AutoRotate = true, TryInverted = true };
+                Result result = reader.Decode(bitmap);
                 decoded = result.ToString().Trim();
                 if (decoded != "")
                 {
@@ -171,7 +172,8 @@ namespace QRCodeBasedLMS
             }
             catch (Exception ex)
             {
-
+                timer.Stop();
+                MessageBox.Show("No QR code detected.");
             }
         }
         public void GetTotalPenalty()
@@ -223,8 +225,8 @@ namespace QRCodeBasedLMS
         }
         private void link_GoBack_Click(object sender, EventArgs e)
         {
-            MainForm main = new MainForm(usertype);
-            main.Show();
+            MainForm mf = new MainForm(usertype);
+            mf.Show();
             this.Hide();
         }
 

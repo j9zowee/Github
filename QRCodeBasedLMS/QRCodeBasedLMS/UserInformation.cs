@@ -70,28 +70,28 @@ namespace QRCodeBasedLMS
             }
             else
             {
-                if (db.sp_CheckUsername(txt_Username.Text).Count() != 0)
-                {
-                    MessageBox.Show("The username you entered is already taken.\nPlease use other username.");
-                }
-                else
-                {
-                    //store values to properties found inside the clsUser
-                    string utype;
-                    if (rb_Admin.Checked == true) utype = "Admin";
-                    else utype = "Staff";
+                //store values to properties found inside the clsUser
+                string utype;
+                if (rb_Admin.Checked == true) utype = "Admin";
+                else utype = "Staff";
 
-                    user.UserIDNumber = txt_UserIDNum.Text;
-                    user.Firstname = txt_Firstname.Text;
-                    user.Lastname = txt_Lastname.Text;
-                    user.Username = txt_Username.Text;
-                    user.Password = txt_Password.Text;
-                    user.SecretQuestion = cmb_SecretQuestion.selectedValue;
-                    user.SecretAnswer = txt_SecretAnswer.Text;
-                    user.Usertype = utype;
-                    user.Status = "Active";
+                user.UserIDNumber = txt_UserIDNum.Text;
+                user.Firstname = txt_Firstname.Text;
+                user.Lastname = txt_Lastname.Text;
+                user.Username = txt_Username.Text;
+                user.Password = txt_Password.Text;
+                user.SecretQuestion = cmb_SecretQuestion.selectedValue;
+                user.SecretAnswer = txt_SecretAnswer.Text;
+                user.Usertype = utype;
+                user.Status = "Active";
 
-                    if (btnAddOrUpdate.Text == "ADD")
+                if (btnAddOrUpdate.Text == "ADD")
+                {
+                    if (db.sp_CheckUsername(txt_Username.Text).Count() != 0)
+                    {
+                        MessageBox.Show("The username you entered is already taken.\nPlease use other username.");
+                    }
+                    else
                     {
                         //adding of User
                         user.AddRecord();
@@ -99,14 +99,14 @@ namespace QRCodeBasedLMS
                         dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
                         ClearText();
                     }
-                    else
-                    {
-                        user.UpdateRecord();
-                        ClearText();
-                        MessageBox.Show("Successfully Registered!");
-                        dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
+                }
+                else
+                {
+                    user.UpdateRecord();
+                    ClearText();
+                    MessageBox.Show("Successfully Registered!");
+                    dgvAccount.DataSource = db.sp_ViewAccount("Active", usertype);
 
-                    }
                 }
             }
         }
